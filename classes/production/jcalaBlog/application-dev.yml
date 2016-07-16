@@ -1,0 +1,13 @@
+server:
+  port: 8080
+  compression:
+     min-response-size: 1
+     enabled: true
+  undertow:
+     accesslog:
+       enabled: true
+       dir: arget/logs
+       pattern: combined
+spring:
+  velocity:
+   suffix: .html
