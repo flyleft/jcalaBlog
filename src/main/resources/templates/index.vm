@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>jcala_blog</title>
-    #include("/module/index-css.html")
+    #include("/module/index-css.vm")
 </head>
 <body>
-#include("/module/nav.html")
+#include("/module/nav.vm")
 <a name="home"></a>
     <!-- Header -->
     <div class="intro-header">

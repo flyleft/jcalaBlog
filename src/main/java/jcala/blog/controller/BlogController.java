@@ -13,10 +13,11 @@ public class BlogController {
         return "blogs";
     }
 
-    /*@GetMapping("/archives")
+    @GetMapping("/archives")
     public String archives(){
-        return "archives";
-    }*/
+        return "blogs";
+    }
+
     @GetMapping("/about")
     public String about() {
         return "about";
