@@ -8,6 +8,9 @@ server:
        enabled: true
        dir: arget/logs
        pattern: combined
+logging:
+  config: classpath:logback-spring.xml
 spring:
   velocity:
-   suffix: .html
+    cache: false
+    view-names: about,blogs,error,index,login,projects,tags

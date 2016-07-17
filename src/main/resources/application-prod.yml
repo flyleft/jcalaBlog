@@ -8,3 +8,11 @@ server:
        enabled: true
        dir: arget/logs
        pattern: combined
+logging:
+  config: classpath:logback-spring.xml
+  path: /Users/jcala/logs
+  level: info
+spring:
+  velocity:
+    cache: true
+    view-names: about,blogs,error,index,login,projects,tags
