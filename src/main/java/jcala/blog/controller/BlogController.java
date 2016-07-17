@@ -15,7 +15,7 @@ public class BlogController {
 
     @GetMapping("/archives")
     public String archives(){
-        return "blogs";
+        return "archives";
     }
 
     @GetMapping("/about")

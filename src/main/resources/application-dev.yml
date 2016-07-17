@@ -13,4 +13,4 @@ logging:
 spring:
   velocity:
     cache: false
-    view-names: about,blogs,error,index,login,projects,tags
+    view-names: about,blogs,error,index,login,projects,tags,archives

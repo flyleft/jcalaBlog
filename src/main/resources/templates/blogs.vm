@@ -1,53 +1,494 @@
-#include("/module/blog-head.vm")
-<div class="container top-container">
-    <div class="header-title">
-        <div class="header-title-wrapper"><h1>Blog</h1>
-            <p>Look back and find something interesting.</p></div>
-    </div>
-</div>
-<div class="container main-container">
-    <div class="post">
-        <div class="content">
-            <div class="year"><h2>2015</h2>
-                <ul class="archive-list">
-                    <li><span class="month"> Nov 27</span><span>&nbsp;&nbsp;·&nbsp; </span><a
-                            href="https://raysmond.com/posts/expper-open-source"> 我决定把 Expper 文章收藏和分享网站的源码开源了</a></li>
-                    <li><span class="month"> Oct 12</span><span>&nbsp;&nbsp;·&nbsp; </span><a
-                            href="https://raysmond.com/posts/projects"> Projects</a></li>
-                    <li><span class="month"> Oct 06</span><span>&nbsp;&nbsp;·&nbsp; </span><a
-                            href="https://raysmond.com/posts/filco-minila-air-experience"> 入手Filco Minila Air机械键盘</a>
-                    </li>
-                    <li><span class="month"> Oct 02</span><span>&nbsp;&nbsp;·&nbsp; </span><a
-                            href="https://raysmond.com/posts/ubuntu-nginx-ssl-configuration"> Ubuntu下Nginx配置和使用SSL证书</a>
-                    </li>
-                    <li><span class="month"> Sep 30</span><span>&nbsp;&nbsp;·&nbsp; </span><a
-                            href="https://raysmond.com/posts/spring-boot-auto-deployment"> 如何在Ubuntu
-                        14.04服务器上自动化部署Spring Boot的应用</a></li>
-                    <li><span class="month"> Sep 28</span><span>&nbsp;&nbsp;·&nbsp; </span><a
-                            href="https://raysmond.com/posts/auto-mysql-backup-in-ubuntu"> How to backup MySQL database
-                        daily automatically in Ubuntu/Linux</a></li>
-                    <li><span class="month"> Sep 28</span><span>&nbsp;&nbsp;·&nbsp; </span><a
-                            href="https://raysmond.com/posts/web-application-settings-model-with-redis-in-spring-mvc">
-                        在Spring MVC中网站配置存储在Redis和数据库中的解决方法</a></li>
-                    <li><span class="month"> Sep 28</span><span>&nbsp;&nbsp;·&nbsp; </span><a
-                            href="https://raysmond.com/posts/spring-data-redis-in-spring-mvc"> 在Spring MVC中使用Spring Data
-                        Redis</a></li>
-                    <li><span class="month"> Sep 26</span><span>&nbsp;&nbsp;·&nbsp; </span><a
-                            href="https://raysmond.com/posts/redesign-raysmond-personal-website"> 重新设计个人网站
-                        raysmond.com</a></li>
-                    <li><span class="month"> Sep 26</span><span>&nbsp;&nbsp;·&nbsp; </span><a
-                            href="https://raysmond.com/posts/helloworld"> HelloWorld</a></li>
-                </ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>jcala_blog</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="/css/blog-show.css" type="text/css">
+</head>
+<body>
+    #include("/module/nav.vm")
+<a name="home"></a>
+<div id="container">
+    <div id="wrap">
+        <div class="outer">
+            <section id="main">
+
+                <article id="post-关于移动hybrid开发中H5页面的字体应与系统保持一致的问题" class="article article-type-post" itemscope=""
+                         itemprop="blogPost">
+
+                    <div class="article-inner">
+
+                        <header class="article-header">
+
+
+                            <h1 itemprop="name">
+                                <a class="article-title"
+                                   href="http://hejx.me/2016/06/29/%E5%85%B3%E4%BA%8E%E7%A7%BB%E5%8A%A8hybrid%E5%BC%80%E5%8F%91%E4%B8%ADH5%E9%A1%B5%E9%9D%A2%E7%9A%84%E5%AD%97%E4%BD%93%E5%BA%94%E4%B8%8E%E7%B3%BB%E7%BB%9F%E4%BF%9D%E6%8C%81%E4%B8%80%E8%87%B4%E7%9A%84%E9%97%AE%E9%A2%98/">关于移动hybrid开发中H5页面的字体应与系统保持一致的问题</a>
+                            </h1>
+
+
+                        </header>
+
+                        <div class="article-meta">
+                            <a href="http://hejx.me/2016/06/29/%E5%85%B3%E4%BA%8E%E7%A7%BB%E5%8A%A8hybrid%E5%BC%80%E5%8F%91%E4%B8%ADH5%E9%A1%B5%E9%9D%A2%E7%9A%84%E5%AD%97%E4%BD%93%E5%BA%94%E4%B8%8E%E7%B3%BB%E7%BB%9F%E4%BF%9D%E6%8C%81%E4%B8%80%E8%87%B4%E7%9A%84%E9%97%AE%E9%A2%98/"
+                               class="article-date">
+                                <time datetime="2016-06-29T14:02:24.000Z" itemprop="datePublished">2016-06-29</time>
+                            </a>
+
+                        </div>
+                        <div class="article-entry" itemprop="articleBody">
+
+                            <h4 id="0、问题来源">0、问题来源</h4>
+                            <p>
+                                在移动hybrid开发，也就是说，部分页面会使用html+css+javascript技术来制作，例如个人中心，收藏页面等。一般来说，移动端都会将字体设置为system系统默认类型。起初，愚钝的我认为，只要在css里不设置任何字体，将会默认使用系统默认字体。然而结果并未如我所想，页面出来后，中文、英文和数字几乎是3种不同的字体，而且没有一类是和移动端的字体相同。</p>
+                            <h4 id="1、浏览器默认字体">1、浏览器默认字体</h4>
+                            <p>基于上述的问题，我google了一下iOS和Android的默认字体。找到了一篇大概如下：</p>
+                            <h5 id="1-1、iOS系统（感觉很正确）">1.1、iOS系统（感觉很正确）</h5>
+                            <ul>
+                                <li>默认中文字体是Heiti SC</li>
+                                <li>默认英文字体是Helvetica</li>
+                                <li>默认数字字体是HelveticaNeue</li>
+                                <li>无微软雅黑字体</li>
+                            </ul>
+                            <h5 id="1-2、Android系统">1.2、Android系统</h5>
+                            <ul>
+                                <li>默认中文字体是Droidsansfallback</li>
+                                <li>默认英文和数字字体是Droid Sans</li>
+                                <li>无微软雅黑字体</li>
+                            </ul>
+
+                            <p class="article-more-link">
+                                <a href="http://hejx.me/2016/06/29/%E5%85%B3%E4%BA%8E%E7%A7%BB%E5%8A%A8hybrid%E5%BC%80%E5%8F%91%E4%B8%ADH5%E9%A1%B5%E9%9D%A2%E7%9A%84%E5%AD%97%E4%BD%93%E5%BA%94%E4%B8%8E%E7%B3%BB%E7%BB%9F%E4%BF%9D%E6%8C%81%E4%B8%80%E8%87%B4%E7%9A%84%E9%97%AE%E9%A2%98/#more">More...</a>
+                            </p>
+
+
+                        </div>
+                    </div>
+
+                </article>
+
+
+                <article id="post-开始使用Ionic2-0" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+                    <div class="article-inner">
+
+                        <header class="article-header">
+
+
+                            <h1 itemprop="name">
+                                <a class="article-title"
+                                   href="http://hejx.me/2016/04/06/%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8Ionic2-0/">开始使用Ionic2</a>
+                            </h1>
+
+
+                        </header>
+
+                        <div class="article-meta">
+                            <a href="http://hejx.me/2016/04/06/%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8Ionic2-0/"
+                               class="article-date">
+                                <time datetime="2016-04-06T02:46:53.000Z" itemprop="datePublished">2016-04-06</time>
+                            </a>
+
+                        </div>
+                        <div class="article-entry" itemprop="articleBody">
+
+                            <h4 id="0、介绍">0、介绍</h4>
+                            <p>紧随angular的步伐，ionic也推出了2.0版本(beta)，把ng1换成了ng2，ui上也增加了material design和window
+                                phone的风格，组件上并没有太多的变化。因为ng2，代码风格完全不一样了，熟悉es6的童鞋应该很容易就能上手，而也因为ng2，让整个项目更组建化、模块化了。路由配置也更加简单。</p>
+                            <p><a href="./Hejx's blog1_files/FpA5jex9jPVAHpTIUqVbMQdXEvmd" title="ionic 2"
+                                  class="fancybox" rel="article1"><img
+                                    src="./Hejx's blog1_files/FpA5jex9jPVAHpTIUqVbMQdXEvmd" width="180"
+                                    alt="ionic 2"></a><span class="caption">Ionic 2</span><br><br><br></p>
+
+                            <p class="article-more-link">
+                                <a href="http://hejx.me/2016/04/06/%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8Ionic2-0/#more">More...</a>
+                            </p>
+
+
+                        </div>
+                    </div>
+
+                </article>
+
+
+                <article id="post-ajax与302" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+                    <div class="article-inner">
+
+                        <header class="article-header">
+
+
+                            <h1 itemprop="name">
+                                <a class="article-title" href="http://hejx.me/2016/04/06/ajax%E4%B8%8E302/">ajax与302</a>
+                            </h1>
+
+
+                        </header>
+
+                        <div class="article-meta">
+                            <a href="http://hejx.me/2016/04/06/ajax%E4%B8%8E302/" class="article-date">
+                                <time datetime="2016-04-06T02:10:59.000Z" itemprop="datePublished">2016-04-06</time>
+                            </a>
+
+                        </div>
+                        <div class="article-entry" itemprop="articleBody">
+
+                            <blockquote>
+                                <p>You can’t handle redirects with XHR callbacks because the browser takes care of them
+                                    automatically. You will only get back what at the redirected location.</p>
+                            </blockquote>
+                            <p>
+                                在ajax进行请求时，如果服务器返回302（重定向），ajax并不会马上收的，因为浏览器自动去访问了重定向的哪个连接，然后再返回结果。也就说，如果需要重定向的连接或者说是接口，是合法可以调用的，那ajax会返回重定向的那个连接的调用结果，反则就返回404。</p>
+                            <p>大概流程如下：</p>
+                            <figure class="highlight livescript">
+                                <table>
+                                    <tbody>
+                                    <tr>
+                                        <td class="gutter">
+                                            <pre><span class="line">1</span><br></pre>
+                                        </td>
+                                        <td class="code">
+                                            <pre><span class="line">ajax<span
+                                                    class="function"> -&gt;</span> browser<span
+                                                    class="function"> -&gt;</span> server<span
+                                                    class="function"> -&gt;</span> <span class="number">302</span><span
+                                                    class="function"> -&gt;</span> browser<span class="function"><span
+                                                    class="params">(redirect)</span> -&gt;</span> server<span
+                                                    class="function"> -&gt;</span> browser<span
+                                                    class="function"> -&gt;</span> ajax callback</span><br></pre>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                            <p>如是需要利用重定向来跳转到某些页面，就不能直接返还302了。</p>
+                            <p>常见的情况，登录过期，需要跳转到登录页面，这种情况，建议在返回需要重定向的状态码，例如返回{status: 302}, 然后由前端进行页面跳转。</p>
+
+
+                        </div>
+                    </div>
+
+                </article>
+
+
+                <article id="post-获取字符串里最长单词的3种方法" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+                    <div class="article-inner">
+
+                        <header class="article-header">
+
+
+                            <h1 itemprop="name">
+                                <a class="article-title"
+                                   href="http://hejx.me/2016/04/03/%E8%8E%B7%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%87%8C%E6%9C%80%E9%95%BF%E5%8D%95%E8%AF%8D%E7%9A%843%E7%A7%8D%E6%96%B9%E6%B3%95/">获取字符串里最长单词的3种方法</a>
+                            </h1>
+
+
+                        </header>
+
+                        <div class="article-meta">
+                            <a href="http://hejx.me/2016/04/03/%E8%8E%B7%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%87%8C%E6%9C%80%E9%95%BF%E5%8D%95%E8%AF%8D%E7%9A%843%E7%A7%8D%E6%96%B9%E6%B3%95/"
+                               class="article-date">
+                                <time datetime="2016-04-03T04:20:16.000Z" itemprop="datePublished">2016-04-03</time>
+                            </a>
+
+                        </div>
+                        <div class="article-entry" itemprop="articleBody">
+
+                            <blockquote>
+                                <p>返回字符串中最长的单词的长度(number类型)</p>
+                            </blockquote>
+                            <figure class="highlight scilab">
+                                <table>
+                                    <tbody>
+                                    <tr>
+                                        <td class="gutter">
+                                            <pre><span class="line">1</span><br><span class="line">2</span><br><span
+                                                    class="line">3</span><br><span class="line">4</span><br></pre>
+                                        </td>
+                                        <td class="code">
+                                            <pre><span class="line"><span class="function"><span class="keyword">function</span> <span
+                                                    class="title">findLongestWord</span><span
+                                                    class="params">(str)</span> {</span></span><br><span class="line">  <span
+                                                    class="keyword">return</span> <span
+                                                    class="transposed_variable">str.</span><span
+                                                    class="built_in">length</span>;</span><br><span
+                                                    class="line">}</span><br><span class="line">findLongestWord(<span
+                                                    class="string">"The quick brown fox jumped over the lazy dog"</span>);</span><br></pre>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                            <p>这里会使用3种方法，首先是FOR loop方法，接着是sort方法，最后是reduce方法。</p>
+
+                            <p class="article-more-link">
+                                <a href="http://hejx.me/2016/04/03/%E8%8E%B7%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%87%8C%E6%9C%80%E9%95%BF%E5%8D%95%E8%AF%8D%E7%9A%843%E7%A7%8D%E6%96%B9%E6%B3%95/#more">More...</a>
+                            </p>
+
+
+                        </div>
+                    </div>
+
+                </article>
+
+
+                <article id="post-用css3制作tab控件的4种方法" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+                    <div class="article-inner">
+
+                        <header class="article-header">
+
+
+                            <h1 itemprop="name">
+                                <a class="article-title"
+                                   href="http://hejx.me/2016/03/10/%E7%94%A8css3%E5%88%B6%E4%BD%9Ctab%E6%8E%A7%E4%BB%B6%E7%9A%844%E7%A7%8D%E6%96%B9%E6%B3%95/">用css3制作tab控件的4种方法</a>
+                            </h1>
+
+
+                        </header>
+
+                        <div class="article-meta">
+                            <a href="http://hejx.me/2016/03/10/%E7%94%A8css3%E5%88%B6%E4%BD%9Ctab%E6%8E%A7%E4%BB%B6%E7%9A%844%E7%A7%8D%E6%96%B9%E6%B3%95/"
+                               class="article-date">
+                                <time datetime="2016-03-10T00:57:06.000Z" itemprop="datePublished">2016-03-10</time>
+                            </a>
+
+                        </div>
+                        <div class="article-entry" itemprop="articleBody">
+
+                            <p>使用（:focus :hover :target :checked）4种方法来实现tab效果。</p>
+                            <h4 id=":checked">:checked</h4>
+                            <script async="" src="./Hejx's blog1_files/saved_resource"></script>
+                            <iframe src="./Hejx's blog1_files/saved_resource.html" id="JSFEMB_16999" width="100%"
+                                    height="469" frameborder="0"
+                                    sandbox="allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+
+                            <p class="article-more-link">
+                                <a href="http://hejx.me/2016/03/10/%E7%94%A8css3%E5%88%B6%E4%BD%9Ctab%E6%8E%A7%E4%BB%B6%E7%9A%844%E7%A7%8D%E6%96%B9%E6%B3%95/#more">More...</a>
+                            </p>
+
+
+                        </div>
+                    </div>
+
+                </article>
+
+
+                <article id="post-awesome-button" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+                    <div class="article-inner">
+
+                        <header class="article-header">
+
+
+                            <h1 itemprop="name">
+                                <a class="article-title" href="http://hejx.me/2016/03/02/awesome-button/">awesome
+                                    button</a>
+                            </h1>
+
+
+                        </header>
+
+                        <div class="article-meta">
+                            <a href="http://hejx.me/2016/03/02/awesome-button/" class="article-date">
+                                <time datetime="2016-03-02T01:19:40.000Z" itemprop="datePublished">2016-03-02</time>
+                            </a>
+
+                        </div>
+                        <div class="article-entry" itemprop="articleBody">
+
+                            <blockquote>
+                                <p>收集每一个很帅的特效按钮！</p>
+                            </blockquote>
+
+                            <p class="article-more-link">
+                                <a href="http://hejx.me/2016/03/02/awesome-button/#more">More...</a>
+                            </p>
+
+
+                        </div>
+                    </div>
+
+                </article>
+
+
+                <article id="post-理解Object-keys" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+                    <div class="article-inner">
+
+                        <header class="article-header">
+
+
+                            <h1 itemprop="name">
+                                <a class="article-title"
+                                   href="http://hejx.me/2016/02/27/%E7%90%86%E8%A7%A3Object-keys/">理解Object.keys</a>
+                            </h1>
+
+
+                        </header>
+
+                        <div class="article-meta">
+                            <a href="http://hejx.me/2016/02/27/%E7%90%86%E8%A7%A3Object-keys/" class="article-date">
+                                <time datetime="2016-02-27T04:43:51.000Z" itemprop="datePublished">2016-02-27</time>
+                            </a>
+
+                        </div>
+                        <div class="article-entry" itemprop="articleBody">
+
+                            <p>Object.keys()方法可以返回由传入对象的所有可枚举的自有属性的属性名组成的数组，这和使用<em>for…in</em>遍历对象不同，for-in会把对象的原型链上继承到的可枚举属性也会遍历出来。
+                            </p>
+                            <p>属性名的顺序和for-in出来的一样。</p>
+                            <blockquote>
+                                <p>Object.keys(obj)</p>
+                            </blockquote>
+
+                            <p class="article-more-link">
+                                <a href="http://hejx.me/2016/02/27/%E7%90%86%E8%A7%A3Object-keys/#more">More...</a>
+                            </p>
+
+
+                        </div>
+                    </div>
+
+                </article>
+
+
+                <article id="post-常用命令" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+                    <div class="article-inner">
+
+                        <header class="article-header">
+
+
+                            <h1 itemprop="name">
+                                <a class="article-title"
+                                   href="http://hejx.me/2016/02/26/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">常用shell命令</a>
+                            </h1>
+
+
+                        </header>
+
+                        <div class="article-meta">
+                            <a href="http://hejx.me/2016/02/26/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"
+                               class="article-date">
+                                <time datetime="2016-02-25T16:25:34.000Z" itemprop="datePublished">2016-02-26</time>
+                            </a>
+
+                        </div>
+                        <div class="article-entry" itemprop="articleBody">
+
+                            <h3 id="1、ls">1、ls</h3>
+                            <p>ls最常用的参数有三个： -a -l -F。</p>
+                            <p>ls –a<br>Linux上的文件以.开头的文件被系统视为隐藏文件，仅用ls命令是看不到他们的，而用ls -a除了显示一般文件名外，连隐藏文件也会显示出来。</p>
+                            <p>ls –l<br>该参数显示更详细的文件信息。</p>
+                            <p>ls –F<br>使用这个参数表示在文件的后面多添加表示文件类型的符号，例如*表示可执行，/表示目录，@表示连结文件，这都是因为使用了-F这个参数。但是现在基本上所有的Linux发行版本的ls都已经内建了-F参数，也就是说，不用输入这个参数，我们也能看到各种分辨符号。<br>
+
+                            </p>
+                            <p class="article-more-link">
+                                <a href="http://hejx.me/2016/02/26/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/#more">More...</a>
+                            </p>
+
+
+                        </div>
+                    </div>
+
+                </article>
+
+
+                <article id="post-关于javascript里的变量提升和函数提升" class="article article-type-post" itemscope=""
+                         itemprop="blogPost">
+
+                    <div class="article-inner">
+
+                        <header class="article-header">
+
+
+                            <h1 itemprop="name">
+                                <a class="article-title"
+                                   href="http://hejx.me/2016/02/25/%E5%85%B3%E4%BA%8Ejavascript%E9%87%8C%E7%9A%84%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%E5%92%8C%E5%87%BD%E6%95%B0%E6%8F%90%E5%8D%87/">关于javascript里的声明提前（hoisting）</a>
+                            </h1>
+
+
+                        </header>
+
+                        <div class="article-meta">
+                            <a href="http://hejx.me/2016/02/25/%E5%85%B3%E4%BA%8Ejavascript%E9%87%8C%E7%9A%84%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%E5%92%8C%E5%87%BD%E6%95%B0%E6%8F%90%E5%8D%87/"
+                               class="article-date">
+                                <time datetime="2016-02-25T13:52:47.000Z" itemprop="datePublished">2016-02-25</time>
+                            </a>
+
+                        </div>
+                        <div class="article-entry" itemprop="articleBody">
+
+                            <blockquote>
+                                <p>“声明提前”是在javascript引擎的“预编译”时进行的，也就是在代码开始运行之前。</p>
+                            </blockquote>
+                            <p>
+                                在函数里声明的所有变量（但不涉及赋值），都会被“提前”至函数体的顶部。在函数体内，局部变量的优先级高于同名的全局变量，如果在函数体内声明一个局部变量或者函数参数中带有的变量和全局变量同名，那么全局变量将会被局部变量覆盖。而给一个没有被声明的变量赋值，在非严谨模式下，等同于在全局范围创建了一个同名属性。</p>
+                            <p>
+                                在脚本里，所有的函数包括嵌套的函数，都会在当前的上下文中其他代码之前声明。函数定义语句中的函数会被显式地“提前”（包括函数名和函数体），在脚本和函数内部都是可见的，因此可以被提前调用。而使用var的话（函数定义表达式），只有变量会被提前，变量的定义还在原来的位置。</p>
+
+                            <p class="article-more-link">
+                                <a href="http://hejx.me/2016/02/25/%E5%85%B3%E4%BA%8Ejavascript%E9%87%8C%E7%9A%84%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%E5%92%8C%E5%87%BD%E6%95%B0%E6%8F%90%E5%8D%87/#more">More...</a>
+                            </p>
+
+
+                        </div>
+                    </div>
+
+                </article>
+
+
+                <article id="post-MutationObserver" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+                    <div class="article-inner">
+
+                        <header class="article-header">
+
+
+                            <h1 itemprop="name">
+                                <a class="article-title" href="http://hejx.me/2016/02/24/MutationObserver/">MutationObserver</a>
+                            </h1>
+
+
+                        </header>
+
+                        <div class="article-meta">
+                            <a href="http://hejx.me/2016/02/24/MutationObserver/" class="article-date">
+                                <time datetime="2016-02-24T05:28:51.000Z" itemprop="datePublished">2016-02-24</time>
+                            </a>
+
+                        </div>
+                        <div class="article-entry" itemprop="articleBody">
+
+
+                        </div>
+                    </div>
+
+                </article>
+
+
+                <nav id="page-nav">
+                    <span class="page-number current">1</span><a class="page-number" href="http://hejx.me/page/2/">2</a><a
+                        class="extend next" rel="next" href="http://hejx.me/page/2/">Next »</a>
+                </nav>
+
+            </section>
+        </div>
+        <div class="container">
+            <div class="footer">
+                <div class="footer-wrapper">
+                    <hr>
+                    <p> © · 2015-2016 &nbsp;<a href="http://jcala.me/">jcala</a> ·<span> 1ms</span></p></div>
             </div>
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="footer">
-        <div class="footer-wrapper">
-            <hr>
-            <p> © · 2011-2015 &nbsp;<a href="http://jcala.me/">jcala</a> ·<span> 2ms</span></p></div>
-    </div>
-</div>
+
 </body>
 </html>
