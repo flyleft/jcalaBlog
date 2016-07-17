@@ -31,8 +31,4 @@ public class BlogController {
     public String tags() {
         return "tags";
     }
-    @GetMapping("/test")
-    public String test() {
-        return "test";
-    }
 }

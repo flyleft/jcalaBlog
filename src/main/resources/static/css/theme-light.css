@@ -9,29 +9,6 @@ body {
     color: #515862;
 }
 
-a{
-    -webkit-transition-property: opacity;
-    -moz-transition-property: opacity;
-    -o-transition-property: opacity;
-    transition-property: opacity;
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-}
-
-/* override typo css */
-h1, h2, h3, h4, h5, h6{
-    color: #47596D;
-    -webkit-font-smoothing: normal;
-}
-.typo a{
-    color: #337ab7;
-}
-.typo a:hover{
-    color: #666;
-}
-
 hr{
     border-color: #eee;
 }
@@ -58,49 +35,26 @@ a.btn-default:hover{
     color: #333;
     border-color: #333;
 }
-
-.navbar{
-    z-index: 100;
-}
-
-.navbar a.navbar-brand{
-    color: #9caab0;
-    font-weight: bold;
-}
-
-.navbar .container{
-    border-bottom: 1px #eee solid;
-    padding-top: 10px;
-}
-
-.navbar li a{
-    color: #9caab0;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 0.9em;
-}
-
-.nav>li>a:focus, .nav>li>a:hover{
-    background: none;
-    color: #888;
-}
-
-@media screen and (max-width: 480px) {
+/*@media screen and (max-width: 480px) {
     #navbar{
         text-align: center;
     }
     .nav>li{
         display: inline-block;
     }
-}
+}*/
 
-.container{
+/*.container{
     padding-top: 20px;
     max-width: 840px;
+}*/
+.top-container{
+    padding-top: 40px;
+    max-width: 840px;
 }
-
 .main-container{
-    padding-top: 0;
+    padding-top: 10px;
+    max-width: 840px;
 }
 
 form input, form button{
