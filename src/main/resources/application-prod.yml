@@ -15,4 +15,4 @@ logging:
 spring:
   velocity:
     cache: true
-    view-names: about,blogs,error,index,login,projects,tags,archives
+    view-names: about,blogs,error,index,login,projects,tags,archives,admin/mkEditor
