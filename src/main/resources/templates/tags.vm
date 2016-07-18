@@ -8,28 +8,11 @@
     <div class="post">
         <div class="content">
             <ul class="tags">
-                <li><a class="btn btn-default" href="/tags/linux">linux(3)</a></li>
-                <li><a class="btn btn-default" href="/tags/spring">spring(3)</a></li>
-                <li><a class="btn btn-default" href="/tags/raysmond">raysmond(2)</a></li>
-                <li><a class="btn btn-default" href="/tags/redis">redis (2)</a></li>
-                <li><a class="btn btn-default" href="/tags/nginx">nginx(1)</a></li>
-                <li><a class="btn btn-default" href="/tags/ssl">ssl(1)</a></li>
-                <li><a class="btn btn-default" href="/tags/Filco">Filco(1)</a></li>
-                <li><a class="btn btn-default" href="/tags/%E6%9C%BA%E6%A2%B0%E9%94%AE%E7%9B%98">机械键盘(1)</a>
-                </li>
-                <li><a class="btn btn-default" href="/tags/expper">expper(1)</a></li>
-                <li><a class="btn btn-default" href="/tags/%E5%BC%80%E6%BA%90">开源(1)</a></li>
-                <li><a class="btn btn-default" href="/tags/mysql">mysql(1)</a></li>
+                #foreach($tag in ${tags})
+                    <li><a class="btn btn-default" href="$tag.href">$tag.title</a></li>
+                #end
             </ul>
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="footer">
-        <div class="footer-wrapper">
-            <hr>
-            <p> © · 2011-2015 &nbsp;<a href="http://raysmond.com/">Raysmond</a> ·<span> 1ms</span></p></div>
-    </div>
-</div>
-</body>
-</html>
+#include("/module/blog-footer.vm")
