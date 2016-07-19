@@ -9,11 +9,8 @@
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"/>
     <script src="/js/jquery.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-
-    <!--<link rel="stylesheet" href="/css/github.css" type="text/css">-->
     <link rel="stylesheet" href="/css/typo.min.css" type="text/css">
     <link rel="stylesheet" href="/css/theme-light.css" type="text/css">
-    <!--<link rel="stylesheet" href="/css/loading.css">-->
 
 </head>
 <body class="typo">
@@ -50,3 +47,9 @@
     </div>
 </nav>
 <a name="home"></a>
+<div class="container top-container">
+    <div class="header-title">
+        <div class="header-title-wrapper"><h1>${headerH1}</h1>
+            <p>${headerP}</p></div>
+    </div>
+</div>

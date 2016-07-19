@@ -14,12 +14,7 @@ spring:
   velocity:
     cache: false
     view-names: about,blogs,error,index,login,projects,tags,archives,admin/mkEditor
-#hikaricp:
-#  driver: com.mysql.jdbc.Driver
-#  url: jdbc:mysql://127.0.0.1:3306/smart?useUnicode=true&amp;characterEncoding=UTF-8
-#  username: root
-#  password: 10573962Zj
-#  connectionTimeout: 30000
-#  maximumPoolSize: 50
-#  minimumIdle: 5
+    properties.input.encoding: UTF-8
+    properties.output.encoding: UTF-8
+    properties.directive.parse.max.depth: 10
 

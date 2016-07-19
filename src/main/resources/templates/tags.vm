@@ -1,9 +1,4 @@
-#include("/module/blog-head.vm")
-<div class="container top-container">
-    <div class="header-title">
-        <div class="header-title-wrapper"><h1>Tags</h1></div>
-    </div>
-</div>
+#parse("/module/blog-head.vm")
 <div class="container main-container">
     <div class="post">
         <div class="content">

@@ -20,22 +20,30 @@ public class BlogController {
     }
 
     @GetMapping("/archives")
-    public String archives(){
+    public String archives(Model model){
+        model.addAttribute("headerH1","Archives");
+        model.addAttribute("headerP","博客列表");
         return "archives";
     }
 
     @GetMapping("/about")
-    public String about() {
+    public String about(Model model) {
+        model.addAttribute("headerH1","About");
+        model.addAttribute("headerP","关于我自己");
         return "about";
     }
 
     @GetMapping("/projects")
-    public String projects() {
+    public String projects(Model model) {
+        model.addAttribute("headerH1","projects");
+        model.addAttribute("headerP","我的博客列表");
         return "projects";
     }
 
     @GetMapping("/tags")
     public String tags(Model model) {
+        model.addAttribute("headerH1","Tags");
+        model.addAttribute("headerP","博客标签");
         List<Tag> tags=new ArrayList<>();
         tags.add(new Tag("home","/#home"));
         tags.add(new Tag("blogs","/blogs"));

@@ -12,7 +12,6 @@
     <script src="/js/bootstrap.min.js"></script>
 </head>
 <body>
-<!--login modal-->
 <div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -30,7 +29,6 @@
                     </div>
                     <div class="form-group">
                         <button class="btn btn-primary btn-lg btn-block">Sign In</button>
-                        <!--<span class="pull-right"><a href="#">Register</a></span><span><a href="#">Need help?</a></span>-->
                     </div>
                 </form>
             </div>
