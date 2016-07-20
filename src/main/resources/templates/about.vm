@@ -8,16 +8,8 @@
                 <li>Twitter: <a href="https://twitter.com/jcalazzp">@jcalazzp</a></li>
             </ul>
             <h3><a href="https://jcala.me/about#aboutMyself" name="aboutMyself">关于自己</a></h3>
-            <ul>
-                #foreach($item in ${aboutMyself})
-                    <li>&#12288;&#12288;${item}</li>
-                #end
-            </ul>
+            #ulList(${aboutMyself})
             <h3><a href="https://jcala.me/about#experience" name="experience">编程经历</a></h3>
-            <ul>
-                #foreach($item in ${experience})
-                    <li>&#12288;&#12288;${item}</li>
-                #end
-            </ul>
+            #ulList(${experience})
         </div>
 #include("/module/blog-footer.vm")

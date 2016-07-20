@@ -14,7 +14,9 @@ spring:
   velocity:
     cache: false
     view-names: about,blogs,error,index,login,projects,tags,archives,admin/mkEditor
-    properties.input.encoding: UTF-8
-    properties.output.encoding: UTF-8
-    properties.directive.parse.max.depth: 10
+    properties:
+      input.encoding: UTF-8
+      output.encoding: UTF-8
+      directive.parse.max.depth: 10
+      velocimacro.library: VM_global_library.vm
 
