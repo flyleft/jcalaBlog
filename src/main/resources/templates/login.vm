@@ -7,7 +7,7 @@
     <meta name="generator" content="Bootply"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/landing-page.css" rel="stylesheet">
+    <link href="/css/login-page.css" rel="stylesheet">
     <script src="/js/jquery-1.9.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
 </head>
