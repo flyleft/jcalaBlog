@@ -1,11 +1,11 @@
 ## JcalaBlog个人博客网站
 
-#### 所用技术: SpringBoot+SpringMVC+Mybatis+undertow+Docker+Spring Security+HikariCP+Velocity+Bootstrap+Markdown
+#### 所用技术: SpringBoot+SpringMVC+Mybatis+undertow+Docker+Spring Security+HikariCP+Velocity+Bootstrap
 
 #### 参考项目及所用其他开源项目
-     - [SpringBlog](https://github.com/Raysmond/SpringBlog)
-     - [markdown-plus](https://github.com/tylingsoft/markdown-plus)
-    
+   - [SpringBlog](https://github.com/Raysmond/SpringBlog)  
+   - [markdown-plus](https://github.com/tylingsoft/markdown-plus)
+
 #### 项目依赖
 ```groovy
 dependencies {
@@ -25,3 +25,4 @@ dependencies {
 }
 ```
 
+##正在开发中。。。
