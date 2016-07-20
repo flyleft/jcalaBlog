@@ -1,6 +1,6 @@
 ## JcalaBlog个人博客网站
 
-#### 所用技术: SpringBoot+SpringMVC+Mybatis+undertow+Docker+Spring Security+HikariCP+Velocity+Bootstrap
+#### 所用技术: SpringBoot+SpringMVC+Mybatis+undertow+Docker+Spring Security+HikariCP+Velocity+Bootstrap+Markdown
 
 #### 参考项目及所用其他开源项目
      - [SpringBlog](https://github.com/Raysmond/SpringBlog)
