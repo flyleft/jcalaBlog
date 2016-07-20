@@ -1,6 +1,5 @@
-#parse("/module/blog-head.vm")
-<div class="container main-container">
-    <div class="post">
+#include("/module/blog-head.vm")
+#include("/module/header/about.vm")
         <div class="content"><p>我是jcala(zzp),2017年将从西南交通大学毕业. </p>
             <ul>
                 <li>Email: <a href="mailto:jcalaz@163.com">jcalaz@163.com</a></li>
@@ -10,27 +9,15 @@
             </ul>
             <h3><a href="https://jcala.me/about#aboutMyself" name="aboutMyself">关于自己</a></h3>
             <ul>
-                <li>&#12288;&#12288;我编程不仅仅为了挣钱，更因为我喜欢编程</li>
-                <li>&#12288;&#12288;2015年在我大二下半学期正式开始学习编程，但我学习相当快，学到了非常多的东西.</li>
-                <li>&#12288;&#12288;Java是我最常用的编程语言，但scala是我最喜爱的，Java+scala+Go/Rust将是我的语言组合</li>
-                <li>&#12288;&#12288;JAVAEE方面我喜欢用的技术有Netty,Gralde,SpringBoot,SpringMVC,Spring IOC,Mybatis,Shiro,Ecache,Velocity,Docker,MySQL,Bootstrap...</li>
-                <li>&#12288;&#12288;我也知道如何去用Tomcat,Json,JS,Jetty,Mongodb,Git,Linux,Velocity,HTML/CSS,AKKA,Android,Play!,Spring Data Mongo,Revel,Guava</li>
-                <li>&#12288;&#12288;能灵活利用设计模式，会JVM性能调优，擅长使用Intellij IDEA,用Jrebel做热部署，Jmeter做压力测试，擅长并发和多线程编程</li>
-                <li>&#12288;&#12288;爱好源码分析，深入分析过Spring和Jfinal</li>
-                <li>&#12288;&#12288;Dobbo,Zookeeper,Reactjs以及算法是我将要学习的技术</li>
+                #foreach($item in ${aboutMyself})
+                    <li>&#12288;&#12288;${item}</li>
+                #end
             </ul>
             <h3><a href="https://jcala.me/about#experience" name="experience">编程经历</a></h3>
             <ul>
-                <li>&#12288;&#12288;在学习java一个月，刚开始学习安卓一星期的情况下，两星期内帮助朋友完成省级srtp安卓项目</li>
-                <li>&#12288;&#12288;完成基于注解的简易框架<a href="https://github.com/jcalaz/janser">janser</a>,为了快速开发基于基于Servlet的HTTP服务</li>
-                <li>&#12288;&#12288;作为组长带领组员完成'基于安卓平台的聚会社交软件'省级srtp项目,并完成项目的大部分编码任务</li>
-                <li>&#12288;&#12288;开源了用jsoup在安卓客户端爬去教务网课程信息的迷你项目<a href="https://github.com/jcalaz/SpiderForSchool">SpiderForSchool</a></li>
-                <li>&#12288;&#12288;加入工作室，将工作室服务器Beego后端转为用Netty5+Mybatis+Spring Data Mongo+HikariCP+Ehcache+Logback+Gson,实现HTTP和Websocket服务，并将项目骨架
-                    (包含路由,Ehcache模拟session,从http获取真实IP等)<a href="https://github.com/jcalaz/nettyServer">nettyServer</a></M>开源</li>
-                <li>&#12288;&#12288;运用Spring Boot,Spring MVC,Mybatis,Spring Undertow,Velocity,Bootstrap,HikariCP,Mysql,Spring Security,Ecache等完成本网站，即JcalaBlog个人
-                    博客网站的全部开发</li>
-                <li>&#12288;&#12288;正在实现一个完整的编程语言来提高编程能力，实现一门JVM上的语言，目前用scala语言实现了<a href="https://github.com/jcalaz/zuyi">分词器</a></li>
+                #foreach($item in ${experience})
+                    <li>&#12288;&#12288;${item}</li>
+                #end
             </ul>
-    </div>
-</div>
+        </div>
 #include("/module/blog-footer.vm")

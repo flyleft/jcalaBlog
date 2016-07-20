@@ -1,6 +1,5 @@
-#parse("/module/blog-head.vm")
-<div class="container main-container">
-    <div class="post">
+#include("/module/blog-head.vm")
+#include("/module/header/archives.vm")
         <div class="content">
             <div class="year"><h2>2015</h2>
                 <ul class="archive-list">
@@ -11,6 +10,4 @@
                 </ul>
             </div>
         </div>
-    </div>
-</div>
 #include("/module/blog-footer.vm")

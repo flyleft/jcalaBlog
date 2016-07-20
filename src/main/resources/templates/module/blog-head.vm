@@ -47,9 +47,3 @@
     </div>
 </nav>
 <a name="home"></a>
-<div class="container top-container">
-    <div class="header-title">
-        <div class="header-title-wrapper"><h1>${headerH1}</h1>
-            <p>${headerP}</p></div>
-    </div>
-</div>

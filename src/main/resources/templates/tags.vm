@@ -1,13 +1,10 @@
-#parse("/module/blog-head.vm")
-<div class="container main-container">
-    <div class="post">
-        <div class="content">
-            <ul class="tags">
-                #foreach($tag in ${tags})
-                    <li><a class="btn btn-default" href="$tag.href">$tag.title</a></li>
-                #end
-            </ul>
-        </div>
-    </div>
+#include("/module/blog-head.vm")
+#include("/module/header/tags.vm")
+<div class="content">
+    <ul class="tags">
+        #foreach($tag in ${tags})
+            <li><a class="btn btn-default" href="$tag.href">$tag.title</a></li>
+        #end
+    </ul>
 </div>
 #include("/module/blog-footer.vm")
