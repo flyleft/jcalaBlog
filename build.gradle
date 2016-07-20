@@ -43,12 +43,10 @@ repositories {
 }
 
 dependencies {
-//  compile ("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
   compile ("org.springframework.boot:spring-boot-starter-web:${springBootVersion}"){
     exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
   }
   compile "org.springframework.boot:spring-boot-starter-undertow:${springBootVersion}"
-//  compile "org.springframework.boot:spring-boot-starter-jetty:${springBootVersion}"
   compile "org.springframework.boot:spring-boot-starter-velocity:${springBootVersion}"
   compile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
   //--------------------数据库驱动----------------------------
