@@ -17,12 +17,12 @@
         <div class="outer">
             <section id="main">
                 #foreach($item in ${articles})
-                    <article id="${item.Id}" class="article article-type-post" itemscope="" itemprop="blogPost">
+                    <article id="${item.Name}" class="article article-type-post" itemscope="" itemprop="blogPost">
                         <div class="article-inner">
                             <header class="article-header">
                                 <h1 itemprop="name">
                                     <a class="article-title"
-                                       href="${item.Href}">开始使用Ionic2</a>
+                                       href="${item.Href}">${item.Name}</a>
                                 </h1>
                             </header>
                             <div class="article-meta">

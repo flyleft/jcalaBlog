@@ -1,5 +1,6 @@
 package jcala.blog.controller;
 
+import jcala.blog.entity.ArchivesYear;
 import jcala.blog.entity.Project;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,22 @@ public class BlogController {
 
     @GetMapping("/archives")
     public String archives(Model model){
+        ArchivesYear.Archive archive2=new ArchivesYear.Archive(2,"","scala的AKKA使用指南");
+        ArchivesYear.Archive archive1=new ArchivesYear.Archive(8,"","Spark与Hadoop");
+        List<ArchivesYear.Archive> archives = new ArrayList<>();
+        archives.add(archive1);
+        archives.add(archive2);
+        ArchivesYear archivesYear1=new ArchivesYear(2015,archives);
+        ArchivesYear.Archive archive4=new ArchivesYear.Archive(1,"","Finagle使用指南");
+        ArchivesYear.Archive archive3=new ArchivesYear.Archive(7,"","Guava教程");
+        List<ArchivesYear.Archive> archives1 = new ArrayList<>();
+        archives1.add(archive3);
+        archives1.add(archive4);
+        ArchivesYear archivesYear2=new ArchivesYear(2016,archives1);
+        List<ArchivesYear> archivesYears=new ArrayList<>();
+        archivesYears.add(archivesYear2);
+        archivesYears.add(archivesYear1);
+        model.addAttribute("archivesYears",archivesYears);
         return "archives";
     }
 
@@ -66,8 +83,6 @@ public class BlogController {
 
     @GetMapping("/tags")
     public String tags(Model model) {
-        model.addAttribute("headerH1","Tags");
-        model.addAttribute("headerP","博客标签");
         List<Tag> tags=new ArrayList<>();
         tags.add(new Tag("home","/#home"));
         tags.add(new Tag("blogs","/blogs"));

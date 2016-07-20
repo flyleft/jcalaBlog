@@ -1,13 +1,15 @@
 #include("/module/blog-head.vm")
 #include("/module/header/archives.vm")
         <div class="content">
-            <div class="year"><h2>2015</h2>
-                <ul class="archive-list">
-                    #foreach($item in ${archives})
-                        <li><span class="month">$item.Month</span><span>&nbsp;&nbsp;·&nbsp;</span><a
-                                href="$item.Href">$item.Title</a></li>
-                    #end
-                </ul>
-            </div>
+            #foreach(${year} in ${archivesYears})
+                <div class="year"><h2>${year.YearNumber}</h2>
+                    <ul class="archive-list">
+                        #foreach($item in ${year.Archives})
+                            <li><span class="month">${item.Month}</span><span>&nbsp;&nbsp;·&nbsp;</span><a
+                                    href="${item.Href}">${item.Title}</a></li>
+                        #end
+                    </ul>
+                </div>
+            #end
         </div>
 #include("/module/blog-footer.vm")
