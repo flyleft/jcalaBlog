@@ -65,9 +65,26 @@
             <i title="Toggle preview" class="fa fa-long-arrow-right" id="toggle-preview"></i>
             <i class="dividor">|</i>
             <i title="Preferences" class="fa fa-cog" data-remodal-target="preferences-modal"></i>
-            <i title="Save" class="fa fa-save" ></i>
+            <i title="Save" class="fa fa-save" id="fa-save" v-on:click="greet"></i>
         </div>
     </div>
+    <script src="/js/vue.min.js"></script>
+    <script>
+        var MyComponent = Vue.extend({
+            template: '<h1>A custom component!</h1>'
+        });
+        new Vue({
+            el: '#fa-save',
+            data: {
+                name: 'fa-save'
+            },
+            methods: {
+                greet: function (event) {
+                    alert(MyComponent)
+                }
+            }
+        })
+    </script>
     <div class="ui-layout-center">
         <div id="editor"></div> <!-- editor -->
         <div class="remodal" id="emoji-modal" data-remodal-id="emoji-modal"> <!-- emoji modal -->
@@ -104,7 +121,7 @@
         <div class="remodal" id="ion-modal" data-remodal-id="ion-modal"> <!-- Ionicons modal -->
             <h2>Please enter an Ionicons code:</h2>
             <p>Examples: "beer", "key", "locked", "location", "plane", "ios-eye" ...</p>
-                <option value="no">No</option>
+            <option value="no">No</option>
             </select></p>
             <p>Editor : Preview <select id="editor-versus-preview">
                 <option value="100%">0 : 1</option>
