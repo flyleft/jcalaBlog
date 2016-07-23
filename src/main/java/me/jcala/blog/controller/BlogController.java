@@ -1,7 +1,8 @@
-package jcala.blog.controller;
+package me.jcala.blog.controller;
 
-import jcala.blog.entity.ArchivesYear;
-import jcala.blog.entity.Project;
+import me.jcala.blog.entity.ArchivesYear;
+import me.jcala.blog.entity.Project;
+import me.jcala.blog.entity.Tag;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import jcala.blog.entity.Tag;
+
 @Controller
 public class BlogController {
     @GetMapping("/blogs")

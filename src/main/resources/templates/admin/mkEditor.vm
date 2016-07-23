@@ -70,9 +70,6 @@
     </div>
     <script src="/js/vue.min.js"></script>
     <script>
-        var MyComponent = Vue.extend({
-            template: '<h1>A custom component!</h1>'
-        });
         new Vue({
             el: '#fa-save',
             data: {
@@ -80,7 +77,7 @@
             },
             methods: {
                 greet: function (event) {
-                    alert(MyComponent)
+                    alert("test")
                 }
             }
         })

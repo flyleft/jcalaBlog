@@ -1,18 +1,31 @@
 server:
-  port: 8080
-  compression:
-     min-response-size: 1
-     enabled: true
-  undertow:
-     accesslog:
-       enabled: true
-       dir: arget/logs
-       pattern: combined
+    port: 8080
+    compression:
+        min-response-size: 1
+        enabled: true
+    #undertow服务器的配置
+    undertow:
+        accesslog:
+            enabled: true
+            dir: arget/logs
+            pattern: combined
+#打印日志配置
 logging:
-  config: classpath:logback-spring.xml
-  path: /Users/jcala/logs
-  level: info
+    config: classpath:logback-spring.xml
+    path: /Users/jcala/logs
+    level: info
+#velocity模板引擎的配置
 spring:
-  velocity:
-    cache: true
-    view-names: about,blogs,error,index,login,projects,tags,archives,admin/mkEditor
+    velocity:
+        cache: true
+        view-names: about,blogs,error,index,login,projects,tags,archives,admin/mkEditor
+    #http的配置
+    http:
+        encoding.charset: UTF-8
+        encoding.force: false
+    #数据库连接池的配置
+    dataSource:
+          driverClassName: com.mysql.jdbc.Driver
+          url: jdbc:mysql://127.0.0.1:3306/jcalaBlog?useUnicode:true&amp;characterEncoding:UTF-8
+          username:
+          password:

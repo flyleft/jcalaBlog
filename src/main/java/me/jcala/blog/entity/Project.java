@@ -1,4 +1,4 @@
-package jcala.blog.entity;
+package me.jcala.blog.entity;
 
 import java.util.Date;
 

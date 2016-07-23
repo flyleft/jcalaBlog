@@ -1,4 +1,4 @@
-package jcala.blog.entity;
+package me.jcala.blog.entity;
 
 /**
  * Created by jcala on 2016/7/18

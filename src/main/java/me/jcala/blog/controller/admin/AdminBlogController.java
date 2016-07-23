@@ -1,4 +1,4 @@
-package jcala.blog.controller.admin;
+package me.jcala.blog.controller.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

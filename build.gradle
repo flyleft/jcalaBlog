@@ -24,6 +24,7 @@ apply plugin: 'idea'
 apply plugin: 'spring-boot'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+compileJava.dependsOn(processResources)
 jar {
   baseName = 'jcalaBlog'
   version =  '0.1.0'
@@ -54,8 +55,7 @@ dependencies {
   //-------------------数据库连接池---------------------------
   compile 'com.zaxxer:HikariCP:2.4.5'
   //----------------------ORM------------------------------
-  compile group: 'org.mybatis', name: 'mybatis', version:mybatisVersion
-  compile group: 'org.mybatis', name: 'mybatis-spring', version:mybatisSpringVersion
+  compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1")
 }
 
 task wrapper(type: Wrapper) {
