@@ -33,5 +33,5 @@ hikaricp:
     maximumPoolSize: 50
     minimumIdle: 5
 mybatis:
-    type-aliases-package: me.jcala.blog.entity,me.jcala.blog.mapping
+    type-aliases-package: me.jcala.blog.domain,me.jcala.blog.mapping
     type-handlers-package: org.apache.ibatis.type.LocalDateTypeHandler

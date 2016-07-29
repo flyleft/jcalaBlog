@@ -1,4 +1,3 @@
-
 buildscript {
   ext {
     springBootPluginVersion = '1.4.0.BUILD-SNAPSHOT'
@@ -30,7 +29,6 @@ jar {
 }
 configurations {
   compile.exclude module: "spring-boot-starter-tomcat"
-//  compile.exclude group: 'com.fasterxml.jackson.core'
   compile.exclude group: 'org.apache.tomcat.embed'
   compile.exclude group: 'org.apache.tomcat'
   compile.exclude group: 'org.apache.struts'
@@ -67,8 +65,4 @@ dependencies {
   compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1")
   //----------------------工具------------------------------
   compile 'org.projectlombok:lombok:1.16.10'
-}
-
-task wrapper(type: Wrapper) {
-  gradleVersion = '2.12'
 }
