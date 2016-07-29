@@ -26,9 +26,9 @@ spring:
 #数据库连接池的配置
 hikaricp:
     driver: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/smart?useUnicode:true&amp;characterEncoding:UTF-8
+    url: jdbc:mysql://127.0.0.1:3306/jcala_blog?useUnicode:true&amp;characterEncoding:UTF-8
     username: root
-    password: 10573962Zj
+    password: root
     connectionTimeout: 30000
     maximumPoolSize: 50
     minimumIdle: 5
