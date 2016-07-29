@@ -23,9 +23,15 @@ spring:
     http:
         encoding.charset: UTF-8
         encoding.force: false
-    #数据库连接池的配置
-    dataSource:
-          driverClassName: com.mysql.jdbc.Driver
-          url: jdbc:mysql://127.0.0.1:3306/jcalaBlog?useUnicode:true&amp;characterEncoding:UTF-8
-          username: root
-          password: 10573962Zj
+#数据库连接池的配置
+hikaricp:
+    driver: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/smart?useUnicode:true&amp;characterEncoding:UTF-8
+    username: root
+    password: 10573962Zj
+    connectionTimeout: 30000
+    maximumPoolSize: 50
+    minimumIdle: 5
+mybatis:
+    type-aliases-package: me.jcala.blog.entity,me.jcala.blog.mapping
+    type-handlers-package: org.apache.ibatis.type.LocalDateTypeHandler

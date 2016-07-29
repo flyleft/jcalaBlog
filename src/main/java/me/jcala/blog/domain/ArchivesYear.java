@@ -1,4 +1,4 @@
-package me.jcala.blog.entity;
+package me.jcala.blog.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

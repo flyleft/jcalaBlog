@@ -1,10 +1,10 @@
 package me.jcala.blog.mapping;
 
-import org.springframework.stereotype.Component;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * Created by jcala on 2016/7/23
  */
-@Component
+@Mapper
 public interface UserMapper {
 }

@@ -28,7 +28,17 @@ jar {
   baseName = 'jcalaBlog'
   version =  '0.1.0'
 }
-
+configurations {
+  compile.exclude module: "spring-boot-starter-tomcat"
+  compile.exclude group: 'com.fasterxml.jackson.core'
+  compile.exclude group: 'org.apache.tomcat.embed'
+  compile.exclude group: 'org.apache.tomcat'
+  compile.exclude group: 'org.apache.struts'
+  compile.exclude group: 'com.fasterxml'
+  compile.exclude group: 'org.hibernate'
+  compile.exclude group: 'org.glassfish'
+  compile.exclude group: 'dom4j'
+}
 bootRun {
   systemProperties = System.properties
   addResources = true

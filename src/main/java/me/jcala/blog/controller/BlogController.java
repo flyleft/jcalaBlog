@@ -1,8 +1,8 @@
 package me.jcala.blog.controller;
 
-import me.jcala.blog.entity.ArchivesYear;
-import me.jcala.blog.entity.Project;
-import me.jcala.blog.entity.Tag;
+import me.jcala.blog.domain.ArchivesYear;
+import me.jcala.blog.domain.Project;
+import me.jcala.blog.domain.Tag;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
