@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
  * Created by Administrator on 2016/8/2.
  */
 @Service
-@PropertySource("classpath:user.yml")
-public class WelcomeSer {
+@PropertySource("classpath:user.properties")
+public class IndexSer {
     @Getter
-    @Value("info.username")
+    @Value("${info.username}")
     private String username;
 
 }

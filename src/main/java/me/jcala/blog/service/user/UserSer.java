@@ -7,13 +7,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 /**
  * Created by Administrator on 2016/8/2.
  */
 @Service
-@PropertySource("classpath:user.yml")
+@PropertySource("classpath:user.properties")
 public class UserSer implements UserSerInter {
     @Value("info.userName")
     private String userName;
