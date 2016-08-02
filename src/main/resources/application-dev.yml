@@ -35,3 +35,4 @@ hikaricp:
 mybatis:
     type-aliases-package: me.jcala.blog.domain,me.jcala.blog.mapping
     type-handlers-package: org.apache.ibatis.type.LocalDateTypeHandler
+    configuration: mybatisConfiguration
