@@ -1,0 +1,15 @@
+#include("/module/blog-head.vm")
+#include("/module/header/about.vm")
+        <div class="content"><p>${userInfo.Introduce}</p>
+            <ul>
+                <li>Email: <a href="mailto:${userInfo.email}">${userInfo.email}</a></li>
+                <li>Homepage: <a href="http://${userInfo.homePage}">${userInfo.homePage}</a></li>
+                <li>Github: <a href="https://github.com/${userInfo.githubName}">${userInfo.githubName}</a></li>
+                <li>Twitter: <a href="https://twitter.com/${userInfo.twitterName}">${userInfo.twitterName}</a></li>
+            </ul>
+            <h3><a href="https://jcala.me/about#AboutMe">AboutMe</a></h3>
+            #ulList(${userInfo.aboutMe})
+            <h3><a href="https://jcala.me/about#experience">experience</a></h3>
+            #ulList(${userInfo.experience})
+        </div>
+#include("/module/blog-footer.vm")

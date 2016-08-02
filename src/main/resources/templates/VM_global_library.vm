@@ -1,8 +1,8 @@
 #macro(ulList $list)
     <ul>
-    #foreach(${item} in $list)
-     <li>&#12288;&#12288;${item}</li>
-    #end
+        #foreach(${item} in $list)
+            <li>&#12288;&#12288;${item}</li>
+        #end
     </ul>
 #end
 #*

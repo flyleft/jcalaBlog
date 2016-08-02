@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Page Not Found</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/error-page.css" type="text/css">
+</head>
+<body><h1>Page Not Found</h1>
+<p>Sorry, but the page you were trying to view does not exist.</p></body>
+</html>

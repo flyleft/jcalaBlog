@@ -1,10 +1,37 @@
 server:
-  port: 8080
-  compression:
-     min-response-size: 1
-     enabled: true
-  undertow:
-     accesslog:
-       enabled: true
-       dir: arget/logs
-       pattern: combined
+    port: 8080
+    compression:
+        min-response-size: 1
+        enabled: true
+    #undertow服务器的配置
+    undertow:
+        accesslog:
+            enabled: true
+            dir: arget/logs
+            pattern: combined
+#打印日志配置
+logging:
+    config: classpath:logback-spring.xml
+    path: /Users/jcala/logs
+    level: info
+#velocity模板引擎的配置
+spring:
+    velocity:
+        cache: true
+        view-names: about,blogs,error,index,login,projects,tags,archives,admin/mkEditor
+    #http的配置
+    http:
+        encoding.charset: UTF-8
+        encoding.force: false
+#数据库连接池的配置
+hikaricp:
+    driver: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/smart?useUnicode:true&amp;characterEncoding:UTF-8
+    username: root
+    password:
+    connectionTimeout: 30000
+    maximumPoolSize: 50
+    minimumIdle: 5
+mybatis:
+    type-aliases-package: me.jcala.blog.domain,me.jcala.blog.mapping
+    type-handlers-package: org.apache.ibatis.type.LocalDateTypeHandler

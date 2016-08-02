@@ -13,27 +13,27 @@ import org.springframework.stereotype.Service;
 @Service
 @PropertySource("classpath:user.properties")
 public class UserSer implements UserSerInter {
-    @Value("info.userName")
+    @Value("${info.userName}")
     private String userName;
-    @Value("info.email")
+    @Value("${info.email}")
     private String email;
-    @Value("info.homePage")
+    @Value("${info.homePage}")
     private String homePage;
-    @Value("info.githubName")
+    @Value("${info.githubName}")
     private String githubName;
-    @Value("info.twitterName")
+    @Value("${info.twitterName}")
     private String twitterName;
-    @Value("info.introduce")
+    @Value("${info.introduce}")
     private String introduce;
     @Override
-    public UserInfo userInfo() {
-        val userinfo=new UserInfo();
-        userinfo.setUserName(userName);
-        userinfo.setEmail(email);
-        userinfo.setHomePage(homePage);
-        userinfo.setGithubName(githubName);
-        userinfo.setTwitterName(twitterName);
-        userinfo.setIntroduce(introduce);
-        return null;
+    public UserInfo getUserInfo() {
+        val userInfo=new UserInfo();
+        userInfo.setUserName(userName);
+        userInfo.setEmail(email);
+        userInfo.setHomePage(homePage);
+        userInfo.setGithubName(githubName);
+        userInfo.setTwitterName(twitterName);
+        userInfo.setIntroduce(introduce);
+        return userInfo;
     }
 }

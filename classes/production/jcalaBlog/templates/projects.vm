@@ -1,0 +1,26 @@
+#include("/module/blog-head.vm")
+#include("/module/header/projects.vm")
+<div class="content">
+    <p>Please go to my <a href="https://github.com/Raysmond">Github</a> page for more details.</p>
+    #foreach($item in ${projects})
+        <h2><a href="/projects#${item.Name}" name="expper">${item.Name}</a></h2>
+        <ul>
+            #if(!${item.ShowHref})
+                <li><a href="${item.ShowHref}">${item.ShowHref}</a></li>
+            #end
+            #if(!${item.OpenSourceHref})
+                <li>Open source: <a href="${item.OpenSourceHref}">${item.OpenSourceHref}</a></li>
+            #end
+            <li>日期: ${item.ProjectDate}</li>
+            <li>简介:${item.Summary}</li>
+            <li>所用技术:${item.Technology}</li>
+        </ul>
+    #end
+</div>
+<div class="info">
+    <ul class="tags">
+        <li>Tags:</li>
+        <li><a class="btn btn-xs btn-default" href="https://jcala.me/tags/jcala">jcala</a></li>
+    </ul>
+</div>
+#include("/module/blog-footer.vm")

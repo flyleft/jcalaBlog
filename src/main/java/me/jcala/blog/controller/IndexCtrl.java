@@ -16,7 +16,7 @@ public class IndexCtrl {
     IndexSer indexSer;
     @GetMapping("/")
     public String welcome(Map<String, Object> model) {
-        model.put("username", indexSer.getUsername());
+        model.put("username", indexSer.getUserName());
         return "index";
     }
 }

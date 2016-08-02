@@ -15,8 +15,8 @@ public class UserCtrl {
     private UserSer userSer;
     @GetMapping("/about")
     public String about(Model model) {
-      model.addAttribute("userInfo",userSer.userInfo());
-        return "about";
+      model.addAttribute("userInfo",userSer.getUserInfo());
+        return "user/about";
     }
     @GetMapping("/login")
     public String login(){

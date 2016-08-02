@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 @PropertySource("classpath:user.properties")
 public class IndexSer {
     @Getter
-    @Value("${info.username}")
-    private String username;
-
+    @Value("${info.userName}")
+    private String userName;
 }
