@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/admin")
-public class AdminBlogController {
+public class AdminCtrl {
     @GetMapping("/mkEditor")
     public String mkEditor() {
         return "admin/mkEditor";

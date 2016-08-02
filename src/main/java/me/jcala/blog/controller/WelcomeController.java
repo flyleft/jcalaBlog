@@ -1,5 +1,7 @@
 package me.jcala.blog.controller;
 
+import me.jcala.blog.service.WelcomeSer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,10 +15,11 @@ import java.util.Map;
  */
 @Controller
 public class WelcomeController {
-
+    @Autowired
+   WelcomeSer welcomeSer;
     @GetMapping("/")
     public String welcome(Map<String, Object> model) {
-        model.put("username","jcala");
+        model.put("username",welcomeSer.getUsername());
         return "index";
     }
 }
