@@ -22,16 +22,6 @@ public class BlogSer implements BlogSerInter {
         return null;
     }
     @Override
-    public List<String> aboutMe() throws Exception {
-        return null;
-    }
-
-    @Override
-    public List<String> experience() throws Exception {
-        return null;
-    }
-
-    @Override
     public List<Project> projects() throws Exception {
         return null;
     }

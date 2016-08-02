@@ -1,4 +1,4 @@
-package me.jcala.blog.controller.admin;
+package me.jcala.blog.controller.user;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,6 +36,10 @@ public class UserCtrl {
         experience.add("正在实现一个完整的编程语言来提高编程能力，实现一门JVM上的语言，目前用scala语言实现了<a href=\"https://github.com/jcalaz/zuyi\">分词器</a>");
         model.addAttribute("experience",experience);
         return "about";
+    }
+    @GetMapping("login")
+    public String login(){
+        return "admin/login";
     }
 
 }

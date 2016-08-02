@@ -11,8 +11,6 @@ import java.util.List;
  */
 public interface BlogSerInter {
     List<ArchivesYear> archives() throws Exception;
-    List<String> aboutMe() throws Exception;
-    List<String> experience() throws Exception;
     List<Project> projects() throws Exception;
     List<Tag> tags() throws Exception;
 }

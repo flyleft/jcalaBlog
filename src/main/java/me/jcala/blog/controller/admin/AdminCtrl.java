@@ -14,8 +14,5 @@ public class AdminCtrl {
     public String mkEditor() {
         return "admin/mkEditor";
     }
-    @GetMapping("login")
-    public String login(){
-        return "admin/login";
-    }
+
 }
