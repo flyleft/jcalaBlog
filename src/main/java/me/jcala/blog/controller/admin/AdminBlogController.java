@@ -14,4 +14,8 @@ public class AdminBlogController {
     public String mkEditor() {
         return "admin/mkEditor";
     }
+    @GetMapping("")
+    public String login(){
+        return "admin/login";
+    }
 }

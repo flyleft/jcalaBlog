@@ -19,8 +19,4 @@ public class WelcomeController {
         model.put("username","jcala");
         return "index";
     }
-    @GetMapping("/login")
-    public String login() {
-        return "login";
-    }
 }

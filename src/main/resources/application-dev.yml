@@ -18,7 +18,7 @@ logging:
 spring:
     velocity:
         cache: false
-        view-names: about,blogs,error,index,login,projects,tags,archives,admin/mkEditor
+        view-names: about,blogs,error,index,admin/login,projects,tags,archives,admin/mkEditor
     #http的配置
     http:
         encoding.charset: UTF-8
