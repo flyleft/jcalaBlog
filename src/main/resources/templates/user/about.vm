@@ -1,15 +1,15 @@
 #include("/module/blog-head.vm")
 #include("/module/header/about.vm")
-        <div class="content"><p>我是jcala(zzp),2017年将从西南交通大学毕业. </p>
+        <div class="content"><p>${userInfo.Introduce}</p>
             <ul>
-                <li>Email: <a href="mailto:jcalaz@163.com">jcalaz@163.com</a></li>
-                <li>Homepage: <a href="http://jcala.me">http://jcala.me</a></li>
-                <li>Github: <a href="https://github.com/jcalaz">Jcalaz</a></li>
-                <li>Twitter: <a href="https://twitter.com/jcalazzp">@jcalazzp</a></li>
+                <li>Email: <a href="mailto:${userInfo.email}">${userInfo.email}</a></li>
+                <li>Homepage: <a href="http://${userInfo.homePage}">${userInfo.homePage}</a></li>
+                <li>Github: <a href="https://github.com/${userInfo.githubName}">${userInfo.githubName}</a></li>
+                <li>Twitter: <a href="https://twitter.com/${userInfo.twitterName}">${userInfo.twitterName}</a></li>
             </ul>
-            <h3><a href="https://jcala.me/about#aboutMyself" name="aboutMyself">关于自己</a></h3>
-            #ulList(${aboutMyself})
-            <h3><a href="https://jcala.me/about#experience" name="experience">编程经历</a></h3>
-            #ulList(${experience})
+            <h3><a href="https://jcala.me/about#AboutMe">AboutMe</a></h3>
+            #ulList(${userInfo.aboutMe})
+            <h3><a href="https://jcala.me/about#experience">experience</a></h3>
+            #ulList(${userInfo.experience})
         </div>
 #include("/module/blog-footer.vm")
