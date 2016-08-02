@@ -1,8 +1,10 @@
 package me.jcala.blog.mapping;
 
-import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * Created by jcala on 2016/7/23
@@ -10,6 +12,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Mapper
 public interface UserMapper {
-    @Insert("insert into users set username='zzp',password='zzp105'")
-    void insert();
+     String aboutMe="";
+     String experience="";
+    @Select(aboutMe)
+    List<String> getAboutMe();
+    @Select(experience)
+    List<String> getExperience();
 }

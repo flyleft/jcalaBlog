@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @PropertySource("classpath:user.yml")
 public class WelcomeSer {
     @Getter
-    @Value("blog.username")
+    @Value("info.username")
     private String username;
 
 }
