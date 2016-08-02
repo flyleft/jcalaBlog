@@ -14,7 +14,7 @@ import java.util.Map;
  * Created by jcala on 2016/7/10
  */
 @Controller
-public class WelcomeController {
+public class IndexCtrl {
     @Autowired
    WelcomeSer welcomeSer;
     @GetMapping("/")

@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.List;
 
 @Controller
-public class BlogController {
+public class BlogViewCtrl {
     @GetMapping("/blogs")
     public String blogs() {
         return "blogs";
