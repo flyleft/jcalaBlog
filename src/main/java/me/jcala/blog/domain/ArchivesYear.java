@@ -11,6 +11,7 @@ import java.util.List;
  * Created by jcala on 2016/7/20
  */
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class ArchivesYear {
