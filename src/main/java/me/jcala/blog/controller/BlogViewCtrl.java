@@ -13,11 +13,6 @@ import java.util.List;
 
 @Controller
 public class BlogViewCtrl {
-    @GetMapping("/blogs")
-    public String blogs() {
-        return "blogs";
-    }
-
     @GetMapping("/archives")
     public String archives(Model model){
         ArchivesYear.Archive archive2=new ArchivesYear.Archive(2,"","scala的AKKA使用指南");
