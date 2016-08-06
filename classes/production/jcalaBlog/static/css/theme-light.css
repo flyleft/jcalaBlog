@@ -1,14 +1,3 @@
-/*html{
-    font-size: 100%;
-}
-
-body {
-    background: #fff;
-    font: 300 1em/1.8 "Helvetica Neue",Helvetica, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans;
-    -webkit-font-smoothing: antialiased;
-    color: #515862;
-}*/
-
 a{
     -webkit-transition-property: opacity;
     -moz-transition-property: opacity;
@@ -20,17 +9,10 @@ a{
     transition: all 0.3s ease;
 }
 
-/* override typo css */
-/*h1, h2, h3, h4, h5, h6{
-    color: #47596D;
-    -webkit-font-smoothing: normal;
-}*/
-
 hr{
     border-color: #eee;
 }
 
-/* end */
 
 pre{
     background: #F9F9F9;
@@ -42,51 +24,6 @@ pre{
     word-break: keep-all;
     word-wrap: normal;
 }
-
-/*a.btn-default{
-    color: #888;
-}*/
-
-/*a.btn-default:hover{
-    background: #fff;
-    color: #333;
-    border-color: #333;
-}*/
-/*
-.navbar{
-    z-index: 100;
-}
-
-.navbar a.navbar-brand{
-    color: #9caab0;
-    font-weight: bold;
-}
-
-.navbar .container{
-    border-bottom: 1px #eee solid;
-    padding-top: 10px;
-}
-
-.navbar li a{
-    color: #9caab0;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 0.9em;
-}
-
-.nav>li>a:focus, .nav>li>a:hover{
-    background: none;
-    color: #888;
-}
-
-@media screen and (max-width: 480px) {
-    #navbar{
-        text-align: center;
-    }
-    .nav>li{
-        display: inline-block;
-    }
-}*/
 
 .container{
     padding-top: 20px;
@@ -100,46 +37,6 @@ pre{
 form input, form button{
     margin-top: 10px;
 }
-
-
-/*
-.header-title{
-    padding: 0 100px;
-    width: 100%;
-    position: relative;
-}
-
-.header-title h1 {
-    margin-top: 20px;
-}
-
-.header-title p{
-    font-size: 0.9em;
-
-}
-.header-title p.meta{
-    color: #999;
-    font-size: 0.9em;
-}
-
-.header-title .avatar img{
-    margin-top: 20px;
-    border-radius: 50%;
-    box-shadow: 0 0 0 3px #fff, 0 0 0 4px #ccc;
-    width: 80px;
-    height: 80px;
-}
-
-.header-title-wrapper{
-    display: table-cell;
-    vertical-align: middle;
-    margin: 0 auto;
-    text-align: center;
-    width: 100%;
-    display: block;
-}
-*/
-
 
 .post{
     padding: 50px 80px;
@@ -244,30 +141,3 @@ ul.archive-list li span.month{
 ul.tags li{
     margin: 5px 10px;
 }
-
-/*
-.footer{
-    text-align: center;
-    margin-bottom: 50px;
-    font-size: 0.9em;
-    color: #888;
-}
-
-.footer a{
-    color: #888;
-}
-
-.footer p, .typo .footer p {
-    margin-bottom: 0.4em;
-}
-
-.footer-wrapper{
-    display: block;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.footer-wrapper hr{
-    border-color: #ddd;
-}
-*/

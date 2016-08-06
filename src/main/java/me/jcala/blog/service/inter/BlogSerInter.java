@@ -10,7 +10,7 @@ import java.util.List;
  * Created by Administrator on 2016/8/2.
  */
 public interface BlogSerInter {
-    List<ArchivesYear> archives() throws Exception;
-    List<Project> projects() throws Exception;
-    List<Tag> tags() throws Exception;
+    List<ArchivesYear> archives();
+    List<Project> projects();
+    List<Tag> tags();
 }
