@@ -1,17 +1,7 @@
 #macro(ulList $list)
     <ul>
-    #foreach(${item} in $list)
-     <li>&#12288;&#12288;${item}</li>
-    #end
+        #foreach(${item} in $list)
+            <li>&#12288;&#12288;${item}</li>
+        #end
     </ul>
 #end
-#*
-#macro(titleList $data)
-<h3><a href="https://jcala.me/about#${data.Title}">${data.Title}</a></h3>
-<ul>
-    #foreach(${item} in ${data.List})
-        <li>&#12288;&#12288;${item}</li>
-    #end
-</ul>
-#end
-*#

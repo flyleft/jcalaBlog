@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link href="/css/editor.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" charset="utf-8" src="/js/marked.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/js/CodeMirror.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/js/editor.js"></script>
+    <title>Editor</title>
+    <style type="text/css">
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: #f9f9f7;
+        }
+        .wrapper {
+            max-width: 680px;
+            padding: 10px;
+            margin: 60px auto;
+        }
+    </style>
+</head>
+<body>
+<div style="display: none;" class="wrapper">
+    <textarea id="view_content" name="content" rows="5"></textarea>
+</div>
+<textarea id="markdown" name="markdown" rows="5" data-required
+          data-describedby="message" data-description="content">$!{view.content}
+</textarea>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript">
+
+    function setContent(content) {
+        if (content != null && content.length > 0) {
+            $('#view_content').text(content);
+        }
+    }
+    $(function () {
+        var editor = new Editor({
+            element: document.getElementById('markdown'),
+            onChange: function (markdown, html) {
+                $('#view_content').text(html);
+            }
+        });
+    })
+</script>
+</body>
+</html>
