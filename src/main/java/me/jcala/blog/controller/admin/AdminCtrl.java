@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AdminCtrl {
     @GetMapping("/markdown")
     public String markdown() {
-        return "admin/markdown";
+        return "admin/mkEditor";
     }
 
 }
