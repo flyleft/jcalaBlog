@@ -1,4 +1,4 @@
-package me.jcala.blog.service.user;
+package me.jcala.blog.service;
 
 import lombok.val;
 import me.jcala.blog.domain.UserInfo;

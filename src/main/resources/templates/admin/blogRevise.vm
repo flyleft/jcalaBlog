@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>change-info</title>
+    <title>Admin-newBlog</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -34,15 +34,15 @@
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-       <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav side-nav">
-              <li><a href="/admin/home"><i class="fa fa-bar-chart-o"></i> Monitor</a></li>
-              <li><a href="/admin/newBlog"><i class="fa fa-edit"></i> New Blog</a></li>
-              <li><a href="/admin/blogSet"><i class="fa fa-wrench"></i> Blog Settings</a></li>
-              <li class="active"><a href="/admin/Info"><i class="fa fa-desktop"></i> Info</a></li>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+         <ul class="nav navbar-nav side-nav">
+             <li><a href="/admin/moniter"><i class="fa fa-bar-chart-o"></i> Monitor</a></li>
+             <li><a href="/admin/newBlog"><i class="fa fa-edit"></i> New Blog</a></li>
+             <li><a href="/admin/blogSet"><i class="fa fa-wrench"></i> Blog Settings</a></li>
+             <li><a href="/admin/info"><i class="fa fa-desktop"></i> Info</a></li>
           </ul>
 
-           <ul class="nav navbar-nav navbar-right navbar-user">
+          <ul class="nav navbar-nav navbar-right navbar-user">
             <li class="dropdown alerts-dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i>Logs<span class="badge">3</span> <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -57,7 +57,7 @@
                 <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
                 <li><a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge">7</span></a></li>
                 <li class="divider"></li>
-                <li><a href="/admin/logIn"><i class="fa fa-power-off"></i> Log Out</a></li>
+                <li><a href="/admin/login"><i class="fa fa-power-off"></i> Log Out</a></li>
               </ul>
             </li>
           </ul>
@@ -65,61 +65,40 @@
       </nav>
 
       <div id="page-wrapper">
-
         <div class="row">
-          <div class="col-lg-12">
-            <h1>Info Page <small>change-info</small></h1>
-             <button class="btn btn-primary"><i class="icon-save"></i> Save</button>
-             <a href="#myModal" data-toggle="modal" class="btn">Delete</a>
-          </div>
-        </div><!-- /.row -->
-    <div class="row">
-          <div class="col-lg-12">
-            <div class="well">
-    <ul class="nav nav-tabs">
-      <li class="active"><a href="#home" data-toggle="tab">Profile</a></li>
-      <li><a href="#profile" data-toggle="tab">Password</a></li>
-    </ul>
-    <div id="myTabContent" class="tab-content">
-      <div class="tab-pane active in" id="home">
-	  
-    <form>
-  <div class="form-group">
-    <label for="exampleInputName2">Name</label>
-    <input type="text" class="form-control" id="exampleInputName2" placeholder="Jcala">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputEmail2">Email</label>
-    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Jcala@example.com">
-  </div>
-  <button type="submit" class="btn btn-primary">Update</button>
-   </form>
-      </div>
-      <div class="tab-pane fade" id="profile">
-    <form id="tab2">
-        <label>New Password</label>
-        <input type="password" class="form-control">
-        <div>
-            <button class="btn btn-primary">Update</button>
-        </div>
-    </form>
-      </div>
-  </div>
-
-</div>
-          </div>
+          <div class="col-md-12 column">
+		  <center>
+			<form role="form" class="form-inline">
+				<div class="form-group">
+					 <label for="blogTitle">Title</label>
+					 <input type="text" class="form-control" id="blogInfo"  />
+				</div>
+				<div class="form-group">
+					<label for="blogTags">Tags</label>
+					 <input type="text" class="form-control" id="blogInfo" />
+				</div>
+				<div class="form-group">
+					 <label for="blogSubmit">submit</label>
+					 <input type="button" class="form-control" id="blogInfo" value="save"/>
+				</div>
+			</form>
+			</center>
+		</div>
         </div><!-- /.row -->
       </div><!-- /#page-wrapper -->
-
+	  
+      <div id="page-wrapper">
+        <div class="row">
+          <div class="col-md-12 column">
+			<iframe src="editor.html" width="100%" height="750" scrolling="no" frameborder="0"></iframe>
+		</div>
+        </div><!-- /.row -->
+      </div><!-- /#page-wrapper -->
     </div><!-- /#wrapper -->
 
     <!-- JavaScript -->
     <script src="js/jquery-1.10.2.js"></script>
     <script src="js/bootstrap.js"></script>
-
-    <!-- Page Specific Plugins -->
-    <script src="js/tablesorter/jquery.tablesorter.js"></script>
-   
 
   </body>
 </html>

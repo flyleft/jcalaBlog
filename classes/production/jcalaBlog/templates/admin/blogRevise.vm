@@ -35,12 +35,13 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
-           <ul class="nav navbar-nav side-nav">
-               <li><a href="/admin/home"><i class="fa fa-bar-chart-o"></i> Monitor</a></li>
-               <li class="active"><a href="/admin/newBlog"><i class="fa fa-edit"></i> New Blog</a></li>
-               <li><a href="/admin/blogSet"><i class="fa fa-wrench"></i> Blog Settings</a></li>
-               <li><a href="/admin/Info"><i class="fa fa-desktop"></i> Info</a></li>
+         <ul class="nav navbar-nav side-nav">
+             <li><a href="/admin/moniter"><i class="fa fa-bar-chart-o"></i> Monitor</a></li>
+             <li><a href="/admin/newBlog"><i class="fa fa-edit"></i> New Blog</a></li>
+             <li><a href="/admin/blogSet"><i class="fa fa-wrench"></i> Blog Settings</a></li>
+             <li><a href="/admin/info"><i class="fa fa-desktop"></i> Info</a></li>
           </ul>
+
           <ul class="nav navbar-nav navbar-right navbar-user">
             <li class="dropdown alerts-dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i>Logs<span class="badge">3</span> <b class="caret"></b></a>
@@ -56,7 +57,7 @@
                 <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
                 <li><a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge">7</span></a></li>
                 <li class="divider"></li>
-                <li><a href="/admin/logIn"><i class="fa fa-power-off"></i> Log Out</a></li>
+                <li><a href="/admin/login"><i class="fa fa-power-off"></i> Log Out</a></li>
               </ul>
             </li>
           </ul>
@@ -66,7 +67,7 @@
       <div id="page-wrapper">
         <div class="row">
           <div class="col-md-12 column">
-		 <center>
+		  <center>
 			<form role="form" class="form-inline">
 				<div class="form-group">
 					 <label for="blogTitle">Title</label>
@@ -89,7 +90,7 @@
       <div id="page-wrapper">
         <div class="row">
           <div class="col-md-12 column">
-			<iframe src="/html/editor.html" width="100%" height="750" scrolling="no" frameborder="0"></iframe>
+			<iframe src="editor.html" width="100%" height="750" scrolling="no" frameborder="0"></iframe>
 		</div>
         </div><!-- /.row -->
       </div><!-- /#page-wrapper -->

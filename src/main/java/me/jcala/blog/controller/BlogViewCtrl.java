@@ -1,6 +1,7 @@
 package me.jcala.blog.controller;
 
 import me.jcala.blog.service.BlogSer;
+import me.jcala.blog.service.UserSer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class BlogViewCtrl {
+    @Autowired
+    private UserSer userSer;
     @Autowired
     private BlogSer blogSer;
     @GetMapping("/archives")
@@ -27,5 +30,10 @@ public class BlogViewCtrl {
 
         model.addAttribute("tags",blogSer.tags());
         return "tags";
+    }
+    @GetMapping("/about")
+    public String about(Model model) {
+        model.addAttribute("userInfo",userSer.getUserInfo());
+        return "about";
     }
 }

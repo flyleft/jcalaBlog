@@ -10,6 +10,7 @@ server:
             dir: arget/logs
             pattern: combined
 #打印日志配置
+
 logging:
     config: classpath:logback-spring.xml
     path: /Users/jcala/logs

@@ -8,12 +8,12 @@
 
     <title>blog-settings</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+      <!-- Bootstrap core CSS -->
+      <link href="/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Add custom CSS here -->
-    <link href="css/sb-admin.css" rel="stylesheet">
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+      <!-- Add custom CSS here -->
+      <link href="/css/sb-admin.css" rel="stylesheet">
+      <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   </head>
 
   <body>
@@ -36,10 +36,10 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
        <div class="collapse navbar-collapse navbar-ex1-collapse">
            <ul class="nav navbar-nav side-nav">
-               <li><a href="/admin/home"><i class="fa fa-bar-chart-o"></i> Monitor</a></li>
+               <li><a href="/admin/moniter"><i class="fa fa-bar-chart-o"></i> Monitor</a></li>
                <li><a href="/admin/newBlog"><i class="fa fa-edit"></i> New Blog</a></li>
                <li class="active"><a href="/admin/blogSet"><i class="fa fa-wrench"></i> Blog Settings</a></li>
-               <li><a href="/admin/Info"><i class="fa fa-desktop"></i> Info</a></li>
+               <li><a href="/admin/info"><i class="fa fa-desktop"></i> Info</a></li>
           </ul>
            <ul class="nav navbar-nav navbar-right navbar-user">
             <li class="dropdown alerts-dropdown">
@@ -56,7 +56,7 @@
                 <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
                 <li><a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge">7</span></a></li>
                 <li class="divider"></li>
-                <li><a href="/admin/logIn"><i class="fa fa-power-off"></i> Log Out</a></li>
+                <li><a href="/admin/login"><i class="fa fa-power-off"></i> Log Out</a></li>
               </ul>
             </li>
           </ul>
@@ -94,7 +94,7 @@
                     <td>1265</td>
                     <td>JAVA Spring</td>
                     <td>
-					<a href="blog-page-revise.html"><i class="fa fa-pencil"></i></a>
+					<a href="admin/blogRevise"><i class="fa fa-pencil"></i></a>
                     <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
 					</td>
                   </tr>
@@ -103,7 +103,7 @@
                     <td>261</td>
                     <td>JAVA</td>
                     <td>
-					 <a href="blog-page-revise.html"><i class="fa fa-pencil"></i></a>
+					 <<a href="admin/blogRevise"><i class="fa fa-pencil"></i></a>
                      <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
 					</td>
                   </tr>
@@ -112,7 +112,7 @@
                     <td>665</td>
                     <td>scala 并发</td>
                     <td>
-					<a href="blog-page-revise.html"><i class="fa fa-pencil"></i></a>
+                        <a href="admin/blogRevise"><i class="fa fa-pencil"></i></a>
                     <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
 					</td>
                   </tr>
@@ -121,7 +121,7 @@
                     <td>9516</td>
                     <td>scala</td>
                     <td>
-					<a href="blog-page-revise.html"><i class="fa fa-pencil"></i></a>
+                        <a href="admin/blogRevise"><i class="fa fa-pencil"></i></a>
                     <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
 					</td>
                   </tr>
@@ -130,7 +130,7 @@
                     <td>23</td>
                     <td>JAVA android</td>
                     <td>
-					<a href="blog-page-revise.html"><i class="fa fa-pencil"></i></a>
+                        <a href="admin/blogRevise"><i class="fa fa-pencil"></i></a>
                     <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
 					</td>
                   </tr>
@@ -139,7 +139,7 @@
                     <td>421</td>
                     <td>JAVA 并发</td>
                     <td>
-					<a href="blog-page-revise.html"><i class="fa fa-pencil"></i></a>
+                        <a href="admin/blogRevise"><i class="fa fa-pencil"></i></a>
                     <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
 					</td>
                   </tr>
@@ -148,7 +148,7 @@
                     <td>1233</td>
                     <td>goLang</td>
                     <td>
-					<a href="blog-page-revise.html"><i class="fa fa-pencil"></i></a>
+                        <a href="admin/blogRevise"><i class="fa fa-pencil"></i></a>
                     <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
 					</td>
                   </tr>
@@ -174,8 +174,8 @@
     </div><!-- /#wrapper -->
 
     <!-- JavaScript -->
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 
     <!-- Page Specific Plugins -->
   
