@@ -2,6 +2,7 @@ package me.jcala.blog.controller.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -10,12 +11,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/admin")
 public class AdminCtrl {
-    @GetMapping("/moniter")
+    @GetMapping("/")
     public String moniter() {
         return "admin/moniter";
     }
     @GetMapping("/newBlog")
     public String newBlog() {
+        return "admin/newBlog";
+    }
+    @PostMapping("/saveBlog")
+    public String saveBlog(String title,String tags) {
+        System.out.println("title is:"+title);
+        System.out.println("tags is:"+tags);
         return "admin/newBlog";
     }
     @GetMapping("/blogSet")

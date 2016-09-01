@@ -14,6 +14,14 @@
       <!-- Add custom CSS here -->
       <link href="/css/sb-admin.css" rel="stylesheet">
       <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+     #* <script type="text/javascript">
+          function saveBlog() {
+              var form = document.forms[0];
+              form.action = "${pageContext.request.contextPath}/admin/saveBlog";
+              form.method = "post";
+              form.submit();
+          }
+      </script>*#
   </head>
 
   <body>
@@ -67,18 +75,18 @@
         <div class="row">
           <div class="col-md-12 column">
 		 <center>
-			<form role="form" class="form-inline">
+			<form role="form" class="form-inline" action="/admin/saveBlog" method="post">
 				<div class="form-group">
 					 <label for="blogTitle">Title</label>
-					 <input type="text" class="form-control" id="blogInfo"  />
+					 <input type="text" class="form-control" id="blogInfo" name="title" />
 				</div>
 				<div class="form-group">
 					<label for="blogTags">Tags</label>
-					 <input type="text" class="form-control" id="blogInfo" />
+					 <input type="text" class="form-control" id="blogInfo" name="tags" />
 				</div>
 				<div class="form-group">
 					 <label for="blogSubmit">submit</label>
-					 <input type="button" class="form-control" id="blogInfo" value="save"/>
+					 <input type="submit" class="form-control" value="save"/>
 				</div>
 			</form>
 			</center>
