@@ -30,13 +30,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Admin</a>
+          <a class="navbar-brand" href="/admin/">Admin</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
        <div class="collapse navbar-collapse navbar-ex1-collapse">
            <ul class="nav navbar-nav side-nav">
-               <li><a href="/admin/moniter"><i class="fa fa-bar-chart-o"></i> Monitor</a></li>
+               <li><a href="/admin/"><i class="fa fa-bar-chart-o"></i> Monitor</a></li>
                <li><a href="/admin/newBlog"><i class="fa fa-edit"></i> New Blog</a></li>
                <li class="active"><a href="/admin/blogSet"><i class="fa fa-wrench"></i> Blog Settings</a></li>
                <li><a href="/admin/info"><i class="fa fa-desktop"></i> Info</a></li>
@@ -69,7 +69,7 @@
           <div class="col-lg-12">
             <h1>Blogs <small>Blog Page Setting</small></h1>
             <ol class="breadcrumb">
-              <li><a href="index.html"><i class="fa fa-dashboard"></i>Monitor</a></li>
+              <li><a href="/admin/"><i class="fa fa-dashboard"></i>Monitor</a></li>
               <li class="active"><i class="fa fa-table"></i>Blogs</li>
             </ol>
           </div>

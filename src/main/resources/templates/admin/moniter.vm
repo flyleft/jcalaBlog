@@ -32,13 +32,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Admin</a>
+          <a class="navbar-brand" href="/admin/">Admin</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
          <ul class="nav navbar-nav side-nav">
-            <li class="active"><a href="/admin/home"><i class="fa fa-bar-chart-o"></i> Monitor</a></li>
+            <li class="active"><a href="/admin/"><i class="fa fa-bar-chart-o"></i> Monitor</a></li>
             <li><a href="/admin/newBlog"><i class="fa fa-edit"></i> New Blog</a></li>
             <li><a href="/admin/blogSet"><i class="fa fa-wrench"></i> Blog Settings</a></li>
             <li><a href="/admin/Info"><i class="fa fa-desktop"></i> Info</a></li>
@@ -71,7 +71,7 @@
           <div class="col-lg-12">
             <div class="panel panel-primary">
               <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Traffic Statistics: October 1, 2013 - October 31, 2013</h3>
+                <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Traffic Statistics: October 1, 2016 - October 31, 2016</h3>
               </div>
               <div class="panel-body">
                 <div id="morris-chart-area"></div>
@@ -84,7 +84,7 @@
           <div class="col-lg-12">
             <div class="panel panel-primary">
               <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Traffic Sources: October 1, 2013 - October 31, 2013</h3>
+                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Traffic Sources: October 1, 2016 - October 31, 2016</h3>
               </div>
               <div class="panel-body">
                 <div id="morris-chart-donut"></div>
