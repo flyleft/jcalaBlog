@@ -14,14 +14,16 @@
       <!-- Add custom CSS here -->
       <link href="/css/sb-admin.css" rel="stylesheet">
       <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
-     #* <script type="text/javascript">
+      <script type="text/javascript">
           function saveBlog() {
               var form = document.forms[0];
-              form.action = "${pageContext.request.contextPath}/admin/saveBlog";
+              form.action = "/admin/saveBlog";
               form.method = "post";
+              var editor = document.getElementById('mdEditor').contentWindow;
+              document.blogForm.article.value=editor.document.getElementsByTagName("article")[0].innerHTML;
               form.submit();
           }
-      </script>*#
+      </script>
   </head>
 
   <body>
@@ -75,18 +77,20 @@
         <div class="row">
           <div class="col-md-12 column">
 		 <center>
-			<form role="form" class="form-inline" action="/admin/saveBlog" method="post">
+             #*<form role="form" class="form-inline" action="/admin/saveBlog" method="post">*#
+			<form role="form" class="form-inline" name="blogForm">
 				<div class="form-group">
 					 <label for="blogTitle">Title</label>
-					 <input type="text" class="form-control" id="blogInfo" name="title" />
+					 <input type="text" class="form-control" name="title" />
 				</div>
 				<div class="form-group">
 					<label for="blogTags">Tags</label>
-					 <input type="text" class="form-control" id="blogInfo" name="tags" />
+					 <input type="text" class="form-control" name="tags" />
 				</div>
+                <input type="hidden" name="article" />
 				<div class="form-group">
 					 <label for="blogSubmit">submit</label>
-					 <input type="submit" class="form-control" value="save"/>
+					 <input type="submit" class="form-control" value="save" onclick="saveBlog()"/>
 				</div>
 			</form>
 			</center>
@@ -97,7 +101,7 @@
       <div id="page-wrapper">
         <div class="row">
           <div class="col-md-12 column">
-			<iframe src="/html/editor.html" width="100%" height="750" scrolling="no" frameborder="0"></iframe>
+			<iframe src="/html/editor.html" id="mdEditor" width="100%" height="750" scrolling="no" frameborder="0"></iframe>
 		</div>
         </div><!-- /.row -->
       </div><!-- /#page-wrapper -->

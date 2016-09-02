@@ -20,9 +20,10 @@ public class AdminCtrl {
         return "admin/newBlog";
     }
     @PostMapping("/saveBlog")
-    public String saveBlog(String title,String tags) {
+    public String saveBlog(String title,String tags,String article) {
         System.out.println("title is:"+title);
         System.out.println("tags is:"+tags);
+        System.out.println("article is:"+article);
         return "admin/newBlog";
     }
     @GetMapping("/blogSet")
