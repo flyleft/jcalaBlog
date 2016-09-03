@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Timestamp;
-import java.util.List;
 
 /**
  * 博客页面的存储，包括id,日期，标题和博客页面
@@ -20,5 +19,5 @@ public class BlogView {
     private Timestamp date;
     private String title;
     private String article;
-    private List<BlogTag> tags;
+    private String tags;
 }

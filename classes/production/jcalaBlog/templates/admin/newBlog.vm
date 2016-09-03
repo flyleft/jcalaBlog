@@ -85,7 +85,7 @@
 				</div>
 				<div class="form-group">
 					<label for="blogTags">Tags</label>
-					 <input type="text" class="form-control" name="tags" />
+					 <input type="text" class="form-control" name="tags" placeholder="请用空格将不同标签隔开"/>
 				</div>
                 <input type="hidden" name="article" />
 				<div class="form-group">
