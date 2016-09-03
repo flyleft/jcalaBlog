@@ -22,7 +22,7 @@ public class AdminBlogSer implements AdminBlogSerInter{
         blogView.setTags(tags);
         blogView.setDate(Tools.getTimestamp());
         adminBlogMapper.addBlog(blogView);
-        System.out.print(blogView.getVid());
+        System.out.print("#######################:"+blogView.getVid());
 
     }
 }
