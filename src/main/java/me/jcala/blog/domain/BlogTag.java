@@ -5,14 +5,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 /**
- * Created by jcala on 2016/7/18
+ * 博客标签
  */
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Tag {
-    private String title;
-    private String href;
+public class BlogTag {
+    private Integer tid;
+    private String name;
+    private List<BlogView> blogViews;
 }
