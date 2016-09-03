@@ -13,7 +13,7 @@ import javax.sql.DataSource;
  * Created by jcala on 2016/7/29
  */
 @Configuration
-@EnableTransactionManagement
+@EnableTransactionManagement// 开启注解事务管理，等同于xml配置文件中的<tx:annotation-driven/>
 public class DataSourceConf {
     @Value("${hikaricp.driver}")
     private String driver;
@@ -42,7 +42,6 @@ public class DataSourceConf {
         hds.setMinimumIdle(minimumIdle);
         return hds;
     }
-
     @Bean
     public PlatformTransactionManager transactionManager() {
         DataSourceTransactionManager transactionManager =

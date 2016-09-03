@@ -7,6 +7,8 @@ import me.jcala.blog.utils.Tools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by Administrator on 2016/9/3.
  */
@@ -22,7 +24,13 @@ public class AdminBlogSer implements AdminBlogSerInter{
         blogView.setTags(tags);
         blogView.setDate(Tools.getTimestamp());
         adminBlogMapper.addBlog(blogView);
-        System.out.print("#######################:"+blogView.getVid());
+        addTag(tags,blogView.getVid());
+    }
+    public void addTag(String tagStr,int vid) throws Exception{
+        List<String> tagList=Tools.getTagList(tagStr);
+        for (String tag:tagList){
+            adminBlogMapper.addTag(tag,vid);
+        }
 
     }
 }
