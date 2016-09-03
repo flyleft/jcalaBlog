@@ -110,6 +110,30 @@
     <!-- JavaScript -->
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-
+    <script src="/js/jquery.bootstrap-growl.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            var id=${myId};
+            if (id==1){
+                setTimeout(function() {
+                    $.bootstrapGrowl("Save sucess!", {
+                        type: 'success',
+                        align: 'center',
+                        width: 'auto',
+                        allow_dismiss: false
+                    });
+                }, 0);
+            }else if(id==2){
+                setTimeout(function() {
+                    $.bootstrapGrowl("Save fail!", {
+                        type: 'danger',
+                        align: 'center',
+                        width: 'auto',
+                        allow_dismiss: false
+                    });
+                }, 0);
+            }
+        });
+    </script>
   </body>
 </html>
