@@ -23,12 +23,22 @@ h1 {
     font-size: 2em;
     font-weight: 400;
 }
-
+h1.fail {
+    color: #f00f0f;
+}
+h1.success{
+    color: #5cb85c;
+}
 p {
     margin: 0 auto;
-    width: 280px;
+    width: 500px;
 }
-
+p.fail{
+    color: #f00f0f;
+}
+p.success{
+    color: #5cb85c;
+}
 @media only screen and (max-width: 280px) {
 
     body, p {
