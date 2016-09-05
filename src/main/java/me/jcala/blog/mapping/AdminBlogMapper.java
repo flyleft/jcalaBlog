@@ -19,6 +19,10 @@ public interface AdminBlogMapper {
       @SelectKey(before=false,keyProperty="bv.vid",resultType=Integer.class,statementType= StatementType.STATEMENT,statement="SELECT LAST_INSERT_ID() AS id")
       int addBlog(@Param("bv") BlogView blogView) throws Exception;
 
-      @Insert("insert into blog_tag (name,vid) values(#{tn},#{id})")
-      int addTag(@Param("tn") String tagName,@Param("id") int vid) throws Exception;
+      @Insert("insert into view_tag (name,vid) values(#{tn},#{id})")
+      int addViewTag(@Param("tn") String tagName,@Param("id") int vid) throws Exception;
+
+      @Insert("insert ignore into blog_tag set name = #{tg}")
+      int addTag(@Param("tg") String tagName) throws Exception;
+
 }

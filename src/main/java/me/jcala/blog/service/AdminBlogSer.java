@@ -24,12 +24,13 @@ public class AdminBlogSer implements AdminBlogSerInter{
         blogView.setTags(tags);
         blogView.setDate(Tools.getTimestamp());
         adminBlogMapper.addBlog(blogView);
-        addTag(tags,blogView.getVid());
+        addViewTag(tags,blogView.getVid());
     }
-    public void addTag(String tagStr,int vid) throws Exception{
+    public void addViewTag(String tagStr,int vid) throws Exception{
         List<String> tagList=Tools.getTagList(tagStr);
         for (String tag:tagList){
-            adminBlogMapper.addTag(tag,vid);
+            adminBlogMapper.addViewTag(tag,vid);
+            adminBlogMapper.addTag(tag);
         }
 
     }
