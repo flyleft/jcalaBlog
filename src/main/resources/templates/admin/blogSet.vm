@@ -103,7 +103,7 @@
                     <td>261</td>
                     <td>JAVA</td>
                     <td>
-					 <<a href="admin/blogRevise"><i class="fa fa-pencil"></i></a>
+					 <a href="admin/blogRevise"><i class="fa fa-pencil"></i></a>
                      <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
 					</td>
                   </tr>
@@ -178,7 +178,7 @@
     <script src="/js/bootstrap.min.js"></script>
 
     <!-- Page Specific Plugins -->
-  
+
 
   </body>
 </html>

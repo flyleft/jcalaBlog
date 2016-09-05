@@ -110,10 +110,10 @@
     <div class="form-group">
         <label class="text-warning">sex</label>
             <div class="input-group">
-        	        <label ng-repeat="option in field.options" class="text-info">
+        	        <label ng-repeat="option in field.options" <label class="text-info">
                         <input type="radio" name="sex" value="male" checked="checked">male
         	        </label>&#12288;
-                <label ng-repeat="option in field.options" class="text-info">
+                <label ng-repeat="option in field.options" <label class="text-info">
                     <input type="radio" name="sex" value="female">female
                 </label>
             </div>
