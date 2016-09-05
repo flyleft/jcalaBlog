@@ -49,7 +49,7 @@ public class AdminCtrl {
             id=2;
            System.out.println("============="+e.getMessage());
         }
-        return new ModelAndView("redirect:/admin/newBlog/"+id);
+        return new ModelAndView("redirect:/html/newBlog/"+id);
     }
     @GetMapping("/blogSet")
     public String blogSet() {

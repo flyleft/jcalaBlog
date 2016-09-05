@@ -7,11 +7,11 @@
 			<form role="form" class="form-inline" name="blogForm">
 				<div class="form-group">
 					 <label for="blogTitle">Title</label>
-					 <input type="text" class="form-control" name="title" />
+					 <input type="text" class="form-control" name="title" placeholder="请输入博客标题"/>
 				</div>
 				<div class="form-group">
 					<label for="blogTags">Tags</label>
-					 <input type="text" class="form-control" name="tags" placeholder="请用空格将不同标签隔开"/>
+					 <input type="text" class="form-control" name="tags" placeholder="输入标签后请点击回车键" data-role="tagsinput"/>
 				</div>
                 <input type="hidden" name="markdown" />
                 <input type="hidden" name="article" />
@@ -38,30 +38,8 @@
     <!-- JavaScript -->
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/jquery.bootstrap-growl.min.js"></script>
+    <script src="/js/bootstrap-tagsinput.min.js"></script>
     <script type="text/javascript">
-        $(function() {
-            var id=${myId};
-            if (id==1){
-                setTimeout(function() {
-                    $.bootstrapGrowl("Save sucess!", {
-                        type: 'success',
-                        align: 'center',
-                        width: 'auto',
-                        allow_dismiss: false
-                    });
-                }, 0);
-            }else if(id==2){
-                setTimeout(function() {
-                    $.bootstrapGrowl("Save fail!", {
-                        type: 'danger',
-                        align: 'center',
-                        width: 'auto',
-                        allow_dismiss: false
-                    });
-                }, 0);
-            }
-        });
         function saveBlog() {
             var form = document.forms[0];
             form.action = "/admin/saveBlog";

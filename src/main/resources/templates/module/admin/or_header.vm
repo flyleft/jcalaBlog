@@ -13,6 +13,7 @@
 
     <!-- Add custom CSS here -->
     <link href="/css/sb-admin.css" rel="stylesheet">
+    <link href="/css/bootstrap-tagsinput.css" rel="stylesheet">
     <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
 </head>
 
