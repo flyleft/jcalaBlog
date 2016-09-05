@@ -69,8 +69,7 @@
         <div class="row">
           <div class="col-lg-12">
             <h1>Info Page <small>change-info</small></h1>
-             <button class="btn btn-primary"><i class="icon-save"></i> Save</button>
-             <a href="#myModal" data-toggle="modal" class="btn">Delete</a>
+            #* <button class="btn btn-primary"><i class="icon-save"></i> Save</button>*#
           </div>
         </div><!-- /.row -->
     <div class="row">
@@ -85,19 +84,64 @@
 	  
     <form>
   <div class="form-group">
-    <label for="exampleInputName2">Name</label>
-    <input type="text" class="form-control" id="exampleInputName2" placeholder="Jcala">
+    <label class="text-warning">username</label>
+    <input type="text" class="form-control" placeholder="jcala">
   </div>
   <div class="form-group">
-    <label for="exampleInputEmail2">Email</label>
-    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Jcala@example.com">
+    <label class="text-warning">email</label>
+    <input type="email" class="form-control"  placeholder="jcala@example.com">
   </div>
+    <div class="form-group">
+        <label class="text-warning">github</label>
+        <input type="text" class="form-control"  placeholder="https://github.com/jcalaz">
+    </div>
+    <div class="form-group">
+        <label class="text-warning">twitter</label>
+        <input type="text" class="form-control"  placeholder="https://twitter.com/jcalazzp">
+    </div>
+    <div class="form-group">
+        <label class="text-warning">website</label>
+        <input type="text" class="form-control"  placeholder="http://www.jcala.me/">
+    </div>
+        <div class="form-group">
+            <label class="text-warning">real_name</label>
+            <input type="text" class="form-control"  placeholder="左志鹏">
+        </div>
+    <div class="form-group">
+        <label class="text-warning">sex</label>
+            <div class="input-group">
+        	        <label ng-repeat="option in field.options" class="text-info">
+                        <input type="radio" name="sex" value="male" checked="checked">male
+        	        </label>&#12288;
+                <label ng-repeat="option in field.options" class="text-info">
+                    <input type="radio" name="sex" value="female">female
+                </label>
+            </div>
+    </div>
+        <div class="form-group">
+            <label class="text-warning">education experience</label>
+            <textarea class="form-control" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+            <label class="text-warning">project experience</label>
+            <textarea class="form-control" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+            <label class="text-warning">technique</label>
+            <textarea class="form-control" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+            <label class="text-warning">advantage</label>
+            <textarea class="form-control" rows="4"></textarea>
+        </div>
   <button type="submit" class="btn btn-primary">Update</button>
    </form>
       </div>
       <div class="tab-pane fade" id="profile">
     <form id="tab2">
-        <label>New Password</label>
+        <label class="text-warning">old password</label>
+        <input type="password" class="form-control">
+        <label class="text-warning">new password</label>
         <input type="password" class="form-control">
         <div>
             <button class="btn btn-primary">Update</button>
