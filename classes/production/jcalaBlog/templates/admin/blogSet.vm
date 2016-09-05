@@ -94,7 +94,7 @@
                     <td>1265</td>
                     <td>JAVA Spring</td>
                     <td>
-					<a href="admin/blogRevise"><i class="fa fa-pencil"></i></a>
+					<a href="/admin/blogRevise"><i class="fa fa-pencil"></i></a>
                     <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
 					</td>
                   </tr>
@@ -103,7 +103,7 @@
                     <td>261</td>
                     <td>JAVA</td>
                     <td>
-					 <a href="admin/blogRevise"><i class="fa fa-pencil"></i></a>
+					 <a href="/admin/blogRevise"><i class="fa fa-pencil"></i></a>
                      <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
 					</td>
                   </tr>
@@ -112,7 +112,7 @@
                     <td>665</td>
                     <td>scala 并发</td>
                     <td>
-                        <a href="admin/blogRevise"><i class="fa fa-pencil"></i></a>
+                        <a href="/admin/blogRevise"><i class="fa fa-pencil"></i></a>
                     <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
 					</td>
                   </tr>
@@ -121,7 +121,7 @@
                     <td>9516</td>
                     <td>scala</td>
                     <td>
-                        <a href="admin/blogRevise"><i class="fa fa-pencil"></i></a>
+                        <a href="/admin/blogRevise"><i class="fa fa-pencil"></i></a>
                     <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
 					</td>
                   </tr>
@@ -130,7 +130,7 @@
                     <td>23</td>
                     <td>JAVA android</td>
                     <td>
-                        <a href="admin/blogRevise"><i class="fa fa-pencil"></i></a>
+                        <a href="/admin/blogRevise"><i class="fa fa-pencil"></i></a>
                     <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
 					</td>
                   </tr>
@@ -139,7 +139,7 @@
                     <td>421</td>
                     <td>JAVA 并发</td>
                     <td>
-                        <a href="admin/blogRevise"><i class="fa fa-pencil"></i></a>
+                        <a href="/admin/blogRevise"><i class="fa fa-pencil"></i></a>
                     <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
 					</td>
                   </tr>
@@ -148,7 +148,7 @@
                     <td>1233</td>
                     <td>goLang</td>
                     <td>
-                        <a href="admin/blogRevise"><i class="fa fa-pencil"></i></a>
+                        <a href="/admin/blogRevise"><i class="fa fa-pencil"></i></a>
                     <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
 					</td>
                   </tr>
