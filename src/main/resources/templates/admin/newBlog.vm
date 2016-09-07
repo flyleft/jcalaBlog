@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="/css/editormd.min.css" />
     <link href="/css/sb-admin.css" rel="stylesheet">
     <link href="/css/bootstrap-tagsinput.css" rel="stylesheet">
-    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -78,11 +77,11 @@
                             <label for="blogTags">Tags</label>
                             <input type="text" class="form-control" name="tags" placeholder="输入标签后请点击回车键" data-role="tagsinput"/>
                         </div>
-                        <input type="hidden" name="markdown" />
+                        <input type="hidden" name="md" />
                         <input type="hidden" name="article" />
                         <div class="form-group">
                             <label for="blogSubmit">submit</label>
-                            <input type="submit" class="form-control" value="save" onclick="saveBlog()"/>
+                            <input type="submit" class="form-control" id="save-blog" value="save" onclick="saveBlog()"/>
                         </div>
                     </form>
                 </center>
@@ -121,12 +120,13 @@
             imageUploadURL : "./php/upload.php?test=dfdf",
             saveHTMLToTextarea : true
         });
-        $("#get-md-btn").bind('click', function(){
-            alert(testEditor.getMarkdown());
-        });
-
-        $("#get-html-btn").bind('click', function() {
-            alert(testEditor.getHTML());
+        $("#save-blog").bind('click', function(){
+            var form = document.forms[0];
+            form.action = "/admin/saveBlog";
+            form.method = "post";
+            document.blogForm.article.value=testEditor.getHTML();
+            document.blogForm.md.value=testEditor.getMarkdown();
+            form.submit();
         });
     });
 </script>

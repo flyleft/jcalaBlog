@@ -17,11 +17,12 @@ public class AdminBlogSer implements AdminBlogSerInter{
     @Autowired
     private AdminBlogMapper adminBlogMapper;
     @Override
-    public void addBlog(String title, String tags, String article)  throws Exception {
+    public void addBlog(String title, String tags, String article,String md)  throws Exception {
         BlogView blogView=new BlogView();
         blogView.setArticle(article);
         blogView.setTitle(title);
         blogView.setTags(tags);
+        blogView.setMd(md);
         blogView.setDate(Tools.getTimestamp());
         adminBlogMapper.addBlog(blogView);
         addViewTag(tags,blogView.getVid());

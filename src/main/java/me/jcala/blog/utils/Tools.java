@@ -17,7 +17,7 @@ public class Tools {
     }
     public static List<String> getTagList(String tagStr){
         List<String> tagList=new ArrayList<>();
-        StringTokenizer token = new StringTokenizer(tagStr, " ");
+        StringTokenizer token = new StringTokenizer(tagStr, ",");
         while (token.hasMoreTokens()) {
             tagList.add(token.nextToken());
         }

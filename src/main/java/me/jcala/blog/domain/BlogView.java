@@ -3,6 +3,7 @@ package me.jcala.blog.domain;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.sql.Timestamp;
 
@@ -12,10 +13,12 @@ import java.sql.Timestamp;
 @Getter
 @Setter
 @NoArgsConstructor
+@ToString
 public class BlogView {
     private Integer vid;
     private Timestamp date;
     private String title;
     private String article;
     private String tags;
+    private String md;
 }

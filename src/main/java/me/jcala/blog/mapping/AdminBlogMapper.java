@@ -15,7 +15,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Mapper
 public interface AdminBlogMapper {
-      @Insert("insert into blog_view (date,title,article,tags) values(#{bv.date},#{bv.title},#{bv.article},#{bv.tags})")
+      @Insert({"insert into blog_view " ,
+              "(date,title,article,tags,md) " ,
+              "values(#{bv.date},#{bv.title}," ,
+              "#{bv.article},#{bv.tags},#{bv.md})"})
       @SelectKey(before=false,keyProperty="bv.vid",resultType=Integer.class,statementType= StatementType.STATEMENT,statement="SELECT LAST_INSERT_ID() AS id")
       int addBlog(@Param("bv") BlogView blogView) throws Exception;
 
