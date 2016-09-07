@@ -40,6 +40,16 @@ public class AdminBlogSer implements AdminBlogSerInter{
         }
         return blogView;
     }
+    public void updateBlog(int id,String title,String tags,
+                           String article,String md) throws Exception{
+            BlogView blogView=new BlogView();
+            blogView.setArticle(article);
+            blogView.setTitle(title);
+            blogView.setTags(tags);
+            blogView.setMd(md);
+            blogView.setVid(id);
+            adminBlogMapper.updateBlogById(blogView);
+    }
     private void addViewTag(String tagStr,int vid) throws Exception{
         List<String> tagList=Tools.getTagList(tagStr);
         for (String tag:tagList){

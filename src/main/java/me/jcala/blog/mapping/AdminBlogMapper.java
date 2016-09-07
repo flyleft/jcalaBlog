@@ -33,4 +33,14 @@ public interface AdminBlogMapper {
       })
       BlogView getBlogById(@Param("id") int id) throws Exception;
 
+      @Update({
+            "update blog_view",
+              "set title = #{bv.title},",
+              "set tags = #{bv.tags},",
+              "set md = #{bv,md}",
+              "set article = #{bv,article}",
+              "where vid = #{bv.vid}"
+      })
+      void updateBlogById(@Param("bv") BlogView blogView) throws Exception;
+
 }

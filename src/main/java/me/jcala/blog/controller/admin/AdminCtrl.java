@@ -59,6 +59,24 @@ public class AdminCtrl {
         }
 
     }
+    @PostMapping("/update/{id}")
+    public ModelAndView post(@PathVariable int id,String title,
+                             String tags,String article,String md) {
+        boolean result=true;
+        String errorInfo="";
+        try {
+            adminBlogSer.updateBlog(id,title,tags,article,md);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+            errorInfo=e.getMessage();
+            result=false;
+        }
+        if (result){
+            return new ModelAndView("redirect:/admin/result/2/"+id);
+        }else {
+            return new ModelAndView("redirect:/admin/result/12/"+errorInfo);
+        }
+    }
     @GetMapping("/blogSet")
     public String blogSet() {
         return "admin/blogSet";
