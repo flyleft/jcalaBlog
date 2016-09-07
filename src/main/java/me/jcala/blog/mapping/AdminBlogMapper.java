@@ -1,10 +1,7 @@
 package me.jcala.blog.mapping;
 
 import me.jcala.blog.domain.BlogView;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.SelectKey;
+import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.mapping.StatementType;
 import org.springframework.stereotype.Repository;
 
@@ -27,5 +24,13 @@ public interface AdminBlogMapper {
 
       @Insert("insert ignore into blog_tag set name = #{tg}")
       int addTag(@Param("tg") String tagName) throws Exception;
+
+      @Select({
+            "select title,tags,md",
+              "from blog_view",
+              "where vid = #{id}",
+              "limit 1"
+      })
+      BlogView getBlogById(@Param("id") int id) throws Exception;
 
 }

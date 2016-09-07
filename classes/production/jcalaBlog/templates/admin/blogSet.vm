@@ -90,17 +90,15 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Spring Boot入门</td>
-                    <td>1265</td>
-                    <td>JAVA Spring</td>
+                    <td>springBoot整合mybatis</td>
+                    <td>java Spring springBoot mybatis</td>
                     <td>
-					<a href="/admin/blogRevise"><i class="fa fa-pencil"></i></a>
+					<a href="/admin/update20"><i class="fa fa-pencil"></i></a>
                     <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
 					</td>
                   </tr>
                   <tr>
                     <td>Lombok实战</td>
-                    <td>261</td>
                     <td>JAVA</td>
                     <td>
 					 <a href="/admin/blogRevise"><i class="fa fa-pencil"></i></a>
@@ -109,7 +107,6 @@
                   </tr>
                   <tr>
                     <td>AKKA实践</td>
-                    <td>665</td>
                     <td>scala 并发</td>
                     <td>
                         <a href="/admin/blogRevise"><i class="fa fa-pencil"></i></a>
@@ -118,7 +115,6 @@
                   </tr>
                   <tr>
                     <td>Spark教程</td>
-                    <td>9516</td>
                     <td>scala</td>
                     <td>
                         <a href="/admin/blogRevise"><i class="fa fa-pencil"></i></a>
@@ -127,7 +123,6 @@
                   </tr>
                   <tr>
                     <td>基于jsoup的校园网络爬虫</td>
-                    <td>23</td>
                     <td>JAVA android</td>
                     <td>
                         <a href="/admin/blogRevise"><i class="fa fa-pencil"></i></a>
@@ -136,7 +131,6 @@
                   </tr>
                   <tr>
                     <td>JAVA多线程编程</td>
-                    <td>421</td>
                     <td>JAVA 并发</td>
                     <td>
                         <a href="/admin/blogRevise"><i class="fa fa-pencil"></i></a>
@@ -145,7 +139,6 @@
                   </tr>
                   <tr>
                     <td>gin使用</td>
-                    <td>1233</td>
                     <td>goLang</td>
                     <td>
                         <a href="/admin/blogRevise"><i class="fa fa-pencil"></i></a>

@@ -1,5 +1,6 @@
 package me.jcala.blog.controller.admin;
 
+import me.jcala.blog.domain.BlogView;
 import me.jcala.blog.service.AdminBlogSer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,6 +30,17 @@ public class AdminCtrl {
     public String newBlogBefore() {
         return "admin/newBlog";
     }
+    @GetMapping("/update{id:\\d+}")
+    public String blogRevise(@PathVariable int id,Model model) {
+        BlogView blogView=adminBlogSer.getBlogByVid(id);
+        if (blogView==null){
+            return "error";
+        }else {
+            blogView.setVid(id);
+            model.addAttribute("blog",blogView);
+            return "admin/blogRevise";
+        }
+    }
     @PostMapping("/post")
     public ModelAndView post(String title,String tags,String article,String md) {
         int id=1;
@@ -51,10 +63,6 @@ public class AdminCtrl {
     public String blogSet() {
         return "admin/blogSet";
     }
-    @GetMapping("/blogRevise/{id}")
-    public String blogRevise(@PathVariable int id) {
-        return "admin/blogRevise";
-    }
     @GetMapping("/info")
     public String info() {
         return "admin/info";
@@ -65,7 +73,6 @@ public class AdminCtrl {
     }
     @GetMapping("/result/{id}/{str}")
     public String result(@PathVariable int id, @PathVariable String str,Model model) {
-        System.out.println("==============="+id);
         if(id<10){
             switch (id){
                 case 1:model.addAttribute("targetUrl","/post/"+str);break;//添加博客成功

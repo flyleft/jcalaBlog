@@ -67,7 +67,6 @@
         <div class="row">
             <div class="col-md-12 column">
                 <center>
-                #*<form role="form" class="form-inline" action="/admin/saveBlog" method="post">*#
                     <form role="form" class="form-inline" name="blogForm">
                         <div class="form-group">
                             <label for="blogTitle">Title</label>
@@ -81,7 +80,7 @@
                         <input type="hidden" name="article" />
                         <div class="form-group">
                             <label for="blogSubmit">submit</label>
-                            <input type="submit" class="form-control" id="save-blog" value="save" onclick="saveBlog()"/>
+                            <input type="submit" class="form-control" id="save-blog" value="save"/>
                         </div>
                     </form>
                 </center>

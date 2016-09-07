@@ -12,9 +12,9 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Add custom CSS here -->
+    <link rel="stylesheet" href="/css/editormd.min.css" />
     <link href="/css/sb-admin.css" rel="stylesheet">
     <link href="/css/bootstrap-tagsinput.css" rel="stylesheet">
-    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -41,7 +41,7 @@
                 <li><a href="/admin/newBlog"><i class="fa fa-edit"></i> New Blog</a></li>
                 <li><a href="/admin/blogSet"><i class="fa fa-wrench"></i> Blog Settings</a></li>
                 <li><a href="/admin/info"><i class="fa fa-desktop"></i> Info</a></li>
-                <li class="active"><a href="/admin/blogRevise"><i class="fa fa-wrench"></i> Blog Revise</a></li>
+                <li class="active"><a href="#"><i class="fa fa-desktop"></i> Blog Revise</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right navbar-user">
                 <li class="dropdown alerts-dropdown">
@@ -64,25 +64,24 @@
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>
-
     <div id="page-wrapper">
         <div class="row">
             <div class="col-md-12 column">
                 <center>
-                #*<form role="form" class="form-inline" action="/admin/saveBlog" method="post">*#
                     <form role="form" class="form-inline" name="blogForm">
                         <div class="form-group">
                             <label for="blogTitle">Title</label>
-                            <input type="text" class="form-control" name="title" disabled="true" value="123"  placeholder="请输入博客标题"/>
+                            <input type="text" class="form-control" name="title" placeholder="请输入博客标题" value="${blog.Title}"/>
                         </div>
                         <div class="form-group">
                             <label for="blogTags">Tags</label>
-                            <input type="text" class="form-control" name="tags" placeholder="输入标签后请点击回车键" data-role="tagsinput"/>
+                            <input type="text" class="form-control" name="tags" placeholder="输入标签后请点击回车键" data-role="tagsinput" value="${blog.Tags}"/>
                         </div>
+                        <input type="hidden" name="md" />
                         <input type="hidden" name="article" />
                         <div class="form-group">
                             <label for="blogSubmit">submit</label>
-                            <input type="submit" class="form-control" value="save" onclick="saveBlog()"/>
+                            <input type="submit" class="form-control" id="save-blog" value="save"/>
                         </div>
                     </form>
                 </center>
@@ -93,25 +92,43 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-md-12 column">
-                <iframe src="/html/editor.html" id="mdEditor" width="100%" height="750" scrolling="no" frameborder="0"></iframe>
+                <div id="markdown-editor">
+                    <textarea style="display:none;">${blog.Md}</textarea>
+                </div>
             </div>
         </div><!-- /.row -->
     </div><!-- /#page-wrapper -->
+
 </div><!-- /#wrapper -->
 
 <!-- JavaScript -->
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
+<script src="/js/editormd.min.js"></script>
 <script src="/js/bootstrap-tagsinput.min.js"></script>
 <script type="text/javascript">
-    function saveBlog() {
-        var form = document.forms[0];
-        form.action = "/admin/saveBlog";
-        form.method = "post";
-        var editor = document.getElementById('mdEditor').contentWindow;
-        document.blogForm.article.value=editor.document.getElementsByTagName("article")[0].innerHTML;
-        form.submit();
-    }
+    var testEditor;
+
+    $(function() {
+        testEditor = editormd("markdown-editor", {
+            width   : "100%",
+            height  : 800,
+            syncScrolling : "single",
+            path    : "../lib/",
+            imageUpload : true,
+            imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+            imageUploadURL : "./php/upload.php?test=dfdf",
+            saveHTMLToTextarea : true
+        });
+        $("#save-blog").bind('click', function(){
+            var form = document.forms[0];
+            form.action = "/admin/update";
+            form.method = "post";
+            document.blogForm.article.value=testEditor.getHTML();
+            document.blogForm.md.value=testEditor.getMarkdown();
+            form.submit();
+        });
+    });
 </script>
 </body>
 </html>

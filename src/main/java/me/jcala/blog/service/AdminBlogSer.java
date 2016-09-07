@@ -4,6 +4,8 @@ import me.jcala.blog.domain.BlogView;
 import me.jcala.blog.mapping.AdminBlogMapper;
 import me.jcala.blog.service.inter.AdminBlogSerInter;
 import me.jcala.blog.utils.Tools;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,7 @@ import java.util.List;
  */
 @Service
 public class AdminBlogSer implements AdminBlogSerInter{
+    private static final Logger LOGGER = LoggerFactory.getLogger(AdminBlogSer.class);
     @Autowired
     private AdminBlogMapper adminBlogMapper;
     @Override
@@ -27,6 +30,15 @@ public class AdminBlogSer implements AdminBlogSerInter{
         adminBlogMapper.addBlog(blogView);
         addViewTag(tags,blogView.getVid());
         return blogView.getVid();
+    }
+    public BlogView getBlogByVid(int vid){
+        BlogView blogView=null;
+        try {
+            blogView=adminBlogMapper.getBlogById(vid);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+        return blogView;
     }
     private void addViewTag(String tagStr,int vid) throws Exception{
         List<String> tagList=Tools.getTagList(tagStr);

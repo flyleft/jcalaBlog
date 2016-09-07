@@ -1,9 +1,6 @@
 package me.jcala.blog.domain;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.sql.Timestamp;
 
@@ -21,4 +18,9 @@ public class BlogView {
     private String article;
     private String tags;
     private String md;
+    public BlogView(String title,String tags,String md){
+        this.title=title;
+        this.tags=tags;
+        this.md=md;
+    }
 }
