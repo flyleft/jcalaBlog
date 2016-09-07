@@ -1,6 +1,8 @@
 package me.jcala.blog.controller.admin;
 
 import me.jcala.blog.service.AdminBlogSer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,9 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import java.sql.SQLException;
 
 /**
  * Created by jcala on 2016/7/17
@@ -19,6 +18,7 @@ import java.sql.SQLException;
 @Controller
 @RequestMapping("/admin")
 public class AdminCtrl {
+    private static final Logger LOGGER = LoggerFactory.getLogger(AdminCtrl.class);
     @Autowired
     private AdminBlogSer adminBlogSer;
     @GetMapping("/")
@@ -29,29 +29,21 @@ public class AdminCtrl {
     public String newBlogBefore() {
         return "admin/newBlog";
     }
-    @GetMapping("/newBlog/{id}")
-    public String newBlogAfter(@PathVariable("id") String id,Model model) {
-       if ("1".equals(id)){
-          model.addAttribute("myId",1);
-       }
-       else{
-           model.addAttribute("myId",2);
-       }
-        return "admin/newBlog";
-    }
-    @PostMapping("/saveBlog")
-    public ModelAndView saveBlog(String title,String tags,String article,String md) {
-        int id;
+    @PostMapping("/post")
+    public ModelAndView post(String title,String tags,String article,String md) {
+        int id=1;
+        int blogId=-1;
+        String errorInfo="";
         try {
-            adminBlogSer.addBlog(title,tags,article,md);
-            id=1;
+             //blogId=adminBlogSer.addBlog(title,tags,article,md);
         } catch (Exception e) {
-            id=2;
-           System.out.println("============="+e.getMessage());
+            id=11;
+            LOGGER.error(e.getMessage());
+            errorInfo=e.getMessage();
         }if (id==1){
-            return new ModelAndView("redirect:/html/add_blog_suc.html");
+            return new ModelAndView("redirect:/admin/result/1/"+blogId);
         }else {
-            return new ModelAndView("redirect:/html/add_blog_fail.html");
+            return new ModelAndView("redirect:/admin/result/11/"+errorInfo);
         }
 
     }
@@ -59,8 +51,8 @@ public class AdminCtrl {
     public String blogSet() {
         return "admin/blogSet";
     }
-    @GetMapping("/blogRevise")
-    public String blogRevise() {
+    @GetMapping("/blogRevise/{id}")
+    public String blogRevise(@PathVariable int id) {
         return "admin/blogRevise";
     }
     @GetMapping("/info")
@@ -70,5 +62,27 @@ public class AdminCtrl {
     @GetMapping("/login")
     public String login(){
         return "admin/login";
+    }
+    @GetMapping("/result/{id}/{str}")
+    public String result(@PathVariable int id, @PathVariable String str,Model model) {
+        System.out.println("==============="+id);
+        if(id<10){
+            switch (id){
+                case 1:model.addAttribute("targetUrl","/post/"+str);break;//添加博客成功
+                case 2:model.addAttribute("targetUrl","/post/"+str);break;//修改博客成功
+                case 3:model.addAttribute("targetUrl","/info");break;//修改admin信息成功
+                default:model.addAttribute("targetUrl","/");
+            }
+            return "admin/suc";
+        }else {
+            model.addAttribute("errorInfo",str);
+            switch (id){
+                case 11:model.addAttribute("targetUrl","/admin/newBlog");break;//添加博客失败
+                case 12:model.addAttribute("targetUrl","/admin/blogSet");break;//修改博客失败
+                case 13:model.addAttribute("targetUrl","/info");break;//修改admin信息失败
+                default:model.addAttribute("targetUrl","/");
+            }
+            return "admin/fail";
+        }
     }
 }

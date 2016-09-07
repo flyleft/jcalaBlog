@@ -17,7 +17,7 @@ public class AdminBlogSer implements AdminBlogSerInter{
     @Autowired
     private AdminBlogMapper adminBlogMapper;
     @Override
-    public void addBlog(String title, String tags, String article,String md)  throws Exception {
+    public int addBlog(String title, String tags, String article,String md)  throws Exception {
         BlogView blogView=new BlogView();
         blogView.setArticle(article);
         blogView.setTitle(title);
@@ -26,8 +26,9 @@ public class AdminBlogSer implements AdminBlogSerInter{
         blogView.setDate(Tools.getTimestamp());
         adminBlogMapper.addBlog(blogView);
         addViewTag(tags,blogView.getVid());
+        return blogView.getVid();
     }
-    public void addViewTag(String tagStr,int vid) throws Exception{
+    private void addViewTag(String tagStr,int vid) throws Exception{
         List<String> tagList=Tools.getTagList(tagStr);
         for (String tag:tagList){
             adminBlogMapper.addViewTag(tag,vid);
