@@ -40,15 +40,19 @@ public class AdminCtrl {
         return "admin/newBlog";
     }
     @PostMapping("/saveBlog")
-    public ModelAndView saveBlog(String title,String tags,String article) {
-        int id;
-        try {
+    public ModelAndView saveBlog(String title,String tags,String article,String markdown) {
+        int id=0;
+        System.out.println("title:"+title);
+        System.out.println("tags:"+tags);
+        System.out.println("article:"+article);
+        System.out.println("markdown:"+markdown);
+        /*try {
             adminBlogSer.addBlog(title,tags,article);
             id=1;
         } catch (Exception e) {
             id=2;
            System.out.println("============="+e.getMessage());
-        }
+        }*/
         return new ModelAndView("redirect:/html/newBlog/"+id);
     }
     @GetMapping("/blogSet")
