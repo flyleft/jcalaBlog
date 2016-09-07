@@ -4,11 +4,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>success</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="refresh" content="1;url=${targetUrl}">
-    <link rel="stylesheet" href="/css/error-page.css" type="text/css">
+    <meta http-equiv="refresh" content="3;url=${targetUrl}">
+    <link rel="stylesheet" href="/css/result-page.css" type="text/css">
 </head>
 <body><h1 class="fail">Operation failed!</h1>
 <p class="fail">Unfortunately,Your operation has failed.</p>
-<p class="fail">Error Info:${errorInfo}</p>
+<br>
+<p class="errorInfo">Error Info:${errorInfo}</p>
 </body>
 </html>

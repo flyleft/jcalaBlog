@@ -36,6 +36,10 @@ p {
 p.fail{
     color: #f00f0f;
 }
+p.errorInfo{
+    font-size: 1.5em;
+    color: #7f2f43;
+}
 p.success{
     color: #5cb85c;
 }
