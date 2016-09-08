@@ -43,16 +43,16 @@ public class AdminCtrl {
     }
     @PostMapping("/post")
     public ModelAndView post(String title,String tags,String article,String md) {
-        int id=1;
+        boolean result=true;
         int blogId=-1;
         String errorInfo="null";
         try {
              //blogId=adminBlogSer.addBlog(title,tags,article,md);
         } catch (Exception e) {
-            id=11;
+            result=false;
             LOGGER.error(e.getMessage());
             errorInfo=e.getMessage();
-        }if (id==1){
+        }if (result){
             return new ModelAndView("redirect:/admin/result/1/"+blogId);
         }else {
             return new ModelAndView("redirect:/admin/result/11/"+errorInfo);
@@ -79,7 +79,8 @@ public class AdminCtrl {
     }
     @GetMapping("/blogSet/{id}")
     public String blogSet(@PathVariable int id, Model model) {
-
+        model.addAttribute("currentPageId",id);
+        model.addAttribute("pageNum",5);
         return "admin/blogSet";
     }
     @GetMapping("/info")

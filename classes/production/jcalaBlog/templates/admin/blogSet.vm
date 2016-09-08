@@ -103,7 +103,7 @@
               </table>
 			  <center>
                 #set( $current = ${currentPageId} )
-                #set( $num = ${pageNum} )
+                #set( $arr = [1..${pageNum}] )
 			   <ul class="pagination">
                    #if($current<2)
                        <li class="disabled"><a href="#">&laquo;</a></li>
@@ -111,14 +111,14 @@
                          #set($lastPage = $current - 1)
                          <li><a href="/admin/blogSet/$lastPage">&laquo;</a></li>
                    #end
-                 #foreach($page in $num)
+                 #foreach($page in $arr)
                      #if($current==$page)
                          <li class="active"><a href="/admin/blogSet/$page">$page</a></li>
                        #else
                            <li><a href="/admin/blogSet/$page">$page</a></li>
                      #end
                  #end
-                   #if($current>=$num)
+                   #if($current>=$pageNum)
                        <li class="disabled"><a href="#">&raquo;</a></li>
                      #else
                        #set($nextPage = $current + 1)
