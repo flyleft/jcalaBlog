@@ -81,7 +81,7 @@
                         <input type="hidden" name="article" />
                         <div class="form-group">
                             <label for="blogSubmit">submit</label>
-                            <input type="submit" class="form-control" id="save-blog" value="save"/>
+                            <input type="submit" class="form-control" id="save-blog" value="update"/>
                         </div>
                     </form>
                 </center>

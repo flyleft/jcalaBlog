@@ -45,7 +45,7 @@ public class AdminCtrl {
     public ModelAndView post(String title,String tags,String article,String md) {
         int id=1;
         int blogId=-1;
-        String errorInfo="";
+        String errorInfo="null";
         try {
              //blogId=adminBlogSer.addBlog(title,tags,article,md);
         } catch (Exception e) {
@@ -63,11 +63,11 @@ public class AdminCtrl {
     public ModelAndView post(@PathVariable int id,String title,
                              String tags,String article,String md) {
         boolean result=true;
-        String errorInfo="";
+        String errorInfo="null";
         try {
             adminBlogSer.updateBlog(id,title,tags,article,md);
         } catch (Exception e) {
-            LOGGER.error(e.getMessage());
+            LOGGER.error(e.toString());
             errorInfo=e.getMessage();
             result=false;
         }
