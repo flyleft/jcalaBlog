@@ -102,14 +102,28 @@
                 </tbody>
               </table>
 			  <center>
+                #set( $current = ${currentPageId} )
+                #set( $num = ${pageNum} )
 			   <ul class="pagination">
-                <li class="disabled"><a href="#">&laquo;</a></li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&raquo;</a></li>
+                   #if($current<2)
+                       <li class="disabled"><a href="#">&laquo;</a></li>
+                     #else
+                         #set($lastPage = $current - 1)
+                         <li><a href="/admin/blogSet/$lastPage">&laquo;</a></li>
+                   #end
+                 #foreach($page in $num)
+                     #if($current==$page)
+                         <li class="active"><a href="/admin/blogSet/$page">$page</a></li>
+                       #else
+                           <li><a href="/admin/blogSet/$page">$page</a></li>
+                     #end
+                 #end
+                   #if($current>=$num)
+                       <li class="disabled"><a href="#">&raquo;</a></li>
+                     #else
+                     $set($nextPage = $current + 1)
+                         <li><a href="/admin/blogSet/$nextPage">&raquo;</a></li>
+                   #end
               </ul>
 			  </center>
 			 
@@ -123,7 +137,9 @@
     <!-- JavaScript -->
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
 
+    </script>
     <!-- Page Specific Plugins -->
 
 

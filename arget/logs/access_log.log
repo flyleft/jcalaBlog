@@ -665,3 +665,4 @@
 127.0.0.1 - - [08/Sep/2016:14:31:44 +0800] "GET /admin/blogSet HTTP/1.1" 200 1646 "http://127.0.0.1:8080/admin/update20" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36"
 127.0.0.1 - - [08/Sep/2016:14:33:59 +0800] "GET /admin/update20 HTTP/1.1" 200 3016 "http://127.0.0.1:8080/admin/blogSet" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36"
 127.0.0.1 - - [08/Sep/2016:14:35:52 +0800] "GET /admin/blogSet HTTP/1.1" 200 1646 "http://127.0.0.1:8080/admin/update20" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36"
+127.0.0.1 - - [08/Sep/2016:14:56:33 +0800] "GET / HTTP/1.1" 200 1437 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36"
