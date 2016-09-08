@@ -79,7 +79,7 @@ public class AdminCtrl {
     }
     @GetMapping("/blogSet/{id}")
     public String blogSet(@PathVariable int id, Model model) {
-       
+
         return "admin/blogSet";
     }
     @GetMapping("/info")
