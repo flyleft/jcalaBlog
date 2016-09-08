@@ -48,8 +48,10 @@ public interface AdminBlogMapper {
       @Select({
               "select vid,title,tags",
               "from blog_view",
-              "limit 10"
+              "limit #{st},8"
       })
-      List<BlogView> getBlogList() throws Exception;
+      List<BlogView> getEightBlogs(@Param("st") int start) throws Exception;
 
+      @Select("select count(*) from blog_view")
+      int getBlogNum() throws Exception;
 }

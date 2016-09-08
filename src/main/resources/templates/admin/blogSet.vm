@@ -91,7 +91,7 @@
                 #foreach($item in ${blogList})
                 <tr>
                     <td>${item.Title}</td>
-                    <td>${item.Tag}</td>
+                    <td>${item.Tags}</td>
                     <td>
                         <a href="/admin/update${item.Vid}"><i class="fa fa-pencil"></i></a>
                         <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>

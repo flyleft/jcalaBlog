@@ -80,7 +80,8 @@ public class AdminCtrl {
     @GetMapping("/blogSet/{id}")
     public String blogSet(@PathVariable int id, Model model) {
         model.addAttribute("currentPageId",id);
-        model.addAttribute("pageNum",5);
+        model.addAttribute("pageNum",adminBlogSer.getPageNum());
+        model.addAttribute("blogList",adminBlogSer.getBlogPage(id));
         return "admin/blogSet";
     }
     @GetMapping("/info")
