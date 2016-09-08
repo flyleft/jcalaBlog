@@ -120,17 +120,16 @@
     </div>
         <div class="form-group">
             <label class="text-warning">education experience</label>
-            <label class="text-muted">(Between each item please separated by $$)</label>
             <textarea class="form-control" rows="4"></textarea>
         </div>
         <div class="form-group">
             <label class="text-warning">project experience</label>
-            <label class="text-muted">(Between each item please separated by $$)</label>
+            <label class="text-muted">(Between each item please separated by English letter ';')</label>
             <textarea class="form-control" rows="4"></textarea>
         </div>
         <div class="form-group">
             <label class="text-warning">advantage</label>
-            <label class="text-muted">(Between each item please separated by $$)</label>
+            <label class="text-muted">(Between each item please separated by English letter ';')</label>
             <textarea class="form-control" rows="4"></textarea>
         </div>
   <button type="submit" class="btn btn-primary">Update</button>
