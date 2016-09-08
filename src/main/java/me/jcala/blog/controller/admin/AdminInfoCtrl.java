@@ -23,7 +23,12 @@ public class AdminInfoCtrl {
         return "admin/info";
     }
     @GetMapping("/login")
-    public String login(){
+    public String login(String username,String password){
+        return "admin/login";
+    }
+    @GetMapping("/doLogin")
+    public String doLogin(String username,String password){
+
         return "admin/login";
     }
 }

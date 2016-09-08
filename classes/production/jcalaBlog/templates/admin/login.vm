@@ -8,8 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/login-page.css" rel="stylesheet">
-    <script src="/js/jquery-1.9.1.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
@@ -20,21 +18,21 @@
                 <h1 class="text-center">Login</h1>
             </div>
             <div class="modal-body">
-                <form class="form col-md-12 center-block">
+                <form class="form col-md-12 center-block" action="/admin/login" method="post">
                     <div class="form-group">
-                        <input type="text" class="form-control input-lg" placeholder="Email">
+                        <input type="text" class="form-control input-lg" placeholder="Username" name="username">
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control input-lg" placeholder="Password">
+                        <input type="password" class="form-control input-lg" placeholder="Password" name="password">
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-primary btn-lg btn-block">Sign In</button>
+                        <button class="btn btn-success btn-lg btn-block">Sign In</button>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <div class="col-md-12">
-                    <button class="btn" data-dismiss="modal" aria-hidden="true">back</button>
+                    <button class="btn btn-warning" data-dismiss="modal" aria-hidden="true">back</button>
                 </div>
             </div>
         </div>

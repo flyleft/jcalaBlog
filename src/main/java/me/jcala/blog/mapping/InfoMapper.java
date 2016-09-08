@@ -2,6 +2,7 @@ package me.jcala.blog.mapping;
 
 import me.jcala.blog.domain.Info;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
@@ -20,5 +21,13 @@ public interface InfoMapper {
             "from admin limit 1"
     })
     Info select() throws Exception;
+
+    @Select({
+        "select count(*) ",
+            "from admin ",
+            "where username = #{un} ",
+            "and password = #{pw}"
+    })
+    int selectByPw(@Param("un") String username, @Param("pw") String password) throws Exception;
 
 }

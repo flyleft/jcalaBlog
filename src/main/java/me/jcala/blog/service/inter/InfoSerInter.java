@@ -7,6 +7,6 @@ import me.jcala.blog.domain.Info;
  */
 public interface InfoSerInter {
     Info getInfo();
-    boolean login();
+    boolean login(String username,String password);
     boolean modifyPw();
 }

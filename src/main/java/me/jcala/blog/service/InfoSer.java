@@ -3,6 +3,7 @@ package me.jcala.blog.service;
 import me.jcala.blog.domain.Info;
 import me.jcala.blog.mapping.InfoMapper;
 import me.jcala.blog.service.inter.InfoSerInter;
+import me.jcala.blog.utils.Md5Tools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +29,18 @@ public class InfoSer implements InfoSerInter {
     }
 
     @Override
-    public boolean login() {
-        return false;
+    public boolean login(String username,String password) {
+        int num=0;
+        try {
+            num=infoMapper.selectByPw(username, Md5Tools.MD5(password));
+        } catch (Exception e) {
+           LOGGER.error(e.getMessage());
+        }
+        if (num>0){
+            return true;
+        }else {
+            return false;
+        }
     }
 
     @Override
