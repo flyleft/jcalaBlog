@@ -1,5 +1,6 @@
 package me.jcala.blog.service;
 
+import lombok.val;
 import me.jcala.blog.domain.BlogView;
 import me.jcala.blog.mapping.AdminBlogMapper;
 import me.jcala.blog.service.inter.AdminBlogSerInter;
@@ -9,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -39,6 +41,15 @@ public class AdminBlogSer implements AdminBlogSerInter{
             LOGGER.error(e.getMessage());
         }
         return blogView;
+    }
+    public List<BlogView> getBlogList(){
+        List<BlogView> blogList=new ArrayList<BlogView>();
+        try {
+            blogList=adminBlogMapper.getBlogList();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+        return blogList;
     }
     public void updateBlog(int id,String title,String tags,
                            String article,String md) throws Exception{

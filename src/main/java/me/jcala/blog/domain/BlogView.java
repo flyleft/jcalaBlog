@@ -23,4 +23,9 @@ public class BlogView {
         this.tags=tags;
         this.md=md;
     }
+    public BlogView(int vid,String title,String tags){
+        this.vid=vid;
+        this.title=title;
+        this.tags=tags;
+    }
 }

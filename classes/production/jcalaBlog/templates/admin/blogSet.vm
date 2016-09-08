@@ -83,68 +83,22 @@
                 <thead>
                   <tr>
                     <th>Blog<i class="fa fa-sort"></i></th>
-                    <th>Visits <i class="fa fa-sort"></i></th>
                     <th>Tags<i class="fa fa-sort"></i></th>
                     <th>Operation<i class="fa fa-sort"></i></th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>springBoot整合mybatis</td>
-                    <td>java Spring springBoot mybatis</td>
+                #foreach($item in ${blogList})
+                <tr>
+                    <td>${item.Title}</td>
+                    <td>${item.Tag}</td>
                     <td>
-					<a href="/admin/update20"><i class="fa fa-pencil"></i></a>
-                    <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
-					</td>
-                  </tr>
-                  <tr>
-                    <td>Lombok实战</td>
-                    <td>JAVA</td>
-                    <td>
-					 <a href="/admin/blogRevise"><i class="fa fa-pencil"></i></a>
-                     <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
-					</td>
-                  </tr>
-                  <tr>
-                    <td>AKKA实践</td>
-                    <td>scala 并发</td>
-                    <td>
-                        <a href="/admin/blogRevise"><i class="fa fa-pencil"></i></a>
-                    <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
-					</td>
-                  </tr>
-                  <tr>
-                    <td>Spark教程</td>
-                    <td>scala</td>
-                    <td>
-                        <a href="/admin/blogRevise"><i class="fa fa-pencil"></i></a>
-                    <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
-					</td>
-                  </tr>
-                  <tr>
-                    <td>基于jsoup的校园网络爬虫</td>
-                    <td>JAVA android</td>
-                    <td>
-                        <a href="/admin/blogRevise"><i class="fa fa-pencil"></i></a>
-                    <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
-					</td>
-                  </tr>
-                  <tr>
-                    <td>JAVA多线程编程</td>
-                    <td>JAVA 并发</td>
-                    <td>
-                        <a href="/admin/blogRevise"><i class="fa fa-pencil"></i></a>
-                    <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
-					</td>
-                  </tr>
-                  <tr>
-                    <td>gin使用</td>
-                    <td>goLang</td>
-                    <td>
-                        <a href="/admin/blogRevise"><i class="fa fa-pencil"></i></a>
-                    <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
-					</td>
-                  </tr>
+                        <a href="/admin/update${item.Vid}"><i class="fa fa-pencil"></i></a>
+                        <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+                    </td>
+                </tr>
+                <tr>
+                #end
                 </tbody>
               </table>
 			  <center>

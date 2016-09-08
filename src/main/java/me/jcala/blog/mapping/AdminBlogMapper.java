@@ -5,6 +5,8 @@ import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.mapping.StatementType;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 
 /**
  * Created by Administrator on 2016/9/3.
@@ -42,5 +44,12 @@ public interface AdminBlogMapper {
               "where vid = #{bv.vid}"
       })
       void updateBlogById(@Param("bv") BlogView blogView) throws Exception;
+
+      @Select({
+              "select vid,title,tags",
+              "from blog_view",
+              "limit 10"
+      })
+      List<BlogView> getBlogList() throws Exception;
 
 }

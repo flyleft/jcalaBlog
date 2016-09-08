@@ -77,8 +77,9 @@ public class AdminCtrl {
             return new ModelAndView("redirect:/admin/result/12/"+errorInfo);
         }
     }
-    @GetMapping("/blogSet")
-    public String blogSet() {
+    @GetMapping("/blogSet/{id}")
+    public String blogSet(@PathVariable int id, Model model) {
+       
         return "admin/blogSet";
     }
     @GetMapping("/info")
