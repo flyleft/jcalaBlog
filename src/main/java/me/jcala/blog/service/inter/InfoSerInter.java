@@ -5,7 +5,7 @@ import me.jcala.blog.domain.Info;
 /**
  * Created by Administrator on 2016/9/8.
  */
-public interface AdminInfoSerInter {
+public interface InfoSerInter {
     Info getInfo();
     boolean login();
     boolean modifyPw();

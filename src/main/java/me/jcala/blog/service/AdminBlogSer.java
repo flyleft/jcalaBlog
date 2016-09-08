@@ -3,6 +3,7 @@ package me.jcala.blog.service;
 import me.jcala.blog.domain.BlogView;
 import me.jcala.blog.mapping.AdminBlogMapper;
 import me.jcala.blog.service.inter.AdminBlogSerInter;
+import me.jcala.blog.service.inter.BlogSerInter;
 import me.jcala.blog.utils.Tools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +18,7 @@ import java.util.List;
  */
 @Service
 public class AdminBlogSer implements AdminBlogSerInter{
-    private static final Logger LOGGER = LoggerFactory.getLogger(AdminBlogSer.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(BlogSer.class);
     @Autowired
     private AdminBlogMapper adminBlogMapper;
     @Override

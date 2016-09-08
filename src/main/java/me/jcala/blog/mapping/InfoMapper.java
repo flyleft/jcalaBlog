@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 @Mapper
-public interface AdminInfoMapper {
+public interface InfoMapper {
 
     @Select({
         "select username,sex,real_name,",
