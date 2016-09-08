@@ -18,8 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 @RequestMapping("/admin")
-public class AdminCtrl {
-    private static final Logger LOGGER = LoggerFactory.getLogger(AdminCtrl.class);
+public class AdminBlogCtrl {
+    private static final Logger LOGGER = LoggerFactory.getLogger(AdminBlogCtrl.class);
     @Autowired
     private AdminBlogSer adminBlogSer;
     @GetMapping("/")
@@ -83,14 +83,6 @@ public class AdminCtrl {
         model.addAttribute("pageNum",adminBlogSer.getPageNum());
         model.addAttribute("blogList",adminBlogSer.getBlogPage(id));
         return "admin/blogSet";
-    }
-    @GetMapping("/info")
-    public String info() {
-        return "admin/info";
-    }
-    @GetMapping("/login")
-    public String login(){
-        return "admin/login";
     }
     @GetMapping("/result/{id}/{str}")
     public String result(@PathVariable int id, @PathVariable String str,Model model) {

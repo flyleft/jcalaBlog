@@ -18,7 +18,7 @@ import java.util.List;
  */
 @Service
 public class AdminBlogSer implements AdminBlogSerInter{
-    private static final Logger LOGGER = LoggerFactory.getLogger(BlogSer.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AdminBlogSer.class);
     @Autowired
     private AdminBlogMapper adminBlogMapper;
     @Override
