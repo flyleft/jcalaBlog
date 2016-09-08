@@ -121,7 +121,7 @@
                    #if($current>=$num)
                        <li class="disabled"><a href="#">&raquo;</a></li>
                      #else
-                     $set($nextPage = $current + 1)
+                       #set($nextPage = $current + 1)
                          <li><a href="/admin/blogSet/$nextPage">&raquo;</a></li>
                    #end
               </ul>
