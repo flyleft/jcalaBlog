@@ -32,6 +32,7 @@ public class AdminBlogSer implements AdminBlogSerInter{
         addViewTag(tags,blogView.getVid());
         return blogView.getVid();
     }
+    @Override
     public BlogView getBlogByVid(int vid){
         BlogView blogView=null;
         try {
@@ -41,6 +42,7 @@ public class AdminBlogSer implements AdminBlogSerInter{
         }
         return blogView;
     }
+    @Override
     public List<BlogView> getBlogPage(int id){
         List<BlogView> blogList=new ArrayList<BlogView>();
         try {
@@ -51,6 +53,7 @@ public class AdminBlogSer implements AdminBlogSerInter{
         }
         return blogList;
     }
+    @Override
     public int getPageNum(){
         int num=0;
         try {
@@ -61,6 +64,7 @@ public class AdminBlogSer implements AdminBlogSerInter{
     int pageNum=num%8==0?num/8:num/8+1;
     return pageNum;
     }
+    @Override
     public void updateBlog(int id,String title,String tags,
                            String article,String md) throws Exception{
             BlogView blogView=new BlogView();
