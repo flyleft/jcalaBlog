@@ -39,4 +39,8 @@ public class Info {
         this.edu_exp=edu_exp;
         this.advantage=advantage;
     }
+    public Info(String username,String password){
+        this.username=username;
+        this.password=password;
+    }
 }

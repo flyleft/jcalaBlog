@@ -15,11 +15,10 @@ import javax.servlet.http.HttpServletRequest;
  * Created by Administrator on 2016/9/8.
  */
 @Controller
-@RequestMapping("/admin")
 public class AdminInfoCtrl {
     @Autowired
     private InfoSer infoSer;
-    @GetMapping("/info")
+    @GetMapping("/admin/info")
     public String info(Model model) {
         Info info=infoSer.getInfo();
         model.addAttribute("info",info);
@@ -36,8 +35,8 @@ public class AdminInfoCtrl {
         return "admin/login";
     }
     @PostMapping("/login.action")
-    public String doLogin(String username, String password){
-        boolean result=infoSer.login(username,password);
+    public String doLogin(Info user){
+        boolean result=infoSer.login(user);
         if (!result){
             return "redirect:/admin/login?result=fail";
         }else {

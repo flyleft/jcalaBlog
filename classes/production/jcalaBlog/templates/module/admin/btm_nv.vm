@@ -14,7 +14,7 @@
             <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
             <li><a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge">7</span></a></li>
             <li class="divider"></li>
-            <li><a href="/admin/login"><i class="fa fa-power-off"></i> Log Out</a></li>
+            <li><a href="/login"><i class="fa fa-power-off"></i> Log Out</a></li>
         </ul>
     </li>
 </ul>

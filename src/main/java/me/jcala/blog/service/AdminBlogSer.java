@@ -22,15 +22,10 @@ public class AdminBlogSer implements AdminBlogSerInter{
     @Autowired
     private AdminBlogMapper adminBlogMapper;
     @Override
-    public int addBlog(String title, String tags, String article,String md)  throws Exception {
-        BlogView blogView=new BlogView();
-        blogView.setArticle(article);
-        blogView.setTitle(title);
-        blogView.setTags(tags);
-        blogView.setMd(md);
+    public int addBlog(BlogView blogView)  throws Exception {//String title, String tags, String article,String md
         blogView.setDate(Tools.getTimestamp());
         adminBlogMapper.addBlog(blogView);
-        addViewTag(tags,blogView.getVid());
+        addViewTag(blogView.getTags(),blogView.getVid());
         return blogView.getVid();
     }
     @Override
@@ -66,13 +61,7 @@ public class AdminBlogSer implements AdminBlogSerInter{
     return pageNum;
     }
     @Override
-    public void updateBlog(int id,String title,String tags,
-                           String article,String md) throws Exception{
-            BlogView blogView=new BlogView();
-            blogView.setArticle(article);
-            blogView.setTitle(title);
-            blogView.setTags(tags);
-            blogView.setMd(md);
+    public void updateBlog(int id,BlogView blogView) throws Exception{
             blogView.setVid(id);
             adminBlogMapper.updateBlogById(blogView);
     }

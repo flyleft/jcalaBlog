@@ -29,10 +29,10 @@ public class InfoSer implements InfoSerInter {
     }
 
     @Override
-    public boolean login(String username,String password) {
+    public boolean login(Info user) {
         int num=0;
         try {
-            num=infoMapper.selectByPw(username, Md5Tools.MD5(password));
+            num=infoMapper.selectByPw(user.getUsername(), Md5Tools.MD5(user.getPassword()));
         } catch (Exception e) {
            LOGGER.error(e.getMessage());
         }

@@ -18,7 +18,7 @@
                 <h1 class="text-center">Login</h1>
             </div>
             <div class="modal-body">
-                <form class="form col-md-12 center-block" action="/admin/login.action" method="post">
+                <form class="form col-md-12 center-block" action="/login.action" method="post">
                     <div class="form-group">
                         <input type="text" class="form-control input-lg" placeholder="Username" name="username">
                     </div>

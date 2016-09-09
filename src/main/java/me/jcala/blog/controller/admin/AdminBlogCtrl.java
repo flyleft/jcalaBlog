@@ -1,6 +1,7 @@
 package me.jcala.blog.controller.admin;
 
 import me.jcala.blog.domain.BlogView;
+import me.jcala.blog.domain.Info;
 import me.jcala.blog.service.AdminBlogSer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,12 +43,12 @@ public class AdminBlogCtrl {
         }
     }
     @PostMapping("/post")
-    public ModelAndView post(String title,String tags,String article,String md) {
+    public ModelAndView post(BlogView view) {//String title,String tags,String article,String md
         boolean result=true;
         int blogId=-1;
         String errorInfo="null";
         try {
-             //blogId=adminBlogSer.addBlog(title,tags,article,md);
+             blogId=adminBlogSer.addBlog(view);
         } catch (Exception e) {
             result=false;
             LOGGER.error(e.getMessage());
@@ -60,12 +61,11 @@ public class AdminBlogCtrl {
 
     }
     @PostMapping("/update/{id}")
-    public ModelAndView post(@PathVariable int id,String title,
-                             String tags,String article,String md) {
+    public ModelAndView post(@PathVariable int id,BlogView view) {
         boolean result=true;
         String errorInfo="null";
         try {
-            adminBlogSer.updateBlog(id,title,tags,article,md);
+            adminBlogSer.updateBlog(id,view);
         } catch (Exception e) {
             LOGGER.error(e.toString());
             errorInfo=e.getMessage();
