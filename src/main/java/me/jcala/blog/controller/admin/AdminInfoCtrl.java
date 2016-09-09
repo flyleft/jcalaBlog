@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by Administrator on 2016/9/8.
@@ -23,17 +26,22 @@ public class AdminInfoCtrl {
         return "admin/info";
     }
     @GetMapping("/login")
-    public String login(){
+    public String login(HttpServletRequest request,Model model){
+        String result=request.getParameter("result");
+        if (result!=null&&result.equals("fail")){
+           model.addAttribute("yesOrWrong",0);
+        }else {
+            model.addAttribute("yesOrWrong",1);
+        }
         return "admin/login";
     }
-    @GetMapping("/login.action")
-    public String doLogin(String username, String password, Model model){
+    @PostMapping("/login.action")
+    public String doLogin(String username, String password){
         boolean result=infoSer.login(username,password);
         if (!result){
-            model.addAttribute("yesOrWrong",0);
-            return "admin/login";
+            return "redirect:/admin/login?result=fail";
         }else {
-            return "admin/";
+            return "redirect:/admin/";
         }
     }
 }

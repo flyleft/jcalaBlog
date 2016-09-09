@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>Bootstrap Login Form</title>
+    <title>admin login</title>
     <meta name="generator" content="Bootply"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -18,7 +18,7 @@
                 <h1 class="text-center">Login</h1>
             </div>
             <div class="modal-body">
-                <form class="form col-md-12 center-block" action="/admin/login" method="post">
+                <form class="form col-md-12 center-block" action="/admin/login.action" method="post">
                     <div class="form-group">
                         <input type="text" class="form-control input-lg" placeholder="Username" name="username">
                     </div>
@@ -32,17 +32,18 @@
             </div>
             <div class="modal-footer">
                 <div class="col-md-12">
-                    <button class="btn btn-warning" data-dismiss="modal" aria-hidden="true">back</button>
+                    <button class="btn btn-warning" data-dismiss="modal" aria-hidden="true" onclick="javascrtpt:window.location.href='/'">blog view</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<script src="jquery.min.js"></script>
-<script src="bootstrap.min.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 #set($ii = ${yesOrWrong})
 #if($ii < 1)
-<script src="jquery.bootstrap-growl.js">
+<script src="/js/jquery.bootstrap-growl.min.js"></script>
+<script type="text/javascript">
     $(function() {
         setTimeout(function() {
             $.bootstrapGrowl("Login Failed!", {
@@ -50,7 +51,7 @@
                 align: 'center',
                 width: 'auto',
             });
-        }, 2000);
+        }, 0);
     });
 </script>
 #end
