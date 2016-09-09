@@ -44,4 +44,8 @@ public class AdminInfoCtrl {
             return "redirect:/admin/";
         }
     }
+    @GetMapping("/logout")
+    public  String logout(){
+        return "admin/login";
+    }
 }
