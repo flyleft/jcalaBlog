@@ -45,7 +45,7 @@
 <script src="jquery.bootstrap-growl.js">
     $(function() {
         setTimeout(function() {
-            $.bootstrapGrowl("Login Failed!${failInfo}", {
+            $.bootstrapGrowl("Login Failed!", {
                 type: 'danger',
                 align: 'center',
                 width: 'auto',

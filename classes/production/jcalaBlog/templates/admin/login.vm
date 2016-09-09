@@ -38,5 +38,21 @@
         </div>
     </div>
 </div>
+<script src="jquery.min.js"></script>
+<script src="bootstrap.min.js"></script>
+#set($ii = ${yesOrWrong})
+#if($ii < 1)
+<script src="jquery.bootstrap-growl.js">
+    $(function() {
+        setTimeout(function() {
+            $.bootstrapGrowl("Login Failed!", {
+                type: 'danger',
+                align: 'center',
+                width: 'auto',
+            });
+        }, 2000);
+    });
+</script>
+#end
 </body>
 </html>
