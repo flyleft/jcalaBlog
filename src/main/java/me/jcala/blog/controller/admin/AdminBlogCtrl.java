@@ -1,7 +1,6 @@
 package me.jcala.blog.controller.admin;
 
 import me.jcala.blog.domain.BlogView;
-import me.jcala.blog.domain.Info;
 import me.jcala.blog.service.AdminBlogSer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -76,6 +75,11 @@ public class AdminBlogCtrl {
         }else {
             return new ModelAndView("redirect:/admin/result/12/"+errorInfo);
         }
+    }
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable int id) {
+        LOGGER.info("id:"+id);
+        return "redirect:/admin//blogSet/1";
     }
     @GetMapping("/blogSet/{id}")
     public String blogSet(@PathVariable int id, Model model) {

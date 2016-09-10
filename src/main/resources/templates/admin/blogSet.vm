@@ -1,4 +1,5 @@
 #include("/module/admin/header.vm")
+<link href="/css/blogset-confirm.css" rel="stylesheet">
 #include("/module/admin/top_nv.vm")
 <li><a href="/admin/"><i class="fa fa-bar-chart-o"></i> Monitor</a></li>
 <li><a href="/admin/newBlog"><i class="fa fa-edit"></i> New Blog</a></li>
@@ -36,7 +37,8 @@
                     <td>${item.Tags}</td>
                     <td>
                         <a href="/admin/update${item.Vid}"><i class="fa fa-pencil"></i></a>
-                        <a href="#myModal" role="button" data-toggle="modal"><i class="fa fa-trash-o"></i></a>
+                        <a class="delete" role="button" href="/admin/delete/${item.Vid}"  data-title="Delete this blog!" data-confirm-button="Yes">
+                            <i class="fa fa-trash-o"></i></a>
                     </td>
                 </tr>
                 <tr>
@@ -75,15 +77,12 @@
       </div><!-- /#page-wrapper -->
 
     </div><!-- /#wrapper -->
-
     <!-- JavaScript -->
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.confirm.min.js"></script>
     <script type="text/javascript">
-
+        $(".delete").confirm();
     </script>
-    <!-- Page Specific Plugins -->
-
-
   </body>
 </html>
