@@ -90,7 +90,7 @@ public class InfoSer implements InfoSerInter {
     public void addSession(HttpServletRequest request,Info info){
         HttpSession session = request.getSession(true);
         session.setAttribute("cur_user",info);
-        session.setMaxInactiveInterval(60*10);
+        session.setMaxInactiveInterval(600);
     }
     @Override
     public void destroySession(HttpServletRequest request){

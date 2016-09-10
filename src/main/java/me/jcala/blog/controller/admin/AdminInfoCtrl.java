@@ -56,7 +56,7 @@ public class AdminInfoCtrl {
     @GetMapping("/logout")
     public  String logout(HttpServletRequest request){
         infoSer.destroySession(request);
-        return "admin/login";
+        return "redirect:/login";
     }
 
     @PostMapping("/admin/info.action")
