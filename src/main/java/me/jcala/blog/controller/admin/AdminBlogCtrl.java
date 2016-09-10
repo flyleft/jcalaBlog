@@ -19,7 +19,7 @@ public class AdminBlogCtrl {
     @Autowired
     private AdminBlogSer adminBlogSer;
     @GetMapping("/blogAdd")
-    public String newBlogBefore() {
+    public String blogAdd() {
         return "admin/blog_add";
     }
     @GetMapping("/update{id:\\d+}")
@@ -35,8 +35,7 @@ public class AdminBlogCtrl {
     }
     @PostMapping("/post")
     public String post(BlogView view,Model model) {
-        boolean result=true;
-        result=adminBlogSer.addBlog(view);
+        boolean result=adminBlogSer.addBlog(view);
         if (result){
             model.addAttribute("targetUrl","/admin/blogList/1");
             model.addAttribute("result",1);

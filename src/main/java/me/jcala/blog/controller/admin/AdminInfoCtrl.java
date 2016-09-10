@@ -47,7 +47,7 @@ public class AdminInfoCtrl {
     public String doLogin(Info user){
         boolean result=infoSer.login(user);
         if (!result){
-            return "redirect:/admin/login?result=fail";
+            return "redirect:/login?result=fail";
         }else {
             return "redirect:/admin";
         }
