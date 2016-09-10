@@ -1,7 +1,6 @@
 package me.jcala.blog.service;
 
 import me.jcala.blog.domain.ArchivesYear;
-import me.jcala.blog.domain.BlogTag;
 import me.jcala.blog.domain.Project;
 import me.jcala.blog.service.inter.BlogSerInter;
 import org.springframework.stereotype.Service;
@@ -54,9 +53,4 @@ public class BlogSer implements BlogSerInter {
         return projects;
     }
 
-    @Override
-    public List<BlogTag> tags() {
-        List<BlogTag> tags=new ArrayList<>();
-        return tags;
-    }
 }

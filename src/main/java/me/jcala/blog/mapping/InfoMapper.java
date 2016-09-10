@@ -4,6 +4,7 @@ import me.jcala.blog.domain.Info;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -29,5 +30,15 @@ public interface InfoMapper {
             "and password = #{pw}"
     })
     int selectByPw(@Param("un") String username, @Param("pw") String password) throws Exception;
+
+    @Update({
+        "update admin set username = #{if.username},",
+                "email= #{if.email},website=#{if.website},",
+                "github=#{if.github},linkedin=#{if.linkedin},",
+                "twitter=#{if.twitter},pro_exp=#{pro_exp},",
+                "edu_exp = #{if.edu_exp},advantage=#{if.advantage} ",
+                "limit 1"
+    })
+    void update(@Param("if") Info info);
 
 }

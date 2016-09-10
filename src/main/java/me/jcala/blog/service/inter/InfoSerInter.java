@@ -9,4 +9,5 @@ public interface InfoSerInter {
     Info getInfo();
     boolean login(Info info);
     boolean modifyPw();
+    boolean updateInfo(Info info);
 }

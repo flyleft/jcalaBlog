@@ -11,7 +11,6 @@
         <div class="row">
           <div class="col-lg-12">
             <h1>Info Page <small>modify-info</small></h1>
-            #* <button class="btn btn-primary"><i class="icon-save"></i> Save</button>*#
           </div>
         </div><!-- /.row -->
     <div class="row">
@@ -24,7 +23,7 @@
     <div id="myTabContent" class="tab-content">
       <div class="tab-pane active in" id="home">
 	  
-    <form>
+    <form method="post" action="/admin/updateInfo.action">
   <div class="form-group">
     <label class="text-warning">username</label>
     <input type="text" class="form-control" value="${info.Username}">

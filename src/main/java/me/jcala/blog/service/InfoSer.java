@@ -44,6 +44,18 @@ public class InfoSer implements InfoSerInter {
     }
 
     @Override
+    public boolean updateInfo(Info info) {
+        boolean result=true;
+        try {
+            infoMapper.update(info);
+        } catch (Exception e) {
+           LOGGER.error(e.getMessage());
+            result=false;
+        }
+        return result;
+    }
+
+    @Override
     public boolean modifyPw() {
         return false;
     }

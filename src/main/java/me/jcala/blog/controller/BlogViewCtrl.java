@@ -28,7 +28,6 @@ public class BlogViewCtrl {
     @GetMapping("/tags")
     public String tags(Model model) {
 
-        model.addAttribute("tags",blogSer.tags());
         return "tags";
     }
     @GetMapping("/about")
