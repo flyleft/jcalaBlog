@@ -94,13 +94,13 @@
       <div class="tab-pane fade" id="profile">
     <form id="tab2">
         <label class="text-warning">old password</label>
-        <input type="password" class="form-control" name="old_pass">
+        <input type="password" class="form-control" name="old_pass" id="old_pass">
         <label class="text-warning">new password</label>
-        <input type="password" class="form-control" name="new_pass">
+        <input type="password" class="form-control" name="new_pass" id="new_pass_one">
         <label class="text-warning">repeat new password</label>
-        <input type="password" class="form-control">
+        <input type="password" class="form-control" id="new_pass_two">
         <div>
-            <button class="btn btn-primary">Update</button>
+            <button class="btn btn-primary" id="passSub">Update</button>
         </div>
     </form>
       </div>
@@ -115,6 +115,7 @@
     <!-- JavaScript -->
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.bootstrap-growl.min.js"></script>
     <script type="text/javascript">
         $(function () {
             $("#updateSub").bind('click', function(){
@@ -123,6 +124,39 @@
                 form.method = "post";
                 form.submit();
             });
+            $("#passSub").bind('click', function(){
+                var form = document.forms[1];
+                form.action = "/admin/pass.action";
+                form.method = "post";
+                form.submit();
+            });
+     #set($ii = ${result})
+      #if($ii == 0)
+          setTimeout(function() {
+              $.bootstrapGrowl("Modify password success!", {
+                  type: 'success',
+                  align: 'center',
+                  width: 'auto',
+              });
+          }, 0);
+          #elseif($ii ==1)
+              setTimeout(function() {
+                  $.bootstrapGrowl("Your password is error!", {
+                      type: 'danger',
+                      align: 'center',
+                      width: 'auto',
+                  });
+              }, 0);
+          #elseif($ii ==2)
+          setTimeout(function() {
+              $.bootstrapGrowl("System error!", {
+                  type: 'danger',
+                  align: 'center',
+                  width: 'auto',
+              });
+          }, 0);
+          #else
+     #end
         });
     </script>
   </body>

@@ -47,4 +47,11 @@ public interface InfoMapper {
             "where password = #{pw}"
     })
     int selectByOldPass(@Param("pw") String oldPass) throws Exception;
+
+    @Update({
+        "update admin set",
+            "password = #{np} ",
+            "limit 1"
+    })
+    int updataPass(@Param("np") String newPass) throws Exception;
 }

@@ -22,9 +22,15 @@ public class AdminInfoCtrl {
         return "admin/moniter";
     }
     @GetMapping("/admin/info")
-    public String info(Model model) {
+    public String info(Model model,HttpServletRequest request) throws Exception {
         Info info=infoSer.getInfo();
         model.addAttribute("info",info);
+        String result=request.getParameter("result");
+        if (result!=null){
+            model.addAttribute("result",Integer.parseInt(result));
+        }else {
+            model.addAttribute("result",3);
+        }
         return "admin/info";
     }
     @GetMapping("/login")
@@ -65,12 +71,7 @@ public class AdminInfoCtrl {
     }
     @PostMapping("/admin/pass.action")
     public  String passModify(String old_pass,String new_pass){
-
-        return "";
-    }
-    @PostMapping("/admin/checkPass.action")
-    public  String checkPass(String old_pass){
-
-        return "";
+        int result=infoSer.modifyPw(old_pass,new_pass);
+        return "redirect:/admin/info?result="+result;
     }
 }

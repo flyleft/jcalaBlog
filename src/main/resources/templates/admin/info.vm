@@ -115,6 +115,7 @@
     <!-- JavaScript -->
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.bootstrap-growl.min.js"></script>
     <script type="text/javascript">
         $(function () {
             $("#updateSub").bind('click', function(){
@@ -129,6 +130,33 @@
                 form.method = "post";
                 form.submit();
             });
+     #set($ii = ${result})
+      #if($ii == 0)
+          setTimeout(function() {
+              $.bootstrapGrowl("Modify password success!", {
+                  type: 'success',
+                  align: 'center',
+                  width: 'auto',
+              });
+          }, 0);
+          #elseif($ii ==1)
+              setTimeout(function() {
+                  $.bootstrapGrowl("Your password is error!", {
+                      type: 'danger',
+                      align: 'center',
+                      width: 'auto',
+                  });
+              }, 0);
+          #elseif($ii ==2)
+          setTimeout(function() {
+              $.bootstrapGrowl("System error!", {
+                  type: 'danger',
+                  align: 'center',
+                  width: 'auto',
+              });
+          }, 0);
+          #else
+     #end
         });
     </script>
   </body>

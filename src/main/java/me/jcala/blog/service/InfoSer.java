@@ -14,6 +14,10 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class InfoSer implements InfoSerInter {
+    public static final int MODIFYPASSSUC=0;//修改密码成功
+    public static final int PASSERROE=1;//密码错误
+    public static final int SySTEMERROE=2;//系统错误
+    public static final int NOTHING=3;//不显示提示信息
     private static final Logger LOGGER = LoggerFactory.getLogger(InfoSer.class);
     @Autowired
     private InfoMapper infoMapper;
@@ -46,7 +50,7 @@ public class InfoSer implements InfoSerInter {
     public boolean checkPass(String oldPass){
         int num=0;
         try {
-            num=infoMapper.selectByOldPass(oldPass);
+            num=infoMapper.selectByOldPass(Md5Tools.MD5(oldPass));
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
         }
@@ -65,7 +69,19 @@ public class InfoSer implements InfoSerInter {
     }
 
     @Override
-    public boolean modifyPw() {
-        return false;
+    public int modifyPw(String oldPass,String newPass) {
+        int resdult;
+       if (checkPass(oldPass)){
+           try {
+               infoMapper.updataPass(Md5Tools.MD5(newPass));
+               resdult=MODIFYPASSSUC;
+           } catch (Exception e) {
+               LOGGER.error(e.getMessage());
+               resdult=SySTEMERROE;
+           }
+       }else {
+          resdult=PASSERROE;
+       }
+        return resdult;
     }
 }

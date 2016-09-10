@@ -8,7 +8,7 @@ import me.jcala.blog.domain.Info;
 public interface InfoSerInter {
     Info getInfo();
     boolean login(Info info);
-    boolean modifyPw();
+    int modifyPw(String oldPass,String newPass);
     boolean updateInfo(Info info);
     boolean checkPass(String oldPass);
 }
