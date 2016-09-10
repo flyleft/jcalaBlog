@@ -9,9 +9,10 @@ import java.util.List;
  * Created by Administrator on 2016/9/3.
  */
 public interface AdminBlogSerInter {
-    int addBlog(BlogView blogView) throws Exception;
+    boolean addBlog(BlogView blogView) throws Exception;
     BlogView getBlogByVid(int vid);
     List<BlogView> getBlogPage(int id);
     int getPageNum();
-    void updateBlog(int id,BlogView blogView) throws Exception;
+    boolean updateBlog(BlogView blogView) throws Exception;
+    boolean deleteBlogById(int vid);
 }

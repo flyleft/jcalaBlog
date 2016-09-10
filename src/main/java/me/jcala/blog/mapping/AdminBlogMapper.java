@@ -21,11 +21,14 @@ public interface AdminBlogMapper {
       @SelectKey(before=false,keyProperty="bv.vid",resultType=Integer.class,statementType= StatementType.STATEMENT,statement="SELECT LAST_INSERT_ID() AS id")
       int addBlog(@Param("bv") BlogView blogView) throws Exception;
 
-      @Insert("insert into view_tag (name,vid) values(#{tn},#{id})")
+      @Insert("insert ignore into view_tag (name,vid) values(#{tn},#{id})")
       int addViewTag(@Param("tn") String tagName,@Param("id") int vid) throws Exception;
 
-      @Insert("insert ignore into blog_tag set name = #{tg}")
-      int addTag(@Param("tg") String tagName) throws Exception;
+      @Delete("delete from view_tag where vid = #{vid}")
+      int deleteViewTag(@Param("id") int vid) throws Exception;
+
+   /*   @Insert("insert ignore into blog_tag set name = #{tg}")
+      int addTag(@Param("tg") String tagName) throws Exception;*/
 
       @Select({
             "select title,tags,md",
@@ -43,7 +46,7 @@ public interface AdminBlogMapper {
               "article = #{bv.article}",
               "where vid = #{bv.vid}"
       })
-      void updateBlogById(@Param("bv") BlogView blogView) throws Exception;
+      void updateBlogView(@Param("bv") BlogView blogView) throws Exception;
 
       @Select({
               "select vid,title,tags",
@@ -54,4 +57,8 @@ public interface AdminBlogMapper {
 
       @Select("select count(*) from blog_view")
       int getBlogNum() throws Exception;
+
+      @Delete("delete from blog_view where vid =#{vid}")
+      int deleteBlogView(@Param("vid") int vid) throws Exception;
+
 }

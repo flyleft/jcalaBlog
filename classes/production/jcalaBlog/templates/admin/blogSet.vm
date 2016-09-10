@@ -84,7 +84,5 @@
     <script type="text/javascript">
         $(".delete").confirm();
     </script>
-    <!-- Page Specific Plugins -->
-
   </body>
 </html>

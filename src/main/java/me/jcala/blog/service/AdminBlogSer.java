@@ -22,11 +22,24 @@ public class AdminBlogSer implements AdminBlogSerInter{
     @Autowired
     private AdminBlogMapper adminBlogMapper;
     @Override
-    public int addBlog(BlogView blogView)  throws Exception {//String title, String tags, String article,String md
+    public boolean addBlog(BlogView blogView){//String title, String tags, String article,String md
         blogView.setDate(Tools.getTimestamp());
-        adminBlogMapper.addBlog(blogView);
-        addViewTag(blogView.getTags(),blogView.getVid());
-        return blogView.getVid();
+        boolean result=true;
+        try {
+            adminBlogMapper.addBlog(blogView);
+        } catch (Exception e) {
+           LOGGER.error(e.getMessage());
+            result=false;
+        }
+        if (result){
+            try {
+                addViewTag(blogView.getTags(),blogView.getVid());
+            } catch (Exception e) {
+                LOGGER.error(e.getMessage());
+                result=false;
+            }
+        }
+        return result;
     }
     @Override
     public BlogView getBlogByVid(int vid){
@@ -61,16 +74,43 @@ public class AdminBlogSer implements AdminBlogSerInter{
     return pageNum;
     }
     @Override
-    public void updateBlog(int id,BlogView blogView) throws Exception{
-            blogView.setVid(id);
-            adminBlogMapper.updateBlogById(blogView);
+    public boolean updateBlog(BlogView blogView){
+        boolean result=true;
+        try {
+            adminBlogMapper.updateBlogView(blogView);
+        } catch (Exception e) {
+            result=false;
+            LOGGER.error(e.getMessage());
+        }
+        if (result){
+            try {
+                updateViewTag(blogView.getTags(),blogView.getVid());
+            } catch (Exception e) {
+                LOGGER.error(e.getMessage());
+                result=false;
+            }
+        }
+        return result;
     }
     private void addViewTag(String tagStr,int vid) throws Exception{
         List<String> tagList=Tools.getTagList(tagStr);
         for (String tag:tagList){
             adminBlogMapper.addViewTag(tag,vid);
-            adminBlogMapper.addTag(tag);
         }
 
+    }
+    private void updateViewTag(String tagStr,int vid) throws Exception{
+        adminBlogMapper.deleteViewTag(vid);
+        List<String> tagList=Tools.getTagList(tagStr);
+        for (String tag:tagList){
+            adminBlogMapper.addViewTag(tag,vid);
+        }
+
+    }
+
+    @Override
+    public boolean deleteBlogById(int vid) {
+
+        return false;
     }
 }

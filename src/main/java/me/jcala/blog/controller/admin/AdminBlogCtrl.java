@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Created by jcala on 2016/7/17
@@ -19,7 +18,6 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/admin")
 public class AdminBlogCtrl {
-    private static final Logger LOGGER = LoggerFactory.getLogger(AdminBlogCtrl.class);
     @Autowired
     private AdminBlogSer adminBlogSer;
     @GetMapping("/")
@@ -42,44 +40,36 @@ public class AdminBlogCtrl {
         }
     }
     @PostMapping("/post")
-    public ModelAndView post(BlogView view) {//String title,String tags,String article,String md
+    public String post(BlogView view,Model model) {
         boolean result=true;
-        int blogId=-1;
-        String errorInfo="null";
-        try {
-             blogId=adminBlogSer.addBlog(view);
-        } catch (Exception e) {
-            result=false;
-            LOGGER.error(e.getMessage());
-            errorInfo=e.getMessage();
-        }if (result){
-            return new ModelAndView("redirect:/admin/result/1/"+blogId);
+        if (result){
+            model.addAttribute("targetUrl","/admin/blogSet/1");
+            model.addAttribute("result",1);
         }else {
-            return new ModelAndView("redirect:/admin/result/11/"+errorInfo);
+            model.addAttribute("targetUrl","/admin/newBlog");
+            model.addAttribute("result",0);
         }
+        return "admin/result";
 
     }
+
     @PostMapping("/update/{id}")
-    public ModelAndView post(@PathVariable int id,BlogView view) {
-        boolean result=true;
-        String errorInfo="null";
-        try {
-            adminBlogSer.updateBlog(id,view);
-        } catch (Exception e) {
-            LOGGER.error(e.toString());
-            errorInfo=e.getMessage();
-            result=false;
-        }
+    public String update(@PathVariable int id,BlogView view,Model model) {
+        view.setVid(id);
+        boolean result= adminBlogSer.updateBlog(view);
         if (result){
-            return new ModelAndView("redirect:/admin/result/2/"+id);
+            model.addAttribute("targetUrl","/admin/blogSet/1");
+            model.addAttribute("result",1);
         }else {
-            return new ModelAndView("redirect:/admin/result/12/"+errorInfo);
+            model.addAttribute("targetUrl","/admin/update/"+id);
+            model.addAttribute("result",0);
         }
+        return "admin/result";
     }
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable int id) {
-        LOGGER.info("id:"+id);
-        return "redirect:/admin//blogSet/1";
+
+        return "redirect:/admin/blogSet/1";
     }
     @GetMapping("/blogSet/{id}")
     public String blogSet(@PathVariable int id, Model model) {
@@ -87,26 +77,5 @@ public class AdminBlogCtrl {
         model.addAttribute("pageNum",adminBlogSer.getPageNum());
         model.addAttribute("blogList",adminBlogSer.getBlogPage(id));
         return "admin/blogSet";
-    }
-    @GetMapping("/result/{id}/{str}")
-    public String result(@PathVariable int id, @PathVariable String str,Model model) {
-        if(id<10){
-            switch (id){
-                case 1:model.addAttribute("targetUrl","/post/"+str);break;//添加博客成功
-                case 2:model.addAttribute("targetUrl","/post/"+str);break;//修改博客成功
-                case 3:model.addAttribute("targetUrl","/info");break;//修改admin信息成功
-                default:model.addAttribute("targetUrl","/");
-            }
-            return "admin/suc";
-        }else {
-            model.addAttribute("errorInfo",str);
-            switch (id){
-                case 11:model.addAttribute("targetUrl","/admin/newBlog");break;//添加博客失败
-                case 12:model.addAttribute("targetUrl","/admin/blogSet");break;//修改博客失败
-                case 13:model.addAttribute("targetUrl","/info");break;//修改admin信息失败
-                default:model.addAttribute("targetUrl","/");
-            }
-            return "admin/fail";
-        }
     }
 }
