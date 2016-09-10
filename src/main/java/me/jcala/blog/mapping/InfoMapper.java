@@ -35,7 +35,7 @@ public interface InfoMapper {
         "update admin set username = #{if.username},",
                 "email= #{if.email},website=#{if.website},",
                 "github=#{if.github},linkedin=#{if.linkedin},",
-                "twitter=#{if.twitter},pro_exp=#{pro_exp},",
+                "twitter=#{if.twitter},pro_exp=#{if.pro_exp},",
                 "edu_exp = #{if.edu_exp},advantage=#{if.advantage} ",
                 "limit 1"
     })

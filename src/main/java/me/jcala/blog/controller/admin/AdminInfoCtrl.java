@@ -53,16 +53,14 @@ public class AdminInfoCtrl {
 
     @PostMapping("/admin/info.action")
     public String updateInfo(Info info,Model model){
-        System.out.println(info);
-        /*boolean result=infoSer.updateInfo(info);
+        boolean result=infoSer.updateInfo(info);
+        model.addAttribute("targetUrl","/admin/info");
         if (result){
-            return "redirect:/admin/info";
+            model.addAttribute("result",1);
+            return "admin/result";
         }else {
-            model.addAttribute("targetUrl","/admin/info");
             model.addAttribute("result",0);
             return "admin/result";
-        }*/
-        model.addAttribute("result",0);
-        return "admin/result";
+        }
     }
 }
