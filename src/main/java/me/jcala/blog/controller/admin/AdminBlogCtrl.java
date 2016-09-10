@@ -36,6 +36,7 @@ public class AdminBlogCtrl {
     @PostMapping("/post")
     public String post(BlogView view,Model model) {
         boolean result=true;
+        result=adminBlogSer.addBlog(view);
         if (result){
             model.addAttribute("targetUrl","/admin/blogList/1");
             model.addAttribute("result",1);
@@ -61,15 +62,21 @@ public class AdminBlogCtrl {
         return "admin/result";
     }
     @GetMapping("/delete/{id}")
-    public String delete(@PathVariable int id) {
+    public String delete(@PathVariable int id,Model model) {
         boolean result= adminBlogSer.deleteBlogById(id);
-        return "redirect:/admin/blogList/1";
+        if (result){
+            return "redirect:/admin/blogList/1";
+        }else {
+            model.addAttribute("targetUrl","/admin/blogList/1");
+            model.addAttribute("result",0);
+            return "admin/result";
+        }
     }
-    @GetMapping("/blogList/{id}")
-    public String blogList(@PathVariable int id, Model model) {
-        model.addAttribute("current",id);
+    @GetMapping("/blogList/{page}")
+    public String blogList(@PathVariable int page, Model model) {
+        model.addAttribute("current",page);
         model.addAttribute("pageNum",adminBlogSer.getPageNum());
-        model.addAttribute("blogList",adminBlogSer.getBlogPage(id));
+        model.addAttribute("blogList",adminBlogSer.getBlogPage(page));
         return "admin/blog_list";
     }
 }

@@ -25,10 +25,10 @@ public interface AdminBlogMapper {
       int addViewTag(@Param("tn") String tagName,@Param("id") int vid) throws Exception;
 
       @Delete("delete from view_tag where vid = #{vid}")
-      int deleteViewTag(@Param("id") int vid) throws Exception;
+      int deleteViewTag(@Param("vid") int vid) throws Exception;
 
-   /*   @Insert("insert ignore into blog_tag set name = #{tg}")
-      int addTag(@Param("tg") String tagName) throws Exception;*/
+      @Delete("delete from blog_view where vid =#{vid} limit 1")
+      int deleteBlogView(@Param("vid") int vid) throws Exception;
 
       @Select({
             "select title,tags,md",
@@ -57,8 +57,5 @@ public interface AdminBlogMapper {
 
       @Select("select count(*) from blog_view")
       int getBlogNum() throws Exception;
-
-      @Delete("delete from blog_view where vid =#{vid} limit 1")
-      int deleteBlogView(@Param("vid") int vid) throws Exception;
 
 }

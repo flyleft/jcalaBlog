@@ -112,18 +112,10 @@ public class AdminBlogSer implements AdminBlogSerInter{
     public boolean deleteBlogById(int vid) {
         boolean result=true;
         try {
-            adminBlogMapper.deleteViewTag(vid);
+            adminBlogMapper.deleteBlogView(vid);
         } catch (Exception e) {
            LOGGER.error(e.getMessage());
             result=false;
-        }
-        if (result){
-            try {
-                adminBlogMapper.deleteViewTag(vid);
-            } catch (Exception e) {
-               e.getMessage();
-                result=false;
-            }
         }
         return result;
     }
