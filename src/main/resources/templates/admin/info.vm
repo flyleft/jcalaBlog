@@ -117,7 +117,7 @@
         $(function () {
             $("#updateSub").bind('click', function(){
                 var form = document.forms[0];
-                form.action = "/admin/updateInfo.action";
+                form.action = "/admin/info.action";
                 form.method = "post";
                 form.submit();
             });

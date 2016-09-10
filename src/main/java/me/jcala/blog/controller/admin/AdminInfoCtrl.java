@@ -51,7 +51,7 @@ public class AdminInfoCtrl {
         return "admin/login";
     }
 
-    @PostMapping("/admin/updateInfo.action")
+    @PostMapping("/admin/info.action")
     public String updateInfo(Info info,Model model){
         System.out.println(info);
         /*boolean result=infoSer.updateInfo(info);
