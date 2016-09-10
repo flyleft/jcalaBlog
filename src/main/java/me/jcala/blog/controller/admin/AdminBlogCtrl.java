@@ -67,7 +67,7 @@ public class AdminBlogCtrl {
     }
     @GetMapping("/blogList/{id}")
     public String blogList(@PathVariable int id, Model model) {
-        model.addAttribute("currentPageId",id);
+        model.addAttribute("current",id);
         model.addAttribute("pageNum",adminBlogSer.getPageNum());
         model.addAttribute("blogList",adminBlogSer.getBlogPage(id));
         return "admin/blog_list";

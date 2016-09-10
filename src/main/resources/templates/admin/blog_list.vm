@@ -46,8 +46,7 @@
                 </tbody>
               </table>
 			  <center>
-                #set( $current = ${currentPageId} )
-                #set( $arr = [1..${pageNum}] )
+                #set( $arr = [0..${pageNum}] )
 			   <ul class="pagination">
                    #if($current<2)
                        <li class="disabled"><a href="#">&laquo;</a></li>
@@ -56,10 +55,12 @@
                          <li><a href="/admin/blogSet/$lastPage">&laquo;</a></li>
                    #end
                  #foreach($page in $arr)
-                     #if($current==$page)
-                         <li class="active"><a href="/admin/blogSet/$page">$page</a></li>
-                       #else
-                           <li><a href="/admin/blogSet/$page">$page</a></li>
+                     #if($page > 0)
+                         #if($current==$page)
+                             <li class="active"><a href="/admin/blogSet/$page">$page</a></li>
+                         #else
+                             <li><a href="/admin/blogSet/$page">$page</a></li>
+                         #end
                      #end
                  #end
                    #if($current>=$pageNum)
