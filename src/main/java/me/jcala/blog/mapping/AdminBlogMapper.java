@@ -58,7 +58,7 @@ public interface AdminBlogMapper {
       @Select("select count(*) from blog_view")
       int getBlogNum() throws Exception;
 
-      @Delete("delete from blog_view where vid =#{vid}")
+      @Delete("delete from blog_view where vid =#{vid} limit 1")
       int deleteBlogView(@Param("vid") int vid) throws Exception;
 
 }

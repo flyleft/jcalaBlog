@@ -62,7 +62,7 @@ public class AdminBlogCtrl {
     }
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable int id) {
-
+        boolean result= adminBlogSer.deleteBlogById(id);
         return "redirect:/admin/blogList/1";
     }
     @GetMapping("/blogList/{id}")
