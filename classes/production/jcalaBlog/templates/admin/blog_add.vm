@@ -2,9 +2,9 @@
 <link href="/css/editormd.min.css" rel="stylesheet"/>
 <link href="/css/bootstrap-tagsinput.css" rel="stylesheet">
 #include("/module/admin/top_nv.vm")
-<li><a href="/admin/"><i class="fa fa-bar-chart-o"></i> Monitor</a></li>
-<li class="active"><a href="/admin/newBlog"><i class="fa fa-edit"></i> New Blog</a></li>
-<li><a href="/admin/blogSet/1"><i class="fa fa-wrench"></i> Blog Settings</a></li>
+<li><a href="/admin"><i class="fa fa-bar-chart-o"></i> Monitor</a></li>
+<li class="active"><a href="/admin/blogAdd"><i class="fa fa-edit"></i> Add Blog</a></li>
+<li><a href="/admin/blogList/1"><i class="fa fa-wrench"></i> Blog List</a></li>
 <li><a href="/admin/info"><i class="fa fa-desktop"></i> Info</a></li>
 #include("/module/admin/btm_nv.vm")
     <div id="page-wrapper">

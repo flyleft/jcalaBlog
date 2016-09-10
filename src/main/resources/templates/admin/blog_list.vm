@@ -1,16 +1,16 @@
 #include("/module/admin/header.vm")
 <link href="/css/blogset-confirm.css" rel="stylesheet">
 #include("/module/admin/top_nv.vm")
-<li><a href="/admin/"><i class="fa fa-bar-chart-o"></i> Monitor</a></li>
-<li><a href="/admin/newBlog"><i class="fa fa-edit"></i> New Blog</a></li>
-<li class="active"><a href="/admin/blogSet/1"><i class="fa fa-wrench"></i> Blog Settings</a></li>
+<li><a href="/admin"><i class="fa fa-bar-chart-o"></i> Monitor</a></li>
+<li><a href="/admin/blogAdd"><i class="fa fa-edit"></i> Add Blog</a></li>
+<li class="active"><a href="/admin/blogList/1"><i class="fa fa-wrench"></i> Blog List</a></li>
 <li><a href="/admin/info"><i class="fa fa-desktop"></i> Info</a></li>
 #include("/module/admin/btm_nv.vm")
       <div id="page-wrapper">
 
         <div class="row">
           <div class="col-lg-12">
-            <h1>Blogs <small>Blog Page Setting</small></h1>
+            <h1>All Blogs</h1>
             <ol class="breadcrumb">
               <li><a href="/admin/"><i class="fa fa-dashboard"></i>Monitor</a></li>
               <li class="active"><i class="fa fa-table"></i>Blogs</li>
