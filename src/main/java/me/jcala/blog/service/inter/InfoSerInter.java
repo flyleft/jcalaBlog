@@ -10,4 +10,5 @@ public interface InfoSerInter {
     boolean login(Info info);
     boolean modifyPw();
     boolean updateInfo(Info info);
+    boolean checkPass(String oldPass);
 }

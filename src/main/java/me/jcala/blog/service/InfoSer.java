@@ -42,7 +42,16 @@ public class InfoSer implements InfoSerInter {
             return false;
         }
     }
-
+    @Override
+    public boolean checkPass(String oldPass){
+        int num=0;
+        try {
+            num=infoMapper.selectByOldPass(oldPass);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+        return num>0;
+    }
     @Override
     public boolean updateInfo(Info info) {
         boolean result=true;

@@ -41,4 +41,10 @@ public interface InfoMapper {
     })
     void update(@Param("if") Info info);
 
+    @Select({
+            "select count(*) ",
+            "from admin ",
+            "where password = #{pw}"
+    })
+    int selectByOldPass(@Param("pw") String oldPass) throws Exception;
 }

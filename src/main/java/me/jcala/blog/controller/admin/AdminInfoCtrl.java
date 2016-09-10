@@ -63,4 +63,14 @@ public class AdminInfoCtrl {
             return "admin/result";
         }
     }
+    @PostMapping("/admin/pass.action")
+    public  String passModify(String old_pass,String new_pass){
+
+        return "";
+    }
+    @PostMapping("/admin/checkPass.action")
+    public  String checkPass(String old_pass){
+
+        return "";
+    }
 }
