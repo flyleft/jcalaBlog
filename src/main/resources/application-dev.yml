@@ -13,7 +13,6 @@ server:
 logging:
     config: classpath:logback-spring.xml
     path: /Users/jcala/logs
-    level: info
 #velocity模板引擎的配置
 spring:
     velocity:

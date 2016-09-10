@@ -50,16 +50,19 @@ public class AdminInfoCtrl {
     public  String logout(){
         return "admin/login";
     }
+
     @PostMapping("/admin/updateInfo.action")
     public String updateInfo(Info info,Model model){
-        System.out.println("1111111111111111111111");
-        boolean result=infoSer.updateInfo(info);
+        System.out.println(info);
+        /*boolean result=infoSer.updateInfo(info);
         if (result){
             return "redirect:/admin/info";
         }else {
             model.addAttribute("targetUrl","/admin/info");
             model.addAttribute("result",0);
             return "admin/result";
-        }
+        }*/
+        model.addAttribute("result",0);
+        return "admin/result";
     }
 }

@@ -23,47 +23,51 @@
     <div id="myTabContent" class="tab-content">
       <div class="tab-pane active in" id="home">
 	  
-    <form method="post" action="/admin/updateInfo.action">
+    <form name="infoForm">
   <div class="form-group">
     <label class="text-warning">username</label>
-    <input type="text" class="form-control" value="${info.Username}">
+    <input type="text" class="form-control" value="${info.Username}" name="username">
   </div>
   <div class="form-group">
     <label class="text-warning">email</label>
-    <input type="email" class="form-control"  value="${info.Email}">
+    <input type="email" class="form-control"  value="${info.Email}" name="email">
   </div>
     <div class="form-group">
         <label class="text-warning">github</label>
-        <input type="text" class="form-control"  value="${info.Github}">
+        <input type="text" class="form-control"  value="${info.Github}" name="github">
     </div>
     <div class="form-group">
         <label class="text-warning">twitter</label>
-        <input type="text" class="form-control" value="${info.Twitter}">
+        <input type="text" class="form-control" value="${info.Twitter}" name="twitter">
     </div>
     <div class="form-group">
         <label class="text-warning">website</label>
-        <input type="text" class="form-control"  value="${info.Website}">
+        <input type="text" class="form-control"  value="${info.Website}" name="website">
     </div>
         <div class="form-group">
+            <label class="text-warning">linkedin</label>
+            <input type="text" class="form-control"  value="${info.Linkedin}" name="linkedin">
+        </div>
+        <div class="form-group">
             <label class="text-warning">real_name</label>
-            <input type="text" class="form-control"  value="${info.Real_name}">
+            <input type="text" class="form-control"  value="${info.Real_name}" name="real_name">
         </div>
     <div class="form-group">
         <label class="text-warning">sex</label>
             <div class="input-group">
                     #if(${info.Sex}==1)
                         <label ng-repeat="option in field.options" <label class="text-info">
-                        <input type="radio" name="sex" value="male" checked="checked">male
+                        <input type="radio" name="sex" value="1" checked="checked">male
                     </label>&#12288;
                         <label ng-repeat="option in field.options" <label class="text-info">
-                        <input type="radio" name="sex" value="female">female
+                        <input type="radio" name="sex" value="0">female
                     </label>
                         #else
                             <label ng-repeat="option in field.options" <label class="text-info">
-                            <input type="radio" name="sex" value="male">male
+                            <input type="radio" name="sex" value="1">male
                         </label>&#12288;
                             <label ng-repeat="option in field.options" <label class="text-info">
-                            <input type="radio" name="sex" value="female" checked="checked">female
+                            <input type="radio" name="sex" value="0" checked="checked">female
                         </label>
                     #end
 
@@ -71,19 +75,20 @@
     </div>
         <div class="form-group">
             <label class="text-warning">education experience</label>
-            <textarea class="form-control" rows="4">${info.Edu_exp}</textarea>
+            <label class="text-muted">(Between each item please separated by English letter ';')</label>
+            <textarea class="form-control" rows="4" name="edu_exp">${info.Edu_exp}</textarea>
         </div>
         <div class="form-group">
             <label class="text-warning">project experience</label>
             <label class="text-muted">(Between each item please separated by English letter ';')</label>
-            <textarea class="form-control" rows="4">${info.Pro_exp}</textarea>
+            <textarea class="form-control" rows="4" name="pro_exp">${info.Pro_exp}</textarea>
         </div>
         <div class="form-group">
             <label class="text-warning">advantage</label>
             <label class="text-muted">(Between each item please separated by English letter ';')</label>
-            <textarea class="form-control" rows="4">${info.Advantage}</textarea>
+            <textarea class="form-control" rows="4" name="advantage">${info.Advantage}</textarea>
         </div>
-  <button type="submit" class="btn btn-primary">Update</button>
+  <button type="submit" class="btn btn-primary" id="updateSub">Update</button>
    </form>
       </div>
       <div class="tab-pane fade" id="profile">
@@ -108,6 +113,15 @@
     <!-- JavaScript -->
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-
+    <script type="text/javascript">
+        $(function () {
+            $("#updateSub").bind('click', function(){
+                var form = document.forms[0];
+                form.action = "/admin/updateInfo.action";
+                form.method = "post";
+                form.submit();
+            });
+        });
+    </script>
   </body>
 </html>

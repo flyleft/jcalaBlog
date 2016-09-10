@@ -3,6 +3,7 @@ package me.jcala.blog.domain;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  * Created by Administrator on 2016/9/8.
@@ -10,6 +11,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @NoArgsConstructor
+@ToString
 public class Info {
     private String username;
     private String password;
