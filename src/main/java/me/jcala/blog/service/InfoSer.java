@@ -9,15 +9,17 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 /**
  * Created by Administrator on 2016/9/8.
  */
 @Service
 public class InfoSer implements InfoSerInter {
-    public static final int MODIFYPASSSUC=0;//修改密码成功
-    public static final int PASSERROE=1;//密码错误
-    public static final int SySTEMERROE=2;//系统错误
-    public static final int NOTHING=3;//不显示提示信息
+    private static final int MODIFYPASSSUC=0;//修改密码成功
+    private static final int PASSERROE=1;//密码错误
+    private static final int SySTEMERROE=2;//系统错误
     private static final Logger LOGGER = LoggerFactory.getLogger(InfoSer.class);
     @Autowired
     private InfoMapper infoMapper;
@@ -83,5 +85,16 @@ public class InfoSer implements InfoSerInter {
           resdult=PASSERROE;
        }
         return resdult;
+    }
+    @Override
+    public void addSession(HttpServletRequest request,Info info){
+        HttpSession session = request.getSession(true);
+        session.setAttribute("cur_user",info);
+        session.setMaxInactiveInterval(60*10);
+    }
+    @Override
+    public void destroySession(HttpServletRequest request){
+        HttpSession session = request.getSession(false);
+        session.removeAttribute("cur_user");
     }
 }

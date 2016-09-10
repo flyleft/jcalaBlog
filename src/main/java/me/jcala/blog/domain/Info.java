@@ -1,9 +1,6 @@
 package me.jcala.blog.domain;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 /**
  * Created by Administrator on 2016/9/8.
