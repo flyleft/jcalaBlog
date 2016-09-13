@@ -15,10 +15,8 @@ import org.springframework.stereotype.Repository;
 public interface InfoMapper {
 
     @Select({
-        "select username,sex,real_name,",
-            "email,website,github,",
-            "linkedin,twitter,pro_exp,",
-            "edu_exp,advantage ",
+        "select username,email,",
+            "github,weibo,twitter",
             "from admin limit 1"
     })
     Info select() throws Exception;
@@ -33,10 +31,8 @@ public interface InfoMapper {
 
     @Update({
         "update admin set username = #{if.username},",
-                "email= #{if.email},website=#{if.website},",
-                "github=#{if.github},linkedin=#{if.linkedin},",
-                "twitter=#{if.twitter},pro_exp=#{if.pro_exp},",
-                "edu_exp = #{if.edu_exp},advantage=#{if.advantage} ",
+                "email= #{if.email},weibo=#{if.weibo},",
+                "github=#{if.github},twitter=#{if.twitter}",
                 "limit 1"
     })
     void update(@Param("if") Info info);
