@@ -1,10 +1,7 @@
 package me.jcala.blog.mapping;
 
 import me.jcala.blog.domain.Visiter;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Date;
@@ -27,4 +24,10 @@ public interface VisiterMapper {
             "select day,size from visiter order by day desc limit 30"
     })
     List<Visiter> select() throws Exception;
+
+    @Delete({
+            "delete from visiter ",
+            "where day < #{tm}"
+    })
+    void delete(@Param("tm") String twoMonthAgo) throws Exception;
 }
