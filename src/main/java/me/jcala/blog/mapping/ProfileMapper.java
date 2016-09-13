@@ -1,6 +1,6 @@
 package me.jcala.blog.mapping;
 
-import me.jcala.blog.domain.Info;
+import me.jcala.blog.domain.Profile;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -12,14 +12,14 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 @Mapper
-public interface InfoMapper {
+public interface ProfileMapper {
 
     @Select({
         "select username,email,",
             "github,weibo,twitter",
             "from admin limit 1"
     })
-    Info select() throws Exception;
+    Profile select() throws Exception;
 
     @Select({
         "select count(*) ",
@@ -35,7 +35,7 @@ public interface InfoMapper {
                 "github=#{if.github},twitter=#{if.twitter}",
                 "limit 1"
     })
-    void update(@Param("if") Info info);
+    void update(@Param("if") Profile info);
 
     @Select({
             "select count(*) ",

@@ -5,7 +5,7 @@
 <li><a href="/admin"><i class="fa fa-bar-chart-o"></i> Monitor</a></li>
 <li><a href="/admin/blogAdd"><i class="fa fa-edit"></i> Add Blog</a></li>
 <li><a href="/admin/blogList/1"><i class="fa fa-wrench"></i> Blog List</a></li>
-<li><a href="/admin/info"><i class="fa fa-desktop"></i> Info</a></li>
+<li><a href="/admin/profile"><i class="fa fa-desktop"></i> profile</a></li>
 <li class="active"><a href="#"><i class="fa fa-adjust"></i> Blog Modify</a></li>
 #include("/module/admin/btm_nv.vm")
     <div id="page-wrapper">

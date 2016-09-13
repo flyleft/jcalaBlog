@@ -1,8 +1,8 @@
 package me.jcala.blog.service;
 
-import me.jcala.blog.domain.Info;
-import me.jcala.blog.mapping.InfoMapper;
-import me.jcala.blog.service.inter.InfoSerInter;
+import me.jcala.blog.domain.Profile;
+import me.jcala.blog.mapping.ProfileMapper;
+import me.jcala.blog.service.inter.ProfileSerInter;
 import me.jcala.blog.utils.Md5Tools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,29 +16,29 @@ import javax.servlet.http.HttpSession;
  * Created by Administrator on 2016/9/8.
  */
 @Service
-public class InfoSer implements InfoSerInter {
+public class ProfileSer implements ProfileSerInter {
     private static final int MODIFYPASSSUC=0;//修改密码成功
     private static final int PASSERROE=1;//密码错误
     private static final int SySTEMERROE=2;//系统错误
-    private static final Logger LOGGER = LoggerFactory.getLogger(InfoSer.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ProfileSerInter.class);
     @Autowired
-    private InfoMapper infoMapper;
+    private ProfileMapper profileMapper;
     @Override
-    public Info getInfo() {
-        Info info=new Info();
+    public Profile getProfile() {
+        Profile profile=new Profile();
         try {
-            info=infoMapper.select();
+            profile=profileMapper.select();
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
         }
-        return info;
+        return profile;
     }
 
     @Override
-    public boolean login(Info user) {
+    public boolean login(Profile user) {
         int num=0;
         try {
-            num=infoMapper.selectByPw(user.getUsername(), Md5Tools.MD5(user.getPassword()));
+            num=profileMapper.selectByPw(user.getUsername(), Md5Tools.MD5(user.getPassword()));
         } catch (Exception e) {
            LOGGER.error(e.getMessage());
         }
@@ -52,17 +52,17 @@ public class InfoSer implements InfoSerInter {
     public boolean checkPass(String oldPass){
         int num=0;
         try {
-            num=infoMapper.selectByOldPass(Md5Tools.MD5(oldPass));
+            num=profileMapper.selectByOldPass(Md5Tools.MD5(oldPass));
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
         }
         return num>0;
     }
     @Override
-    public boolean updateInfo(Info info) {
+    public boolean updateProfile(Profile info) {
         boolean result=true;
         try {
-            infoMapper.update(info);
+            profileMapper.update(info);
         } catch (Exception e) {
            LOGGER.error(e.getMessage());
             result=false;
@@ -75,7 +75,7 @@ public class InfoSer implements InfoSerInter {
         int resdult;
        if (checkPass(oldPass)){
            try {
-               infoMapper.updataPass(Md5Tools.MD5(newPass));
+               profileMapper.updataPass(Md5Tools.MD5(newPass));
                resdult=MODIFYPASSSUC;
            } catch (Exception e) {
                LOGGER.error(e.getMessage());
@@ -87,7 +87,7 @@ public class InfoSer implements InfoSerInter {
         return resdult;
     }
     @Override
-    public void addSession(HttpServletRequest request,Info info){
+    public void addSession(HttpServletRequest request,Profile info){
         HttpSession session = request.getSession(true);
         session.setAttribute("cur_user",info);
         session.setMaxInactiveInterval(600);
