@@ -68,8 +68,11 @@ public class AdminInfoCtrl {
         }
     }
     @PostMapping("/admin/pass.action")
-    public  String passModify(String old_pass,String new_pass){
+    public  String passModify(String old_pass,String new_pass,HttpServletRequest request){
         int result=infoSer.modifyPw(old_pass,new_pass);
+        if (result==0){
+            infoSer.destroySession(request);
+        }
         return "redirect:/admin/info?result="+result;
     }
 }
