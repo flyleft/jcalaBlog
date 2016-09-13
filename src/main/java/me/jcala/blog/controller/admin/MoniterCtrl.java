@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Collections;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class MoniterCtrl {
     @Autowired
     private MoniterSer moniterSer;
     @GetMapping("/admin")
-    public String moniter(Model model) {
+    public String moniter(Model model, HttpServletRequest request) throws Exception {
         List<Visiter> visiters=moniterSer.getVisiters();
         Collections.reverse(visiters);
         model.addAttribute("VsiterList",visiters);

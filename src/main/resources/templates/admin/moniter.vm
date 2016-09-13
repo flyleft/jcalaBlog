@@ -43,15 +43,14 @@
     <script src="/js/bootstrap.min.js"></script>
 
     <!-- Page Specific Plugins -->    <script src="/js/raphael-min.js"></script>
-    <script src="/js/morris-0.4.3.min.js"></script>
-    <script src="/js/chart-data-morris.js"></script>
+    <script src="/js/morris.min.js"></script>
    <script type="text/javascript">
        Morris.Area({
            element: 'number-visits',
            data: [
-                   #foreach($vi in ${VsiterList})
-                       { d: '${vi.Day}', visits: ${vi.Size} },
-                   #end
+               #foreach($vi in ${VsiterList})
+                   { d: '${vi.Day}', visits: ${vi.Size} },
+               #end
            ],
            xkey: 'd',
            ykeys: ['visits'],
