@@ -3,7 +3,7 @@
 <li><a href="/admin"><i class="fa fa-bar-chart-o"></i> Monitor</a></li>
 <li><a href="/admin/blogAdd"><i class="fa fa-edit"></i> Add Blog</a></li>
 <li><a href="/admin/blogList/1"><i class="fa fa-wrench"></i> Blog List</a></li>
-<li class="active"><a href="/admin/profile"><i class="fa fa-desktop"></i> profile</a></li>
+<li class="active"><a href="/admin/info"><i class="fa fa-desktop"></i> Info</a></li>
 #include("/module/admin/btm_nv.vm")
 <div id="page-wrapper">
     <div class="row">
@@ -19,23 +19,23 @@
     <form name="infoForm">
       <div class="form-group">
         <label class="text-warning">username</label>
-        <input type="text" class="form-control" value="${profile.Username}" name="username">
+        <input type="text" class="form-control" value="${info.Username}" name="username">
       </div>
       <div class="form-group">
         <label class="text-warning">email</label>
-        <input type="email" class="form-control"  value="${profile.Email}" name="email">
+        <input type="email" class="form-control"  value="${info.Email}" name="email">
       </div>
         <div class="form-group">
             <label class="text-warning">github</label>
-            <input type="text" class="form-control"  value="${profile.Github}" name="github">
+            <input type="text" class="form-control"  value="${info.Github}" name="github">
         </div>
         <div class="form-group">
             <label class="text-warning">twitter</label>
-            <input type="text" class="form-control" value="${profile.Twitter}" name="twitter">
+            <input type="text" class="form-control" value="${info.Twitter}" name="twitter">
         </div>
             <div class="form-group">
                 <label class="text-warning">weibo</label>
-                <input type="text" class="form-control"  value="${profile.Weibo}" name="weibo">
+                <input type="text" class="form-control"  value="${info.Weibo}" name="weibo">
             </div>
       <button type="submit" class="btn btn-primary" id="updateSub">Update</button>
    </form>
@@ -69,13 +69,13 @@
         $(function () {
             $("#updateSub").bind('click', function(){
                 var form = document.forms[0];
-                form.action = "/admin/profile.do";
+                form.action = "/admin/info.action";
                 form.method = "post";
                 form.submit();
             });
             $("#passSub").bind('click', function(){
                 var form = document.forms[1];
-                form.action = "/admin/pass.do";
+                form.action = "/admin/pass.action";
                 form.method = "post";
                 form.submit();
             });

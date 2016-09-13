@@ -8,7 +8,7 @@ import lombok.*;
 @Setter
 @Getter
 @NoArgsConstructor
-public class Profile {
+public class Info {
     private String username;
     private String password;
     private String email;

@@ -18,7 +18,7 @@ spring:
     velocity:
         cache: false
         view-names: error,index,projects,tags,archives,archives1,about,admin/login,admin/blog_add,admin/moniter,
-                    admin/blog_modify,admin/blog_list,admin/profile,admin/result
+                    admin/blog_modify,admin/blog_list,admin/info,admin/result
     #http的配置
     http:
         encoding.charset: UTF-8
