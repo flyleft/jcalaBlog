@@ -97,4 +97,23 @@ public class InfoSer implements InfoSerInter {
         HttpSession session = request.getSession(false);
         session.removeAttribute("cur_user");
     }
+    public String getResumeMd(){
+       String md="";
+        try {
+            md=infoMapper.selectMd();
+        } catch (Exception e) {
+           LOGGER.error(e.getMessage());
+        }
+        return md;
+    }
+    public boolean saveResume(Info info){
+        boolean result=true;
+        try {
+            infoMapper.updateResume(info);
+        } catch (Exception e) {
+            result=false;
+           LOGGER.error(e.getMessage());
+        }
+        return result;
+    }
 }

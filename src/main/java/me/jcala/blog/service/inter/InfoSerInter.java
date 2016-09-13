@@ -15,4 +15,5 @@ public interface InfoSerInter {
     boolean checkPass(String oldPass);
     void addSession(HttpServletRequest request, Info info);
     void destroySession(HttpServletRequest request);
+    String getResumeMd();
 }

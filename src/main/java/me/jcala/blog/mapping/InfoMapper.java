@@ -50,4 +50,15 @@ public interface InfoMapper {
             "limit 1"
     })
     int updataPass(@Param("np") String newPass) throws Exception;
+
+    @Select("select md from admin limit 1")
+    String selectMd() throws Exception;
+
+    @Update({
+            "update admin ",
+            "set md = #{if.md},",
+            "resume = #{if.resume} ",
+            "limit 1"
+    })
+    void updateResume(@Param("if") Info info) throws Exception;
 }
