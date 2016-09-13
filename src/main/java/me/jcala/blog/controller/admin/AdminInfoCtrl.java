@@ -80,14 +80,9 @@ public class AdminInfoCtrl {
         model.addAttribute("md",infoSer.getResumeMd());
       return "admin/resume";
     }
-    @GetMapping("/admin/resume.action")
+    @PostMapping("/admin/resume.action")
     public String resumeUpdate(Info info,Model model){
-        if (infoSer.saveResume(info)){
-            model.addAttribute("result",1);
-        }else {
-            model.addAttribute("result",0);
-        }
-        model.addAttribute("targetUrl","/admin/resume");
-        return "admin/resume";
+      infoSer.saveResume(info);
+        return "redirect:/admin/resume";
     }
 }
