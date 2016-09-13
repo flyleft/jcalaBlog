@@ -42,7 +42,8 @@
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
 
-    <!-- Page Specific Plugins -->    <script src="/js/raphael-min.js"></script>
+    <!-- Page Specific Plugins -->
+    <script src="/js/raphael-min.js"></script>
     <script src="/js/morris.min.js"></script>
    <script type="text/javascript">
        Morris.Area({
