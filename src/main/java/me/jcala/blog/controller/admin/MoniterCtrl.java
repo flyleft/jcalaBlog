@@ -22,6 +22,7 @@ public class MoniterCtrl {
         List<Visiter> visiters=moniterSer.getVisiters();
         Collections.reverse(visiters);
         model.addAttribute("VsiterList",visiters);
+        model.addAttribute("freeMemory",moniterSer.getFreeMemery());
         return "admin/moniter";
     }
 }
