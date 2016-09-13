@@ -61,8 +61,11 @@ dependencies {
   compile 'mysql:mysql-connector-java:5.1.38'
   //-------------------数据库连接池---------------------------
   compile 'com.zaxxer:HikariCP:2.4.5'
-  //----------------------ORM------------------------------
+  //----------------------ORM--------------------------------
   compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1")
-  //----------------------工具------------------------------
+  //--------------------JDK工具------------------------------
   compile 'org.projectlombok:lombok:1.16.10'
+  //--------------------定时任务-----------------------------
+  compile 'org.quartz-scheduler:quartz:2.2.3'
+  compile 'org.quartz-scheduler:quartz-jobs:2.2.3'
 }

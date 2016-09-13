@@ -1,5 +1,6 @@
 package me.jcala.blog.conf;
 
+import me.jcala.blog.interceptor.IpInterceptor;
 import me.jcala.blog.interceptor.UserSecurityInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -12,9 +13,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Configuration
 public class WebMvcConf extends WebMvcConfigurerAdapter{
     @Autowired
-    private UserSecurityInterceptor interceptor;
+    private UserSecurityInterceptor securityInterceptor;
+    @Autowired
+    private IpInterceptor ipInterceptor;
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(interceptor).addPathPatterns("/admin/**");
+        registry.addInterceptor(ipInterceptor).addPathPatterns("/*");
+        registry.addInterceptor(securityInterceptor).addPathPatterns("/admin/**");
     }
 }
