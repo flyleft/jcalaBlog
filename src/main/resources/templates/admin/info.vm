@@ -5,14 +5,7 @@
 <li><a href="/admin/blogList/1"><i class="fa fa-wrench"></i> Blog List</a></li>
 <li class="active"><a href="/admin/info"><i class="fa fa-desktop"></i> Info</a></li>
 #include("/module/admin/btm_nv.vm")
-
-      <div id="page-wrapper">
-
-        <div class="row">
-          <div class="col-lg-12">
-            <h1>Info Page <small>modify-info</small></h1>
-          </div>
-        </div><!-- /.row -->
+<div id="page-wrapper">
     <div class="row">
           <div class="col-lg-12">
             <div class="well">
@@ -20,75 +13,31 @@
       <li class="active"><a href="#home" data-toggle="tab">Profile</a></li>
       <li><a href="#profile" data-toggle="tab">Password</a></li>
     </ul>
+
     <div id="myTabContent" class="tab-content">
       <div class="tab-pane active in" id="home">
-	  
     <form name="infoForm">
-  <div class="form-group">
-    <label class="text-warning">username</label>
-    <input type="text" class="form-control" value="${info.Username}" name="username">
-  </div>
-  <div class="form-group">
-    <label class="text-warning">email</label>
-    <input type="email" class="form-control"  value="${info.Email}" name="email">
-  </div>
-    <div class="form-group">
-        <label class="text-warning">github</label>
-        <input type="text" class="form-control"  value="${info.Github}" name="github">
-    </div>
-    <div class="form-group">
-        <label class="text-warning">twitter</label>
-        <input type="text" class="form-control" value="${info.Twitter}" name="twitter">
-    </div>
-    <div class="form-group">
-        <label class="text-warning">website</label>
-        <input type="text" class="form-control"  value="${info.Website}" name="website">
-    </div>
+      <div class="form-group">
+        <label class="text-warning">username</label>
+        <input type="text" class="form-control" value="${info.Username}" name="username">
+      </div>
+      <div class="form-group">
+        <label class="text-warning">email</label>
+        <input type="email" class="form-control"  value="${info.Email}" name="email">
+      </div>
         <div class="form-group">
-            <label class="text-warning">linkedin</label>
-            <input type="text" class="form-control"  value="${info.Linkedin}" name="linkedin">
+            <label class="text-warning">github</label>
+            <input type="text" class="form-control"  value="${info.Github}" name="github">
         </div>
         <div class="form-group">
-            <label class="text-warning">real_name</label>
-            <input type="text" class="form-control"  value="${info.Real_name}" name="real_name">
+            <label class="text-warning">twitter</label>
+            <input type="text" class="form-control" value="${info.Twitter}" name="twitter">
         </div>
-    <div class="form-group">
-        <label class="text-warning">sex</label>
-            <div class="input-group">
-                    #if(${info.Sex}==1)
-                        <label ng-repeat="option in field.options" <label class="text-info">
-                        <input type="radio" name="sex" value="1" checked="checked">male
-                    </label>&#12288;
-                        <label ng-repeat="option in field.options" <label class="text-info">
-                        <input type="radio" name="sex" value="0">female
-                    </label>
-                        #else
-                            <label ng-repeat="option in field.options" <label class="text-info">
-                            <input type="radio" name="sex" value="1">male
-                        </label>&#12288;
-                            <label ng-repeat="option in field.options" <label class="text-info">
-                            <input type="radio" name="sex" value="0" checked="checked">female
-                        </label>
-                    #end
-
+            <div class="form-group">
+                <label class="text-warning">linkedin</label>
+                <input type="text" class="form-control"  value="${info.Linkedin}" name="linkedin">
             </div>
-    </div>
-        <div class="form-group">
-            <label class="text-warning">education experience</label>
-            <label class="text-muted">(Between each item please separated by English letter ';')</label>
-            <textarea class="form-control" rows="4" name="edu_exp">${info.Edu_exp}</textarea>
-        </div>
-        <div class="form-group">
-            <label class="text-warning">project experience</label>
-            <label class="text-muted">(Between each item please separated by English letter ';')</label>
-            <textarea class="form-control" rows="4" name="pro_exp">${info.Pro_exp}</textarea>
-        </div>
-        <div class="form-group">
-            <label class="text-warning">advantage</label>
-            <label class="text-muted">(Between each item please separated by English letter ';')</label>
-            <textarea class="form-control" rows="4" name="advantage">${info.Advantage}</textarea>
-        </div>
-  <button type="submit" class="btn btn-primary" id="updateSub">Update</button>
+      <button type="submit" class="btn btn-primary" id="updateSub">Update</button>
    </form>
       </div>
       <div class="tab-pane fade" id="profile">
