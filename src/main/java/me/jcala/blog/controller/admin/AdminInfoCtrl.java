@@ -17,10 +17,6 @@ import javax.servlet.http.HttpServletRequest;
 public class AdminInfoCtrl {
     @Autowired
     private InfoSer infoSer;
-    @GetMapping("/admin")
-    public String moniter() {
-        return "admin/moniter";
-    }
     @GetMapping("/admin/info")
     public String info(Model model,HttpServletRequest request) throws Exception {
         Info info=infoSer.getInfo();
