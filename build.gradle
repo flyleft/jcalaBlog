@@ -67,5 +67,4 @@ dependencies {
   compile 'org.projectlombok:lombok:1.16.10'
   //--------------------定时任务-----------------------------
   compile 'org.quartz-scheduler:quartz:2.2.3'
-  compile 'org.quartz-scheduler:quartz-jobs:2.2.3'
 }
