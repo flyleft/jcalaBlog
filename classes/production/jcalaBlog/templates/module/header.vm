@@ -9,7 +9,6 @@
     <link href="/css/landing-page.css" rel="stylesheet"/>
     <link href="/css/theme-light.css" rel="stylesheet"/>
     <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"/>
 </head>
 <body class="typo">
 <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">

@@ -48,4 +48,4 @@
             </div>
         </div>
     </div>
-#include("/module/footer.vm")
+#include("/module/index-footer.vm")
