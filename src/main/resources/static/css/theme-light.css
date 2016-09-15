@@ -2,7 +2,7 @@
 html,
 body {
     line-height: 1.75em;
-    background: #e6e6e6;
+    background: #f4f4f4;
     position: relative;
     font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
     font-weight: normal;
@@ -17,6 +17,9 @@ body {
     position: relative;
     overflow: hidden;
 }
+.jcala-color{
+    background: #eeeeee;
+}
 a{
     text-decoration:none;
     color: #777;
@@ -29,7 +32,7 @@ a:visited{
 }
 a:hover{
     text-decoration:none;
-    color: #333;
+    color: #6B4226;
 }
 a:active{
     text-decoration:none;
@@ -48,7 +51,7 @@ a:active{
     border-left: 1px solid #cacaca; }
 .archive .post-item:hover {
     padding-left: 13px;
-    border-left: 3px solid #ad9780;
+    border-left: 3px solid #6B4226;
     transition: 0.2s ease-out; }
 .archive .post-time {
     display: inline-block;
@@ -61,7 +64,7 @@ a:active{
 .archive .post-link {
     width: 75%;
     display: inline-block;
-    color: #ad9780;
+    color: #6B4226;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

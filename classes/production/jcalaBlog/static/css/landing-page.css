@@ -16,9 +16,12 @@ h6 {
 }
 
 .topnav {
-    font-size: 14px; 
+    font-size: 14px;
+    background: #eeeeee;
 }
-
+.topnav:hover {
+    color:#6B4226;
+}
 .lead {
     font-size: 18px;
     font-weight: 400;

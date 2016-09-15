@@ -1,8 +1,8 @@
-<footer>
+<footer class="jcala-color">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <ul class="list-inline footer-a">
+                <ul class="list-inline">
                     <li>
                         <a href="#home">Home</a>
                     </li>
