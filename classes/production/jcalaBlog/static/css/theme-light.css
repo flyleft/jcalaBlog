@@ -48,7 +48,7 @@ a:active{
     border-left: 1px solid #cacaca; }
 .archive .post-item:hover {
     padding-left: 13px;
-    border-left: 3px solid #333;
+    border-left: 3px solid #ad9780;
     transition: 0.2s ease-out; }
 .archive .post-time {
     display: inline-block;
@@ -61,7 +61,7 @@ a:active{
 .archive .post-link {
     width: 75%;
     display: inline-block;
-    color: #333;
+    color: #ad9780;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
