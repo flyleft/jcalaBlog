@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class BlogViewCtrl {
+public class FontEndCtrl {
     @Autowired
     private UserSer userSer;
     @Autowired
@@ -34,5 +34,13 @@ public class BlogViewCtrl {
     public String about(Model model) {
         model.addAttribute("userInfo",userSer.getUserInfo());
         return "about";
+    }
+    @GetMapping("/post")
+    public String post() {
+        return "post";
+    }
+    @GetMapping("/")
+    public String welcome() {
+        return "index";
     }
 }

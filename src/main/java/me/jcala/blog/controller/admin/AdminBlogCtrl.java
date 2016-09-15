@@ -34,7 +34,7 @@ public class AdminBlogCtrl {
         }
     }
     @PostMapping("/post.action")
-    public String post(BlogView view,Model model) {
+    public String postAction(BlogView view,Model model) {
         boolean result=adminBlogSer.addBlog(view);
         if (result){
             model.addAttribute("targetUrl","/admin/blogList/1");
