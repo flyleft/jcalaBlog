@@ -19,6 +19,7 @@ body {
 }
 a{
     text-decoration:none;
+    color: #777;
 }
 a:link{
     text-decoration:none;
@@ -28,6 +29,7 @@ a:visited{
 }
 a:hover{
     text-decoration:none;
+    color: #333;
 }
 a:active{
     text-decoration:none;
@@ -46,7 +48,7 @@ a:active{
     border-left: 1px solid #cacaca; }
 .archive .post-item:hover {
     padding-left: 13px;
-    border-left: 3px solid #c05b4d;
+    border-left: 3px solid #333;
     transition: 0.2s ease-out; }
 .archive .post-time {
     display: inline-block;
@@ -59,9 +61,10 @@ a:active{
 .archive .post-link {
     width: 75%;
     display: inline-block;
-    color: #c05b4d;
+    color: #333;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     position: relative;
-    top: 6px; }
+    top: 6px;
+}
