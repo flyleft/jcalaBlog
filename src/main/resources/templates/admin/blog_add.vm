@@ -26,7 +26,7 @@
                         <input type="hidden" name="article" />
                         <div class="form-group">
                             <label for="blogSubmit" class="text-warning">submit</label>
-                            <input type="submit" class="form-control jcala" id="add-blog" value="save"/>
+                            <input type="submit" class="form-control jcala-input" id="add-blog" value="save"/>
                         </div>
                     </form>
                 </center>

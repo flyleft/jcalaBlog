@@ -11,7 +11,7 @@
 #include("/module/admin/btm_nv.vm")
     <div id="page-wrapper">
         <div class="row">
-            <div class="col-md-12 column">
+            <div class="col-md-6 column">
                 <center>
                     <form role="form" class="form-inline" name="blogForm">
                         <div class="form-group">
@@ -26,10 +26,23 @@
                         <input type="hidden" name="article" />
                         <div class="form-group">
                             <label for="blogSubmit">submit</label>
-                            <input type="submit" class="form-control" id="save-blog" value="update"/>
+                            <input type="submit" class="form-control jcala-input" id="modify-blog" value="update"/>
                         </div>
                     </form>
                 </center>
+            </div>
+            <div class="col-md-6 column">
+                <div class="styled-select">
+                    <select id="editormd-theme-select">
+                        <option disabled="disabled">select Editor.md themes</option>
+                    </select>
+                    <select id="editor-area-theme-select">
+                        <option disabled="disabled">select editor area themes</option>
+                    </select>
+                    <select id="preview-area-theme-select">
+                        <option disabled="disabled">select preview area themes</option>
+                    </select>
+                </div>
             </div>
         </div><!-- /.row -->
     </div><!-- /#page-wrapper -->
@@ -51,29 +64,7 @@
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/editormd.min.js"></script>
 <script src="/js/bootstrap-tagsinput.min.js"></script>
-<script type="text/javascript">
-    var testEditor;
-
-    $(function() {
-        testEditor = editormd("markdown-editor", {
-            width   : "100%",
-            height  : 800,
-            syncScrolling : "single",
-            path    : "../lib/",
-            imageUpload : true,
-            imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-            imageUploadURL : "./php/upload.php?test=dfdf",
-            saveHTMLToTextarea : true
-        });
-        $("#save-blog").bind('click', function(){
-            var form = document.forms[0];
-            form.action = "/admin/update/${blog.Vid}";
-            form.method = "post";
-            document.blogForm.article.value=testEditor.getHTML();
-            document.blogForm.md.value=testEditor.getMarkdown();
-            form.submit();
-        });
-    });
-</script>
+<script src="/js/jcala-markdown.js"></script>
+<script src="/js/jcala-form.js"></script>
 </body>
 </html>
