@@ -15,4 +15,12 @@ $(function() {
         document.blogForm.md.value=testEditor.getMarkdown();
         form.submit();
     });
+    $("#update-resume").bind('click', function(){
+        var form = document.forms[0];
+        form.action = "/admin/resume.action";
+        form.method = "post";
+        document.resumeForm.resume.value=testEditor.getHTML();
+        document.resumeForm.md.value=testEditor.getMarkdown();
+        form.submit();
+    });
 });

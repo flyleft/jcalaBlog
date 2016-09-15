@@ -2,7 +2,7 @@ var testEditor;
 $(function() {
     testEditor = editormd("markdown-editor", {
         width   : "100%",
-        height  : 800,
+        height  : 900,
         syncScrolling : "single",
         path    : "../lib/",
         imageUpload : true,

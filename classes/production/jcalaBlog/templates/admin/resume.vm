@@ -9,14 +9,27 @@
 #include("/module/admin/btm_nv.vm")
 <div id="page-wrapper">
     <div class="row">
-        <div class="col-md-12 column">
+        <div class="col-md-6 column">
                 <form name="resumeForm" class="form-inline">
                     <input type="hidden" name="md">
                     <input type="hidden" name="resume">
                     <div>
-                        <button class="btn btn-primary btn-lg btn-block" id="sub-resume" style="width: 250px;margin: 0 auto">Update</button>
+                        <button class="btn btn-primary btn-block" id="update-resume" style="width: 250px;margin: 0 auto">Update</button>
                     </div>
                 </form>
+        </div>
+        <div class="col-md-6 column">
+            <div class="styled-select">
+                <select id="editormd-theme-select">
+                    <option disabled="disabled">select Editor.md themes</option>
+                </select>
+                <select id="editor-area-theme-select">
+                    <option disabled="disabled">select editor area themes</option>
+                </select>
+                <select id="preview-area-theme-select">
+                    <option disabled="disabled">select preview area themes</option>
+                </select>
+            </div>
         </div>
     </div><!-- /.row -->
 </div><!-- /#page-wrapper -->
@@ -35,28 +48,7 @@
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/editormd.min.js"></script>
-<script type="text/javascript">
-    var testEditor;
-    $(function() {
-        testEditor = editormd("markdown-editor", {
-            width   : "100%",
-            height  : 900,
-            syncScrolling : "single",
-            path    : "../lib/",
-            imageUpload : true,
-            imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-            imageUploadURL : "./php/upload.php?test=dfdf",
-            saveHTMLToTextarea : true
-        });
-        $("#sub-resume").bind('click', function(){
-            var form = document.forms[0];
-            form.action = "/admin/resume.action";
-            form.method = "post";
-            document.resumeForm.resume.value=testEditor.getHTML();
-            document.resumeForm.md.value=testEditor.getMarkdown();
-            form.submit();
-        });
-    });
-</script>
+<script src="/js/jcala-markdown.js"></script>
+<script src="/js/jcala-form.js"></script>
 </body>
 </html>
