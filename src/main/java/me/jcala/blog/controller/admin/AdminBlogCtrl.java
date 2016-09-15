@@ -33,7 +33,7 @@ public class AdminBlogCtrl {
             return "admin/blog_modify";
         }
     }
-    @PostMapping("/post")
+    @PostMapping("/post.action")
     public String post(BlogView view,Model model) {
         boolean result=adminBlogSer.addBlog(view);
         if (result){

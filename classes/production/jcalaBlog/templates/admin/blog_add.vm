@@ -26,7 +26,7 @@
                         <input type="hidden" name="article" />
                         <div class="form-group">
                             <label for="blogSubmit" class="text-warning">submit</label>
-                            <input type="submit" class="form-control jcala" id="save-blog" value="save"/>
+                            <input type="submit" class="form-control jcala" id="add-blog" value="save"/>
                         </div>
                     </form>
                 </center>
@@ -64,64 +64,7 @@
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/editormd.min.js"></script>
 <script src="/js/bootstrap-tagsinput.min.js"></script>
-<script type="text/javascript">
-    var testEditor;
-
-    $(function() {
-        testEditor = editormd("markdown-editor", {
-            width   : "100%",
-            height  : 800,
-            syncScrolling : "single",
-            path    : "../lib/",
-            imageUpload : true,
-            imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-            imageUploadURL : "./php/upload.php?test=dfdf",
-            saveHTMLToTextarea : true
-        });
-        function themeSelect(id, themes, lsKey, callback)
-        {
-            var select = $("#" + id);
-            for (var i = 0, len = themes.length; i < len; i ++)
-            {
-                var theme    = themes[i];
-                var selected = (localStorage[lsKey] == theme) ? "selected=\"selected\"" : "";
-
-                select.append("<option value=\"" + theme + "\"" + selected + ">" + theme + "</option>");
-            }
-            select.bind("change", function(){
-                var theme = $(this).val();
-
-                if (theme === "")
-                {
-                    alert("theme == \"\"");
-                    return false;
-                }
-                console.log("lsKey =>", lsKey, theme);
-                localStorage[lsKey] = theme;
-                callback(select, theme);
-            });
-            return select;
-        }
-        themeSelect("editormd-theme-select", editormd.themes, "theme", function($this, theme) {
-            testEditor.setTheme(theme);
-        });
-
-        themeSelect("editor-area-theme-select", editormd.editorThemes, "editorTheme", function($this, theme) {
-            testEditor.setCodeMirrorTheme(theme);
-        });
-
-        themeSelect("preview-area-theme-select", editormd.previewThemes, "previewTheme", function($this, theme) {
-            testEditor.setPreviewTheme(theme);
-        });
-        $("#save-blog").bind('click', function(){
-            var form = document.forms[0];
-            form.action = "/admin/post";
-            form.method = "post";
-            document.blogForm.article.value=testEditor.getHTML();
-            document.blogForm.md.value=testEditor.getMarkdown();
-            form.submit();
-        });
-    });
-</script>
+<script src="/js/jcala-markdown.js"></script>
+<script src="/js/jcala-form.js"></script>
 </body>
 </html>
