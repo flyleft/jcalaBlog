@@ -52,7 +52,7 @@ public class BlogSer implements BlogSerInter {
     }
     @Override
     public List<BlogView> getBlogPage(int id){
-        List<BlogView> blogList=new ArrayList<BlogView>();
+        List<BlogView> blogList=new ArrayList<>();
         try {
             int start=(id-1)*8;
             blogList=blogMapper.getEightBlogs(start);
