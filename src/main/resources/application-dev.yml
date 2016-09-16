@@ -17,7 +17,7 @@ logging:
 spring:
     velocity:
         cache: false
-        view-names: error,index,projects,tags,archives,post,about,admin/login,admin/blog_add,
+        view-names: error,index,projects,tags,archives,post,about,admin/login,admin/blog_add,admin/pro_add,
                     admin/moniter,admin/blog_modify,admin/blog_list,admin/info,admin/result,admin/resume
     #http的配置
     http:
