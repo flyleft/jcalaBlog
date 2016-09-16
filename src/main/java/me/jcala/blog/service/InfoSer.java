@@ -97,6 +97,7 @@ public class InfoSer implements InfoSerInter {
         HttpSession session = request.getSession(false);
         session.removeAttribute("cur_user");
     }
+    @Override
     public String getResumeMd(){
        String md="";
         try {
@@ -106,6 +107,7 @@ public class InfoSer implements InfoSerInter {
         }
         return md;
     }
+    @Override
     public boolean saveResume(Info info){
         boolean result=true;
         try {
@@ -115,5 +117,16 @@ public class InfoSer implements InfoSerInter {
            LOGGER.error(e.getMessage());
         }
         return result;
+    }
+
+    @Override
+    public String getResumeView() {
+        String resume="";
+        try {
+            resume=infoMapper.getResume();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+        return resume;
     }
 }

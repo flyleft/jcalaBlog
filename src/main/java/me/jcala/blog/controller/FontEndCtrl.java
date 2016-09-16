@@ -1,6 +1,7 @@
 package me.jcala.blog.controller;
 
 import me.jcala.blog.service.BlogSer;
+import me.jcala.blog.service.InfoSer;
 import me.jcala.blog.service.ProjectSer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,8 @@ public class FontEndCtrl {
     private BlogSer blogSer;
     @Autowired
     private ProjectSer projectSer;
+    @Autowired
+    private InfoSer infoSer;
     @GetMapping("/archives")
     public String archives(Model model){
         return "archives";
@@ -36,6 +39,7 @@ public class FontEndCtrl {
     }
     @GetMapping("/about")
     public String about(Model model) {
+        model.addAttribute("resume",infoSer.getResumeView());
         return "about";
     }
     @GetMapping("/post")

@@ -16,4 +16,7 @@ public interface InfoSerInter {
     void addSession(HttpServletRequest request, Info info);
     void destroySession(HttpServletRequest request);
     String getResumeMd();
+    boolean saveResume(Info info);
+
+    String getResumeView();
 }

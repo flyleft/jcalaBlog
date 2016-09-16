@@ -27,19 +27,22 @@
             <div class="col-lg-12">
                 <ul class="list-inline">
                     <li>
-                        <a href="#home">Home</a>
+                        <a href="/">Home</a>
                     </li>
-                    <li class="footer-menu-divider">&sdot;</li>
                     <li>
-                        <a href="#about">About</a>
+                        <a href="/archives">Archives</a>
                     </li>
-                    <li class="footer-menu-divider">&sdot;</li>
                     <li>
-                        <a href="#Archives">Archives</a>
+                        <a href="/tags">Tags</a>
                     </li>
-                    <li class="footer-menu-divider">&sdot;</li>
                     <li>
-                        <a href="#contact">Contact</a>
+                        <a href="/projects/1">Projects</a>
+                    </li>
+                    <li>
+                        <a href="/about">About</a>
+                    </li>
+                    <li>
+                        <a href="/admin/">Admin</a>
                     </li>
                 </ul>
                 <p class="copyright text-muted small"></p>

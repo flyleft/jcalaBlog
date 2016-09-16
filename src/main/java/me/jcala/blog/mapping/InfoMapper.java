@@ -60,4 +60,7 @@ public interface InfoMapper {
             "limit 1"
     })
     void updateResume(@Param("if") Info info) throws Exception;
+
+    @Select("select resume from admin limit 1")
+    String getResume() throws Exception;
 }
