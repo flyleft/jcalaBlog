@@ -20,8 +20,9 @@ public class FontEndCtrl {
     public String projects(Model model) {
         return "projects";
     }
-    @GetMapping("/projects/{id}")
-    public String projectPage(@PathVariable int id) {
+    @GetMapping("/projects/{page}")
+    public String projectPage(@PathVariable int page) {
+
         return "projects";
     }
 
