@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class FontEndCtrl {
@@ -17,6 +18,10 @@ public class FontEndCtrl {
 
     @GetMapping("/projects")
     public String projects(Model model) {
+        return "projects";
+    }
+    @GetMapping("/projects/{id}")
+    public String projectPage(@PathVariable int id) {
         return "projects";
     }
 

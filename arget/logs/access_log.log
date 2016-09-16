@@ -2503,3 +2503,5 @@
 127.0.0.1 - - [16/Sep/2016:19:13:18 +0800] "GET /js/bootstrap.min.js HTTP/1.1" 304 - "http://127.0.0.1:8080/admin/project" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36"
 127.0.0.1 - - [16/Sep/2016:19:13:18 +0800] "GET /css/bootstrap.min.css HTTP/1.1" 304 - "http://127.0.0.1:8080/admin/project" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36"
 127.0.0.1 - - [16/Sep/2016:19:13:19 +0800] "GET /favicon.ico HTTP/1.1" 200 946 "http://127.0.0.1:8080/admin/project" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36"
+127.0.0.1 - - [16/Sep/2016:19:14:23 +0800] "GET / HTTP/1.1" 200 1536 "http://127.0.0.1:8080/admin/project" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36"
+127.0.0.1 - - [16/Sep/2016:19:14:25 +0800] "GET /projects HTTP/1.1" 200 1579 "http://127.0.0.1:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36"
