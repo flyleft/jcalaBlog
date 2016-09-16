@@ -16,7 +16,7 @@ public interface InfoMapper {
 
     @Select({
         "select username,email,",
-            "github,weibo,twitter",
+            "github,twitter",
             "from admin limit 1"
     })
     Info select() throws Exception;
@@ -31,9 +31,8 @@ public interface InfoMapper {
 
     @Update({
         "update admin set username = #{if.username},",
-                "email= #{if.email},weibo=#{if.weibo},",
-                "github=#{if.github},twitter=#{if.twitter}",
-                "limit 1"
+                "email= #{if.email},github=#{if.github},",
+                "twitter=#{if.twitter} limit 1",
     })
     void update(@Param("if") Info info);
 

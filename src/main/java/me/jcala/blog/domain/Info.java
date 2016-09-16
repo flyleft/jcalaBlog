@@ -13,7 +13,6 @@ public class Info {
     private String password;
     private String email;
     private String github;
-    private String weibo;
     private String twitter;
     private String md;
     private String resume;
