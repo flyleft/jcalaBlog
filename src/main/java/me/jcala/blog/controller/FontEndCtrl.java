@@ -1,5 +1,6 @@
 package me.jcala.blog.controller;
 
+import me.jcala.blog.service.BlogSer;
 import me.jcala.blog.service.TempSer;
 import me.jcala.blog.service.UserSer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,8 @@ public class FontEndCtrl {
     private UserSer userSer;
     @Autowired
     private TempSer tempSer;
+    @Autowired
+    private BlogSer blogSer;
     @GetMapping("/archives")
     public String archives(Model model){
         model.addAttribute("archivesYears",tempSer.archives());
@@ -27,7 +30,7 @@ public class FontEndCtrl {
 
     @GetMapping("/tags")
     public String tags(Model model) {
-
+        model.addAttribute("tags",blogSer.getTagList());
         return "tags";
     }
     @GetMapping("/about")

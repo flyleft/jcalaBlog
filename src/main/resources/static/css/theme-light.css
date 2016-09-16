@@ -17,25 +17,43 @@ body {
     position: relative;
     overflow: hidden;
 }
+.post ul.tags{
+    margin-left: 0px;
+    padding-left: 50px;
+}
+
+.post ul.tags li{
+    display: inline-block;
+    list-style: none;
+    margin-left: 30px;
+}
+ul.tags li{
+    margin: 30px 40px;
+}
 .jcala-color{
     background: #eeeeee;
 }
 a{
     text-decoration:none;
-    color: #777;
+    padding: 10px 10px;
+    color: #6B4226;
 }
 a:link{
     text-decoration:none;
+    color: #6B4226;
 }
 a:visited{
     text-decoration:none;
+    color: #6B4226;
 }
 a:hover{
     text-decoration:none;
-    color: #6B4226;
+    color: #bea180;
+    background: #e6e6e6;
 }
 a:active{
     text-decoration:none;
+    color: #6B4226;
 }
 .archive {
     margin: 3em auto;
@@ -70,4 +88,7 @@ a:active{
     text-overflow: ellipsis;
     position: relative;
     top: 6px;
+}
+.default-tag{
+    font-size: 30px;
 }

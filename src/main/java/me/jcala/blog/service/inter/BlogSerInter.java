@@ -15,4 +15,5 @@ public interface BlogSerInter {
     int getPageNum();
     boolean updateBlog(BlogView blogView) throws Exception;
     boolean deleteBlogById(int vid);
+    List<String> getTagList();
 }

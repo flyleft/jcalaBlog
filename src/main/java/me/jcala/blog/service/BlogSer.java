@@ -118,4 +118,15 @@ public class BlogSer implements BlogSerInter {
         }
         return result;
     }
+
+    @Override
+    public List<String> getTagList() {
+        List<String> tags=new ArrayList<>();
+        try {
+            tags=blogMapper.selectTags();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+        return tags;
+    }
 }

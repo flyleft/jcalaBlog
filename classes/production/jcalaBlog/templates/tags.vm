@@ -1,14 +1,38 @@
 #include("/module/header.vm")
-<div class="container main-container">
-    <div class="row post">
-        <div class="col-sm-6 col-lg-4">
-        <div class="content">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 post">
             <ul class="tags">
-                #foreach($tag in ${tags})
-                    <li><a class="btn btn-default" href="/tags/$tag">$tag</a></li>
-                #end
+                #*#foreach($tag in ${tags})
+                    <li><a class="default-tag" href="/tags/$tag">$tag</a></li>
+                #end*#
+                    <li><a class="default-tag" href="/tags/java">java</a></li>
+                    <li><a class="default-tag" href="/tags/mybatis">mybatis</a></li>
+                    <li><a class="default-tag" href="/tags/spring">spring</a></li>
+                    <li><a class="default-tag" href="/tags/springBoot">springBoot</a></li>
+                    <li><a class="default-tag" href="/tags/java">算法</a></li>
+                    <li><a class="default-tag" href="/tags/mybatis">Android学习指南</a></li>
+                    <li><a class="default-tag" href="/tags/spring">黑客</a></li>
+                    <li><a class="default-tag" href="/tags/springBoot">Linux</a></li>
+                    <li><a class="default-tag" href="/tags/java">shell</a></li>
+                    <li><a class="default-tag" href="/tags/mybatis">scala</a></li>
+                    <li><a class="default-tag" href="/tags/spring">akka</a></li>
+                    <li><a class="default-tag" href="/tags/springBoot">并发</a></li>
+                    <li><a class="default-tag" href="/tags/java">多线程</a></li>
+                    <li><a class="default-tag" href="/tags/mybatis">html5</a></li>
+                    <li><a class="default-tag" href="/tags/spring">javascript</a></li>
+                    <li><a class="default-tag" href="/tags/springBoot">struts2</a></li>
+                    <li><a class="default-tag" href="/tags/java">hibernate</a></li>
+                    <li><a class="default-tag" href="/tags/mybatis">spring data jpa</a></li>
+                    <li><a class="default-tag" href="/tags/spring">ecache</a></li>
+                    <li><a class="default-tag" href="/tags/springBoot">缓存系统</a></li>
+                    <li><a class="default-tag" href="/tags/java">rust</a></li>
+                    <li><a class="default-tag" href="/tags/mybatis">goLang</a></li>
+                    <li><a class="default-tag" href="/tags/spring">python</a></li>
+                    <li><a class="default-tag" href="/tags/springBoot">django</a></li>
+
+
             </ul>
-        </div>
         </div>
     </div>
 </div>

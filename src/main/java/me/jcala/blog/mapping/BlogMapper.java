@@ -58,4 +58,7 @@ public interface BlogMapper {
       @Select("select count(*) from blog_view")
       int getBlogNum() throws Exception;
 
+      @Select("select distinct name from view_tag")
+      @ResultType(String.class)
+      List<String> selectTags() throws Exception;
 }
