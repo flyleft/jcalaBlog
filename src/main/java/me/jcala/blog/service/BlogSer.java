@@ -1,7 +1,7 @@
 package me.jcala.blog.service;
 
 import me.jcala.blog.domain.BlogView;
-import me.jcala.blog.mapping.AdminBlogMapper;
+import me.jcala.blog.mapping.BlogMapper;
 import me.jcala.blog.service.inter.BlogSerInter;
 import me.jcala.blog.utils.Tools;
 import org.slf4j.Logger;
@@ -19,13 +19,13 @@ import java.util.List;
 public class BlogSer implements BlogSerInter {
     private static final Logger LOGGER = LoggerFactory.getLogger(BlogSer.class);
     @Autowired
-    private AdminBlogMapper adminBlogMapper;
+    private BlogMapper blogMapper;
     @Override
     public boolean addBlog(BlogView blogView){//String title, String tags, String article,String md
         blogView.setDate(Tools.getTimestamp());
         boolean result=true;
         try {
-            adminBlogMapper.addBlog(blogView);
+            blogMapper.addBlog(blogView);
         } catch (Exception e) {
            LOGGER.error(e.getMessage());
             result=false;
@@ -44,7 +44,7 @@ public class BlogSer implements BlogSerInter {
     public BlogView getBlogByVid(int vid){
         BlogView blogView=null;
         try {
-            blogView=adminBlogMapper.getBlogById(vid);
+            blogView=blogMapper.getBlogById(vid);
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
         }
@@ -55,7 +55,7 @@ public class BlogSer implements BlogSerInter {
         List<BlogView> blogList=new ArrayList<BlogView>();
         try {
             int start=(id-1)*8;
-            blogList=adminBlogMapper.getEightBlogs(start);
+            blogList=blogMapper.getEightBlogs(start);
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
         }
@@ -65,7 +65,7 @@ public class BlogSer implements BlogSerInter {
     public int getPageNum(){
         int num=0;
         try {
-            num=adminBlogMapper.getBlogNum();
+            num=blogMapper.getBlogNum();
         } catch (Exception e) {
            LOGGER.error(e.getMessage());
     }
@@ -76,7 +76,7 @@ public class BlogSer implements BlogSerInter {
     public boolean updateBlog(BlogView blogView){
         boolean result=true;
         try {
-            adminBlogMapper.updateBlogView(blogView);
+            blogMapper.updateBlogView(blogView);
         } catch (Exception e) {
             result=false;
             LOGGER.error(e.getMessage());
@@ -94,15 +94,15 @@ public class BlogSer implements BlogSerInter {
     private void addViewTag(String tagStr,int vid) throws Exception{
         List<String> tagList=Tools.getTagList(tagStr);
         for (String tag:tagList){
-            adminBlogMapper.addViewTag(tag,vid);
+            blogMapper.addViewTag(tag,vid);
         }
 
     }
     private void updateViewTag(String tagStr,int vid) throws Exception{
-        adminBlogMapper.deleteViewTag(vid);
+        blogMapper.deleteViewTag(vid);
         List<String> tagList=Tools.getTagList(tagStr);
         for (String tag:tagList){
-            adminBlogMapper.addViewTag(tag,vid);
+            blogMapper.addViewTag(tag,vid);
         }
 
     }
@@ -111,7 +111,7 @@ public class BlogSer implements BlogSerInter {
     public boolean deleteBlogById(int vid) {
         boolean result=true;
         try {
-            adminBlogMapper.deleteBlogView(vid);
+            blogMapper.deleteBlogView(vid);
         } catch (Exception e) {
            LOGGER.error(e.getMessage());
             result=false;

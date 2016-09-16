@@ -13,7 +13,7 @@ import java.util.List;
  */
 @Repository
 @Mapper
-public interface AdminBlogMapper {
+public interface BlogMapper {
       @Insert({"insert into blog_view " ,
               "(date,title,article,tags,md) " ,
               "values(#{bv.date},#{bv.title}," ,
