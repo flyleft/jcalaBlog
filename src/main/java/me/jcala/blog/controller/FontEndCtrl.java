@@ -25,7 +25,7 @@ public class FontEndCtrl {
     }
     @GetMapping("/projects/{page}")
     public String projectPage(@PathVariable int page,Model model) {
-        model.addAttribute("peojects",projectSer.getFivePjs(page));
+        model.addAttribute("projects",projectSer.getFivePjs(page));
         return "projects";
     }
 

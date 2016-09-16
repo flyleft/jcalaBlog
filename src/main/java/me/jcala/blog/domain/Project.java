@@ -16,6 +16,6 @@ public class Project {
     private String name;
     private String url;
     private String tech;
-    private String desc;
+    private String desp;
     private Timestamp date;
 }

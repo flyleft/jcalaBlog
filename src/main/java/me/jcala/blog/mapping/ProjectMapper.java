@@ -16,7 +16,7 @@ import java.util.List;
 public interface ProjectMapper {
 
     @Select({
-            "select name,url,tech,desc,date",
+            "select name,url,tech,desp,date",
             "from project ",
             "limit #{st},5"
     })
