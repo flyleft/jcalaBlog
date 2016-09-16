@@ -2,15 +2,13 @@
 <div class="container main-container">
     <div class="row post">
         <div class="col-sm-6 col-lg-4">
-       #* <div class="content">
+        <div class="content">
             <ul class="tags">
                 #foreach($tag in ${tags})
-                    <li><a class="btn btn-default" href="$tag.href">$tag.title</a></li>
+                    <li><a class="btn btn-default" href="/tags/$tag">$tag</a></li>
                 #end
             </ul>
-        </div>*#
-           <button class="fa fa-moon-o" style="width: 30px;height: 30px"></button>
-           <button class="fa fa-sun-o" style="width: 30px;height: 30px"></button>
+        </div>
         </div>
     </div>
 </div>

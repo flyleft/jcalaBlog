@@ -1,7 +1,7 @@
 package me.jcala.blog.controller.admin;
 
 import me.jcala.blog.domain.BlogView;
-import me.jcala.blog.service.AdminBlogSer;
+import me.jcala.blog.service.BlogSer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,14 +17,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/admin")
 public class AdminBlogCtrl {
     @Autowired
-    private AdminBlogSer adminBlogSer;
+    private BlogSer blogSer;
     @GetMapping("/blogAdd")
     public String blogAdd() {
         return "admin/blog_add";
     }
     @GetMapping("/update{id:\\d+}")
     public String blogModify(@PathVariable int id,Model model) {
-        BlogView blogView=adminBlogSer.getBlogByVid(id);
+        BlogView blogView=blogSer.getBlogByVid(id);
         if (blogView==null){
             return "error";
         }else {
@@ -35,7 +35,7 @@ public class AdminBlogCtrl {
     }
     @PostMapping("/post.action")
     public String postAction(BlogView view,Model model) {
-        boolean result=adminBlogSer.addBlog(view);
+        boolean result=blogSer.addBlog(view);
         if (result){
             model.addAttribute("targetUrl","/admin/blogList/1");
             model.addAttribute("result",1);
@@ -50,7 +50,7 @@ public class AdminBlogCtrl {
     @PostMapping("/update/{id}")
     public String update(@PathVariable int id,BlogView view,Model model) {
         view.setVid(id);
-        boolean result= adminBlogSer.updateBlog(view);
+        boolean result= blogSer.updateBlog(view);
         if (result){
             model.addAttribute("targetUrl","/admin/blogList/1");
             model.addAttribute("result",1);
@@ -62,7 +62,7 @@ public class AdminBlogCtrl {
     }
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable int id,Model model) {
-        boolean result= adminBlogSer.deleteBlogById(id);
+        boolean result= blogSer.deleteBlogById(id);
         if (result){
             return "redirect:/admin/blogList/1";
         }else {
@@ -74,8 +74,8 @@ public class AdminBlogCtrl {
     @GetMapping("/blogList/{page}")
     public String blogList(@PathVariable int page, Model model) {
         model.addAttribute("current",page);
-        model.addAttribute("pageNum",adminBlogSer.getPageNum());
-        model.addAttribute("blogList",adminBlogSer.getBlogPage(page));
+        model.addAttribute("pageNum",blogSer.getPageNum());
+        model.addAttribute("blogList",blogSer.getBlogPage(page));
         return "admin/blog_list";
     }
 }

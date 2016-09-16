@@ -1,6 +1,6 @@
 package me.jcala.blog.controller;
 
-import me.jcala.blog.service.BlogSer;
+import me.jcala.blog.service.TempSer;
 import me.jcala.blog.service.UserSer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,16 +12,16 @@ public class FontEndCtrl {
     @Autowired
     private UserSer userSer;
     @Autowired
-    private BlogSer blogSer;
+    private TempSer tempSer;
     @GetMapping("/archives")
     public String archives(Model model){
-        model.addAttribute("archivesYears",blogSer.archives());
+        model.addAttribute("archivesYears",tempSer.archives());
         return "archives";
     }
 
     @GetMapping("/projects")
     public String projects(Model model) {
-        model.addAttribute("projects",blogSer.projects());
+        model.addAttribute("projects",tempSer.projects());
         return "projects";
     }
 
