@@ -23,13 +23,17 @@
 
 .markdown-body a {
   background: transparent;
+  color: #6B4226;
+  text-decoration: none;
 }
 
-.markdown-body a:active,
-.markdown-body a:hover {
+.markdown-body a:hover,
+.markdown-body a:active {
+  text-decoration: none;
   outline: 0;
+  background: #e6e6e6;
+  color: #bea180;
 }
-
 .markdown-body strong {
   font-weight: bold;
 }
@@ -97,16 +101,6 @@
 
 .markdown-body input {
   font: 13px/1.4 Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-}
-
-.markdown-body a {
-  color: #4183c4;
-  text-decoration: none;
-}
-
-.markdown-body a:hover,
-.markdown-body a:active {
-  text-decoration: underline;
 }
 
 .markdown-body hr {
