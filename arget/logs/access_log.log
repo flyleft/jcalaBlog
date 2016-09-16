@@ -8,3 +8,5 @@
 127.0.0.1 - - [17/Sep/2016:00:12:25 +0800] "GET /projects HTTP/1.1" 200 1579 "http://127.0.0.1:8080/tags" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36"
 127.0.0.1 - - [17/Sep/2016:00:12:28 +0800] "GET /about HTTP/1.1" 200 1188 "http://127.0.0.1:8080/projects" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36"
 127.0.0.1 - - [17/Sep/2016:00:12:31 +0800] "GET /projects HTTP/1.1" 200 1579 "http://127.0.0.1:8080/about" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36"
+127.0.0.1 - - [17/Sep/2016:00:33:46 +0800] "GET /archives HTTP/1.1" 200 1353 "http://127.0.0.1:8080/projects" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36"
+127.0.0.1 - - [17/Sep/2016:00:33:49 +0800] "GET /tags HTTP/1.1" 200 1398 "http://127.0.0.1:8080/archives" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36"
