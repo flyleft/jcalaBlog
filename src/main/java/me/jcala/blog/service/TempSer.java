@@ -37,7 +37,7 @@ public class TempSer {
     public List<Project> projects() {
         List<Project> projects=new ArrayList<>();
         Project project=new Project();
-        project.setName("JcalaBlog");
+        project.setName("jcalaBlog");
         project.setShowHref("https://jcala.me/projects#jcalaBlog");
         project.setOpenSourceHref("https://github.com/jcalaz/jcalaBlog");
         project.setProjectDate(new Date());

@@ -30,9 +30,6 @@ body {
 ul.tags li{
     margin: 30px 40px;
 }
-.jcala-color{
-    background: #eeeeee;
-}
 a{
     text-decoration:none;
     padding: 10px 10px;
@@ -61,8 +58,9 @@ a:active{
     max-width: 520px; }
 .archive .year {
     margin: 20px 0;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: 400;
+    color: #414b61;
     font-family: Athelas, Times New Roman, STHeiti, Microsoft Yahei, serif; }
 .archive .post-item {
     padding: 2px 10px;
@@ -71,6 +69,9 @@ a:active{
     padding-left: 13px;
     border-left: 3px solid #6B4226;
     transition: 0.2s ease-out; }
+.archive .post-item a:hover {
+    color: #bea180;
+}
 .archive .post-time {
     display: inline-block;
     width: 12%;
