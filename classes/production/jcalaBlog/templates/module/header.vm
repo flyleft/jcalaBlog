@@ -20,16 +20,16 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="/archives#content">Archives</a>
+                    <a href="/archives">Archives</a>
                 </li>
                 <li>
-                    <a href="/tags#content">Tags</a>
+                    <a href="/tags">Tags</a>
                 </li>
                 <li>
-                    <a href="/projects#content">Projects</a>
+                    <a href="/projects/1">Projects</a>
                 </li>
                 <li>
-                    <a href="/about#content">About</a>
+                    <a href="/about">About</a>
                 </li>
                 <li>
                     <a href="/admin/">Admin</a>
