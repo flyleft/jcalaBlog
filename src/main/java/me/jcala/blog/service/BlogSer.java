@@ -142,6 +142,7 @@ public class BlogSer implements BlogSerInter {
                 Archive archive=new Archive(year,new ArrayList<BlogView>());
                 years2Ar.put(year,archive);
                 archive.getList().add(view);
+                archives.add(archive);
             }
         }
         return archives;
