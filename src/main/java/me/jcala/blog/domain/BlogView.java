@@ -18,6 +18,7 @@ public class BlogView {
     private String article;
     private String tags;
     private String md;
+    private String monthDay;
     public BlogView(String title,String tags,String md){
         this.title=title;
         this.tags=tags;

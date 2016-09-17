@@ -1,6 +1,7 @@
 package me.jcala.blog.service.inter;
 
 
+import me.jcala.blog.domain.Archive;
 import me.jcala.blog.domain.BlogView;
 
 import java.util.List;
@@ -16,5 +17,5 @@ public interface BlogSerInter {
     boolean updateBlog(BlogView blogView) throws Exception;
     boolean deleteBlogById(int vid);
     List<String> getTagList();
-    List<BlogView> getArchive(int page);
+    List<Archive> getArchive(int page);
 }

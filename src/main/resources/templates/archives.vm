@@ -2,97 +2,20 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12 post">
-                #foreach($item in ${blogViews})
-
+            <div class="archive">
+                #foreach($archive in ${archives})
+                    <h2 class="year">${archive.Year}</h2>
+                    #foreach($bv in ${archive.List})
+                        <div class="post-item">
+                            <div class="post-time">
+                               ${bv.MonthDay}
+                            </div>
+                            <a href="/post/${bv.Vid}" class="post-link">${bv.Title}</a>
+                        </div>
+                    #end
+                    <br><br>
                 #end
-                <div class="archive">
-                    <h2 class="year">2016</h2>
-                    <div class="post-item">
-                        <div class="post-time">
-                            Apr 1
-                        </div>
-                        <a href="http://www.ahonn.me/2016/04/01/begin/" class="post-link">开始记录</a>
-                    </div>
-                    <div class="post-item">
-                        <div class="post-time">
-                            Mar 29
-                        </div>
-                        <a href="http://www.ahonn.me/2016/03/29/javascript-prototype-chain/" class="post-link">奇怪的原型链</a>
-                    </div>
-                    <div class="post-item">
-                        <div class="post-time">
-                            Apr 1
-                        </div>
-                        <a href="http://www.ahonn.me/2016/04/01/begin/" class="post-link">开始记录</a>
-                    </div>
-                    <div class="post-item">
-                        <div class="post-time">
-                            Mar 29
-                        </div>
-                        <a href="http://www.ahonn.me/2016/03/29/javascript-prototype-chain/" class="post-link">奇怪的原型链</a>
-                    </div>
-                    <div class="post-item">
-                        <div class="post-time">
-                            Apr 1
-                        </div>
-                        <a href="http://www.ahonn.me/2016/04/01/begin/" class="post-link">开始记录</a>
-                    </div>
-                    <div class="post-item">
-                        <div class="post-time">
-                            Mar 29
-                        </div>
-                        <a href="http://www.ahonn.me/2016/03/29/javascript-prototype-chain/" class="post-link">奇怪的原型链</a>
-                    </div>
-                    <div class="post-item">
-                        <div class="post-time">
-                            Apr 1
-                        </div>
-                        <a href="http://www.ahonn.me/2016/04/01/begin/" class="post-link">开始记录</a>
-                    </div>
-                    <div class="post-item">
-                        <div class="post-time">
-                            Mar 29
-                        </div>
-                        <a href="http://www.ahonn.me/2016/03/29/javascript-prototype-chain/" class="post-link">奇怪的原型链</a>
-                    </div>
-                    <div class="post-item">
-                        <div class="post-time">
-                            Apr 1
-                        </div>
-                        <a href="http://www.ahonn.me/2016/04/01/begin/" class="post-link">开始记录</a>
-                    </div>
-                    <div class="post-item">
-                        <div class="post-time">
-                            Mar 29
-                        </div>
-                        <a href="http://www.ahonn.me/2016/03/29/javascript-prototype-chain/" class="post-link">奇怪的原型链</a>
-                    </div>
-                    <div class="post-item">
-                        <div class="post-time">
-                            Apr 1
-                        </div>
-                        <a href="http://www.ahonn.me/2016/04/01/begin/" class="post-link">开始记录</a>
-                    </div>
-                    <div class="post-item">
-                        <div class="post-time">
-                            Mar 29
-                        </div>
-                        <a href="http://www.ahonn.me/2016/03/29/javascript-prototype-chain/" class="post-link">奇怪的原型链</a>
-                    </div>
-                    <div class="post-item">
-                        <div class="post-time">
-                            Apr 1
-                        </div>
-                        <a href="http://www.ahonn.me/2016/04/01/begin/" class="post-link">开始记录</a>
-                    </div>
-                    <div class="post-item">
-                        <div class="post-time">
-                            Mar 29
-                        </div>
-                        <a href="http://www.ahonn.me/2016/03/29/javascript-prototype-chain/" class="post-link">奇怪的原型链</a>
-                    </div>
-
-                </div>
+            </div>
         </div>
     </div>
 </div>

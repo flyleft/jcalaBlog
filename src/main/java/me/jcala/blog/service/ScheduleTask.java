@@ -1,22 +1,21 @@
-package me.jcala.blog.utils;
+package me.jcala.blog.service;
 
 import me.jcala.blog.interceptor.IpInterceptor;
 import me.jcala.blog.mapping.VisiterMapper;
+import me.jcala.blog.utils.TimeTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.sql.Date;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 /**
  * Created by Administrator on 2016/9/13.
  */
-@Component
+@Service
 @EnableScheduling
 public class ScheduleTask {
     private static final Logger LOGGER = LoggerFactory.getLogger(ScheduleTask.class);
@@ -49,21 +48,10 @@ public class ScheduleTask {
     @Scheduled(cron = "0 0 0 1 * ?")
    private void deleteEarlierVt(){
         try {
-            visiterMapper.delete(last2Month());
+            visiterMapper.delete(TimeTools.last2Month());
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
         }
     }
 
-    /**
-     * 获取当前月往前数前两个月的月份
-     */
-   private String last2Month(){
-       java.util.Date date = new java.util.Date();//当前日期
-       SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");//格式化对象
-       Calendar calendar = Calendar.getInstance();//日历对象
-       calendar.setTime(date);//设置当前日期
-       calendar.add(Calendar.MONTH, -2);
-       return sdf.format(calendar.getTime());
-   }
 }

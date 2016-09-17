@@ -1,8 +1,10 @@
 package me.jcala.blog.service;
 
+import me.jcala.blog.domain.Archive;
 import me.jcala.blog.domain.BlogView;
 import me.jcala.blog.mapping.BlogMapper;
 import me.jcala.blog.service.inter.BlogSerInter;
+import me.jcala.blog.utils.TimeTools;
 import me.jcala.blog.utils.Tools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,8 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by Administrator on 2016/9/3.
@@ -92,21 +93,6 @@ public class BlogSer implements BlogSerInter {
         }
         return result;
     }
-    private void addViewTag(String tagStr,int vid) throws Exception{
-        List<String> tagList=Tools.getTagList(tagStr);
-        for (String tag:tagList){
-            blogMapper.addViewTag(tag,vid);
-        }
-
-    }
-    private void updateViewTag(String tagStr,int vid) throws Exception{
-        blogMapper.deleteViewTag(vid);
-        List<String> tagList=Tools.getTagList(tagStr);
-        for (String tag:tagList){
-            blogMapper.addViewTag(tag,vid);
-        }
-
-    }
 
     @Override
     public boolean deleteBlogById(int vid) {
@@ -132,14 +118,48 @@ public class BlogSer implements BlogSerInter {
     }
 
     @Override
-    public List<BlogView> getArchive(int page) {
+    public List<Archive> getArchive(int page) {
         int start=(page-1)*12;
-        List<BlogView> blogViews=new ArrayList<>();
+        List<Archive> archives=new ArrayList<>();
         try {
-            blogViews=blogMapper.selectArc(start);
+            List<BlogView> blogViews=blogMapper.selectArc(start);
+            archives=bv2Ar(blogViews);
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
         }
-        return blogViews;
+        return archives;
     }
+    private List<Archive> bv2Ar(List<BlogView> views) throws Exception{
+        List<Archive> archives=new ArrayList<>();
+        Map<Integer,Archive> years2Ar=new HashMap<>();
+        for (BlogView view:views){
+            Date date=view.getDate();
+            view.setMonthDay(TimeTools.getEdate(date));
+            int year=TimeTools.getYear(date);
+            if (years2Ar.containsKey(year)){
+                years2Ar.get(year).getList().add(view);
+            }else {
+                Archive archive=new Archive(year,new ArrayList<BlogView>());
+                years2Ar.put(year,archive);
+                archive.getList().add(view);
+            }
+        }
+        return archives;
+    }
+    private void addViewTag(String tagStr,int vid) throws Exception{
+        List<String> tagList=Tools.getTagList(tagStr);
+        for (String tag:tagList){
+            blogMapper.addViewTag(tag,vid);
+        }
+
+    }
+    private void updateViewTag(String tagStr,int vid) throws Exception{
+        blogMapper.deleteViewTag(vid);
+        List<String> tagList=Tools.getTagList(tagStr);
+        for (String tag:tagList){
+            blogMapper.addViewTag(tag,vid);
+        }
+
+    }
+
 }

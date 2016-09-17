@@ -19,7 +19,7 @@ public class FontEndCtrl {
     private InfoSer infoSer;
     @GetMapping("/archives/{page}")
     public String archives(@PathVariable int page,Model model){
-        model.addAttribute("blogViews",blogSer.getArchive(page));
+        model.addAttribute("archives",blogSer.getArchive(page));
         return "archives";
     }
 
