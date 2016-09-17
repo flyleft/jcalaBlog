@@ -3,18 +3,9 @@
     <div class="row">
         <div class="col-lg-12 post">
             <ul class="tags">
-                #*#foreach($tag in ${tags})
+                #foreach($tag in ${tags})
                     <li><a class="default-tag" href="/tags/$tag">$tag</a></li>
-                #end*#
-                    <li><a class="default-tag" href="/tags/java">java</a></li>
-                    <li><a class="default-tag" href="/tags/mybatis">mybatis</a></li>
-                    <li><a class="default-tag" href="/tags/spring">spring</a></li>
-                    <li><a class="default-tag" href="/tags/springBoot">springBoot</a></li>
-                    <li><a class="default-tag" href="/tags/java">算法</a></li>
-                    <li><a class="default-tag" href="/tags/mybatis">Android学习指南</a></li>
-                    <li><a class="default-tag" href="/tags/spring">黑客</a></li>
-                    <li><a class="default-tag" href="/tags/springBoot">Linux</a></li>
-                    <li><a class="default-tag" href="/tags/java">shell</a></li>
+                #end
                     <li><a class="default-tag" href="/tags/mybatis">scala</a></li>
                     <li><a class="default-tag" href="/tags/spring">akka</a></li>
                     <li><a class="default-tag" href="/tags/springBoot">并发</a></li>
