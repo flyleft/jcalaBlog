@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class AdminProjectCtrl {
      @GetMapping("/admin/project")
     public String project(){
-        return "admin/pro_add";
+        return "admin/project";
      }
 }
