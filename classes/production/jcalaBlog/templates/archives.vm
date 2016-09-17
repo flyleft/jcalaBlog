@@ -2,16 +2,9 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12 post">
-            #*#foreach(${year} in ${archivesYears})
-                <div class="year"><h2>${year.YearNumber}</h2>
-                    <ul class="archive-list">
-                        #foreach($item in ${year.Archives})
-                            <li><span class="month">${item.Month}</span><span>&nbsp;&nbsp;·&nbsp;</span><a
-                                    href="${item.Href}">${item.Title}</a></li>
-                        #end
-                    </ul>
-                </div>
-            #end*#
+                #foreach($item in ${blogViews})
+
+                #end
                 <div class="archive">
                     <h2 class="year">2016</h2>
                     <div class="post-item">

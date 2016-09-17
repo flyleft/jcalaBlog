@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class BlogSer implements BlogSerInter {
     private BlogMapper blogMapper;
     @Override
     public boolean addBlog(BlogView blogView){//String title, String tags, String article,String md
-        blogView.setDate(Tools.getTimestamp());
+        blogView.setDate(new Date(System.currentTimeMillis()));
         boolean result=true;
         try {
             blogMapper.addBlog(blogView);

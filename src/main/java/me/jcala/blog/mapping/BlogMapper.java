@@ -18,7 +18,8 @@ public interface BlogMapper {
               "(date,title,article,tags,md) " ,
               "values(#{bv.date},#{bv.title}," ,
               "#{bv.article},#{bv.tags},#{bv.md})"})
-      @SelectKey(before=false,keyProperty="bv.vid",resultType=Integer.class,statementType= StatementType.STATEMENT,statement="SELECT LAST_INSERT_ID() AS id")
+      @SelectKey(before=false,keyProperty="bv.vid",resultType=Integer.class,
+              statementType= StatementType.STATEMENT,statement="SELECT LAST_INSERT_ID() AS id")
       int addBlog(@Param("bv") BlogView blogView) throws Exception;
 
       @Insert("insert ignore into view_tag (name,vid) values(#{tn},#{id})")
@@ -62,6 +63,9 @@ public interface BlogMapper {
       @ResultType(String.class)
       List<String> selectTags() throws Exception;
 
-      @Select("select vid,date,title from blog_view limit #{st},12")
+      @Select({"select vid,date,title",
+              "from blog_view",
+              "order by date desc",
+              "limit #{st},12"})
       List<BlogView> selectArc(@Param("st") int start) throws Exception;
 }
