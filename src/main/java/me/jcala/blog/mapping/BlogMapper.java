@@ -61,4 +61,7 @@ public interface BlogMapper {
       @Select("select distinct name from view_tag")
       @ResultType(String.class)
       List<String> selectTags() throws Exception;
+
+      @Select("select vid,date,title from blog_view limit #{st},12")
+      List<BlogView> selectArc(@Param("st") int start) throws Exception;
 }

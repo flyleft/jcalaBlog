@@ -16,4 +16,5 @@ public interface BlogSerInter {
     boolean updateBlog(BlogView blogView) throws Exception;
     boolean deleteBlogById(int vid);
     List<String> getTagList();
+    List<BlogView> getArchive(int page);
 }

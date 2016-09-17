@@ -129,4 +129,16 @@ public class BlogSer implements BlogSerInter {
         }
         return tags;
     }
+
+    @Override
+    public List<BlogView> getArchive(int page) {
+        int start=(page-1)*12;
+        List<BlogView> blogViews=new ArrayList<>();
+        try {
+            blogViews=blogMapper.selectArc(start);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+        return blogViews;
+    }
 }
