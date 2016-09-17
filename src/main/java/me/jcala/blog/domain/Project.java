@@ -13,6 +13,7 @@ import java.sql.Timestamp;
 @Getter
 @NoArgsConstructor
 public class Project {
+    private int id;
     private String name;
     private String url;
     private String tech;
