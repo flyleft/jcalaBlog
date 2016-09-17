@@ -20,7 +20,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="/archives">Archives</a>
+                    <a href="/archives/1">Archives</a>
                 </li>
                 <li>
                     <a href="/tags">Tags</a>
