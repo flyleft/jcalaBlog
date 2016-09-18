@@ -1,14 +1,7 @@
 #include("/module/admin/header.vm")
 <link href="/css/editormd.min.css" rel="stylesheet"/>
 <link href="/css/bootstrap-tagsinput.css" rel="stylesheet">
-#include("/module/admin/top_nv.vm")
-<li><a href="/admin"><i class="fa fa-area-chart"></i> Monitor</a></li>
-<li class="active"><a href="/admin/blogAdd"><i class="fa fa-plus"></i> Add Blog</a></li>
-<li><a href="/admin/blogList/1"><i class="fa fa-list"></i> Blog List</a></li>
-<li><a href="/admin/project"><i class="fa fa-plus-circle"></i> Project</a></li>
-<li><a href="/admin/info"><i class="fa fa-user"></i> Info</a></li>
-<li><a href="/admin/resume"><i class="fa fa-male"></i> Resume</a></li>
-#include("/module/admin/btm_nv.vm")
+#include("/module/admin/nav.vm")
     <div id="page-wrapper">
         <div class="row">
             <div class="col-md-6 column">

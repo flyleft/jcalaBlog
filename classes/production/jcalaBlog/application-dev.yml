@@ -5,6 +5,9 @@ server:
         enabled: true
     #undertow服务器的配置
     undertow:
+        io-threads: 4
+        worker-threads: 20
+        buffer-size: 16384
         accesslog:
             enabled: true
             dir: arget/logs

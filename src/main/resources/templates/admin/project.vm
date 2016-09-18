@@ -1,22 +1,9 @@
 #include("/module/admin/header.vm")
-#include("/module/admin/top_nv.vm")
-<li><a href="/admin"><i class="fa fa-area-chart"></i> Monitor</a></li>
-<li><a href="/admin/blogAdd"><i class="fa fa-plus"></i> Add Blog</a></li>
-<li><a href="/admin/blogList/1"><i class="fa fa-list"></i> Blog List</a></li>
-<li class="active"><a href="/admin/project"><i class="fa fa-plus-circle"></i> Add Project</a></li>
-<li><a href="/admin/info"><i class="fa fa-user"></i> Info</a></li>
-<li><a href="/admin/resume"><i class="fa fa-male"></i> Resume</a></li>
-#include("/module/admin/btm_nv.vm")
+#include("/module/admin/nav.vm")
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-                        <form name="infoForm">
-                            <div class="form-group">
-                                <label class="text-warning">username</label>
-                                <input type="text" class="form-control" value="" name="username">
-                            </div>
-                            <button type="submit" class="btn btn-primary" id="updateSub">Update</button>
-                        </form>
+
         </div>
     </div><!-- /.row -->
 </div><!-- /#page-wrapper -->
