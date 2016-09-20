@@ -6,23 +6,6 @@
                 #foreach($tag in ${tags})
                     <li><a class="default-tag" href="/tags/$tag">$tag</a></li>
                 #end
-                    <li><a class="default-tag" href="/tags/mybatis">scala</a></li>
-                    <li><a class="default-tag" href="/tags/spring">akka</a></li>
-                    <li><a class="default-tag" href="/tags/springBoot">并发</a></li>
-                    <li><a class="default-tag" href="/tags/java">多线程</a></li>
-                    <li><a class="default-tag" href="/tags/mybatis">html5</a></li>
-                    <li><a class="default-tag" href="/tags/spring">javascript</a></li>
-                    <li><a class="default-tag" href="/tags/springBoot">struts2</a></li>
-                    <li><a class="default-tag" href="/tags/java">hibernate</a></li>
-                    <li><a class="default-tag" href="/tags/mybatis">spring data jpa</a></li>
-                    <li><a class="default-tag" href="/tags/spring">ecache</a></li>
-                    <li><a class="default-tag" href="/tags/springBoot">缓存系统</a></li>
-                    <li><a class="default-tag" href="/tags/java">rust</a></li>
-                    <li><a class="default-tag" href="/tags/mybatis">goLang</a></li>
-                    <li><a class="default-tag" href="/tags/spring">python</a></li>
-                    <li><a class="default-tag" href="/tags/springBoot">django</a></li>
-
-
             </ul>
         </div>
     </div>
