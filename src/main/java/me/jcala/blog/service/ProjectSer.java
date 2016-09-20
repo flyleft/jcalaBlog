@@ -86,4 +86,13 @@ public class ProjectSer implements ProjectSerInter {
         }
         return project;
     }
+
+    @Override
+    public void updatePro(Project project) {
+        try {
+            projectMapper.Update(project);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+    }
 }

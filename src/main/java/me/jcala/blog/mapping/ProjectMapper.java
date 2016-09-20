@@ -20,13 +20,13 @@ public interface ProjectMapper {
     })
     List<Project> select(@Param("st") int start) throws Exception;
 
-    @Insert({
-            "insert into project",
-            "set name= #{p.name},",
-            "url = #{p.url},date=#{p.date},",
-            "tech=#{p.tech},desp=#{p.desp}"
+    @Select({
+            "select id,name,url,tech,desp",
+            "from project",
+            "where id = #{id}",
+            "limit 1"
     })
-    void insert(@Param("p") Project project) throws Exception;
+    Project selectById(@Param("id") int id) throws Exception;
 
     @Select({
             "select id,name,url",
@@ -38,6 +38,16 @@ public interface ProjectMapper {
     @Select("select count(*) from project")
     int count() throws Exception;
 
+    @Insert({
+            "insert into project",
+            "set name= #{p.name},",
+            "url = #{p.url},date=#{p.date},",
+            "tech=#{p.tech},desp=#{p.desp}"
+    })
+    void insert(@Param("p") Project project) throws Exception;
+
+
+
     @Delete({
             "delete from project",
             "where id = #{id}",
@@ -45,11 +55,13 @@ public interface ProjectMapper {
     })
     void delete(@Param("id") int id) throws Exception;
 
-    @Select({
-            "select id,name,url,tech,desp",
-            "from project",
-            "where id = #{id}",
+
+    @Update({
+            "update project",
+            "set name= #{p.name},url = #{p.url},",
+            "tech=#{p.tech},desp=#{p.desp}",
+            "where id = #{p.id}",
             "limit 1"
     })
-    Project selectById(@Param("id") int id) throws Exception;
+    void Update(@Param("p") Project project) throws Exception;
 }

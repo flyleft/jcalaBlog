@@ -6,7 +6,7 @@ $(function() {
                     message: '<div class="row">  ' +
                     '<div class="col-md-12"> ' +
                     '<form class="form-horizontal" id="add_pro_form"> ' +
-                    '<input name="name" type="hidden" value="'+data.id+'">' +
+                    '<input name="id" type="hidden" value="'+data.id+'">' +
                     '<div class="form-group"> ' +
                     '<label class="col-md-2 control-label">Name</label> ' +
                     '<div class="col-md-9"> ' +

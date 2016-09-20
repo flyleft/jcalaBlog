@@ -41,4 +41,10 @@ public class AdminProjectCtrl {
         String idStr=request.getParameter("id");
         return projectSer.getProById(idStr);
     }
+
+    @PostMapping("/updPro.action")
+    public String updatePro(Project project){
+        projectSer.updatePro(project);
+        return "redirect:/admin/project/1";
+    }
 }
