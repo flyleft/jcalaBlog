@@ -10,4 +10,6 @@ import java.util.List;
 public interface ProjectSerInter {
     List<Project> getFivePros(int page);
     void savePro(Project project);
+    List<Project> adminGetPros(int page);
+    int getPageNum();
 }

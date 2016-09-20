@@ -41,4 +41,27 @@ public class ProjectSer implements ProjectSerInter {
             LOGGER.error(e.getMessage());
         }
     }
+
+    @Override
+    public List<Project> adminGetPros(int page) {
+        int start=(page-1)*10;
+        List<Project> projectList=new ArrayList<>();
+        try {
+            projectList=projectMapper.adminSelect(start);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+        return projectList;
+    }
+
+    @Override
+    public int getPageNum() {
+        int count=0;
+        try {
+            count=projectMapper.count();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+        return count%10==0?count/10:count/10+1;
+    }
 }

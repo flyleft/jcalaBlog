@@ -23,38 +23,17 @@
                     <th>operation</th></tr>
                 </thead>
                 <tbody>
+                #foreach($item in ${proList})
                 <tr class="active">
-                    <td>jcala_blog</td>
-                    <td>https://github.com/jcalaz/jcalaBlog</td>
+                    <td>${item.Name}</td>
+                    <td>${item.Url}</td>
                     <td>
-                        <a href="/admin/updatePro/${item.Vid}"><i class="fa fa-pencil"></i></a>
-                        <a class="delete" role="button" href="/admin/deletePro/${item.Vid}"  data-title="Delete this blog!" data-confirm-button="Yes">
-                            <i class="fa fa-trash-o"></i></a>
+                        <a href="/admin/updatePro/${item.Id}"><i class="fa fa-pencil"></i></a>
+                    <a class="delete" role="button" href="/admin/deletePro/${item.Id}"  data-title="Delete this project!" data-confirm-button="Yes">
+                        <i class="fa fa-trash-o"></i></a>
                     </td>
-                <tr class="success">
-                    <td>zuyi</td>
-                    <td>https://github.com/jcalaz/zuyi</td>
-                    <td>
-                        <a href="/admin/update${item.Vid}"><i class="fa fa-pencil"></i></a>
-                        <a class="delete" role="button" href="/admin/delete/${item.Vid}"  data-title="Delete this blog!" data-confirm-button="Yes">
-                            <i class="fa fa-trash-o"></i></a>
-                    </td>
-                <tr class="warning">
-                    <td>nettyServer</td>
-                    <td>https://github.com/jcalaz/nettyServer</td>
-                    <td>
-                        <a href="/admin/update${item.Vid}"><i class="fa fa-pencil"></i></a>
-                        <a class="delete" role="button" href="/admin/delete/${item.Vid}"  data-title="Delete this blog!" data-confirm-button="Yes">
-                            <i class="fa fa-trash-o"></i></a>
-                    </td>
-                <tr class="danger">
-                    <td>janser</td>
-                    <td>https://github.com/jcalaz/janser</td>
-                    <td>
-                        <a href="/admin/update${item.Vid}"><i class="fa fa-pencil"></i></a>
-                        <a class="delete" role="button" href="/admin/delete/${item.Vid}"  data-title="Delete this blog!" data-confirm-button="Yes">
-                            <i class="fa fa-trash-o"></i></a>
-                    </td>
+                </tr>
+                #end
                 </tbody>
             </table>
         </div>

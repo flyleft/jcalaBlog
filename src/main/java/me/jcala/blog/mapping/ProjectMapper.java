@@ -1,10 +1,7 @@
 package me.jcala.blog.mapping;
 
 import me.jcala.blog.domain.Project;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -22,13 +19,7 @@ public interface ProjectMapper {
             "limit #{st},5"
     })
     List<Project> select(@Param("st") int start) throws Exception;
-/*
- private String name;
-    private String url;
-    private String tech;
-    private String desp;
-    private Timestamp date;
- */
+
     @Insert({
             "insert into project",
             "set name= #{p.name},",
@@ -36,4 +27,14 @@ public interface ProjectMapper {
             "tech=#{p.tech},desp=#{p.desp}"
     })
     void insert(@Param("p") Project project) throws Exception;
+
+    @Select({
+            "select id,name,url",
+            "from project",
+            "limit #{st},10"
+    })
+    List<Project> adminSelect(@Param("st") int start) throws Exception;
+
+    @Select("select count(*) from project")
+    int count() throws Exception;
 }

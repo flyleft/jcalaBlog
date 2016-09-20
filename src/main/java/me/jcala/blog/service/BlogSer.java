@@ -56,8 +56,8 @@ public class BlogSer implements BlogSerInter {
     public List<BlogView> getBlogPage(int id){
         List<BlogView> blogList=new ArrayList<>();
         try {
-            int start=(id-1)*8;
-            blogList=blogMapper.getEightBlogs(start);
+            int start=(id-1)*10;
+            blogList=blogMapper.getTenBlogs(start);
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
         }
@@ -71,7 +71,7 @@ public class BlogSer implements BlogSerInter {
         } catch (Exception e) {
            LOGGER.error(e.getMessage());
     }
-    int pageNum=num%8==0?num/8:num/8+1;
+    int pageNum=num%10==0?num/10:num/10+1;
     return pageNum;
     }
     @Override
