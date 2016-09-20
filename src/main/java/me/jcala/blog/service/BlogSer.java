@@ -165,6 +165,12 @@ public class BlogSer implements BlogSerInter {
 
     @Override
     public BlogView getBlog(int vid) {
-        return null;
+        BlogView blogView=new BlogView();
+        try {
+            blogView=blogMapper.selectView(vid);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+        return blogView;
     }
 }

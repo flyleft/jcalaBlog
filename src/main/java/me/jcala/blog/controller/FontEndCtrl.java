@@ -1,5 +1,6 @@
 package me.jcala.blog.controller;
 
+import me.jcala.blog.domain.BlogView;
 import me.jcala.blog.service.BlogSer;
 import me.jcala.blog.service.InfoSer;
 import me.jcala.blog.service.ProjectSer;
@@ -43,9 +44,10 @@ public class FontEndCtrl {
         model.addAttribute("resume",infoSer.getResumeView());
         return "about";
     }
-    @GetMapping("/post/id")
-    public String post(@PathVariable int id) {
-
+    @GetMapping("/post/{id}")
+    public String post(@PathVariable int id,Model model) {
+        BlogView blogView=blogSer.getBlog(id);
+        model.addAttribute("article",blogView.getArticle());
         return "post";
     }
     @GetMapping("/")
