@@ -1,7 +1,26 @@
-#macro(ulList $list)
-    <ul>
-        #foreach(${item} in $list)
-            <li>&#12288;&#12288;${item}</li>
+#macro(flip $pageNum  $current)
+    #set( $arr = [0..$pageNum] )
+<ul class="pagination">
+    #if($current<2)
+        <li class="disabled"><a href="#">&laquo;</a></li>
+    #else
+        #set($lastPage = $current - 1)
+        <li><a href="/admin/blogList/$lastPage">&laquo;</a></li>
+    #end
+    #foreach($page in $arr)
+        #if($page > 0)
+            #if($current==$page)
+                <li class="active"><a href="/admin/blogList/$page">$page</a></li>
+            #else
+                <li><a href="/admin/blogList/$page">$page</a></li>
+            #end
         #end
-    </ul>
+    #end
+    #if($current>=$pageNum)
+        <li class="disabled"><a href="#">&raquo;</a></li>
+    #else
+        #set($nextPage = $current + 1)
+        <li><a href="/admin/blogList/$nextPage">&raquo;</a></li>
+    #end
+</ul>
 #end

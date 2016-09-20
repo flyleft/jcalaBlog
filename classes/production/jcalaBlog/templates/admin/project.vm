@@ -36,6 +36,9 @@
                 #end
                 </tbody>
             </table>
+            <center>
+                #flip($pageNum  $current)
+            </center>
         </div>
 
     </div>
