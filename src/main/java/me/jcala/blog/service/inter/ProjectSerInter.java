@@ -13,4 +13,5 @@ public interface ProjectSerInter {
     List<Project> adminGetPros(int page);
     int getPageNum();
     void deletePro(int id);
+    Project getProById(String idStr);
 }

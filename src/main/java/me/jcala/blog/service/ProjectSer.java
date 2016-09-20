@@ -73,4 +73,17 @@ public class ProjectSer implements ProjectSerInter {
             LOGGER.error(e.getMessage());
         }
     }
+
+    @Override
+    public Project getProById(String idStr) {
+        int id=1;
+        Project project=new Project();
+        try {
+            id=Integer.valueOf(idStr);
+            project=projectMapper.selectById(id);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+        return project;
+    }
 }

@@ -45,4 +45,11 @@ public interface ProjectMapper {
     })
     void delete(@Param("id") int id) throws Exception;
 
+    @Select({
+            "select id,name,url,tech,desp",
+            "from project",
+            "where id = #{id}",
+            "limit 1"
+    })
+    Project selectById(@Param("id") int id) throws Exception;
 }

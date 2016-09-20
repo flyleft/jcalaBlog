@@ -6,10 +6,9 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by Administrator on 2016/9/16.
@@ -35,5 +34,11 @@ public class AdminProjectCtrl {
     public String deletePro(@PathVariable int id){
        projectSer.deletePro(id);
         return "redirect:/admin/project/1";
+    }
+    @ResponseBody
+    @GetMapping("/pro.json")
+    public Project getProJson(HttpServletRequest request){
+        String idStr=request.getParameter("id");
+        return projectSer.getProById(idStr);
     }
 }

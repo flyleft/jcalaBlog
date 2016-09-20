@@ -28,7 +28,7 @@
                     <td>${item.Name}</td>
                     <td>${item.Url}</td>
                     <td>
-                        <a href="/admin/updatePro/${item.Id}"><i class="fa fa-pencil"></i></a>
+                       <a href='javascript:void(0)'><i class="fa fa-pencil upd_project" name="${item.Id}"></i></a>
                     <a class="delete" role="button" href="/admin/deletePro/${item.Id}"  data-title="Delete this project!" data-confirm-button="Yes">
                         <i class="fa fa-trash-o" name="del_project"></i></a>
                     </td>
