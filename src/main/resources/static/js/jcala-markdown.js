@@ -13,6 +13,7 @@ $(function() {
     function themeSelect(id, themes, lsKey, callback)
     {
         var select = $("#" + id);
+        localStorage[lsKey] = themes[0];
         for (var i = 0, len = themes.length; i < len; i ++)
         {
             var theme    = themes[i];
