@@ -37,4 +37,12 @@ public interface ProjectMapper {
 
     @Select("select count(*) from project")
     int count() throws Exception;
+
+    @Delete({
+            "delete from project",
+            "where id = #{id}",
+            "limit 1"
+    })
+    void delete(@Param("id") int id) throws Exception;
+
 }

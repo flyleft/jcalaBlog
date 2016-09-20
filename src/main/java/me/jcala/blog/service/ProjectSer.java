@@ -64,4 +64,13 @@ public class ProjectSer implements ProjectSerInter {
         }
         return count%10==0?count/10:count/10+1;
     }
+
+    @Override
+    public void deletePro(int id) {
+        try {
+            projectMapper.delete(id);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+    }
 }

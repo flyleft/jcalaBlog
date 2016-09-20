@@ -2,6 +2,7 @@ package me.jcala.blog.controller.admin;
 
 import me.jcala.blog.domain.Project;
 import me.jcala.blog.service.ProjectSer;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,6 +29,11 @@ public class AdminProjectCtrl {
     @PostMapping("/addPro.action")
     public String addProject(Project project){
         projectSer.savePro(project);
+        return "redirect:/admin/project/1";
+    }
+    @GetMapping("/deletePro/{id}")
+    public String deletePro(@PathVariable int id){
+       projectSer.deletePro(id);
         return "redirect:/admin/project/1";
     }
 }
