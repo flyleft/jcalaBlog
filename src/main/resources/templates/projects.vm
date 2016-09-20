@@ -5,10 +5,10 @@
             <div class="editormd-preview" style="display: block; width: 100%; height: 100%;">
                 <div class="markdown-body editormd-preview-container" previewcontainer="true" style="padding: 20px;">
                 #foreach($item in ${projects})
-                <h2 id="h2-jcalablog">
-                    <a name="jcalaBlog" class="reference-link"></a>
+                <h2>
+                    <a class="reference-link"></a>
                     <span class="header-link octicon octicon-link"></span>
-                    <a href="${item.Url}" title="jcala">jcalaBlog</a></h2>
+                    <a href="${item.Url}" title="jcala">${item.Name}</a></h2>
                 <ul>
                     <li>
                         <strong>Date&nbsp;:&nbsp;</strong>${item.Date}</li>
