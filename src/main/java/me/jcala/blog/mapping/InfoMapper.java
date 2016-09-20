@@ -29,6 +29,19 @@ public interface InfoMapper {
     })
     int selectByPw(@Param("un") String username, @Param("pw") String password) throws Exception;
 
+    @Select({
+            "select count(*) ",
+            "from admin ",
+            "where password = #{pw}"
+    })
+    int selectByOldPass(@Param("pw") String oldPass) throws Exception;
+
+    @Select("select md from admin limit 1")
+    String selectMd() throws Exception;
+
+    @Select("select resume from admin limit 1")
+    String selectResume() throws Exception;
+
     @Update({
         "update admin set username = #{if.username},",
                 "email= #{if.email},github=#{if.github},",
@@ -36,12 +49,6 @@ public interface InfoMapper {
     })
     void update(@Param("if") Info info);
 
-    @Select({
-            "select count(*) ",
-            "from admin ",
-            "where password = #{pw}"
-    })
-    int selectByOldPass(@Param("pw") String oldPass) throws Exception;
 
     @Update({
         "update admin set",
@@ -50,9 +57,6 @@ public interface InfoMapper {
     })
     int updataPass(@Param("np") String newPass) throws Exception;
 
-    @Select("select md from admin limit 1")
-    String selectMd() throws Exception;
-
     @Update({
             "update admin ",
             "set md = #{if.md},",
@@ -60,7 +64,4 @@ public interface InfoMapper {
             "limit 1"
     })
     void updateResume(@Param("if") Info info) throws Exception;
-
-    @Select("select resume from admin limit 1")
-    String getResume() throws Exception;
 }

@@ -123,7 +123,7 @@ public class InfoSer implements InfoSerInter {
     public String getResumeView() {
         String resume="";
         try {
-            resume=infoMapper.getResume();
+            resume=infoMapper.selectResume();
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
         }
