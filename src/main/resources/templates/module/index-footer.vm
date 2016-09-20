@@ -50,7 +50,6 @@
         </div>
     </div>
 </footer>
-</body>
 <script type="text/javascript">
     function day_night() {
         var ele=document.getElementById("day-night");
@@ -63,4 +62,5 @@
         }
     }
 </script>
+</body>
 </html>
