@@ -1,4 +1,5 @@
 $(function() {
+    $(".delete").confirm();
     $("#add-blog").bind('click', function(){
         var form = document.forms[0];
         form.action = "/admin/post.action";
@@ -23,7 +24,7 @@ $(function() {
         document.resumeForm.md.value=testEditor.getMarkdown();
         form.submit();
     });
-    $(document).on("click", "#add_project", function (e) {
+    $(document).on("click", "#add_project", function () {
         bootbox.dialog({
                 title: "New Project",
                 message: '<div class="row">  ' +

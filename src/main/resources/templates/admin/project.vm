@@ -30,7 +30,7 @@
                     <td>
                         <a href="/admin/updatePro/${item.Id}"><i class="fa fa-pencil"></i></a>
                     <a class="delete" role="button" href="/admin/deletePro/${item.Id}"  data-title="Delete this project!" data-confirm-button="Yes">
-                        <i class="fa fa-trash-o"></i></a>
+                        <i class="fa fa-trash-o" name="del_project"></i></a>
                     </td>
                 </tr>
                 #end
@@ -50,6 +50,7 @@
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/bootbox.min.js"></script>
+<script src="/js/jquery.confirm.min.js"></script>
 <script src="/js/jcala-form.js"></script>
 </body>
 </html>
