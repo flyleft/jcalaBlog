@@ -47,18 +47,10 @@ public class AdminBlogCtrl {
 
     }
 
-    @PostMapping("/update/{id}")
-    public String update(@PathVariable int id,BlogView view,Model model) {
-        view.setVid(id);
-        boolean result= blogSer.updateBlog(view);
-        if (result){
-            model.addAttribute("targetUrl","/admin/blogList/1");
-            model.addAttribute("result",1);
-        }else {
-            model.addAttribute("targetUrl","/admin/update/"+id);
-            model.addAttribute("result",0);
-        }
-        return "admin/result";
+    @PostMapping("/update.action")
+    public String update(BlogView view) {
+         blogSer.updateBlog(view);
+        return "redirect:/post/"+view.getVid();
     }
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable int id,Model model) {
