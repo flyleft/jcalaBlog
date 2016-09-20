@@ -26,7 +26,7 @@
                 </thead>
                 <tbody>
                 #foreach($item in ${blogList})
-                <tr>
+                    #liClass($velocityCount)
                     <td>${item.Title}</td>
                     <td>${item.Tags}</td>
                     <td>

@@ -24,7 +24,7 @@
                 </thead>
                 <tbody>
                 #foreach($item in ${proList})
-                <tr class="active">
+                    #liClass($velocityCount)
                     <td>${item.Name}</td>
                     <td>${item.Url}</td>
                     <td>
