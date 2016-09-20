@@ -43,8 +43,9 @@ public class FontEndCtrl {
         model.addAttribute("resume",infoSer.getResumeView());
         return "about";
     }
-    @GetMapping("/post")
-    public String post() {
+    @GetMapping("/post/id")
+    public String post(@PathVariable int id) {
+
         return "post";
     }
     @GetMapping("/")

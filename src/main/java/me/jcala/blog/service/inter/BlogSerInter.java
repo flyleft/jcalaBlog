@@ -11,11 +11,12 @@ import java.util.List;
  */
 public interface BlogSerInter {
     boolean addBlog(BlogView blogView) throws Exception;
-    BlogView getBlogByVid(int vid);
+    BlogView adminGetBlog(int vid);
     List<BlogView> getBlogPage(int id);
     int getPageNum();
     boolean updateBlog(BlogView blogView) throws Exception;
     boolean deleteBlogById(int vid);
     List<String> getTagList();
     List<Archive> getArchive(int page);
+    BlogView getBlog(int vid);
 }

@@ -20,10 +20,10 @@ public interface BlogMapper {
               "#{bv.article},#{bv.tags},#{bv.md})"})
       @SelectKey(before=false,keyProperty="bv.vid",resultType=Integer.class,
               statementType= StatementType.STATEMENT,statement="SELECT LAST_INSERT_ID() AS id")
-      int addBlog(@Param("bv") BlogView blogView) throws Exception;
+      int insertBlog(@Param("bv") BlogView blogView) throws Exception;
 
       @Insert("insert ignore into view_tag (name,vid) values(#{tn},#{id})")
-      int addViewTag(@Param("tn") String tagName,@Param("id") int vid) throws Exception;
+      int insertViewTag(@Param("tn") String tagName,@Param("id") int vid) throws Exception;
 
       @Delete("delete from view_tag where vid = #{vid}")
       int deleteViewTag(@Param("vid") int vid) throws Exception;
@@ -37,7 +37,7 @@ public interface BlogMapper {
               "where vid = #{id}",
               "limit 1"
       })
-      BlogView getBlogById(@Param("id") int id) throws Exception;
+      BlogView selectAdmin(@Param("id") int id) throws Exception;
 
       @Update({
             "update blog_view",
@@ -54,10 +54,10 @@ public interface BlogMapper {
               "from blog_view",
               "limit #{st},10"
       })
-      List<BlogView> getTenBlogs(@Param("st") int start) throws Exception;
+      List<BlogView> selectTenBlogs(@Param("st") int start) throws Exception;
 
       @Select("select count(*) from blog_view")
-      int getBlogNum() throws Exception;
+      int selectBlogNum() throws Exception;
 
       @Select("select distinct name from view_tag")
       @ResultType(String.class)

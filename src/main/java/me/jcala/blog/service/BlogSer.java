@@ -27,7 +27,7 @@ public class BlogSer implements BlogSerInter {
         blogView.setDate(new Date(System.currentTimeMillis()));
         boolean result=true;
         try {
-            blogMapper.addBlog(blogView);
+            blogMapper.insertBlog(blogView);
         } catch (Exception e) {
            LOGGER.error(e.getMessage());
             result=false;
@@ -43,10 +43,10 @@ public class BlogSer implements BlogSerInter {
         return result;
     }
     @Override
-    public BlogView getBlogByVid(int vid){
+    public BlogView adminGetBlog(int vid){
         BlogView blogView=null;
         try {
-            blogView=blogMapper.getBlogById(vid);
+            blogView=blogMapper.selectAdmin(vid);
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
         }
@@ -57,7 +57,7 @@ public class BlogSer implements BlogSerInter {
         List<BlogView> blogList=new ArrayList<>();
         try {
             int start=(id-1)*10;
-            blogList=blogMapper.getTenBlogs(start);
+            blogList=blogMapper.selectTenBlogs(start);
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
         }
@@ -67,7 +67,7 @@ public class BlogSer implements BlogSerInter {
     public int getPageNum(){
         int num=0;
         try {
-            num=blogMapper.getBlogNum();
+            num=blogMapper.selectBlogNum();
         } catch (Exception e) {
            LOGGER.error(e.getMessage());
     }
@@ -150,7 +150,7 @@ public class BlogSer implements BlogSerInter {
     private void addViewTag(String tagStr,int vid) throws Exception{
         List<String> tagList=Tools.getTagList(tagStr);
         for (String tag:tagList){
-            blogMapper.addViewTag(tag,vid);
+            blogMapper.insertViewTag(tag,vid);
         }
 
     }
@@ -158,9 +158,13 @@ public class BlogSer implements BlogSerInter {
         blogMapper.deleteViewTag(vid);
         List<String> tagList=Tools.getTagList(tagStr);
         for (String tag:tagList){
-            blogMapper.addViewTag(tag,vid);
+            blogMapper.insertViewTag(tag,vid);
         }
 
     }
 
+    @Override
+    public BlogView getBlog(int vid) {
+        return null;
+    }
 }

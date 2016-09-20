@@ -24,7 +24,7 @@ public class AdminBlogCtrl {
     }
     @GetMapping("/update{id:\\d+}")
     public String blogModify(@PathVariable int id,Model model) {
-        BlogView blogView=blogSer.getBlogByVid(id);
+        BlogView blogView=blogSer.adminGetBlog(id);
         if (blogView==null){
             return "error";
         }else {
