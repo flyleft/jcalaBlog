@@ -8,7 +8,7 @@
             <li><a href="/admin/"><i class="fa fa-dashboard"></i>Monitor</a></li>
             <li class="active"><i class="fa fa-table"></i>open source</li>
         </ol>
-        <button class="btn btn-default btn-lg"><i class="fa fa-plus"></i> <span class="network-name">Add project</span></button>
+        <button class="btn btn-default btn-lg" id="add_project"><i class="fa fa-plus"></i> <span class="network-name">Add project</span></button>
         <br><br><br>
     </div>
 </div><!-- /.row -->
@@ -19,7 +19,7 @@
                 <thead>
                 <tr>
                     <th>name</th>
-                    <th>url</th>
+                    <th>address</th>
                     <th>operation</th></tr>
                 </thead>
                 <tbody>
@@ -27,8 +27,8 @@
                     <td>jcala_blog</td>
                     <td>https://github.com/jcalaz/jcalaBlog</td>
                     <td>
-                        <a href="/admin/update${item.Vid}"><i class="fa fa-pencil"></i></a>
-                        <a class="delete" role="button" href="/admin/delete/${item.Vid}"  data-title="Delete this blog!" data-confirm-button="Yes">
+                        <a href="/admin/updatePro/${item.Vid}"><i class="fa fa-pencil"></i></a>
+                        <a class="delete" role="button" href="/admin/deletePro/${item.Vid}"  data-title="Delete this blog!" data-confirm-button="Yes">
                             <i class="fa fa-trash-o"></i></a>
                     </td>
                 <tr class="success">
@@ -67,5 +67,52 @@
 <!-- JavaScript -->
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
+<script src="/js/bootbox.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        $(document).on("click", "#add_project", function (e) {
+            bootbox.dialog({
+                        title: "New Project",
+                        message: '<div class="row">  ' +
+                        '<div class="col-md-12"> ' +
+                        '<form class="form-horizontal" id="add_pro_form"> ' +
+                        '<div class="form-group"> ' +
+                        '<label class="col-md-2 control-label">Name</label> ' +
+                        '<div class="col-md-9"> ' +
+                        '<input name="name" type="text" placeholder="project name" class="form-control input-md"> ' +
+                        '</div></div>' +
+                        '<div class="form-group"> ' +
+                        '<label class="col-md-2 control-label">Addr</label> ' +
+                        '<div class="col-md-9"> ' +
+                        '<input name="url" type="text" placeholder="project url" class="form-control input-md"> ' +
+                        '</div></div>' +
+                        '<div class="form-group"> ' +
+                        '<label class="col-md-2 control-label">Tech</label> ' +
+                        '<div class="col-md-9"> ' +
+                        '<textarea class="form-control" rows="3" name="tech" maxlength="220"></textarea> ' +
+                        '</div></div>' +
+                        '<div class="form-group"> ' +
+                        '<label class="col-md-2 control-label">Desc</label> ' +
+                        '<div class="col-md-9"> ' +
+                        '<textarea class="form-control" rows="5" name="desp"></textarea> ' +
+                        '</div></div>' +
+                        '</form> </div>  </div>',
+                        buttons: {
+                            success: {
+                                label: "Save",
+                                className: "btn-success",
+                                callback: function () {
+                                    var form =document.getElementById("add_pro_form");
+                                    form.action = "/admin/addPro.action";
+                                    form.method = "post";
+                                    form.submit();
+                                }
+                            }
+                        }
+                    }
+            );
+        });
+    });
+</script>
 </body>
 </html>

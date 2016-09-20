@@ -3,6 +3,7 @@ package me.jcala.blog.domain;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.sql.Timestamp;
 
@@ -12,6 +13,7 @@ import java.sql.Timestamp;
 @Setter
 @Getter
 @NoArgsConstructor
+@ToString
 public class Project {
     private int id;
     private String name;
