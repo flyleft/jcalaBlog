@@ -2,16 +2,6 @@
 <link href="/css/morris-0.4.3.min.css" rel="stylesheet">
 #include("/module/admin/nav.vm")
       <div id="page-wrapper">
-          <div class="row">
-              <div class="col-lg-12">
-                  <h1>Moniter</h1>
-                  <ol class="breadcrumb">
-                      <li><a href="/admin/"><i class="fa fa-dashboard"></i>Monitor</a></li>
-                      <li class="active"><i class="fa fa-table"></i>visiter add memory</li>
-                  </ol>
-              </div>
-          </div><!-- /.row -->
-
         <div class="row">
           <div class="col-lg-12">
             <div class="panel panel-primary">

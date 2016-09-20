@@ -2,21 +2,66 @@
 #include("/module/admin/nav.vm")
 <div id="page-wrapper">
     <div class="row">
-        <div class="col-lg-12">
-            <h1>Project</h1>
-            <ol class="breadcrumb">
-                <li><a href="/admin/"><i class="fa fa-dashboard"></i>Monitor</a></li>
-                <li class="active"><i class="fa fa-table"></i>your open source project</li>
-            </ol>
+    <div class="col-lg-12">
+        <h1>Project</h1>
+        <ol class="breadcrumb">
+            <li><a href="/admin/"><i class="fa fa-dashboard"></i>Monitor</a></li>
+            <li class="active"><i class="fa fa-table"></i>open source</li>
+        </ol>
+        <button class="btn btn-default btn-lg"><i class="fa fa-plus"></i> <span class="network-name">Add project</span></button>
+        <br><br><br>
+    </div>
+</div><!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+                <thead>
+                <tr>
+                    <th>name</th>
+                    <th>url</th>
+                    <th>operation</th></tr>
+                </thead>
+                <tbody>
+                <tr class="active">
+                    <td>jcala_blog</td>
+                    <td>https://github.com/jcalaz/jcalaBlog</td>
+                    <td>
+                        <a href="/admin/update${item.Vid}"><i class="fa fa-pencil"></i></a>
+                        <a class="delete" role="button" href="/admin/delete/${item.Vid}"  data-title="Delete this blog!" data-confirm-button="Yes">
+                            <i class="fa fa-trash-o"></i></a>
+                    </td>
+                <tr class="success">
+                    <td>zuyi</td>
+                    <td>https://github.com/jcalaz/zuyi</td>
+                    <td>
+                        <a href="/admin/update${item.Vid}"><i class="fa fa-pencil"></i></a>
+                        <a class="delete" role="button" href="/admin/delete/${item.Vid}"  data-title="Delete this blog!" data-confirm-button="Yes">
+                            <i class="fa fa-trash-o"></i></a>
+                    </td>
+                <tr class="warning">
+                    <td>nettyServer</td>
+                    <td>https://github.com/jcalaz/nettyServer</td>
+                    <td>
+                        <a href="/admin/update${item.Vid}"><i class="fa fa-pencil"></i></a>
+                        <a class="delete" role="button" href="/admin/delete/${item.Vid}"  data-title="Delete this blog!" data-confirm-button="Yes">
+                            <i class="fa fa-trash-o"></i></a>
+                    </td>
+                <tr class="danger">
+                    <td>janser</td>
+                    <td>https://github.com/jcalaz/janser</td>
+                    <td>
+                        <a href="/admin/update${item.Vid}"><i class="fa fa-pencil"></i></a>
+                        <a class="delete" role="button" href="/admin/delete/${item.Vid}"  data-title="Delete this blog!" data-confirm-button="Yes">
+                            <i class="fa fa-trash-o"></i></a>
+                    </td>
+                </tbody>
+            </table>
         </div>
-    </div><!-- /.row -->
-    <div class="row">
-        <div class="col-lg-12">
 
-        </div>
-    </div><!-- /.row -->
+    </div>
+</div><!-- /.row -->
 </div><!-- /#page-wrapper -->
-
 </div><!-- /#wrapper -->
 
 <!-- JavaScript -->
