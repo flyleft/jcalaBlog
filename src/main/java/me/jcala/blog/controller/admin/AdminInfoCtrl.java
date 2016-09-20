@@ -18,15 +18,9 @@ public class AdminInfoCtrl {
     @Autowired
     private InfoSer infoSer;
     @GetMapping("/admin/info")
-    public String info(Model model,HttpServletRequest request) throws Exception {
+    public String info(Model model) throws Exception {
         Info info=infoSer.getInfo();
         model.addAttribute("info",info);
-        String result=request.getParameter("result");
-        if (result!=null){
-            model.addAttribute("result",Integer.parseInt(result));
-        }else {
-            model.addAttribute("result",3);
-        }
         return "admin/info";
     }
     @GetMapping("/login")

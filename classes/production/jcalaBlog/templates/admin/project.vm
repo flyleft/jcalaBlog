@@ -52,5 +52,8 @@
 <script src="/js/bootbox.min.js"></script>
 <script src="/js/jquery.confirm.min.js"></script>
 <script src="/js/jcala-form.js"></script>
+<script type="text/javascript">
+    $(".delete").confirm();
+</script>
 </body>
 </html>

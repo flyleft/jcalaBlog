@@ -46,7 +46,18 @@ $(function() {
             );
         } );
     }
-    $(".delete").confirm();
+    $("#info_update").bind('click', function(){
+        var form = document.forms[0];
+        form.action = "/admin/info.action";
+        form.method = "post";
+        form.submit();
+    });
+    $("#update_pass").bind('click', function(){
+        var form = document.forms[1];
+        form.action = "/admin/pass.action";
+        form.method = "post";
+        form.submit();
+    });
     $("#add-blog").bind('click', function(){
         var form = document.forms[0];
         form.action = "/admin/post.action";

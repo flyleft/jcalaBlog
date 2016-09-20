@@ -1,6 +1,6 @@
-var testEditor;
+var mdEditor;
 $(function() {
-    testEditor = editormd("markdown-editor", {
+    mdEditor = editormd("markdown-editor", {
         width   : "100%",
         height  : 900,
         syncScrolling : "single",
@@ -25,7 +25,6 @@ $(function() {
 
             if (theme === "")
             {
-                alert("theme == \"\"");
                 return false;
             }
             console.log("lsKey =>", lsKey, theme);
@@ -35,14 +34,14 @@ $(function() {
         return select;
     }
     themeSelect("editormd-theme-select", editormd.themes, "theme", function($this, theme) {
-        testEditor.setTheme(theme);
+        mdEditor.setTheme(theme);
     });
 
     themeSelect("editor-area-theme-select", editormd.editorThemes, "editorTheme", function($this, theme) {
-        testEditor.setCodeMirrorTheme(theme);
+        mdEditor.setCodeMirrorTheme(theme);
     });
 
     themeSelect("preview-area-theme-select", editormd.previewThemes, "previewTheme", function($this, theme) {
-        testEditor.setPreviewTheme(theme);
+        mdEditor.setPreviewTheme(theme);
     });
 });

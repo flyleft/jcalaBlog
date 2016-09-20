@@ -1,5 +1,4 @@
 #include("/module/admin/header.vm")
-<link href="/css/blogset-confirm.css" rel="stylesheet">
 #include("/module/admin/nav.vm")
 <div id="page-wrapper">
         <div class="row">
