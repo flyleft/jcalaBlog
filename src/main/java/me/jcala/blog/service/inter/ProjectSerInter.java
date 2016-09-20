@@ -8,5 +8,6 @@ import java.util.List;
  * Created by Administrator on 2016/9/16.
  */
 public interface ProjectSerInter {
-    List<Project> getFivePjs(int page);
+    List<Project> getFivePros(int page);
+    void savePro(Project project);
 }

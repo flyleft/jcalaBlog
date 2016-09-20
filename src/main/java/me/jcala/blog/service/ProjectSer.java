@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class ProjectSer implements ProjectSerInter {
     @Autowired
     private ProjectMapper projectMapper;
     @Override
-    public List<Project> getFivePjs(int page) {
+    public List<Project> getFivePros(int page) {
         List<Project> projectList=new ArrayList<>();
         int start=(page-1)*5;
         try {
@@ -29,5 +30,15 @@ public class ProjectSer implements ProjectSerInter {
            LOGGER.error(e.getMessage());
         }
         return projectList;
+    }
+    @Override
+    public void savePro(Project project) {
+         Timestamp timestamp=new Timestamp(System.currentTimeMillis());
+         project.setDate(timestamp);
+        try {
+            projectMapper.insert(project);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
     }
 }
