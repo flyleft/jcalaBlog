@@ -3,6 +3,7 @@
     <div class="row">
         <div class="col-lg-12 post">
             <div class="archive">
+                <a href="#content">content</a>
                 #foreach($archive in ${archives})
                     <h2 class="year">${archive.Year}</h2>
                     #foreach($bv in ${archive.List})
