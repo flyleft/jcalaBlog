@@ -49,7 +49,7 @@ public class AdminBlogCtrl {
 
     @PostMapping("/update.action")
     public String update(BlogView view) {
-         blogSer.updateBlog(view);
+        blogSer.updateBlog(view);
         return "redirect:/post/"+view.getVid();
     }
     @GetMapping("/delete/{id}")

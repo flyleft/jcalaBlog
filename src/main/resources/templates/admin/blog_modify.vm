@@ -16,11 +16,11 @@
                             <label for="blogTags">Tags</label>
                             <input type="text" class="form-control" name="tags" placeholder="输入标签后请点击回车键" data-role="tagsinput" value="${blog.Tags}"/>
                         </div>
-                        <input type="hidden" name="md" />
-                        <input type="hidden" name="article" />
+                        <input type="hidden" name="md" id="form-md"/>
+                        <input type="hidden" name="article" id="form-article"/>
                         <div class="form-group">
                             <label for="blogSubmit">submit</label>
-                            <input type="submit" class="form-control jcala-input" id="modify-blog" value="update"/>
+                            <input type="submit" class="form-control jcala-input" id="update-blog" value="update"/>
                         </div>
                     </form>
                 </center>
@@ -58,7 +58,6 @@
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/editormd.min.js"></script>
 <script src="/js/bootstrap-tagsinput.min.js"></script>
-<script src="/js/jcala-markdown.js"></script>
 <script src="/js/jcala-form.js"></script>
 </body>
 </html>
