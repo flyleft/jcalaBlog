@@ -27,21 +27,21 @@ public class AdminInfoCtrl {
     public String login(HttpServletRequest request,Model model){
         String result=request.getParameter("result");
         if (result!=null&&result.equals("fail")){
-           model.addAttribute("yesOrWrong",0);
-        }else {
-            model.addAttribute("yesOrWrong",1);
+           model.addAttribute("success",0);
         }
         return "admin/login";
     }
     @PostMapping("/login.action")
     public String doLogin(Info user,HttpServletRequest request){
-        boolean result=infoSer.login(user);
+        System.out.println(user);
+      /*  boolean result=infoSer.login(user);
         if (result){
             infoSer.addSession(request,user);
             return "redirect:/admin";
         }else {
             return "redirect:/login?result=fail";
-        }
+        }*/
+        return "redirect:/admin";
     }
     @GetMapping("/logout")
     public  String logout(HttpServletRequest request){

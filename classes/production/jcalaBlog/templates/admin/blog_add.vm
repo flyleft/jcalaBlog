@@ -57,6 +57,6 @@
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/editormd.min.js"></script>
 <script src="/js/bootstrap-tagsinput.min.js"></script>
-<script src="/js/jcala-form.js"></script>
+<script src="/js/jcala-md-form.js"></script>
 </body>
 </html>

@@ -18,7 +18,7 @@
                 <h1 class="text-center">Login</h1>
             </div>
             <div class="modal-body">
-                <form class="form col-md-12 center-block" action="/login.action" method="post">
+                <form class="form col-md-12 center-block" name="loginForm">
                     <div class="form-group">
                         <input type="text" class="form-control input-lg" placeholder="Username" name="username">
                     </div>
@@ -26,7 +26,7 @@
                         <input type="password" class="form-control input-lg" placeholder="Password" name="password">
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-success btn-lg btn-block">Sign In</button>
+                        <button class="btn btn-success btn-lg btn-block" id="login-admin">Sign In</button>
                     </div>
                 </form>
             </div>
@@ -40,20 +40,21 @@
 </div>
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
-#set($ii = ${yesOrWrong})
-#if($ii < 1)
 <script src="/js/jquery.bootstrap-growl.min.js"></script>
+<script src="/js/md5.min.js"></script>
+<script src="/js/jcala-form.js"></script>
 <script type="text/javascript">
-    $(function() {
-        setTimeout(function() {
-            $.bootstrapGrowl("Login Failed!", {
-                type: 'danger',
-                align: 'center',
-                width: 'auto',
-            });
-        }, 0);
-    });
+    #set($ii = 1)
+    #set($ii = ${success})
+    #if($ii < 1)
+            setTimeout(function() {
+                $.bootstrapGrowl("Login Failed!", {
+                    type: 'danger',
+                    align: 'center',
+                    width: 'auto',
+                });
+            }, 0);
+    #end
 </script>
-#end
 </body>
 </html>
