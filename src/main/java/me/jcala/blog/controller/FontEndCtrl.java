@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.List;
+
 @Controller
 public class FontEndCtrl {
     @Autowired
@@ -42,6 +44,13 @@ public class FontEndCtrl {
     public String tags(Model model) {
         model.addAttribute("tags",blogSer.getTagList());
         return "tags";
+    }
+    @GetMapping("/tags/{tagName}")
+    public String tagName(@PathVariable String tagName,Model model) {
+        List<BlogView> views=blogSer.getBlogByTag(tagName);
+        model.addAttribute("views",views);
+        model.addAttribute("tagName",tagName);
+        return "tagView";
     }
     @GetMapping("/about")
     public String about(Model model) {

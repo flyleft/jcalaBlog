@@ -67,6 +67,21 @@ public interface BlogMapper {
       })
       BlogView selectNextView(@Param("id") int vid) throws Exception;
 
+      @Select({
+              "select distinct vid",
+              "from view_tag",
+              "where name = #{tag}"
+      })
+      List<Integer> selectVidBytag(@Param("tag") String tagName) throws Exception;
+
+      @Select({
+              "select date,title",
+              "from blog_view",
+              "where vid = #{vid}",
+              "limit 1"
+      })
+      BlogView selectTagView(@Param("vid") int vid) throws Exception;
+
       @Insert({"insert into blog_view " ,
               "(date,title,article,tags,md) " ,
               "values(#{bv.date},#{bv.title}," ,

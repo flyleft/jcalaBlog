@@ -6,7 +6,7 @@ server:
     #undertow服务器的配置
     undertow:
         io-threads: 4
-        worker-threads: 20
+        worker-threads: 10
         buffer-size: 16384
         accesslog:
             enabled: true
@@ -20,7 +20,7 @@ logging:
 spring:
     velocity:
         cache: false
-        view-names: error,index,projects,tags,archives,post,about,admin/login,admin/blog_add,admin/project,
+        view-names: error,index,projects,tags,tagView,archives,post,about,admin/login,admin/blog_add,admin/project,
                     admin/moniter,admin/blog_modify,admin/blog_list,admin/info,admin/result,admin/resume
         properties.velocimacro.library: VM_global_library.vm
     #http的配置

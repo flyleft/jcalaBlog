@@ -22,4 +22,5 @@ public interface BlogSerInter {
     BlogView getBlog(int vid);
     BlogView getPrevBlog(int vid);
     BlogView getNextBlog(int vid);
+    List<BlogView> getBlogByTag(String tagName);
 }

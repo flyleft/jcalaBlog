@@ -207,4 +207,24 @@ public class BlogSer implements BlogSerInter {
         }
         return blogView;
     }
+
+    @Override
+    public List<BlogView> getBlogByTag(String tagName) {
+        List<BlogView> views=new ArrayList<>();
+        try {
+            List<Integer> vids=blogMapper.selectVidBytag(tagName);
+            for (int vid:vids){
+                BlogView view=blogMapper.selectTagView(vid);
+                if (view!=null){
+                    view.setVid(vid);
+                    String monthDay=TimeTools.getEdate(view.getDate());
+                    view.setMonthDay(monthDay);
+                    views.add(view);
+                }
+            }
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+        return views;
+    }
 }
