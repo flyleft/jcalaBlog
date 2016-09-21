@@ -21,7 +21,7 @@ public class ProjectSer implements ProjectSerInter {
     @Autowired
     private ProjectMapper projectMapper;
     @Override
-    public List<Project> getFivePros(int page) {
+    public List<Project> getPros(int page) {
         List<Project> projectList=new ArrayList<>();
         int start=(page-1)*5;
         try {
@@ -55,7 +55,7 @@ public class ProjectSer implements ProjectSerInter {
     }
 
     @Override
-    public int getPageNum() {
+    public int adminGetPageNum() {
         int count=0;
         try {
             count=projectMapper.count();

@@ -16,7 +16,8 @@
                     <br><br>
                 #end
             </div>
-            #frontFlip($pageNum $current)
+            #set($href = "/archives")
+            #frontFlip($pageNum $current $href)
         </div>
     </div>
 </div>

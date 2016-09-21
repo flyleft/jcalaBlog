@@ -32,7 +32,9 @@ public class FontEndCtrl {
     }
     @GetMapping("/projects/{page}")
     public String projectPage(@PathVariable int page,Model model) {
-        model.addAttribute("projects",projectSer.getFivePros(page));
+        model.addAttribute("projects",projectSer.getPros(page));
+        model.addAttribute("pageNum",5);
+        model.addAttribute("current",page);
         return "projects";
     }
 

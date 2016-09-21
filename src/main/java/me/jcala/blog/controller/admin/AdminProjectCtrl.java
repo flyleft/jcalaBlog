@@ -21,7 +21,7 @@ public class AdminProjectCtrl {
      @GetMapping("/project/{page}")
     public String project(@PathVariable int page, Model model){
          model.addAttribute("current",page);
-         model.addAttribute("pageNum",projectSer.getPageNum());
+         model.addAttribute("pageNum",projectSer.adminGetPageNum());
          model.addAttribute("proList",projectSer.adminGetPros(page));
         return "admin/project";
      }

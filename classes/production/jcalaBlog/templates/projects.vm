@@ -25,6 +25,8 @@
             #end
                 </div>
             </div>
+            #set($href = "/projects")
+            #frontFlip($pageNum $current $href)
         </div>
     </div>
 </div>
