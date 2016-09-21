@@ -1,7 +1,9 @@
 body {
   margin-top: 50px;
 }
-
+.navbar{
+    background-color: #373e4a;
+}
 #wrapper {
   padding-left: 0;
 }
@@ -10,9 +12,6 @@ body {
   width: 100%;
   padding: 5px 15px;
 }
-
-/* Nav Messages */
-
 .messages-dropdown .dropdown-menu .message-preview .avatar,
 .messages-dropdown .dropdown-menu .message-preview .name,
 .messages-dropdown .dropdown-menu .message-preview .message,
@@ -38,8 +37,6 @@ body {
 }
 
 
-/* Nav Announcements */
-
 .announcement-heading {
   font-size: 50px;
   margin: 0;
@@ -49,8 +46,6 @@ body {
   margin: 0;
 }
 
-/* Table Headers */
-
 table.tablesorter thead {
   cursor: pointer;
 }
@@ -59,7 +54,6 @@ table.tablesorter thead tr th:hover {
   background-color: #f5f5f5;
 }
 
-/* Flot Chart Containers */
 
 .flot-chart {
   display: block;
@@ -71,10 +65,8 @@ table.tablesorter thead tr th:hover {
   height: 100%;
 }
 
-/* Edit Below to Customize Widths > 768px */
 @media (min-width:768px) {
 
-  /* Wrappers */
 
   #wrapper {
 	padding-left: 225px;
@@ -84,7 +76,6 @@ table.tablesorter thead tr th:hover {
 	padding: 15px 25px;
   }
 
-  /* Side Nav */
 
   .side-nav {
 	margin-left: -225px;
@@ -95,7 +86,7 @@ table.tablesorter thead tr th:hover {
 	height: 100%;
 	border-radius: 0;
 	border: none;
-	background-color: #222222;
+	background-color: #373e4a;
 	overflow-y: auto;
   }
 
@@ -122,7 +113,7 @@ table.tablesorter thead tr th:hover {
   .side-nav>li.dropdown>ul.dropdown-menu>li>a.active,
   .side-nav>li.dropdown>ul.dropdown-menu>li>a:focus {
 	color: #fff;
-	background-color: #080808;
+	background-color: #373e4a;
   }
 
   .side-nav>li>a {
@@ -131,7 +122,7 @@ table.tablesorter thead tr th:hover {
 
   .navbar-inverse .navbar-nav>li>a:hover,
   .navbar-inverse .navbar-nav>li>a:focus {
-	background-color: #080808;
+	background-color: #373e4a;
   }
 
   /* Nav Messages */

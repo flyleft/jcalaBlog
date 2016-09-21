@@ -1,41 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <title>admin login</title>
-    <meta name="generator" content="Bootply"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta charset="UTF-8">
+    <title>login</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/login-page.css" rel="stylesheet">
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 </head>
-<body>
-<div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h1 class="text-center">Login</h1>
-            </div>
-            <div class="modal-body">
-                <form class="form col-md-12 center-block" name="loginForm">
-                    <div class="form-group">
-                        <input type="text" class="form-control input-lg" placeholder="Username" name="username">
+<body class="login-page">
+<div class="login-form">
+    <div class="login-content">
+        <div class="form-login-error">
+            <h3>Invalid login</h3>
+            <p>Enter <strong>demo</strong>/<strong>demo</strong> as login and password.</p>
+        </div>
+        <form name="loginForm">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-user"></i>
                     </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control input-lg" placeholder="Password" name="password">
-                    </div>
-                    <div class="form-group">
-                        <button class="btn btn-success btn-lg btn-block" id="login-admin">Sign In</button>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <div class="col-md-12">
-                    <button class="btn btn-warning" data-dismiss="modal" aria-hidden="true" onclick="javascrtpt:window.location.href='/'">blog view</button>
+                    <input type="text" class="form-control" name="username" id="username" placeholder="Username" autocomplete="off" />
                 </div>
             </div>
-        </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-key"></i>
+                    </div>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Password" autocomplete="off" />
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block btn-login" id="login-admin">
+                    <i class="fa fa-sign-in"></i>
+                    Login In
+                </button>
+            </div>
+        </form>
     </div>
 </div>
 <script src="/js/jquery.min.js"></script>
@@ -44,17 +46,17 @@
 <script src="/js/md5.min.js"></script>
 <script src="/js/jcala-form.js"></script>
 <script type="text/javascript">
-    #set($ii = 1)
-    #set($ii = ${success})
-    #if($ii < 1)
-            setTimeout(function() {
-                $.bootstrapGrowl("Login Failed!", {
-                    type: 'danger',
-                    align: 'center',
-                    width: 'auto',
-                });
-            }, 0);
-    #end
+        #set($ii = 1)
+        #set($ii = ${success})
+        #if($ii < 1)
+        setTimeout(function() {
+            $.bootstrapGrowl("Login Failed!", {
+                type: 'danger',
+                align: 'center',
+                width: 'auto',
+            });
+        }, 0);
+        #end
 </script>
 </body>
 </html>

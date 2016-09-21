@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>admin login</title>
+    <meta name="generator" content="Bootply"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/login-page.css" rel="stylesheet">
+</head>
+<body>
+<div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h1 class="text-center">Login</h1>
+            </div>
+            <div class="modal-body">
+                <form class="form col-md-12 center-block" name="loginForm">
+                    <div class="form-group">
+                        <input type="text" class="form-control input-lg" placeholder="Username" name="username">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control input-lg" placeholder="Password" name="password">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-success btn-lg btn-block" id="login-admin">Sign In</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="col-md-12">
+                    <button class="btn btn-warning" data-dismiss="modal" aria-hidden="true" onclick="javascrtpt:window.location.href='/'">blog view</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.bootstrap-growl.min.js"></script>
+<script src="/js/md5.min.js"></script>
+<script src="/js/jcala-form.js"></script>
+<script type="text/javascript">
+        #set($ii = 1)
+        #set($ii = ${success})
+        #if($ii < 1)
+        setTimeout(function() {
+            $.bootstrapGrowl("Login Failed!", {
+                type: 'danger',
+                align: 'center',
+                width: 'auto',
+            });
+        }, 0);
+        #end
+</script>
+</body>
+</html>
