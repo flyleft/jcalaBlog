@@ -5,7 +5,7 @@
             <div class="editormd-preview" style="display: block; width: 100%; top: 78px; height: 100%;">
                 <div class="markdown-body editormd-preview-container" previewcontainer="true" style="padding: 20px;">
                 ${article}
-            </div>
+                </div>
             </div>
         </div>
     </div>

@@ -18,5 +18,6 @@ public interface BlogSerInter {
     boolean deleteBlogById(int vid);
     List<String> getTagList();
     List<Archive> getArchive(int page);
+    int getArchiveNum();
     BlogView getBlog(int vid);
 }

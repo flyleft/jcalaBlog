@@ -129,6 +129,18 @@ public class BlogSer implements BlogSerInter {
         }
         return archives;
     }
+
+    @Override
+    public int getArchiveNum() {
+        int blogNum=0;
+        try {
+            blogNum=blogMapper.selectBlogNum();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+        return blogNum%12==0?blogNum/12:blogNum/12+1;
+    }
+
     private List<Archive> bv2Ar(List<BlogView> views) throws Exception{
         List<Archive> archives=new ArrayList<>();
         Map<Integer,Archive> years2Ar=new HashMap<>();

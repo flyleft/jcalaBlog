@@ -36,3 +36,17 @@
     <tr class="danger">
     #end
 #end
+
+#macro(frontFlip $pageNum $current)
+    #set($prev = $current - 1)
+    #set($next = $current + 1)
+    #if($pageNum<=1)
+        #elseif($current<=1)
+            <a href="/archives/$next" class="btn btn-default btn-lg" style="float: right"><i class="fa fa-chevron-right fa-fw"></i> <span class="network-name">Next</span></a>
+        #elseif($current>=$pageNum)
+            <a href="/archives/$prev" class="btn btn-default btn-lg"><i class="fa fa-chevron-left fa-fw"></i> <span class="network-name">Prev</span></a>
+        #else
+            <a href="/archives/$prev" class="btn btn-default btn-lg"><i class="fa fa-chevron-left fa-fw"></i> <span class="network-name">Prev</span></a>
+            <a href="/archives/$next" class="btn btn-default btn-lg" style="float: right"><i class="fa fa-chevron-right fa-fw"></i> <span class="network-name">Next</span></a>
+    #end
+#end

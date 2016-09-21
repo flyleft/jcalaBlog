@@ -21,6 +21,8 @@ public class FontEndCtrl {
     @GetMapping("/archives/{page}")
     public String archives(@PathVariable int page,Model model){
         model.addAttribute("archives",blogSer.getArchive(page));
+        model.addAttribute("pageNum",blogSer.getArchiveNum());
+        model.addAttribute("current",page);
         return "archives";
     }
 
