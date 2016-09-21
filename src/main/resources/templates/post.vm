@@ -7,6 +7,13 @@
                 ${article}
                 </div>
             </div>
+            <br><br>
+            #if($prev)
+                <a href="/post/${prev.Vid}" class="post-flip"><i class="fa fa-arrow-left"></i>&nbsp;${prev.Title}</a>
+            #end
+            #if($next)
+                <a href="/post/${next.Vid}" class="post-flip" style="float: right;">${next.Title}&nbsp;<i class="fa fa-arrow-right"></i></a>
+            #end
         </div>
     </div>
 </div>

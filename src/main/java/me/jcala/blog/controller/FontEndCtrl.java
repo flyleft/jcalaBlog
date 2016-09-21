@@ -51,6 +51,10 @@ public class FontEndCtrl {
     @GetMapping("/post/{id}")
     public String post(@PathVariable int id,Model model) {
         BlogView blogView=blogSer.getBlog(id);
+        BlogView prev=blogSer.getPrevBlog(id);
+        BlogView next=blogSer.getNextBlog(id);
+        model.addAttribute("prev",prev);
+        model.addAttribute("next",next);
         model.addAttribute("article",blogView.getArticle());
         return "post";
     }

@@ -185,4 +185,26 @@ public class BlogSer implements BlogSerInter {
         }
         return blogView;
     }
+
+    @Override
+    public BlogView getPrevBlog(int vid) {
+        BlogView blogView=null;
+        try {
+            blogView=blogMapper.selectPreView(vid);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+        return blogView;
+    }
+
+    @Override
+    public BlogView getNextBlog(int vid) {
+        BlogView blogView=null;
+        try {
+            blogView=blogMapper.selectNextView(vid);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+        return blogView;
+    }
 }

@@ -90,6 +90,9 @@ a:active{
     position: relative;
     top: 6px;
 }
+.post-flip{
+    font-size: 20px;
+}
 .default-tag{
     font-size: 30px;
 }

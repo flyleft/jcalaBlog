@@ -50,6 +50,23 @@ public interface BlogMapper {
       })
       BlogView selectView(@Param("id") int id) throws Exception;
 
+      @Select({
+              "select vid,title ",
+              "from blog_view",
+              "where vid < #{id}",
+              "order by vid desc",
+              "limit 1"
+      })
+      BlogView selectPreView(@Param("id") int vid) throws Exception;
+
+      @Select({
+              "select vid,title ",
+              "from blog_view",
+              "where vid > #{id}",
+              "limit 1"
+      })
+      BlogView selectNextView(@Param("id") int vid) throws Exception;
+
       @Insert({"insert into blog_view " ,
               "(date,title,article,tags,md) " ,
               "values(#{bv.date},#{bv.title}," ,

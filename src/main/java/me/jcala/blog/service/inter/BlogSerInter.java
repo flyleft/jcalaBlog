@@ -20,4 +20,6 @@ public interface BlogSerInter {
     List<Archive> getArchive(int page);
     int getArchiveNum();
     BlogView getBlog(int vid);
+    BlogView getPrevBlog(int vid);
+    BlogView getNextBlog(int vid);
 }
