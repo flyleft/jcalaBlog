@@ -8,12 +8,9 @@
     <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 </head>
 <body class="login-page">
+<div class="login-avatar"></div>
 <div class="login-form">
     <div class="login-content">
-        <div class="form-login-error">
-            <h3>Invalid login</h3>
-            <p>Enter <strong>demo</strong>/<strong>demo</strong> as login and password.</p>
-        </div>
         <form name="loginForm">
             <div class="form-group">
                 <div class="input-group">
