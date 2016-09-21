@@ -33,15 +33,13 @@ public class AdminInfoCtrl {
     }
     @PostMapping("/login.action")
     public String doLogin(Info user,HttpServletRequest request){
-        System.out.println(user);
-      /*  boolean result=infoSer.login(user);
+        boolean result=infoSer.login(user);
         if (result){
             infoSer.addSession(request,user);
             return "redirect:/admin";
         }else {
             return "redirect:/login?result=fail";
-        }*/
-        return "redirect:/admin";
+        }
     }
     @GetMapping("/logout")
     public  String logout(HttpServletRequest request){

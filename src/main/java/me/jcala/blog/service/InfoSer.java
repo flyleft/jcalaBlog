@@ -3,7 +3,6 @@ package me.jcala.blog.service;
 import me.jcala.blog.domain.Info;
 import me.jcala.blog.mapping.InfoMapper;
 import me.jcala.blog.service.inter.InfoSerInter;
-import me.jcala.blog.utils.Md5Tools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +37,7 @@ public class InfoSer implements InfoSerInter {
     public boolean login(Info user) {
         int num=0;
         try {
-            num=infoMapper.selectByPw(user.getUsername(), Md5Tools.MD5(user.getPassword()));
+            num=infoMapper.selectByPw(user.getUsername(),user.getPassword());
         } catch (Exception e) {
            LOGGER.error(e.getMessage());
         }
@@ -52,7 +51,7 @@ public class InfoSer implements InfoSerInter {
     public boolean checkPass(String oldPass){
         int num=0;
         try {
-            num=infoMapper.selectByOldPass(Md5Tools.MD5(oldPass));
+            num=infoMapper.selectByOldPass(oldPass);
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
         }
@@ -75,7 +74,7 @@ public class InfoSer implements InfoSerInter {
         int resdult;
        if (checkPass(oldPass)){
            try {
-               infoMapper.updataPass(Md5Tools.MD5(newPass));
+               infoMapper.updataPass(newPass);
                resdult=MODIFYPASSSUC;
            } catch (Exception e) {
                LOGGER.error(e.getMessage());

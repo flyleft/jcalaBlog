@@ -14,57 +14,56 @@
     <div class="row">
           <div class="col-lg-12">
             <div class="well">
-    <ul class="nav nav-tabs">
-      <li class="active"><a href="#home" data-toggle="tab">Profile</a></li>
-      <li><a href="#profile" data-toggle="tab">Password</a></li>
-    </ul>
+                <ul class="nav nav-tabs">
+                  <li class="active"><a href="#home" data-toggle="tab">Profile</a></li>
+                  <li><a href="#profile" data-toggle="tab">Password</a></li>
+                </ul>
 
-    <div id="myTabContent" class="tab-content">
-      <div class="tab-pane active in" id="home">
-    <form name="infoForm">
-      <div class="form-group">
-        <label class="text-warning">username</label>
-        <input type="text" class="form-control" value="${info.Username}" name="username">
-      </div>
-      <div class="form-group">
-        <label class="text-warning">email</label>
-        <input type="email" class="form-control"  value="${info.Email}" name="email">
-      </div>
-        <div class="form-group">
-            <label class="text-warning">github</label>
-            <input type="text" class="form-control"  value="${info.Github}" name="github">
-        </div>
-        <div class="form-group">
-            <label class="text-warning">twitter</label>
-            <input type="text" class="form-control" value="${info.Twitter}" name="twitter">
-        </div>
-      <button type="submit" class="btn btn-primary" id="info_update">Update</button>
-   </form>
-      </div>
-      <div class="tab-pane fade" id="profile">
-    <form id="tab2">
-        <label class="text-warning">old password</label>
-        <input type="password" class="form-control" name="old_pass" id="old_pass">
-        <label class="text-warning">new password</label>
-        <input type="password" class="form-control" name="new_pass" id="new_pass_one">
-        <label class="text-warning">repeat new password</label>
-        <input type="password" class="form-control" id="new_pass_two">
-        <div>
-            <button class="btn btn-primary" id="update_pass">Update</button>
-        </div>
-    </form>
-      </div>
-  </div>
-</div>
+                <div id="myTabContent" class="tab-content">
+                  <div class="tab-pane active in" id="home">
+                    <form name="infoForm">
+                      <div class="form-group">
+                        <label class="text-warning">username</label>
+                        <input type="text" class="form-control" value="${info.Username}" name="username">
+                      </div>
+                      <div class="form-group">
+                        <label class="text-warning">email</label>
+                        <input type="email" class="form-control"  value="${info.Email}" name="email">
+                      </div>
+                        <div class="form-group">
+                            <label class="text-warning">github</label>
+                            <input type="text" class="form-control"  value="${info.Github}" name="github">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-warning">twitter</label>
+                            <input type="text" class="form-control" value="${info.Twitter}" name="twitter">
+                        </div>
+                      <button type="submit" class="btn btn-primary" id="info_update">Update</button>
+                   </form>
+                  </div>
+                    <div class="tab-pane fade" id="profile">
+                        <form id="tab2" name="newPassForm">
+                            <label class="text-warning">old password</label>
+                            <input type="password" class="form-control" name="old_pass" id="old_pass">
+                            <label class="text-warning">new password</label>
+                            <input type="password" class="form-control" name="new_pass" id="new_pass_one">
+                            <label class="text-warning">repeat new password</label>
+                            <input type="password" class="form-control" id="new_pass_two">
+                            <div>
+                                <button class="btn btn-primary" id="update_pass">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
           </div>
-        </div><!-- /.row -->
-      </div><!-- /#page-wrapper -->
-
-    </div><!-- /#wrapper -->
-
-    <!-- JavaScript -->
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/jcala-form.js"></script>
+    </div><!-- /.row -->
+</div><!-- /#page-wrapper -->
+</div><!-- /#wrapper -->
+<!-- JavaScript -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.bootstrap-growl.min.js"></script>
+<script src="/js/jcala-form.js"></script>
   </body>
 </html>

@@ -53,10 +53,19 @@ $(function() {
         form.submit();
     });
     $("#update_pass").bind('click', function(){
-        var form = document.forms[1];
-        form.action = "/admin/pass.action";
-        form.method = "post";
-        form.submit();
+        var old_pass=document.newPassForm.old_pass.value;
+        var new_pass=document.newPassForm.new_pass.value;
+        var new_pass_two=document.newPassForm.new_pass_two.value;
+        if(new_pass!=new_pass_two){
+            alert("Two passwords are not consistent!")
+        }else{
+            var form = document.forms[1];
+            form.action = "/admin/pass.action";
+            form.method = "post";
+            document.newPassForm.password.value=hex_md5(old_pass);
+            document.newPassForm.password.value=hex_md5(new_pass);
+            form.submit();
+        }
     });
     $("#login-admin").bind('click', function(){
         var form = document.forms[0];
