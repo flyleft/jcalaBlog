@@ -14,6 +14,75 @@ h6 {
     font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
     font-weight: 700;
 }
+.login-avatar{
+    width:120px;
+    height:120px;
+    border-radius:120px;
+    border: 5px solid #ffffff;
+    box-shadow: 0 0 10px #000000;
+    background: url(../img/avater.jpg) no-repeat center center;
+    margin-left:auto;
+    margin-right:auto;
+    animation-name:avatarRotate;
+    animation-duration:3s;
+    animation-timing-function:linear;
+    animation-iteration-count:infinite;
+    animation-direction:alternate;
+    animation-play-state:running;
+    /* Firefox: */
+    -moz-animation-name:avatarRotate;
+    -moz-animation-duration:3s;
+    -moz-animation-timing-function:linear;
+    -moz-animation-iteration-count:infinite;
+    -moz-animation-direction:alternate;
+    -moz-animation-play-state:running;
+    /* Safari and Chrome: */
+    -webkit-animation-name:avatarRotate;
+    -webkit-animation-duration:3s;
+    -webkit-animation-timing-function:linear;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-direction:alternate;
+    -webkit-animation-play-state:running;
+    /* Opera: */
+    -o-animation-name:avatarRotate;
+    -o-animation-duration:3s;
+    -o-animation-timing-function:linear;
+    -o-animation-iteration-count:infinite;
+    -o-animation-direction:alternate;
+    -o-animation-play-state:running;
+}
+
+@keyframes avatarRotate
+{
+    100% { -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);}
+}
+
+@-moz-keyframes avatarRotate /* Firefox */
+{
+    100% { -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);}
+}
+
+@-webkit-keyframes avatarRotate /* Safari and Chrome */
+{
+    100% { -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);}
+}
+
+@-o-keyframes avatarRotate /* Opera */
+{
+    100% { -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);}
+}
 
 .topnav {
     font-size: 14px;
