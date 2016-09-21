@@ -23,9 +23,7 @@
     -o-transform: rotate(360deg);
     transform: rotate(360deg);
 }
-.login-avatar{
 
-}
 .login-page .login-content {
     position: relative;
     width: 320px;
