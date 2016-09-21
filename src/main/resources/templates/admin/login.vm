@@ -8,7 +8,8 @@
     <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 </head>
 <body class="login-page">
-<div class="login-avatar"></div>
+<div class="login-avatar" onmouseover="this.style.cursor='pointer'" onclick="document.location='/';">
+</div>
 <div class="login-form">
     <div class="login-content">
         <form name="loginForm">
