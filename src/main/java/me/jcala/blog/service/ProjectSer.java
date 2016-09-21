@@ -95,4 +95,15 @@ public class ProjectSer implements ProjectSerInter {
             LOGGER.error(e.getMessage());
         }
     }
+
+    @Override
+    public int getPageNum() {
+        int count=0;
+        try {
+            count=projectMapper.count();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+        return count%5==0?count/5:count/5+1;
+    }
 }
