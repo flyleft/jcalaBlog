@@ -4,8 +4,8 @@
     #if($current<2)
         <li class="disabled"><a href="#">&laquo;</a></li>
     #else
-        #set($lastPage = $current - 1)
-        <li><a href="$href/$lastPage">&laquo;</a></li>
+        #set($prevPage = $current - 1)
+        <li><a href="$href/$prevPage">&laquo;</a></li>
     #end
     #foreach($page in $arr)
         #if($page > 0)
