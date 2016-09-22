@@ -4,7 +4,7 @@ body {
     line-height: 1.75em;
     background: #f4f4f4;
     position: relative;
-    font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+    font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif,"Microsoft YaHei", Helvetica, "Meiryo UI", "Malgun Gothic", "Segoe UI", "Trebuchet MS", "Monaco","华文细黑";
     font-weight: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -330,6 +330,14 @@ a:active{
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
+    color: #bea180;
+    background: #e6e6e6;
+}
+.navbar-default .navbar-brand {
+    color: #6B4226;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
     color: #bea180;
     background: #e6e6e6;
 }

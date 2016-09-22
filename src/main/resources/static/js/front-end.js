@@ -3,12 +3,19 @@ $(document).ready(function() {
     $("html,body").animate({scrollTop: pos}, 1000);
 });
 function day_night() {
-    var ele=document.getElementById("day-night");
-    if (ele.className=="fa fa-sun-o"){
-        ele.className="fa fa-moon-o";
-        document.getElementById("day-night-name").textContent="NIGHT";
+    var btn=document.getElementById("day-night");
+    var md=document.getElementById("md-container");
+    var themeFont=document.getElementById("day-night-name");
+    var css=document.getElementById("theme-css");
+    if (btn.className=="fa fa-sun-o"){
+        btn.className="fa fa-moon-o";
+        themeFont.textContent="NIGHT";
+        md.className="editormd-preview";
+        css.href="#";
     }else {
-        ele.className="fa fa-sun-o";
-        document.getElementById("day-night-name").textContent="DAY";
+        btn.className="fa fa-sun-o";
+        themeFont.textContent="DAY";
+        md.className="editormd-preview editormd-preview-theme-dark";
+        css.href="/css/theme-dark.css";
     }
 }

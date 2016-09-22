@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12 post">
-            <div class="editormd-preview" style="display: block; width: 100%; top: 78px; height: 100%;">
+            <div class="editormd-preview" id="md-container">
                 <div class="markdown-body editormd-preview-container" previewcontainer="true" style="padding: 20px;">
                 ${article}
                 </div>
