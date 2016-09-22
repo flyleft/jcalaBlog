@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>login</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/login-page.css" rel="stylesheet">
+    <link href="/css/login-page.min.css" rel="stylesheet">
     <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 </head>
 <body class="login-page">
@@ -48,7 +48,7 @@
         #set($ii = ${success})
         #if($ii < 1)
         setTimeout(function() {
-            $.bootstrapGrowl("Login Failed!", {
+            $.bootstrapGrowl("Please check your username or password!", {
                 type: 'danger',
                 align: 'center',
                 width: 'auto',
