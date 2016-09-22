@@ -1,5 +1,5 @@
 #include("/module/header.vm")
-<div class="container">
+<div class="container theme-light">
     <div class="row">
         <div class="col-lg-12 post">
             <div class="login-avatar">
