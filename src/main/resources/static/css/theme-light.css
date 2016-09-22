@@ -1,7 +1,51 @@
 html,
 body {
     background: #f4f4f4;
+    color: #6B4226;
 }
 .topnav {
     background: #eeeeee;
+}
+footer {
+    background-color: #f8f8f8;
+}
+.post {
+    background: #FFFFFF;
+}
+a{
+    color: #6B4226;
+}
+a:link{
+    color: #6B4226;
+}
+a:visited{
+    color: #6B4226;
+}
+a:hover{
+    color: #bea180;
+    background: #e6e6e6;
+}
+a:active{
+    color: #6B4226;
+}
+.archive .year {
+    color: #414b61;
+}
+.archive .post-item {
+    border-left: 1px solid #cacaca; }
+.archive .post-item:hover {
+    border-left: 3px solid #6B4226;
+}
+.archive .post-item a:hover {
+    color: #bea180;
+}
+.archive .post-time {
+    color: #8a8a8a;
+}
+.archive .post-link {
+    color: #6B4226;
+}
+.login-avatar{
+    border: 5px solid #ffffff;
+    box-shadow: 0 0 10px #000000;
 }

@@ -10,6 +10,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     width: 100%;
     height: 100%;
+    color: #6B4226;
 }
 h1,
 h2,
@@ -93,7 +94,10 @@ h6 {
     font-size: 14px;
     background: #eeeeee;
 }
-
+.lead {
+    font-size: 18px;
+    font-weight: 400;
+}
 .intro-header {
     padding-top: 50px;
     padding-bottom: 50px;
