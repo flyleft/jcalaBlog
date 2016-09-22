@@ -1,18 +1,18 @@
-#macro(flip $pageNum  $current)
+#macro(flip $pageNum  $current $href)
     #set( $arr = [0..$pageNum] )
 <ul class="pagination">
     #if($current<2)
         <li class="disabled"><a href="#">&laquo;</a></li>
     #else
         #set($lastPage = $current - 1)
-        <li><a href="/admin/blogList/$lastPage">&laquo;</a></li>
+        <li><a href="$href/$lastPage">&laquo;</a></li>
     #end
     #foreach($page in $arr)
         #if($page > 0)
             #if($current==$page)
-                <li class="active"><a href="/admin/blogList/$page">$page</a></li>
+                <li class="active"><a href="$href/$page">$page</a></li>
             #else
-                <li><a href="/admin/blogList/$page">$page</a></li>
+                <li><a href="$href/$page">$page</a></li>
             #end
         #end
     #end
@@ -20,7 +20,7 @@
         <li class="disabled"><a href="#">&raquo;</a></li>
     #else
         #set($nextPage = $current + 1)
-        <li><a href="/admin/blogList/$nextPage">&raquo;</a></li>
+        <li><a href="$href/$nextPage">&raquo;</a></li>
     #end
 </ul>
 #end
