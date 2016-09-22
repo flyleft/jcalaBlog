@@ -325,3 +325,11 @@ a:active{
 .default-tag{
     font-size: 30px;
 }
+.navbar-default .navbar-nav > li > a {
+    color: #6B4226;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #bea180;
+    background: #e6e6e6;
+}

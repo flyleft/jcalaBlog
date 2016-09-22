@@ -49,3 +49,19 @@ a:active{
     border: 5px solid #ffffff;
     box-shadow: 0 0 10px #000000;
 }
+.navbar-default .navbar-nav > li > a {
+    color: #6B4226;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #bea180;
+    background: #e6e6e6;
+}
+.navbar-default .navbar-brand {
+    color: #6B4226;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #bea180;
+    background: #e6e6e6;
+}

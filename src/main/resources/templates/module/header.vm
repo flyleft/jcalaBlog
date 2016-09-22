@@ -18,7 +18,7 @@
             <a class="navbar-brand topnav" href="/">Home</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right myBar">
                 <li>
                     <a href="/archives/1">Archives</a>
                 </li>
