@@ -50,17 +50,7 @@
         </div>
     </div>
 </footer>
-<script type="text/javascript">
-    function day_night() {
-        var ele=document.getElementById("day-night");
-        if (ele.className=="fa fa-sun-o"){
-            ele.className="fa fa-moon-o";
-            document.getElementById("day-night-name").textContent="NIGHT";
-        }else {
-            ele.className="fa fa-sun-o";
-            document.getElementById("day-night-name").textContent="DAY";
-        }
-    }
-</script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/front-end.js"></script>
 </body>
 </html>

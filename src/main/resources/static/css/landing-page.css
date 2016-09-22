@@ -240,7 +240,6 @@ p.copyright {
 .post {
     padding: 35px;
     background: #FFFFFF;
-//background: #2C2827;
     margin-bottom: 35px;
     margin-top: 35px;
     position: relative;
@@ -305,10 +304,12 @@ a:active{
     display: inline-block;
     width: 12%;
     margin: 0 10px;
-    color: #8a8a8a; }
+    color: #8a8a8a;
+}
 .archive .post-time.tag, .archive .post-time.category {
     margin-left: 10px;
-    width: 20%; }
+    width: 20%;
+}
 .archive .post-link {
     width: 75%;
     display: inline-block;

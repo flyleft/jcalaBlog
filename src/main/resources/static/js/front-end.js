@@ -10,12 +10,16 @@ function day_night() {
     if (btn.className=="fa fa-sun-o"){
         btn.className="fa fa-moon-o";
         themeFont.textContent="NIGHT";
-        md.className="editormd-preview";
         css.href="#";
+        if(md!=null){
+            md.className="editormd-preview";
+        }
     }else {
         btn.className="fa fa-sun-o";
         themeFont.textContent="DAY";
-        md.className="editormd-preview editormd-preview-theme-dark";
         css.href="/css/theme-dark.css";
+        if(md!=null){
+            md.className="editormd-preview editormd-preview-theme-dark";
+        }
     }
 }

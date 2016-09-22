@@ -1,32 +1,37 @@
 html,
 body {
-    background: #34302f;
-    color: #6B4226;
+    background: #201e1d;
+    color: #888888;
 }
 .topnav {
-    background: #eeeeee;
+    background: #1a1817;
 }
+.intro-header {
+    background: url(../img/intro-bg-dark.jpg) no-repeat center center;
+    background-size: cover;
+}
+
 footer {
-    background-color: #f8f8f8;
+    background: #1a1817;
 }
 .post {
-    background: #FFFFFF;
+    background: #2C2827;
 }
 a{
-    color: #6B4226;
+    color: #888888;
 }
 a:link{
-    color: #6B4226;
+    color: #888888;
 }
 a:visited{
-    color: #6B4226;
+    color: #888888;
 }
 a:hover{
-    color: #bea180;
-    background: #e6e6e6;
+    color: #ffffff;
+    background: #201e1d;
 }
 a:active{
-    color: #6B4226;
+    color: #888888;
 }
 .archive .year {
     color: #414b61;
@@ -34,34 +39,52 @@ a:active{
 .archive .post-item {
     border-left: 1px solid #cacaca; }
 .archive .post-item:hover {
-    border-left: 3px solid #6B4226;
+    border-left: 3px solid #bea180;
 }
 .archive .post-item a:hover {
-    color: #bea180;
+    color: #ffffff;
 }
 .archive .post-time {
-    color: #8a8a8a;
+    color: #888888;
 }
 .archive .post-link {
-    color: #6B4226;
+    color: #888888;
 }
 .login-avatar{
-    border: 5px solid #ffffff;
-    box-shadow: 0 0 10px #000000;
+    border: 5px solid #2C2827;
+    box-shadow: 0 0 10px #ffffff;
 }
 .navbar-default .navbar-nav > li > a {
-    color: #6B4226;
+    color: #888888;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-    color: #bea180;
-    background: #e6e6e6;
+    color: #ffffff;
+    background: #201e1d;
 }
 .navbar-default .navbar-brand {
-    color: #6B4226;
+    color: #888888;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-    color: #bea180;
-    background: #e6e6e6;
+    color: #ffffff;
+    background: #201e1d;
+}
+.content-section-a {
+    background: #201e1d;
+}
+
+.content-section-b {
+    padding: 50px 0;
+    border-top: 1px solid #888888;
+    border-bottom: 1px solid #888888;
+    background: #201e1d;
+}
+.section-heading-spacer {
+    border-top: 3px solid #888888;
+}
+
+.banner {
+    color: #888888;
+    background-size: cover;
 }
