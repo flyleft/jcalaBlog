@@ -1,7 +1,6 @@
 package me.jcala.blog.controller.admin;
 
 import me.jcala.blog.domain.Visiter;
-import me.jcala.blog.service.MoniterSer;
 import me.jcala.blog.service.inter.MoniterSerInter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

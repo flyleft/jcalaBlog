@@ -1,9 +1,6 @@
 package me.jcala.blog.controller;
 
 import me.jcala.blog.domain.BlogView;
-import me.jcala.blog.service.BlogSer;
-import me.jcala.blog.service.InfoSer;
-import me.jcala.blog.service.ProjectSer;
 import me.jcala.blog.service.inter.BlogSerInter;
 import me.jcala.blog.service.inter.InfoSerInter;
 import me.jcala.blog.service.inter.ProjectSerInter;

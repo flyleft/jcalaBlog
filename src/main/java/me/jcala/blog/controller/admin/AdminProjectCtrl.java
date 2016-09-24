@@ -1,9 +1,7 @@
 package me.jcala.blog.controller.admin;
 
 import me.jcala.blog.domain.Project;
-import me.jcala.blog.service.ProjectSer;
 import me.jcala.blog.service.inter.ProjectSerInter;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
