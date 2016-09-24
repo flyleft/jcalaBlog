@@ -42,11 +42,11 @@
     #set($next = $current + 1)
     #if($pageNum<=1)
         #elseif($current<=1)
-            <a href="$href/$next" class="btn btn-default btn-lg" style="float: right"><i class="fa fa-chevron-right fa-fw"></i> <span class="network-name">Next</span></a>
+            <a href="$href/$next" class="default-tag" style="float: right"><i class="fa fa-chevron-right fa-fw"></i> <span class="network-name">Next</span></a>
         #elseif($current>=$pageNum)
-            <a href="$href/$prev" class="btn btn-default btn-lg"><i class="fa fa-chevron-left fa-fw"></i> <span class="network-name">Prev</span></a>
+            <a href="$href/$prev" class="default-tag"><i class="fa fa-chevron-left fa-fw"></i> <span class="network-name">Prev</span></a>
         #else
-            <a href="$href/$prev" class="btn btn-default btn-lg"><i class="fa fa-chevron-left fa-fw"></i> <span class="network-name">Prev</span></a>
-            <a href="$href/$next" class="btn btn-default btn-lg" style="float: right"><i class="fa fa-chevron-right fa-fw"></i> <span class="network-name">Next</span></a>
+            <a href="$href/$prev" class="default-tag"><i class="fa fa-chevron-left fa-fw"></i> <span class="network-name">Prev</span></a>
+            <a href="$href/$next" class="default-tag" style="float: right"><i class="fa fa-chevron-right fa-fw"></i> <span class="network-name">Next</span></a>
     #end
 #end
