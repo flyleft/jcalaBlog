@@ -8,7 +8,6 @@ import org.junit.Test;
 public class ToolsTest {
     @Test
     public void testGetTagList(){
-        String tagStr="java scala spring SpringBoot";
-        System.out.println(Tools.getTagList(tagStr));
+        System.out.println(System.getProperty("user.dir"));
     }
 }

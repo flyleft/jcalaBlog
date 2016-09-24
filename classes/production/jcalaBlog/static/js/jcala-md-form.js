@@ -7,7 +7,7 @@ $(function() {
         path    : "../lib/",
         imageUpload : true,
         imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-        imageUploadURL : "./php/upload.php?test=dfdf",
+        imageUploadURL : "/admin/file/uplPic.action",
         saveHTMLToTextarea : true
     });
     function themeSelect(id, themes, lsKey, callback)

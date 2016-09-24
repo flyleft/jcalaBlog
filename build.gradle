@@ -36,6 +36,7 @@ configurations {
   compile.exclude group: 'org.hibernate'
   compile.exclude group: 'org.glassfish'
   compile.exclude group: 'dom4j'
+  compile.exclude group: 'c3p0'
 }
 bootRun {
   systemProperties = System.properties
