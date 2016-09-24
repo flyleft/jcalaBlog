@@ -40,7 +40,6 @@ public class DataSourceConf {
         hds.setConnectionTimeout(connectionTimeout);
         hds.setMaximumPoolSize(maximumPoolSize);
         hds.setMinimumIdle(minimumIdle);
-        hds.setAutoCommit(false);
         return hds;
     }
     @Bean

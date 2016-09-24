@@ -7,6 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -23,6 +25,7 @@ public class InfoSer implements InfoSerInter {
     @Autowired
     private InfoMapper infoMapper;
     @Override
+    @Transactional(readOnly = true,timeout = 20)
     public Info getInfo() {
         Info info=new Info();
         try {
@@ -34,6 +37,7 @@ public class InfoSer implements InfoSerInter {
     }
 
     @Override
+    @Transactional(readOnly = true,timeout = 20)
     public boolean login(Info user) {
         int num=0;
         try {
@@ -48,6 +52,7 @@ public class InfoSer implements InfoSerInter {
         }
     }
     @Override
+    @Transactional(readOnly = true,timeout = 20)
     public boolean checkPass(String oldPass){
         int num=0;
         try {
@@ -58,6 +63,7 @@ public class InfoSer implements InfoSerInter {
         return num>0;
     }
     @Override
+    @Transactional(isolation = Isolation.READ_COMMITTED)
     public boolean updateInfo(Info info) {
         boolean result=true;
         try {
@@ -70,6 +76,7 @@ public class InfoSer implements InfoSerInter {
     }
 
     @Override
+    @Transactional(isolation = Isolation.READ_COMMITTED)
     public int modifyPw(String oldPass,String newPass) {
         int resdult;
        if (checkPass(oldPass)){
@@ -97,6 +104,7 @@ public class InfoSer implements InfoSerInter {
         session.removeAttribute("cur_user");
     }
     @Override
+    @Transactional(readOnly = true,timeout = 20)
     public String getResumeMd(){
        String md="";
         try {
@@ -107,6 +115,7 @@ public class InfoSer implements InfoSerInter {
         return md;
     }
     @Override
+    @Transactional(isolation = Isolation.READ_COMMITTED)
     public boolean saveResume(Info info){
         boolean result=true;
         try {
@@ -119,6 +128,7 @@ public class InfoSer implements InfoSerInter {
     }
 
     @Override
+    @Transactional(readOnly = true,timeout = 20)
     public String getResumeView() {
         String resume="";
         try {

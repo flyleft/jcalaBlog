@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.File;
 import java.lang.management.ManagementFactory;
@@ -28,6 +29,7 @@ public class MoniterSer implements MoniterSerInter{
     @Autowired
     private VisiterMapper visiterMapper;
     @Override
+    @Transactional(readOnly = true,timeout = 20)
     public List<Visiter> getVisiters() {
         List<Visiter> visiters=new ArrayList<>();
         try {

@@ -7,6 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -21,6 +23,7 @@ public class ProjectSer implements ProjectSerInter {
     @Autowired
     private ProjectMapper projectMapper;
     @Override
+    @Transactional(readOnly = true,timeout = 20)
     public List<Project> getPros(int page) {
         List<Project> projectList=new ArrayList<>();
         int start=(page-1)*5;
@@ -32,6 +35,7 @@ public class ProjectSer implements ProjectSerInter {
         return projectList;
     }
     @Override
+    @Transactional(isolation = Isolation.READ_COMMITTED)
     public void savePro(Project project) {
          Timestamp timestamp=new Timestamp(System.currentTimeMillis());
          project.setDate(timestamp);
@@ -43,6 +47,7 @@ public class ProjectSer implements ProjectSerInter {
     }
 
     @Override
+    @Transactional(readOnly = true,timeout = 20)
     public List<Project> adminGetPros(int page) {
         int start=(page-1)*10;
         List<Project> projectList=new ArrayList<>();
@@ -55,6 +60,7 @@ public class ProjectSer implements ProjectSerInter {
     }
 
     @Override
+    @Transactional(readOnly = true,timeout = 20)
     public int adminGetPageNum() {
         int count=0;
         try {
@@ -66,6 +72,7 @@ public class ProjectSer implements ProjectSerInter {
     }
 
     @Override
+    @Transactional(isolation = Isolation.READ_COMMITTED)
     public void deletePro(int id) {
         try {
             projectMapper.delete(id);
@@ -75,6 +82,7 @@ public class ProjectSer implements ProjectSerInter {
     }
 
     @Override
+    @Transactional(readOnly = true,timeout = 20)
     public Project getProById(String idStr) {
         int id=1;
         Project project=new Project();
@@ -88,6 +96,7 @@ public class ProjectSer implements ProjectSerInter {
     }
 
     @Override
+    @Transactional(isolation = Isolation.READ_COMMITTED)
     public void updatePro(Project project) {
         try {
             projectMapper.Update(project);
@@ -97,6 +106,7 @@ public class ProjectSer implements ProjectSerInter {
     }
 
     @Override
+    @Transactional(readOnly = true,timeout = 20)
     public int getPageNum() {
         int count=0;
         try {

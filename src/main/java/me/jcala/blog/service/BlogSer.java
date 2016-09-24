@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
@@ -23,15 +24,25 @@ public class BlogSer implements BlogSerInter {
     private static final Logger LOGGER = LoggerFactory.getLogger(BlogSer.class);
     @Autowired
     private BlogMapper blogMapper;
-    @Transactional
     @Override
-    public boolean addBlog(BlogView blogView){//String title, String tags, String article,String md
+    public BlogView adminGetBlog(int vid){
+        BlogView blogView=null;
+        try {
+            blogView=blogMapper.selectAdmin(vid);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+        return blogView;
+    }
+    @Override
+    @Transactional(isolation = Isolation.READ_COMMITTED)
+    public boolean addBlog(BlogView blogView){
         blogView.setDate(new Date(System.currentTimeMillis()));
         boolean result=true;
         try {
             blogMapper.insertBlog(blogView);
         } catch (Exception e) {
-           LOGGER.error(e.getMessage());
+            LOGGER.error(e.getMessage());
             result=false;
         }
         if (result){
@@ -45,16 +56,7 @@ public class BlogSer implements BlogSerInter {
         return result;
     }
     @Override
-    public BlogView adminGetBlog(int vid){
-        BlogView blogView=null;
-        try {
-            blogView=blogMapper.selectAdmin(vid);
-        } catch (Exception e) {
-            LOGGER.error(e.getMessage());
-        }
-        return blogView;
-    }
-    @Override
+    @Transactional(readOnly = true,timeout = 20)
     public List<BlogView> getBlogPage(int id){
         List<BlogView> blogList=new ArrayList<>();
         try {
@@ -66,6 +68,7 @@ public class BlogSer implements BlogSerInter {
         return blogList;
     }
     @Override
+    @Transactional(readOnly = true,timeout = 20)
     public int getPageNum(){
         int num=0;
         try {
@@ -73,10 +76,10 @@ public class BlogSer implements BlogSerInter {
         } catch (Exception e) {
            LOGGER.error(e.getMessage());
     }
-    int pageNum=num%10==0?num/10:num/10+1;
-    return pageNum;
+    return num%10==0?num/10:num/10+1;
     }
     @Override
+    @Transactional(isolation = Isolation.READ_COMMITTED)
     public boolean updateBlog(BlogView blogView){
         boolean result=true;
         try {
@@ -97,6 +100,7 @@ public class BlogSer implements BlogSerInter {
     }
 
     @Override
+    @Transactional(isolation = Isolation.READ_COMMITTED)
     public boolean deleteBlogById(int vid) {
         boolean result=true;
         try {
@@ -109,6 +113,7 @@ public class BlogSer implements BlogSerInter {
     }
 
     @Override
+    @Transactional(readOnly = true,timeout = 20)
     public List<String> getTagList() {
         List<String> tags=new ArrayList<>();
         try {
@@ -120,6 +125,7 @@ public class BlogSer implements BlogSerInter {
     }
 
     @Override
+    @Transactional(readOnly = true,timeout = 20)
     public List<Archive> getArchive(int page) {
         int start=(page-1)*12;
         List<Archive> archives=new ArrayList<>();
@@ -133,6 +139,7 @@ public class BlogSer implements BlogSerInter {
     }
 
     @Override
+    @Transactional(readOnly = true,timeout = 20)
     public int getArchiveNum() {
         int blogNum=0;
         try {
@@ -141,6 +148,62 @@ public class BlogSer implements BlogSerInter {
             LOGGER.error(e.getMessage());
         }
         return blogNum%12==0?blogNum/12:blogNum/12+1;
+    }
+
+    @Override
+    @Transactional(readOnly = true,timeout = 20)
+    public BlogView getBlog(int vid) {
+        BlogView blogView=new BlogView();
+        try {
+            blogView=blogMapper.selectView(vid);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+        return blogView;
+    }
+
+    @Override
+    @Transactional(readOnly = true,timeout = 20)
+    public BlogView getPrevBlog(int vid) {
+        BlogView blogView=null;
+        try {
+            blogView=blogMapper.selectPreView(vid);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+        return blogView;
+    }
+
+    @Override
+    @Transactional(readOnly = true,timeout = 20)
+    public BlogView getNextBlog(int vid) {
+        BlogView blogView=null;
+        try {
+            blogView=blogMapper.selectNextView(vid);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+        return blogView;
+    }
+
+    @Override
+    public List<BlogView> getBlogByTag(String tagName) {
+        List<BlogView> views=new ArrayList<>();
+        try {
+            List<Integer> vids=blogMapper.selectVidBytag(tagName);
+            for (int vid:vids){
+                BlogView view=blogMapper.selectTagView(vid);
+                if (view!=null){
+                    view.setVid(vid);
+                    String monthDay=TimeTools.getEdate(view.getDate());
+                    view.setMonthDay(monthDay);
+                    views.add(view);
+                }
+            }
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+        return views;
     }
 
     private List<Archive> bv2Ar(List<BlogView> views) throws Exception{
@@ -177,56 +240,4 @@ public class BlogSer implements BlogSerInter {
 
     }
 
-    @Override
-    public BlogView getBlog(int vid) {
-        BlogView blogView=new BlogView();
-        try {
-            blogView=blogMapper.selectView(vid);
-        } catch (Exception e) {
-            LOGGER.error(e.getMessage());
-        }
-        return blogView;
-    }
-
-    @Override
-    public BlogView getPrevBlog(int vid) {
-        BlogView blogView=null;
-        try {
-            blogView=blogMapper.selectPreView(vid);
-        } catch (Exception e) {
-            LOGGER.error(e.getMessage());
-        }
-        return blogView;
-    }
-
-    @Override
-    public BlogView getNextBlog(int vid) {
-        BlogView blogView=null;
-        try {
-            blogView=blogMapper.selectNextView(vid);
-        } catch (Exception e) {
-            LOGGER.error(e.getMessage());
-        }
-        return blogView;
-    }
-
-    @Override
-    public List<BlogView> getBlogByTag(String tagName) {
-        List<BlogView> views=new ArrayList<>();
-        try {
-            List<Integer> vids=blogMapper.selectVidBytag(tagName);
-            for (int vid:vids){
-                BlogView view=blogMapper.selectTagView(vid);
-                if (view!=null){
-                    view.setVid(vid);
-                    String monthDay=TimeTools.getEdate(view.getDate());
-                    view.setMonthDay(monthDay);
-                    views.add(view);
-                }
-            }
-        } catch (Exception e) {
-            LOGGER.error(e.getMessage());
-        }
-        return views;
-    }
 }
