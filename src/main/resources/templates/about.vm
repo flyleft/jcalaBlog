@@ -6,7 +6,7 @@
             </div>
             <div class="editormd-preview" id="md-container">
                 <div class="markdown-body editormd-preview-container" previewcontainer="true" style="padding: 20px;">
-                    ${resume}
+                    $!{resume}
                 </div>
             </div>
         </div>

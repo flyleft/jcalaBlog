@@ -25,8 +25,8 @@
                 <tbody>
                 #foreach($item in ${proList})
                     #liClass($velocityCount)
-                    <td>${item.Name}</td>
-                    <td>${item.Url}</td>
+                    <td>$!{item.Name}</td>
+                    <td>$!{item.Url}</td>
                     <td>
                        <a href='javascript:void(0)'><i class="fa fa-pencil upd_project" name="${item.Id}"></i></a>
                     <a class="delete" role="button" href="/admin/deletePro/${item.Id}"  data-title="Delete this project!" data-confirm-button="Yes">

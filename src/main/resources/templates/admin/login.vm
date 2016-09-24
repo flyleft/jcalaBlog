@@ -45,7 +45,7 @@
 <script src="/js/jcala-form.js"></script>
 <script type="text/javascript">
         #set($ii = 1)
-        #set($ii = ${success})
+        #set($ii = $!{success})
         #if($ii < 1)
         setTimeout(function() {
             $.bootstrapGrowl("Please check your username or password!", {

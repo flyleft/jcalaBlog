@@ -4,15 +4,15 @@
         <div class="col-lg-12 post">
             <div class="editormd-preview" id="md-container">
                 <div class="markdown-body editormd-preview-container" previewcontainer="true" style="padding: 20px;">
-                ${article}
+                $!{article}
                 </div>
             </div>
             <br><br>
             #if($prev)
-                <a href="/post/${prev.Vid}" class="post-flip"><i class="fa fa-arrow-left"></i>&nbsp;${prev.Title}</a>
+                <a href="/post/$!{prev.Vid}" class="post-flip"><i class="fa fa-arrow-left"></i>&nbsp;$!{prev.Title}</a>
             #end
             #if($next)
-                <a href="/post/${next.Vid}" class="post-flip" style="float: right;">${next.Title}&nbsp;<i class="fa fa-arrow-right"></i></a>
+                <a href="/post/$!{next.Vid}" class="post-flip" style="float: right;">$!{next.Title}&nbsp;<i class="fa fa-arrow-right"></i></a>
             #end
         </div>
     </div>
