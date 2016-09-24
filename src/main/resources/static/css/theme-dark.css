@@ -36,8 +36,6 @@ a:active{
 .archive .year {
     color: #414b61;
 }
-.archive .post-item {
-    border-left: 1px solid #cacaca; }
 .archive .post-item:hover {
     border-left: 3px solid #bea180;
 }
@@ -82,9 +80,4 @@ a:active{
 }
 .section-heading-spacer {
     border-top: 3px solid #888888;
-}
-
-.banner {
-    color: #ffffff;
-    background-size: cover;
 }

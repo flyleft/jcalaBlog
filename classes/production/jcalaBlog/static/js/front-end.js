@@ -28,7 +28,7 @@ function day_night() {
     if (btn.className=="fa fa-sun-o"){
         btn.className="fa fa-moon-o";
         themeFont.textContent="NIGHT";
-        css.href="#";
+        css.href="/css/theme-light.css";
         if(md!=null){
             md.className="editormd-preview";
         }

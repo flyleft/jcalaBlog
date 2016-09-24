@@ -8,7 +8,7 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="/css/landing-page.css" rel="stylesheet"/>
     <link href="/css/jcala-md.css" rel="stylesheet"/>
-    <link href="#" rel="stylesheet" id="theme-css"/>
+    <link href="/css/theme-light.css" rel="stylesheet" id="theme-css"/>
     <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>

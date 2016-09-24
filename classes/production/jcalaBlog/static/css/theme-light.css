@@ -1,0 +1,83 @@
+html,
+body {
+    background: #f4f4f4;
+    color: #6B4226;
+}
+.topnav {
+    background: #eeeeee;
+}
+.intro-header {
+    background: url(../img/intro-bg.jpg) no-repeat center center;
+    background-size: cover;
+}
+
+footer {
+    background-color: #f8f8f8;
+}
+.post {
+    background: #FFFFFF;
+}
+a{
+    color: #6B4226;
+}
+a:link{
+    color: #6B4226;
+}
+a:visited{
+    color: #6B4226;
+}
+a:hover{
+    color: #bea180;
+    background: #e6e6e6;
+}
+a:active{
+    color: #6B4226;
+}
+.archive .year {
+    color: #414b61;
+}
+.archive .post-item:hover {
+    border-left: 3px solid #6B4226;
+}
+.archive .post-item a:hover {
+    color: #bea180;
+}
+.archive .post-time {
+    color: #8a8a8a;
+}
+.archive .post-link {
+    color: #6B4226;
+}
+.login-avatar{
+    border: 5px solid #ffffff;
+    box-shadow: 0 0 10px #000000;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #6B4226;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #bea180;
+    background: #e6e6e6;
+}
+.navbar-default .navbar-brand {
+    color: #6B4226;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #bea180;
+    background: #e6e6e6;
+}
+.content-section-a {
+    background: #f8f8f8;
+}
+
+.content-section-b {
+    padding: 50px 0;
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+    background: #f8f8f8;
+}
+.section-heading-spacer {
+    border-top: 3px solid #e7e7e7;
+}
