@@ -37,6 +37,7 @@ public class MoniterSer implements MoniterSerInter{
         }
         return visiters;
     }
+    @Override
    public int getFreeMemery(){
            OperatingSystemMXBean osmxb = ManagementFactory.getPlatformMXBean(OperatingSystemMXBean.class);
            long totalvirtualMemory = osmxb.getTotalSwapSpaceSize(); // 剩余的物理内存

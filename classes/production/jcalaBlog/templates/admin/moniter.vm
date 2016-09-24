@@ -43,7 +43,7 @@
            element: 'number-visits',
            data: [
                #foreach($vi in ${VsiterList})
-                   { d: '${vi.Day}', visits: ${vi.Size} },
+                   { d: '$!{vi.Day}', visits: $!{vi.Size} },
                #end
            ],
            xkey: 'd',
@@ -56,7 +56,7 @@
            data: [
                {value: $freeMemory, label: 'Residual memory'},
                    #set($used = 100 - $freeMemory)
-               {value: $used, label: 'Used memory'}
+               {value: $!used, label: 'Used memory'}
            ],
            backgroundColor: '#ccc',
            labelColor: '#060',

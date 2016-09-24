@@ -10,11 +10,11 @@ import java.util.List;
  * Created by Administrator on 2016/9/3.
  */
 public interface BlogSerInter {
-    boolean addBlog(BlogView blogView) throws Exception;
+    boolean addBlog(BlogView blogView);
     BlogView adminGetBlog(int vid);
     List<BlogView> getBlogPage(int id);
     int getPageNum();
-    boolean updateBlog(BlogView blogView) throws Exception;
+    boolean updateBlog(BlogView blogView);
     boolean deleteBlogById(int vid);
     List<String> getTagList();
     List<Archive> getArchive(int page);

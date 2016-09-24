@@ -8,16 +8,16 @@
                 <h2>
                     <a class="reference-link"></a>
                     <span class="header-link octicon octicon-link"></span>
-                    <a href="${item.Url}" title="jcala">${item.Name}</a></h2>
+                    <a href="$!{item.Url}" title="jcala">$!{item.Name}</a></h2>
                 <ul>
                     <li>
-                        <strong>Date&nbsp;:&nbsp;</strong>${item.Date}</li>
+                        <strong>Date&nbsp;:&nbsp;</strong>$!{item.Date}</li>
                     <li>
-                        <strong>Technology&nbsp;:&nbsp;</strong>${item.Tech}</li>
+                        <strong>Technology&nbsp;:&nbsp;</strong>$!{item.Tech}</li>
                     <li>
                         <strong>Discription&nbsp;:</strong>
                         <blockquote>
-                            <p>${item.Desp}</p>
+                            <p>$!{item.Desp}</p>
                         </blockquote>
                     </li>
                 </ul>

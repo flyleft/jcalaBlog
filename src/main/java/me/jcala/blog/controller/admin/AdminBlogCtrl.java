@@ -1,7 +1,7 @@
 package me.jcala.blog.controller.admin;
 
 import me.jcala.blog.domain.BlogView;
-import me.jcala.blog.service.BlogSer;
+import me.jcala.blog.service.inter.BlogSerInter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/admin")
 public class AdminBlogCtrl {
     @Autowired
-    private BlogSer blogSer;
+    private BlogSerInter blogSer;
     @GetMapping("/blogAdd")
     public String blogAdd() {
         return "admin/blog_add";
@@ -34,11 +34,10 @@ public class AdminBlogCtrl {
         }
     }
     @PostMapping("/post.action")
-    public String postAction(BlogView view,Model model) {
+    public String postAction(BlogView view,Model model){
         boolean result=blogSer.addBlog(view);
         if (result){
             model.addAttribute("targetUrl","/admin/blogList/1");
-            model.addAttribute("result",1);
         }else {
             model.addAttribute("targetUrl","/admin/blog_add");
             model.addAttribute("result",0);
@@ -48,7 +47,7 @@ public class AdminBlogCtrl {
     }
 
     @PostMapping("/update.action")
-    public String update(BlogView view) {
+    public String update(BlogView view) throws Exception{
         blogSer.updateBlog(view);
         return "redirect:/post/"+view.getVid();
     }

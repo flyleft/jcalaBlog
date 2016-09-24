@@ -40,13 +40,14 @@ public class DataSourceConf {
         hds.setConnectionTimeout(connectionTimeout);
         hds.setMaximumPoolSize(maximumPoolSize);
         hds.setMinimumIdle(minimumIdle);
+        hds.setAutoCommit(false);
         return hds;
     }
     @Bean
     public PlatformTransactionManager transactionManager() {
         DataSourceTransactionManager transactionManager =
-                new DataSourceTransactionManager(hikariDataSource());
-        transactionManager.setGlobalRollbackOnParticipationFailure(false);
+                new DataSourceTransactionManager();
+        transactionManager.setDataSource(hikariDataSource());
         return transactionManager;
     }
 }

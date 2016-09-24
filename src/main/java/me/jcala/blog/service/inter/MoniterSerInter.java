@@ -9,4 +9,5 @@ import java.util.List;
  */
 public interface MoniterSerInter {
     List<Visiter> getVisiters();
+    int getFreeMemery();
 }

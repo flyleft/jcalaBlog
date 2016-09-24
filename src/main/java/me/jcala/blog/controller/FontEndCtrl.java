@@ -4,6 +4,9 @@ import me.jcala.blog.domain.BlogView;
 import me.jcala.blog.service.BlogSer;
 import me.jcala.blog.service.InfoSer;
 import me.jcala.blog.service.ProjectSer;
+import me.jcala.blog.service.inter.BlogSerInter;
+import me.jcala.blog.service.inter.InfoSerInter;
+import me.jcala.blog.service.inter.ProjectSerInter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,11 +18,11 @@ import java.util.List;
 @Controller
 public class FontEndCtrl {
     @Autowired
-    private BlogSer blogSer;
+    private BlogSerInter blogSer;
     @Autowired
-    private ProjectSer projectSer;
+    private ProjectSerInter projectSer;
     @Autowired
-    private InfoSer infoSer;
+    private InfoSerInter infoSer;
     @GetMapping("/archives/{page}")
     public String archives(@PathVariable int page,Model model){
         model.addAttribute("archives",blogSer.getArchive(page));

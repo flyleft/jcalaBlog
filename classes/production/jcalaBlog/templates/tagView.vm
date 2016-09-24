@@ -7,9 +7,9 @@
                     #foreach($bv in ${views})
                         <div class="post-item">
                             <div class="post-time">
-                                ${bv.MonthDay}
+                                $!{bv.MonthDay}
                             </div>
-                            <a href="/post/${bv.Vid}" class="post-link">${bv.Title}</a>
+                            <a href="/post/$!{bv.Vid}" class="post-link">$!{bv.Title}</a>
                         </div>
                     #end
                     <br><br>

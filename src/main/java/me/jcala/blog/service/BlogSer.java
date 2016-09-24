@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
 import java.util.*;
@@ -22,6 +23,7 @@ public class BlogSer implements BlogSerInter {
     private static final Logger LOGGER = LoggerFactory.getLogger(BlogSer.class);
     @Autowired
     private BlogMapper blogMapper;
+    @Transactional
     @Override
     public boolean addBlog(BlogView blogView){//String title, String tags, String article,String md
         blogView.setDate(new Date(System.currentTimeMillis()));
