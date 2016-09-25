@@ -2,6 +2,7 @@ package me.jcala.blog.service;
 
 import me.jcala.blog.domain.UploadPic;
 import me.jcala.blog.service.inter.FileUploadSerInter;
+import me.jcala.blog.utils.FileTools;
 import me.jcala.blog.utils.TimeTools;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -28,7 +29,8 @@ public class FileUploadSer implements FileUploadSerInter{
         Iterator<String> fileNames = multipartRequest.getFileNames();
         MultipartFile multipartFile = multipartRequest.getFile(fileNames.next());
         //获得文件原始名称
-        String fileName = String.valueOf(System.currentTimeMillis());
+        String fileName = String.valueOf(System.currentTimeMillis())+"."+
+                FileTools.getSuffix(multipartFile.getOriginalFilename());
         String yearMonth= TimeTools.getYearMonthOfNow();
         File path=new File(IMGDIR+SEP+yearMonth);
         File targetFile = new File(IMGDIR+SEP+yearMonth+SEP+fileName);
@@ -39,7 +41,7 @@ public class FileUploadSer implements FileUploadSerInter{
             if (!path.exists()){
                 path.mkdirs();
             }
-            multipartFile.transferTo(targetFile);//IOException, IllegalStateException;
+            multipartFile.transferTo(targetFile);
         } catch (Exception e) {
             errorMsg=e.getMessage();
             result=false;
@@ -47,7 +49,7 @@ public class FileUploadSer implements FileUploadSerInter{
         if (result) {
             upload.setSuccess(1);
             upload.setMessage("Upload picture success!");
-            upload.setUrl(NGINXIMG + SEP +yearMonth+ fileName);
+            upload.setUrl(NGINXIMG +yearMonth+"/"+ fileName);
         }else {
             upload.setSuccess(0);
             upload.setMessage("Upload picture fail!"+errorMsg);

@@ -41,7 +41,7 @@ public class TimeTools {
         CALENDAR.setTime(new Date());
         int year=CALENDAR.get(Calendar.YEAR);
         int month=CALENDAR.get(Calendar.MONTH);
-        return String.valueOf(year+month);
+        return year+""+month;
     }
 
 }
