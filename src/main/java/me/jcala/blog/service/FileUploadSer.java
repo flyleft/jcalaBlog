@@ -24,11 +24,8 @@ public class FileUploadSer implements FileUploadSerInter{
     private static final String NGINXIMG="http://127.0.0.1:8090/img/";
     @Override
     public UploadPic uploadPic(HttpServletRequest request) {
-        MultipartHttpServletRequest multipartRequest =
-                (MultipartHttpServletRequest) request;
-        Iterator<String> fileNames = multipartRequest.getFileNames();
-        MultipartFile multipartFile = multipartRequest.getFile(fileNames.next());
-        //获得文件原始名称
+        MultipartFile multipartFile =getMultipartFile(request);
+        //设置图片名称
         String fileName = String.valueOf(System.currentTimeMillis())+"."+
                 FileTools.getSuffix(multipartFile.getOriginalFilename());
         String yearMonth= TimeTools.getYearMonthOfNow();
@@ -52,9 +49,24 @@ public class FileUploadSer implements FileUploadSerInter{
             upload.setUrl(NGINXIMG +yearMonth+"/"+ fileName);
         }else {
             upload.setSuccess(0);
-            upload.setMessage("Upload picture fail!"+errorMsg);
+            upload.setMessage("Upload picture fail!");
             upload.setUrl("");
         }
         return upload;
+    }
+
+    @Override
+    public UploadPic uploadAvatar(HttpServletRequest request) {
+        File file=new File(ClassLoader.getSystemResource("").getFile()).getParentFile().getParentFile();
+        System.out.println("root:"+file.getAbsolutePath());
+        System.out.println("System.getProperty:"+System.getProperty("user.dir"));
+        System.out.println("classLoader:"+ClassLoader.getSystemResource("").getFile());
+        return null;
+    }
+    private MultipartFile getMultipartFile(HttpServletRequest request){
+        MultipartHttpServletRequest multipartRequest =
+                (MultipartHttpServletRequest) request;
+        Iterator<String> fileNames = multipartRequest.getFileNames();
+        return multipartRequest.getFile(fileNames.next());
     }
 }

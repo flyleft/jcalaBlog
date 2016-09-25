@@ -17,6 +17,7 @@
                 <ul class="nav nav-tabs">
                   <li class="active"><a href="#home" data-toggle="tab">Profile</a></li>
                   <li><a href="#profile" data-toggle="tab">Password</a></li>
+                    <li><a href="#avatar" data-toggle="tab">Avatar</a></li>
                 </ul>
 
                 <div id="myTabContent" class="tab-content">
@@ -42,6 +43,7 @@
                    </form>
                   </div>
                     <div class="tab-pane fade" id="profile">
+                        <br>
                         <form id="tab2" name="newPassForm">
                             <label class="text-warning">old password</label>
                             <input type="password" class="form-control" name="old_pass" id="old_pass">
@@ -52,6 +54,15 @@
                             <div>
                                 <button class="btn btn-primary" id="update_pass">Update</button>
                             </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="avatar">
+                        <br>
+                        <div class="login-avatar"></div>
+                        <br>
+                        <form action="/admin/file/uplAva.action" method="post">
+                            <input type="file" class="form-control">
+                            <input type="submit" class="form-control">
                         </form>
                     </div>
                 </div>

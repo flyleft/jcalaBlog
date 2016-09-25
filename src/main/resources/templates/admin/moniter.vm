@@ -1,6 +1,6 @@
-#include("/module/admin/header.vm")
+#include("/templates/module/admin/header.vm")
 <link href="/css/morris-0.4.3.min.css" rel="stylesheet">
-#include("/module/admin/nav.vm")
+#include("/templates/module/admin/nav.vm")
       <div id="page-wrapper">
         <div class="row">
           <div class="col-lg-12">

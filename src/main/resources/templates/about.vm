@@ -1,4 +1,4 @@
-#include("/module/header.vm")
+#include("/templates/module/header.vm")
 <div class="container theme-light">
     <div class="row">
         <div class="col-lg-12 post">
@@ -12,4 +12,4 @@
         </div>
     </div>
 </div>
-#include("/module/footer.vm")
+#include("/templates/module/footer.vm")

@@ -9,4 +9,5 @@ import javax.servlet.http.HttpServletRequest;
  */
 public interface FileUploadSerInter {
     UploadPic uploadPic(HttpServletRequest request);
+    UploadPic uploadAvatar(HttpServletRequest request);
 }
