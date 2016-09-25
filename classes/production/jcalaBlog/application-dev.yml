@@ -30,6 +30,10 @@ spring:
         multipart:
           max-file-size: 3MB
           max-request-size: 10MB
+    cache:
+      cache-names: ehcache
+      ehcache:
+        config: ehcache.xml
 mybatis:
     type-aliases-package: me.jcala.blog.domain,me.jcala.blog.mapping
     type-handlers-package: org.apache.ibatis.type.LocalDateTypeHandler

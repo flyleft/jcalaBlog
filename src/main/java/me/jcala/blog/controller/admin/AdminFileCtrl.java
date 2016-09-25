@@ -25,9 +25,10 @@ public class AdminFileCtrl {
     public UploadPic uploadPic(HttpServletRequest request){
             return uploadSer.uploadPic(request);
     }
+
     @PostMapping("/admin/file/uplAva.action")
     public String uploadAva(HttpServletRequest request, Model model){
-         Info info=uploadSer.updateAvatar(request);
+        Info info=uploadSer.updateAvatar(request);
         model.addAttribute("info",info);
         return "admin/info";
     }
