@@ -1,7 +1,7 @@
-#include("/module/admin/header.vm")
+#include("/templates/module/admin/header.vm")
 <link href="/css/editormd.min.css" rel="stylesheet"/>
 <link href="/css/bootstrap-tagsinput.css" rel="stylesheet">
-#include("/module/admin/nav.vm")
+#include("/templates/module/admin/nav.vm")
     <div id="page-wrapper">
         <div class="row">
             <div class="col-md-6 column">
