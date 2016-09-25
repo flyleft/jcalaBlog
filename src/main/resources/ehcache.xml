@@ -30,7 +30,7 @@
             memoryStoreEvictionPolicy="LRU"
     />
     <!--cache配置同defaultCache -->
-   <!-- <cache name="blog"
+    <!--<cache name="profileOfInfo"
            maxElementsInMemory="500"
            maxElementsOnDisk="10000"
            eternal="true"

@@ -6,6 +6,9 @@ import me.jcala.blog.service.inter.InfoSerInter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,11 +27,14 @@ public class InfoSer implements InfoSerInter {
     private static final Logger LOGGER = LoggerFactory.getLogger(InfoSer.class);
     @Autowired
     private InfoMapper infoMapper;
+
     @Override
+    @CachePut(value = "profileOfInfo")
     public Info getInfo() {
         Info info=new Info();
         try {
             info=infoMapper.select();
+            System.out.println("select info...............................");
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
         }
@@ -60,6 +66,7 @@ public class InfoSer implements InfoSerInter {
         return num>0;
     }
     @Override
+    @CacheEvict(value = "profileOfInfo")
     @Transactional(isolation = Isolation.READ_COMMITTED)
     public boolean updateInfo(Info info) {
         boolean result=true;
@@ -135,6 +142,7 @@ public class InfoSer implements InfoSerInter {
     }
 
     @Override
+    @CacheEvict(value = "profileOfInfo")
     public void updateAvatar(String avatar) {
         try {
             infoMapper.updateAvater(avatar);
