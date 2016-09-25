@@ -2,7 +2,7 @@
 <div class="container theme-light">
     <div class="row">
         <div class="col-lg-12 post">
-            <div class="login-avatar">
+            <div class="login-avatar" style="background: url(http://127.0.0.1:8090/img/20168/1474798900267.jpg) no-repeat center center;">
             </div>
             <div class="editormd-preview" id="md-container">
                 <div class="markdown-body editormd-preview-container" previewcontainer="true" style="padding: 20px;">

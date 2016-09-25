@@ -30,7 +30,11 @@ spring:
         multipart:
           max-file-size: 3MB
           max-request-size: 10MB
-#数据库连接池的配置
+mybatis:
+    type-aliases-package: me.jcala.blog.domain,me.jcala.blog.mapping
+    type-handlers-package: org.apache.ibatis.type.LocalDateTypeHandler
+    config-location: classpath:mybatis-config.xml
+    #数据库连接池的配置
 hikaricp:
     driver: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/jcala_blog?useUnicode:true&amp;characterEncoding:UTF-8
@@ -39,7 +43,5 @@ hikaricp:
     connectionTimeout: 30000
     maximumPoolSize: 50
     minimumIdle: 5
-mybatis:
-    type-aliases-package: me.jcala.blog.domain,me.jcala.blog.mapping
-    type-handlers-package: org.apache.ibatis.type.LocalDateTypeHandler
-    config-location: classpath:mybatis-config.xml
+nginx:
+    domain: http://127.0.0.1:8090

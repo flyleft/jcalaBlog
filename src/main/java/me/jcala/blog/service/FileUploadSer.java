@@ -4,6 +4,8 @@ import me.jcala.blog.domain.UploadPic;
 import me.jcala.blog.service.inter.FileUploadSerInter;
 import me.jcala.blog.utils.FileTools;
 import me.jcala.blog.utils.TimeTools;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -16,54 +18,48 @@ import java.util.Iterator;
  * Created by Administrator on 2016/9/25.
  */
 @Service
-public class FileUploadSer implements FileUploadSerInter{
+public class FileUploadSer implements FileUploadSerInter {
+    private static final Logger LOGGER = LoggerFactory.getLogger(FileUploadSer.class);
     //设置文件上传目录为操作系统目录/blog/pic
-    private static final String IMGDIR=System.getProperties().getProperty("user.home")+
-            File.separatorChar+"blog"+File.separatorChar+"img";
-    private static final String SEP=File.separator;
-    private static final String NGINXIMG="http://127.0.0.1:8090/img/";
+    private static final String IMGDIR = System.getProperties().getProperty("user.home") +
+            File.separatorChar + "blog" + File.separatorChar + "img";
+    private static final String NGINXIMG = "http://127.0.0.1:8090/img/";
+
     @Override
     public UploadPic uploadPic(HttpServletRequest request) {
-        MultipartFile multipartFile =getMultipartFile(request);
+        MultipartFile multipartFile = getMultipartFile(request);
         //设置图片名称
-        String fileName = String.valueOf(System.currentTimeMillis())+"."+
+        String fileName = String.valueOf(System.currentTimeMillis()) + "." +
                 FileTools.getSuffix(multipartFile.getOriginalFilename());
-        String yearMonth= TimeTools.getYearMonthOfNow();
-        File path=new File(IMGDIR+SEP+yearMonth);
-        File targetFile = new File(IMGDIR+SEP+yearMonth+SEP+fileName);
+        String yearMonth = TimeTools.getYearMonthOfNow();
+        File path = new File(IMGDIR + File.separatorChar + yearMonth);
+        File targetFile = new File(IMGDIR + File.separatorChar + yearMonth + File.separatorChar + fileName);
         final UploadPic upload = new UploadPic();
-        boolean result=true;
-        String errorMsg=null;
+        boolean result = true;
+        String errorMsg = null;
         try {
-            if (!path.exists()){
+            if (!path.exists()) {
                 path.mkdirs();
             }
             multipartFile.transferTo(targetFile);
         } catch (Exception e) {
-            errorMsg=e.getMessage();
-            result=false;
+            errorMsg = e.getMessage();
+            LOGGER.error(errorMsg);
+            result = false;
         }
         if (result) {
             upload.setSuccess(1);
             upload.setMessage("Upload picture success!");
-            upload.setUrl(NGINXIMG +yearMonth+"/"+ fileName);
-        }else {
+            upload.setUrl(NGINXIMG + yearMonth + "/" + fileName);
+        } else {
             upload.setSuccess(0);
-            upload.setMessage("Upload picture fail!");
+            upload.setMessage("Upload picture fail!" + errorMsg);
             upload.setUrl("");
         }
         return upload;
     }
 
-    @Override
-    public UploadPic uploadAvatar(HttpServletRequest request) {
-        File file=new File(ClassLoader.getSystemResource("").getFile()).getParentFile().getParentFile();
-        System.out.println("root:"+file.getAbsolutePath());
-        System.out.println("System.getProperty:"+System.getProperty("user.dir"));
-        System.out.println("classLoader:"+ClassLoader.getSystemResource("").getFile());
-        return null;
-    }
-    private MultipartFile getMultipartFile(HttpServletRequest request){
+    private MultipartFile getMultipartFile(HttpServletRequest request) {
         MultipartHttpServletRequest multipartRequest =
                 (MultipartHttpServletRequest) request;
         Iterator<String> fileNames = multipartRequest.getFileNames();

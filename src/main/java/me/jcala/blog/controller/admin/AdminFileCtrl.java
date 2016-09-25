@@ -21,12 +21,6 @@ public class AdminFileCtrl {
     @PostMapping("/admin/file/uplPic.action")
     @ResponseBody
     public UploadPic uploadPic(HttpServletRequest request){
-        //return uploadSer.uploadPic(request);
             return uploadSer.uploadPic(request);
-    }
-    @PostMapping("/admin/file/uplAva.action")
-    public String uploadAva(HttpServletRequest request){
-        uploadSer.uploadAvatar(request);
-        return "redirect:/admin/info";
     }
 }
