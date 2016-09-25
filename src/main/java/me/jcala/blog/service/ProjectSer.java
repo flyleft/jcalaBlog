@@ -47,7 +47,6 @@ public class ProjectSer implements ProjectSerInter {
     }
 
     @Override
-    @Transactional(readOnly = true,timeout = 20)
     public List<Project> adminGetPros(int page) {
         int start=(page-1)*10;
         List<Project> projectList=new ArrayList<>();
@@ -60,7 +59,6 @@ public class ProjectSer implements ProjectSerInter {
     }
 
     @Override
-    @Transactional(readOnly = true,timeout = 20)
     public int adminGetPageNum() {
         int count=0;
         try {
@@ -82,7 +80,6 @@ public class ProjectSer implements ProjectSerInter {
     }
 
     @Override
-    @Transactional(readOnly = true,timeout = 20)
     public Project getProById(String idStr) {
         int id=1;
         Project project=new Project();
@@ -106,7 +103,6 @@ public class ProjectSer implements ProjectSerInter {
     }
 
     @Override
-    @Transactional(readOnly = true,timeout = 20)
     public int getPageNum() {
         int count=0;
         try {

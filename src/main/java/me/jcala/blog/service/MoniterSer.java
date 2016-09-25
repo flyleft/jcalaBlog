@@ -29,7 +29,6 @@ public class MoniterSer implements MoniterSerInter{
     @Autowired
     private VisiterMapper visiterMapper;
     @Override
-    @Transactional(readOnly = true,timeout = 20)
     public List<Visiter> getVisiters() {
         List<Visiter> visiters=new ArrayList<>();
         try {

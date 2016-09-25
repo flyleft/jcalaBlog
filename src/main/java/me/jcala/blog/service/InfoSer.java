@@ -25,7 +25,6 @@ public class InfoSer implements InfoSerInter {
     @Autowired
     private InfoMapper infoMapper;
     @Override
-    @Transactional(readOnly = true,timeout = 20)
     public Info getInfo() {
         Info info=new Info();
         try {
@@ -37,7 +36,6 @@ public class InfoSer implements InfoSerInter {
     }
 
     @Override
-    @Transactional(readOnly = true,timeout = 20)
     public boolean login(Info user) {
         int num=0;
         try {
@@ -52,7 +50,6 @@ public class InfoSer implements InfoSerInter {
         }
     }
     @Override
-    @Transactional(readOnly = true,timeout = 20)
     public boolean checkPass(String oldPass){
         int num=0;
         try {
@@ -104,7 +101,6 @@ public class InfoSer implements InfoSerInter {
         session.removeAttribute("cur_user");
     }
     @Override
-    @Transactional(readOnly = true,timeout = 20)
     public String getResumeMd(){
        String md="";
         try {
@@ -128,7 +124,6 @@ public class InfoSer implements InfoSerInter {
     }
 
     @Override
-    @Transactional(readOnly = true,timeout = 20)
     public String getResumeView() {
         String resume="";
         try {

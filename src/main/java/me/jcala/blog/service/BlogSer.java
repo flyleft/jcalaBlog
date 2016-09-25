@@ -56,7 +56,6 @@ public class BlogSer implements BlogSerInter {
         return result;
     }
     @Override
-    @Transactional(readOnly = true,timeout = 20)
     public List<BlogView> getBlogPage(int id){
         List<BlogView> blogList=new ArrayList<>();
         try {
@@ -68,7 +67,6 @@ public class BlogSer implements BlogSerInter {
         return blogList;
     }
     @Override
-    @Transactional(readOnly = true,timeout = 20)
     public int getPageNum(){
         int num=0;
         try {
@@ -113,7 +111,6 @@ public class BlogSer implements BlogSerInter {
     }
 
     @Override
-    @Transactional(readOnly = true,timeout = 20)
     public List<String> getTagList() {
         List<String> tags=new ArrayList<>();
         try {
@@ -125,7 +122,6 @@ public class BlogSer implements BlogSerInter {
     }
 
     @Override
-    @Transactional(readOnly = true,timeout = 20)
     public List<Archive> getArchive(int page) {
         int start=(page-1)*12;
         List<Archive> archives=new ArrayList<>();
@@ -139,7 +135,6 @@ public class BlogSer implements BlogSerInter {
     }
 
     @Override
-    @Transactional(readOnly = true,timeout = 20)
     public int getArchiveNum() {
         int blogNum=0;
         try {
@@ -151,7 +146,6 @@ public class BlogSer implements BlogSerInter {
     }
 
     @Override
-    @Transactional(readOnly = true,timeout = 20)
     public BlogView getBlog(int vid) {
         BlogView blogView=new BlogView();
         try {
@@ -163,7 +157,6 @@ public class BlogSer implements BlogSerInter {
     }
 
     @Override
-    @Transactional(readOnly = true,timeout = 20)
     public BlogView getPrevBlog(int vid) {
         BlogView blogView=null;
         try {
@@ -175,7 +168,6 @@ public class BlogSer implements BlogSerInter {
     }
 
     @Override
-    @Transactional(readOnly = true,timeout = 20)
     public BlogView getNextBlog(int vid) {
         BlogView blogView=null;
         try {
