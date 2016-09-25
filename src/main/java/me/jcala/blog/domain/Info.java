@@ -17,4 +17,5 @@ public class Info {
     private String twitter;
     private String md;
     private String resume;
+    private String Avatar;
 }

@@ -16,7 +16,7 @@ public interface InfoMapper {
 
     @Select({
         "select username,email,",
-            "github,twitter",
+            "github,twitter,avatar",
             "from admin limit 1"
     })
     Info select() throws Exception;

@@ -44,4 +44,4 @@ hikaricp:
     maximumPoolSize: 50
     minimumIdle: 5
 nginx:
-    domain: http://127.0.0.1:8090
+    address: http://127.0.0.1:8090

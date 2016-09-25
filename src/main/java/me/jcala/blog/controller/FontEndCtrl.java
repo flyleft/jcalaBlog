@@ -55,6 +55,7 @@ public class FontEndCtrl {
     @GetMapping("/about")
     public String about(Model model) {
         model.addAttribute("resume",infoSer.getResumeView());
+        model.addAttribute("avatar","http://127.0.0.1:8090/img/20168/1474798900267.jpg");
         return "about";
     }
     @GetMapping("/post/{id}")

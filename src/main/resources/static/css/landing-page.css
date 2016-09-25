@@ -26,6 +26,7 @@ h6 {
     border-radius:120px;
     border: 5px solid #ffffff;
     box-shadow: 0 0 10px #000000;
+    background: url(../img/avatar.jpg) no-repeat center center;
     margin-left:auto;
     margin-right:auto;
     animation-name:avatarRotate;
