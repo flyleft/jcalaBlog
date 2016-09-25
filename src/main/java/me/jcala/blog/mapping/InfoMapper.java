@@ -64,4 +64,11 @@ public interface InfoMapper {
             "limit 1"
     })
     void updateResume(@Param("if") Info info) throws Exception;
+
+    @Update({
+            "update admin",
+            "set avatar = #{ava}",
+            "limit 1"
+    })
+    void updateAvater(@Param("ava") String avatar) throws Exception;
 }

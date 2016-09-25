@@ -17,6 +17,6 @@ public interface InfoSerInter {
     void destroySession(HttpServletRequest request);
     String getResumeMd();
     boolean saveResume(Info info);
-
+    void updateAvatar(String avater);
     String getResumeView();
 }

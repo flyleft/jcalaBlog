@@ -138,4 +138,13 @@ public class InfoSer implements InfoSerInter {
         }
         return resume;
     }
+
+    @Override
+    public void updateAvatar(String avatar) {
+        try {
+            infoMapper.updateAvater(avatar);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+    }
 }

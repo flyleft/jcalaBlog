@@ -1,12 +1,17 @@
 package me.jcala.blog.service;
 
+import me.jcala.blog.domain.Info;
 import me.jcala.blog.domain.UploadPic;
 import me.jcala.blog.service.inter.FileUploadSerInter;
+import me.jcala.blog.service.inter.InfoSerInter;
 import me.jcala.blog.utils.FileTools;
 import me.jcala.blog.utils.TimeTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -19,6 +24,8 @@ import java.util.Iterator;
  */
 @Service
 public class FileUploadSer implements FileUploadSerInter {
+    @Autowired
+    private InfoSerInter infoSer;
     private static final Logger LOGGER = LoggerFactory.getLogger(FileUploadSer.class);
     //设置文件上传目录为操作系统目录/blog/pic
     private static final String IMGDIR = System.getProperties().getProperty("user.home") +
@@ -32,15 +39,15 @@ public class FileUploadSer implements FileUploadSerInter {
         String fileName = String.valueOf(System.currentTimeMillis()) + "." +
                 FileTools.getSuffix(multipartFile.getOriginalFilename());
         String yearMonth = TimeTools.getYearMonthOfNow();
-        File path = new File(IMGDIR + File.separatorChar + yearMonth);
-        File targetFile = new File(IMGDIR + File.separatorChar + yearMonth + File.separatorChar + fileName);
-        final UploadPic upload = new UploadPic();
-        boolean result = true;
-        String errorMsg = null;
-        try {
-            if (!path.exists()) {
-                path.mkdirs();
-            }
+            File path = new File(IMGDIR + File.separatorChar + yearMonth);
+            File targetFile = new File(IMGDIR + File.separatorChar + yearMonth + File.separatorChar + fileName);
+            final UploadPic upload = new UploadPic();
+            boolean result = true;
+            String errorMsg = null;
+            try {
+                if (!path.exists()) {
+                    path.mkdirs();
+                }
             multipartFile.transferTo(targetFile);
         } catch (Exception e) {
             errorMsg = e.getMessage();
@@ -57,6 +64,14 @@ public class FileUploadSer implements FileUploadSerInter {
             upload.setUrl("");
         }
         return upload;
+    }
+
+    @Override
+    @Transactional(isolation = Isolation.READ_COMMITTED)
+    public Info updateAvatar(HttpServletRequest request) {
+        String url=uploadPic(request).getUrl();
+        infoSer.updateAvatar(url);
+        return infoSer.getInfo();
     }
 
     private MultipartFile getMultipartFile(HttpServletRequest request) {
