@@ -27,6 +27,9 @@ spring:
     http:
         encoding.charset: UTF-8
         encoding.force: false
+        multipart:
+          max-file-size: 3MB
+          max-request-size: 10MB
 #数据库连接池的配置
 hikaricp:
     driver: com.mysql.jdbc.Driver

@@ -37,4 +37,11 @@ public class TimeTools {
         return df.format(date);
     }
 
+    public static String getYearMonthOfNow(){
+        CALENDAR.setTime(new Date());
+        int year=CALENDAR.get(Calendar.YEAR);
+        int month=CALENDAR.get(Calendar.MONTH);
+        return String.valueOf(year+month);
+    }
+
 }
