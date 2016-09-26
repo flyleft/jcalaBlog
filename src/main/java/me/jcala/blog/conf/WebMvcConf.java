@@ -21,4 +21,5 @@ public class WebMvcConf extends WebMvcConfigurerAdapter{
         registry.addInterceptor(ipInterceptor).addPathPatterns("/*");
         registry.addInterceptor(securityInterceptor).addPathPatterns("/admin/**");
     }
+
 }
