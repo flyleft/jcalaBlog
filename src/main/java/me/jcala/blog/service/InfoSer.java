@@ -131,7 +131,7 @@ public class InfoSer implements InfoSerInter {
     }
 
     @Override
-    @Cacheable(value = "resumeView")
+    @Cacheable(value = "resumeView",key = "1")
     public String getResumeView() {
         String resume="";
         try {

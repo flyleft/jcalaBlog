@@ -9,6 +9,9 @@ import me.jcala.blog.utils.Tools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,6 +38,10 @@ public class BlogSer implements BlogSerInter {
         return blogView;
     }
     @Override
+    @Caching(evict = {
+            @CacheEvict(value = "archives"),
+            @CacheEvict(value = "tagList")
+    })
     @Transactional(isolation = Isolation.READ_COMMITTED)
     public boolean addBlog(BlogView blogView){
         blogView.setDate(new Date(System.currentTimeMillis()));
@@ -76,7 +83,12 @@ public class BlogSer implements BlogSerInter {
     }
     return num%10==0?num/10:num/10+1;
     }
+
     @Override
+    @Caching(evict = {
+            @CacheEvict(value = "archives"),
+            @CacheEvict(value = "tagList")
+    })
     @Transactional(isolation = Isolation.READ_COMMITTED)
     public boolean updateBlog(BlogView blogView){
         boolean result=true;
@@ -111,6 +123,7 @@ public class BlogSer implements BlogSerInter {
     }
 
     @Override
+    @Cacheable(value = "tagList")
     public List<String> getTagList() {
         List<String> tags=new ArrayList<>();
         try {
@@ -122,6 +135,7 @@ public class BlogSer implements BlogSerInter {
     }
 
     @Override
+    @Cacheable(value = "archives",condition = "#page==1")
     public List<Archive> getArchive(int page) {
         int start=(page-1)*12;
         List<Archive> archives=new ArrayList<>();

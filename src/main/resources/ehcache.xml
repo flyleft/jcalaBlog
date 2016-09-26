@@ -21,19 +21,25 @@
     bootstrapCacheLoaderFactory:指定相应的BootstrapCacheLoader，用于在初始化缓存，以及自动设置。
     -->
     <defaultCache
-            eternal="true"
-            maxElementsInMemory="500"
-            maxElementsOnDisk="10000"
+            maxElementsInMemory="100"
+            maxElementsOnDisk="1000"
+            timeToLiveSeconds="600"
             overflowToDisk="false"
             diskPersistent="false"
             diskExpiryThreadIntervalSeconds="1800"
-            memoryStoreEvictionPolicy="LRU"
+            memoryStoreEvictionPolicy="FIFO"
     />
     <!--cache配置同defaultCache -->
     <cache name="profileOfInfo"
-           maxElementsInMemory="500"
-           maxElementsOnDisk="10000"
-           eternal="true"
-           overflowToDisk="false"
+           maxElementsInMemory="1"
+    />
+    <cache name="resumeView"
+           maxElementsInMemory="1"
+    />
+    <cache name="archives"
+           maxElementsInMemory="1"
+    />
+    <cache name="tagList"
+           maxElementsInMemory="1"
     />
 </ehcache>
