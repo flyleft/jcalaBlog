@@ -20,11 +20,6 @@ import java.util.List;
 @Service
 public class MoniterSerImpl implements MoniterSer {
     private static final Logger LOGGER = LoggerFactory.getLogger(MoniterSerImpl.class);
-    private static final int CPUTIME = 30;
-    private static final int PERCENT = 100;
-    private static final int FAULTLENGTH = 10;
-    private static final File versionFile = new File("/proc/version");
-    private static String linuxVersion = null;
     @Autowired
     private VisiterMapper visiterMapper;
     @Override

@@ -28,7 +28,6 @@ public class ProjectSerImpl implements ProjectSer {
 
     @Override
     @Cacheable(value = "projects",condition = "#page==1")
-    @Transactional(readOnly = true, timeout = 20)
     public List<Project> getPros(int page) {
         List<Project> projectList = new ArrayList<>();
         int start = (page - 1) * 5;

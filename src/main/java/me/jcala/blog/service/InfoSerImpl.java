@@ -65,7 +65,6 @@ public class InfoSerImpl implements InfoSer {
     }
     @Override
     @CacheEvict(value = "profileOfInfo",key = "1")
-    @Transactional(isolation = Isolation.READ_COMMITTED)
     public boolean updateInfo(Info info) {
         boolean result=true;
         try {
@@ -117,7 +116,6 @@ public class InfoSerImpl implements InfoSer {
     }
     @Override
     @CacheEvict(value = "resumeView")
-    @Transactional(isolation = Isolation.READ_COMMITTED)
     public boolean saveResume(Info info){
         boolean result=true;
         try {
