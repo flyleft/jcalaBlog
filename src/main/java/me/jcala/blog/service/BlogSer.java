@@ -40,7 +40,8 @@ public class BlogSer implements BlogSerInter {
     @Override
     @Caching(evict = {
             @CacheEvict(value = "archives"),
-            @CacheEvict(value = "tagList")
+            @CacheEvict(value = "tagList"),
+            @CacheEvict(value = "archivePageNum")
     })
     @Transactional(isolation = Isolation.READ_COMMITTED)
     public boolean addBlog(BlogView blogView){
@@ -112,7 +113,8 @@ public class BlogSer implements BlogSerInter {
     @Override
     @Caching(evict = {
             @CacheEvict(value = "archives"),
-            @CacheEvict(value = "tagList")
+            @CacheEvict(value = "tagList"),
+            @CacheEvict(value = "archivePageNum")
     })
     @Transactional(isolation = Isolation.READ_COMMITTED)
     public boolean deleteBlogById(int vid) {
@@ -153,6 +155,7 @@ public class BlogSer implements BlogSerInter {
     }
 
     @Override
+    @Cacheable(value = "archivePageNum")
     public int getArchiveNum() {
         int blogNum=0;
         try {
