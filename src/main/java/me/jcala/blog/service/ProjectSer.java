@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
@@ -40,7 +41,10 @@ public class ProjectSer implements ProjectSerInter {
     }
 
     @Override
-    @CacheEvict(value = "projects")
+    @Caching(evict = {
+            @CacheEvict(value = "projects"),
+            @CacheEvict(value = "projectPageNum")
+    })
     @Transactional(isolation = Isolation.READ_COMMITTED)
     public void savePro(Project project) {
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
@@ -76,8 +80,10 @@ public class ProjectSer implements ProjectSerInter {
     }
 
     @Override
-    @CacheEvict(value = "projects")
-    @Transactional(isolation = Isolation.READ_COMMITTED)
+    @Caching(evict = {
+            @CacheEvict(value = "projects"),
+            @CacheEvict(value = "projectPageNum")
+    })
     public void deletePro(int id) {
         try {
             projectMapper.delete(id);
@@ -101,7 +107,6 @@ public class ProjectSer implements ProjectSerInter {
 
     @Override
     @CacheEvict(value = "projects")
-    @Transactional(isolation = Isolation.READ_COMMITTED)
     public void updatePro(Project project) {
         try {
             projectMapper.Update(project);
@@ -111,6 +116,7 @@ public class ProjectSer implements ProjectSerInter {
     }
 
     @Override
+    @Cacheable(value = "projectPageNum")
     public int getPageNum() {
         int count = 0;
         try {

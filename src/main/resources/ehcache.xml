@@ -45,4 +45,7 @@
     <cache name="projects"
            maxElementsInMemory="1"
     />
+    <cache name="projectPageNum"
+           maxElementsInMemory="1"
+    />
 </ehcache>
