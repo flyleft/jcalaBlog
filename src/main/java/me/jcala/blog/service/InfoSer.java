@@ -117,6 +117,7 @@ public class InfoSer implements InfoSerInter {
         return md;
     }
     @Override
+    @CacheEvict(value = "resumeView")
     @Transactional(isolation = Isolation.READ_COMMITTED)
     public boolean saveResume(Info info){
         boolean result=true;
@@ -130,6 +131,7 @@ public class InfoSer implements InfoSerInter {
     }
 
     @Override
+    @Cacheable(value = "resumeView")
     public String getResumeView() {
         String resume="";
         try {
