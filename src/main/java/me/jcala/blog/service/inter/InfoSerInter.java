@@ -1,6 +1,8 @@
 package me.jcala.blog.service.inter;
 
 import me.jcala.blog.domain.Info;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 
 import javax.servlet.http.HttpServletRequest;
 

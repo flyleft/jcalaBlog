@@ -29,12 +29,11 @@ public class InfoSer implements InfoSerInter {
     private InfoMapper infoMapper;
 
     @Override
-    @CachePut(value = "profileOfInfo")
+    @Cacheable(value = "profileOfInfo",key = "1")
     public Info getInfo() {
         Info info=new Info();
         try {
             info=infoMapper.select();
-            System.out.println("select info...............................");
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
         }
@@ -66,7 +65,7 @@ public class InfoSer implements InfoSerInter {
         return num>0;
     }
     @Override
-    @CacheEvict(value = "profileOfInfo")
+    @CacheEvict(value = "profileOfInfo",key = "1")
     @Transactional(isolation = Isolation.READ_COMMITTED)
     public boolean updateInfo(Info info) {
         boolean result=true;
@@ -142,7 +141,7 @@ public class InfoSer implements InfoSerInter {
     }
 
     @Override
-    @CacheEvict(value = "profileOfInfo")
+    @CacheEvict(value = "profileOfInfo",key = "1")
     public void updateAvatar(String avatar) {
         try {
             infoMapper.updateAvater(avatar);

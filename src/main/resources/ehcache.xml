@@ -30,10 +30,10 @@
             memoryStoreEvictionPolicy="LRU"
     />
     <!--cache配置同defaultCache -->
-    <!--<cache name="profileOfInfo"
+    <cache name="profileOfInfo"
            maxElementsInMemory="500"
            maxElementsOnDisk="10000"
            eternal="true"
            overflowToDisk="false"
-    />-->
+    />
 </ehcache>
