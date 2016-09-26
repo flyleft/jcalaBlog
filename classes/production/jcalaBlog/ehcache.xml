@@ -42,4 +42,7 @@
     <cache name="tagList"
            maxElementsInMemory="1"
     />
+    <cache name="projects"
+           maxElementsInMemory="1"
+    />
 </ehcache>
