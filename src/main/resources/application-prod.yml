@@ -5,34 +5,47 @@ server:
         enabled: true
     #undertow服务器的配置
     undertow:
+        io-threads: 4
+        worker-threads: 10
+        buffer-size: 16384
         accesslog:
             enabled: true
             dir: arget/logs
             pattern: combined
 #打印日志配置
-
 logging:
     config: classpath:logback-spring.xml
     path: /Users/jcala/logs
-    level: info
 #velocity模板引擎的配置
 spring:
     velocity:
         cache: true
-        view-names: about,blogs,error,index,login,projects,tags,archives,admin/mkEditor
+        view-names: error,index,projects,tags,tagView,archives,post,about,admin/login,admin/blog_add,admin/project,
+                    admin/moniter,admin/blog_modify,admin/blog_list,admin/info,admin/result,admin/resume
+        properties.velocimacro.library: VM_global_library.vm
     #http的配置
     http:
         encoding.charset: UTF-8
         encoding.force: false
-#数据库连接池的配置
-hikaricp:
-    driver: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/smart?useUnicode:true&amp;characterEncoding:UTF-8
-    username: root
-    password:
-    connectionTimeout: 30000
-    maximumPoolSize: 50
-    minimumIdle: 5
+        multipart:
+          max-file-size: 3MB
+          max-request-size: 10MB
+    cache:
+      cache-names: ehcache
+      ehcache:
+        config: ehcache.xml
 mybatis:
     type-aliases-package: me.jcala.blog.domain,me.jcala.blog.mapping
     type-handlers-package: org.apache.ibatis.type.LocalDateTypeHandler
+    config-location: classpath:mybatis-config.xml
+    #数据库连接池的配置
+hikaricp:
+    driver: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/jcala_blog?useUnicode:true&amp;characterEncoding:UTF-8
+    username: root
+    password: root
+    connectionTimeout: 30000
+    maximumPoolSize: 50
+    minimumIdle: 5
+nginx:
+    address: http://127.0.0.1:8090

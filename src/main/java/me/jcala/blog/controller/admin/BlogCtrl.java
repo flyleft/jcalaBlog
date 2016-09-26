@@ -11,17 +11,34 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * Created by jcala on 2016/7/17
+ * 后台管理中博客管理页面
+ * 包括对博客的增,删,改
+ * 此页面中所有处理请求的前缀为/admin，比如blogAdd方法匹配的url为/admin/blogAdd
+ * The type Blog ctrl.
  */
 @Controller
 @RequestMapping("/admin")
 public class BlogCtrl {
     @Autowired
     private BlogSer blogSer;
+
+    /**
+     *后台管理中添加博客页面的控制器
+     *
+     * @return templates下的admin/blog_add.vm页面
+     */
     @GetMapping("/blogAdd")
     public String blogAdd() {
         return "admin/blog_add";
     }
+
+    /**
+     * 后台管理中修改博客页面的控制器
+     * 由于markdown编辑器的问题，使用了正则匹配update地址，而不是/update/{id}的形式
+     *
+     * @param id    要修改的博客的id
+     * @return      templates下的admin/blog_add.vm页面
+     */
     @GetMapping("/update{id:\\d+}")
     public String blogModify(@PathVariable int id,Model model) {
         BlogView blogView=blogSer.adminGetBlog(id);
@@ -33,6 +50,13 @@ public class BlogCtrl {
             return "admin/blog_modify";
         }
     }
+
+    /**
+     * 添加博客的表单控制器
+     *
+     * @param view  表单中提交的博客信息,包括标题，标签，md页面，和md转成的html页面
+     * @return      templates下的result页面，用于提示是否保存博客成功
+     */
     @PostMapping("/post.action")
     public String postAction(BlogView view,Model model){
         boolean result=blogSer.addBlog(view);
@@ -46,11 +70,26 @@ public class BlogCtrl {
 
     }
 
+    /**
+     * Update string.
+     *
+     * @param view the view
+     * @return the string
+     * @throws Exception the exception
+     */
     @PostMapping("/update.action")
     public String update(BlogView view) throws Exception{
         blogSer.updateBlog(view);
         return "redirect:/post/"+view.getVid();
     }
+
+    /**
+     * Delete string.
+     *
+     * @param id    the id
+     * @param model the model
+     * @return the string
+     */
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable int id,Model model) {
         boolean result= blogSer.deleteBlogById(id);
@@ -62,6 +101,14 @@ public class BlogCtrl {
             return "admin/result";
         }
     }
+
+    /**
+     * Blog list string.
+     *
+     * @param page  the page
+     * @param model the model
+     * @return the string
+     */
     @GetMapping("/blogList/{page}")
     public String blogList(@PathVariable int page, Model model) {
         model.addAttribute("current",page);
