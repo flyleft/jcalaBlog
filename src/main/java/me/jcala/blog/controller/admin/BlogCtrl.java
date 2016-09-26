@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/admin")
-public class AdminBlogCtrl {
+public class BlogCtrl {
     @Autowired
     private BlogSer blogSer;
     @GetMapping("/blogAdd")

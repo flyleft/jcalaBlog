@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
  * Created by Administrator on 2016/9/8.
  */
 @Controller
-public class AdminInfoCtrl {
+public class InfoCtrl {
     @Autowired
     private InfoSer infoSer;
     @GetMapping("/admin/info")

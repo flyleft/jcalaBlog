@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Controller
 @RequestMapping("/admin")
-public class AdminProjectCtrl {
+public class ProjectCtrl {
     @Autowired
     private ProjectSer projectSer;
      @GetMapping("/project/{page}")

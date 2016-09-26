@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
  * Created by Administrator on 2016/9/24.
  */
 @Controller
-public class AdminFileCtrl {
+public class FileCtrl {
 
     @Autowired
     private FileUploadSer uploadSer;
