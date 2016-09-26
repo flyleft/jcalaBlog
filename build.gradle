@@ -33,6 +33,8 @@ jar {
 }
 configurations {
   compile.exclude module: "spring-boot-starter-tomcat"
+  compile.exclude module: "velocity-tools"
+  compile.exclude module: "undertow-websockets-jsr"
   compile.exclude group: 'org.apache.tomcat.embed'
   compile.exclude group: 'org.apache.tomcat'
   compile.exclude group: 'org.apache.struts'
