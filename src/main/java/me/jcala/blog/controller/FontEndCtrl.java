@@ -22,6 +22,7 @@ public class FontEndCtrl {
     private InfoSer infoSer;
     @GetMapping("/archives/{page}")
     public String archives(@PathVariable int page,Model model){
+        model.addAttribute("info",infoSer.getInfo());
         model.addAttribute("archives",blogSer.getArchive(page));
         model.addAttribute("pageNum",blogSer.getArchiveNum());
         model.addAttribute("current",page);
@@ -30,10 +31,12 @@ public class FontEndCtrl {
 
     @GetMapping("/projects")
     public String projects(Model model) {
+        model.addAttribute("info",infoSer.getInfo());
         return "projects";
     }
     @GetMapping("/projects/{page}")
     public String projectPage(@PathVariable int page,Model model) {
+        model.addAttribute("info",infoSer.getInfo());
         model.addAttribute("projects",projectSer.getPros(page));
         model.addAttribute("pageNum",projectSer.getPageNum());
         model.addAttribute("current",page);
@@ -42,11 +45,13 @@ public class FontEndCtrl {
 
     @GetMapping("/tags")
     public String tags(Model model) {
+        model.addAttribute("info",infoSer.getInfo());
         model.addAttribute("tags",blogSer.getTagList());
         return "tags";
     }
     @GetMapping("/tags/{tagName}")
     public String tagName(@PathVariable String tagName,Model model) {
+        model.addAttribute("info",infoSer.getInfo());
         List<BlogView> views=blogSer.getBlogByTag(tagName);
         model.addAttribute("views",views);
         model.addAttribute("tagName",tagName);
@@ -54,12 +59,14 @@ public class FontEndCtrl {
     }
     @GetMapping("/about")
     public String about(Model model) {
+        model.addAttribute("info",infoSer.getInfo());
         model.addAttribute("resume",infoSer.getResumeView());
         model.addAttribute("avatar",infoSer.getInfo().getAvatar());
         return "about";
     }
     @GetMapping("/post/{id}")
     public String post(@PathVariable int id,Model model) {
+        model.addAttribute("info",infoSer.getInfo());
         BlogView blogView=blogSer.getBlog(id);
         BlogView prev=blogSer.getPrevBlog(id);
         BlogView next=blogSer.getNextBlog(id);
@@ -69,7 +76,8 @@ public class FontEndCtrl {
         return "post";
     }
     @GetMapping("/")
-    public String welcome() {
+    public String welcome(Model model) {
+        model.addAttribute("info",infoSer.getInfo());
         return "index";
     }
 }
