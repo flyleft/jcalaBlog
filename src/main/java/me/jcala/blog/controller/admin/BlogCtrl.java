@@ -71,24 +71,28 @@ public class BlogCtrl {
     }
 
     /**
-     * Update string.
+     * 更新博客的表单控制器
      *
-     * @param view the view
-     * @return the string
-     * @throws Exception the exception
+     * @param view 表单中提交的博客信息,包括id,md页面，和md转成的html页面
+     * @return     templates下的result页面，用于提示是否保存博客成功
      */
     @PostMapping("/update.action")
-    public String update(BlogView view) throws Exception{
-        blogSer.updateBlog(view);
-        return "redirect:/post/"+view.getVid();
+    public String update(BlogView view,Model model){
+        boolean result=blogSer.updateBlog(view);
+        if (result){
+            model.addAttribute("targetUrl","/post/"+view.getVid());
+            return "redirect:/post/"+view.getVid();
+        }else {
+            model.addAttribute("targetUrl","/admin/update"+view.getVid());
+            model.addAttribute("result",0);
+            return "admin/result";
+        }
     }
 
     /**
-     * Delete string.
+     * 删除博客的控制器
      *
-     * @param id    the id
-     * @param model the model
-     * @return the string
+     * @param id    要删除的博客id
      */
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable int id,Model model) {
@@ -103,11 +107,10 @@ public class BlogCtrl {
     }
 
     /**
-     * Blog list string.
+     * 所有博客列表的显示界面.
      *
-     * @param page  the page
-     * @param model the model
-     * @return the string
+     * @param page  显示的为博客的第几页
+     * @return      templates下的admin/blog_list.vm页面
      */
     @GetMapping("/blogList/{page}")
     public String blogList(@PathVariable int page, Model model) {
