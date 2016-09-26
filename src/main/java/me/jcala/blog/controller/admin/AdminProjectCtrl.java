@@ -1,7 +1,7 @@
 package me.jcala.blog.controller.admin;
 
 import me.jcala.blog.domain.Project;
-import me.jcala.blog.service.inter.ProjectSerInter;
+import me.jcala.blog.service.inter.ProjectSer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/admin")
 public class AdminProjectCtrl {
     @Autowired
-    private ProjectSerInter projectSer;
+    private ProjectSer projectSer;
      @GetMapping("/project/{page}")
     public String project(@PathVariable int page, Model model){
          model.addAttribute("current",page);

@@ -2,8 +2,8 @@ package me.jcala.blog.service;
 
 import me.jcala.blog.domain.Info;
 import me.jcala.blog.domain.UploadPic;
-import me.jcala.blog.service.inter.FileUploadSerInter;
-import me.jcala.blog.service.inter.InfoSerInter;
+import me.jcala.blog.service.inter.FileUploadSer;
+import me.jcala.blog.service.inter.InfoSer;
 import me.jcala.blog.utils.FileTools;
 import me.jcala.blog.utils.TimeTools;
 import org.slf4j.Logger;
@@ -23,10 +23,10 @@ import java.util.Iterator;
  * Created by Administrator on 2016/9/25.
  */
 @Service
-public class FileUploadSer implements FileUploadSerInter {
+public class FileUploadSerImpl implements FileUploadSer {
     @Autowired
-    private InfoSerInter infoSer;
-    private static final Logger LOGGER = LoggerFactory.getLogger(FileUploadSer.class);
+    private InfoSer infoSer;
+    private static final Logger LOGGER = LoggerFactory.getLogger(FileUploadSerImpl.class);
     //设置文件上传目录为操作系统目录/blog/pic
     private static final String IMGDIR = System.getProperties().getProperty("user.home") +
             File.separatorChar + "blog" + File.separatorChar + "img";

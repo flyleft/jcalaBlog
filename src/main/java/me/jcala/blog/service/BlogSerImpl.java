@@ -3,7 +3,7 @@ package me.jcala.blog.service;
 import me.jcala.blog.domain.Archive;
 import me.jcala.blog.domain.BlogView;
 import me.jcala.blog.mapping.BlogMapper;
-import me.jcala.blog.service.inter.BlogSerInter;
+import me.jcala.blog.service.inter.BlogSer;
 import me.jcala.blog.utils.TimeTools;
 import me.jcala.blog.utils.Tools;
 import org.slf4j.Logger;
@@ -17,14 +17,17 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2016/9/3.
  */
 @Service
-public class BlogSer implements BlogSerInter {
-    private static final Logger LOGGER = LoggerFactory.getLogger(BlogSer.class);
+public class BlogSerImpl implements BlogSer {
+    private static final Logger LOGGER = LoggerFactory.getLogger(BlogSerImpl.class);
     @Autowired
     private BlogMapper blogMapper;
     @Override

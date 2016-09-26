@@ -1,7 +1,7 @@
 package me.jcala.blog.controller.admin;
 
 import me.jcala.blog.domain.BlogView;
-import me.jcala.blog.service.inter.BlogSerInter;
+import me.jcala.blog.service.inter.BlogSer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/admin")
 public class AdminBlogCtrl {
     @Autowired
-    private BlogSerInter blogSer;
+    private BlogSer blogSer;
     @GetMapping("/blogAdd")
     public String blogAdd() {
         return "admin/blog_add";

@@ -2,12 +2,11 @@ package me.jcala.blog.service;
 
 import me.jcala.blog.domain.Info;
 import me.jcala.blog.mapping.InfoMapper;
-import me.jcala.blog.service.inter.InfoSerInter;
+import me.jcala.blog.service.inter.InfoSer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -20,11 +19,11 @@ import javax.servlet.http.HttpSession;
  * Created by Administrator on 2016/9/8.
  */
 @Service
-public class InfoSer implements InfoSerInter {
+public class InfoSerImpl implements InfoSer {
     private static final int MODIFYPASSSUC=0;//修改密码成功
     private static final int PASSERROE=1;//密码错误
     private static final int SySTEMERROE=2;//系统错误
-    private static final Logger LOGGER = LoggerFactory.getLogger(InfoSer.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(InfoSerImpl.class);
     @Autowired
     private InfoMapper infoMapper;
 

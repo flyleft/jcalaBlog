@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/9/16.
  */
-public interface ProjectSerInter {
+public interface ProjectSer {
     List<Project> getPros(int page);
     void savePro(Project project);
     List<Project> adminGetPros(int page);

@@ -2,7 +2,7 @@ package me.jcala.blog.service;
 
 import me.jcala.blog.domain.Project;
 import me.jcala.blog.mapping.ProjectMapper;
-import me.jcala.blog.service.inter.ProjectSerInter;
+import me.jcala.blog.service.inter.ProjectSer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +21,8 @@ import java.util.List;
  * Created by Administrator on 2016/9/16.
  */
 @Service
-public class ProjectSer implements ProjectSerInter {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ProjectSer.class);
+public class ProjectSerImpl implements ProjectSer {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ProjectSerImpl.class);
     @Autowired
     private ProjectMapper projectMapper;
 

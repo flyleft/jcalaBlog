@@ -2,7 +2,7 @@ package me.jcala.blog.controller.admin;
 
 import me.jcala.blog.domain.Info;
 import me.jcala.blog.domain.UploadPic;
-import me.jcala.blog.service.inter.FileUploadSerInter;
+import me.jcala.blog.service.inter.FileUploadSer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 public class AdminFileCtrl {
 
     @Autowired
-    private FileUploadSerInter uploadSer;
+    private FileUploadSer uploadSer;
 
     @PostMapping("/admin/file/uplPic.action")
     @ResponseBody

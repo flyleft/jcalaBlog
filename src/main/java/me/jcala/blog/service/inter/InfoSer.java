@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * Created by Administrator on 2016/9/8.
  */
-public interface InfoSerInter {
+public interface InfoSer {
     Info getInfo();
     boolean login(Info info);
     int modifyPw(String oldPass,String newPass);

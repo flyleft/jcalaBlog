@@ -1,7 +1,7 @@
 package me.jcala.blog.controller.admin;
 
 import me.jcala.blog.domain.Visiter;
-import me.jcala.blog.service.inter.MoniterSerInter;
+import me.jcala.blog.service.inter.MoniterSer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +17,7 @@ import java.util.List;
 @Controller
 public class MoniterCtrl {
     @Autowired
-    private MoniterSerInter moniterSer;
+    private MoniterSer moniterSer;
     @GetMapping("/admin")
     public String moniter(Model model, HttpServletRequest request) throws Exception {
         List<Visiter> visiters=moniterSer.getVisiters();

@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/9/3.
  */
-public interface BlogSerInter {
+public interface BlogSer {
     boolean addBlog(BlogView blogView);
     BlogView adminGetBlog(int vid);
     List<BlogView> getBlogPage(int id);
