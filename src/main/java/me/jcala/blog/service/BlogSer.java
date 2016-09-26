@@ -110,6 +110,10 @@ public class BlogSer implements BlogSerInter {
     }
 
     @Override
+    @Caching(evict = {
+            @CacheEvict(value = "archives"),
+            @CacheEvict(value = "tagList")
+    })
     @Transactional(isolation = Isolation.READ_COMMITTED)
     public boolean deleteBlogById(int vid) {
         boolean result=true;
