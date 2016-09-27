@@ -7,7 +7,7 @@
     #set($ta = "/")
     #set($ta = ${targetUrl})
     <meta http-equiv="refresh" content="2;url=$!{ta}">
-    <link rel="stylesheet" href="/css/result-page.css" type="text/css">
+    <link rel="stylesheet" href="/css/result-page.min.css" type="text/css">
 </head>
 <body>
 #set($re = 1)

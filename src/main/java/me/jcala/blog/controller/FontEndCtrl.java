@@ -89,7 +89,7 @@ public class FontEndCtrl {
         if (result != null && result.equals("fail")) {
             model.addAttribute("success", 0);
         }
-        return "admin/login";
+        return "login";
     }
 
     @PostMapping("/login.action")
