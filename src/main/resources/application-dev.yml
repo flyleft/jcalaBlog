@@ -1,8 +1,9 @@
 server:
     port: 8080
     compression:
-        min-response-size: 1
+        min-response-size: 512
         enabled: true
+        mime-types: text/html,text/css,text/javascript,application/javascript,image/gif,image/png,image/jpg
     #undertow服务器的配置
     undertow:
         io-threads: 4

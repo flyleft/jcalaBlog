@@ -29,6 +29,10 @@ spring:
     http:
         encoding.charset: UTF-8
         encoding.force: false
+        gzip:
+          enabled: true
+          deflateCompressionLevel: 9
+          minGzipSize: 1
         multipart:
           max-file-size: 3MB
           max-request-size: 10MB
