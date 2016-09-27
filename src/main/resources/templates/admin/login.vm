@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>login</title>
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/login-page.min.css" rel="stylesheet">
-    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet">
 </head>
 <body class="login-page">
 <div class="login-avatar" style="background: url($!{avatar}) no-repeat center center;"
@@ -39,8 +39,8 @@
         </form>
     </div>
 </div>
-<script src="/js/jquery.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="/js/jquery.bootstrap-growl.min.js"></script>
 <script src="/js/md5.min.js"></script>
 <script src="/js/jcala-form.js"></script>

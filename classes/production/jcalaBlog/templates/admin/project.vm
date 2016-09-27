@@ -48,9 +48,9 @@
 </div><!-- /#wrapper -->
 
 <!-- JavaScript -->
-<script src="/js/jquery.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/bootbox.min.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="//cdn.bootcss.com/bootbox.js/4.4.0/bootbox.min.js"></script>
 <script src="/js/jquery.confirm.min.js"></script>
 <script src="/js/jcala-form.js"></script>
 <script type="text/javascript">

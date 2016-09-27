@@ -1,23 +1,18 @@
 $(document).ready(function() {
+    switch_theme_others();
     var pos = $("#blog_content").offset().top;
     $("html,body").animate({scrollTop: pos}, 1000);
-    switch_theme();
 });
-function switch_theme() {
-    if(localStorage.blog_theme==undefined){
-        localStorage.blog_theme="light";
-    }
+function switch_theme_others() {
     if(localStorage.blog_theme=="dark"){
-        var btn=document.getElementById("day-night");
-        var themeFont=document.getElementById("day-night-name");
-        var css=document.getElementById("theme-css");
         var md=document.getElementById("md-container");
-        btn.className="fa fa-sun-o";
-        themeFont.textContent="DAY";
-        css.href="/css/theme-dark.css";
         if(md!=null){
             md.className="editormd-preview editormd-preview-theme-dark";
         }
+        var btn=document.getElementById("day-night");
+        var themeFont=document.getElementById("day-night-name");
+        btn.className="fa fa-sun-o";
+        themeFont.textContent="DAY";
     }
 }
 function day_night() {
@@ -28,7 +23,7 @@ function day_night() {
     if (btn.className=="fa fa-sun-o"){
         btn.className="fa fa-moon-o";
         themeFont.textContent="NIGHT";
-        css.href="/css/theme-light.css";
+        css.href="/css/landing-page.css";
         if(md!=null){
             md.className="editormd-preview";
         }
@@ -36,7 +31,7 @@ function day_night() {
     }else {
         btn.className="fa fa-sun-o";
         themeFont.textContent="DAY";
-        css.href="/css/theme-dark.css";
+        css.href="/css/landing-page-dark.css";
         if(md!=null){
             md.className="editormd-preview editormd-preview-theme-dark";
         }

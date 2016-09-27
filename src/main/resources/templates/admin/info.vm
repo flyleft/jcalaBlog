@@ -72,8 +72,8 @@
 </div><!-- /#page-wrapper -->
 </div><!-- /#wrapper -->
 <!-- JavaScript -->
-<script src="/js/jquery.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="/js/jquery.bootstrap-growl.min.js"></script>
 <script src="/js/jcala-form.js"></script>
   </body>

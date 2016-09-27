@@ -1,5 +1,6 @@
 #include("/templates/module/admin/header.vm")
-<link href="/css/morris-0.4.3.min.css" rel="stylesheet">
+<!--<link href="/css/morris-0.4.3.min.css" rel="stylesheet">-->
+<link href="//cdn.bootcss.com/morris.js/0.4.3/morris.css" rel="stylesheet">
 #include("/templates/module/admin/nav.vm")
       <div id="page-wrapper">
         #*<div class="row">
@@ -33,11 +34,16 @@
     </div><!-- /#wrapper -->
 
     <!-- JavaScript -->
-    <script src="/js/jquery.min.js"></script>
+    <!--<script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
 
-    <!-- Page Specific Plugins -->    <script src="/js/raphael-min.js"></script>
+    <script src="/js/raphael-min.js"></script>
     <script src="/js/morris.min.js"></script>
+    -->
+   <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+   <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <script src="//cdn.bootcss.com/raphael/2.2.1/raphael.min.js"></script>
+   <script src="//cdn.bootcss.com/morris.js/0.5.1/morris.min.js"></script>
    <script type="text/javascript">
        #*Morris.Area({
            element: 'number-visits',
