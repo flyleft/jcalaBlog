@@ -9,8 +9,12 @@
     <title>admin</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Add custom CSS here -->
     <link href="/css/sb-admin.css" rel="stylesheet">
-    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+
+    <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet">
+
+    <!--<link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+         <link href="/css/bootstrap.min.css" rel="stylesheet">-->
