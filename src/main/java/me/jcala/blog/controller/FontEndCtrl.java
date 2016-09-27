@@ -1,6 +1,7 @@
 package me.jcala.blog.controller;
 
 import me.jcala.blog.domain.BlogView;
+import me.jcala.blog.domain.Info;
 import me.jcala.blog.service.inter.BlogSer;
 import me.jcala.blog.service.inter.InfoSer;
 import me.jcala.blog.service.inter.ProjectSer;
@@ -9,7 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -78,5 +81,31 @@ public class FontEndCtrl {
     public String welcome(Model model) {
         model.addAttribute("info",infoSer.getInfo());
         return "index";
+    }
+    @GetMapping("/login")
+    public String login(HttpServletRequest request, Model model) {
+        model.addAttribute("avatar", infoSer.getInfo().getAvatar());
+        String result = request.getParameter("result");
+        if (result != null && result.equals("fail")) {
+            model.addAttribute("success", 0);
+        }
+        return "admin/login";
+    }
+
+    @PostMapping("/login.action")
+    public String doLogin(Info user, HttpServletRequest request) {
+        boolean result = infoSer.login(user);
+        if (result) {
+            infoSer.addSession(request, user);
+            return "redirect:/admin";
+        } else {
+            return "redirect:/login?result=fail";
+        }
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request) {
+        infoSer.destroySession(request);
+        return "redirect:/login";
     }
 }

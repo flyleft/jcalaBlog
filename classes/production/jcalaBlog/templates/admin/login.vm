@@ -8,9 +8,7 @@
     <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet">
 </head>
 <body class="login-page">
-<div class="login-avatar" style="background: url($!{avatar}) no-repeat center center;"
-     onmouseover="this.style.cursor='pointer'" onclick="document.location='/'">
-</div>
+<div class="login-avatar" onmouseover="this.style.cursor='pointer'" onclick="document.location='/'"></div>
 <div class="login-form">
     <div class="login-content">
         <form name="loginForm">
@@ -43,7 +41,7 @@
 <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="/js/jquery.bootstrap-growl.min.js"></script>
 <script src="//cdn.bootcss.com/blueimp-md5/2.3.1/js/md5.min.js"></script>
-<script src="/js/jcala-form.js"></script>
+<script src="/js/jcala-form.min.js"></script>
 <script type="text/javascript">
         #set($ii = 1)
         #set($ii = $!{success})

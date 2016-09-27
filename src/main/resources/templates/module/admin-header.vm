@@ -1,3 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="admin">
+    <meta name="author" content="jcala">
+
+    <title>admin</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+    <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet">
+    <link href="/css/sb-admin.min.css" rel="stylesheet">
+    <link href="/css/editormd.min.css" rel="stylesheet"/>
+    <link href="/css/bootstrap-tagsinput.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/morris.js/0.4.3/morris.css" rel="stylesheet">
 </head>
 <body>
 

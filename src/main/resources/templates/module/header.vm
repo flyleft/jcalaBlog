@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>jcala_blog</title>
     <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/landing-page.css" rel="stylesheet" id="theme-css"/>
-    <link href="/css/jcala-md.css" rel="stylesheet"/>
+    <link href="/css/landing-page.min.css" rel="stylesheet" id="theme-css"/>
+    <link href="/css/jcala-md.min.css" rel="stylesheet"/>
     <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet">
 </head>
 <script type="text/javascript">
@@ -17,7 +17,7 @@
             localStorage.blog_theme="light";
         }
         if(localStorage.blog_theme=="dark"){
-            css.href="/css/landing-page-dark.css";
+            css.href="/css/landing-page-dark.min.css";
         }
     }
     switch_theme_css();

@@ -26,33 +26,6 @@ public class InfoCtrl {
         return "admin/info";
     }
 
-    @GetMapping("/login")
-    public String login(HttpServletRequest request, Model model) {
-        model.addAttribute("avatar", infoSer.getInfo().getAvatar());
-        String result = request.getParameter("result");
-        if (result != null && result.equals("fail")) {
-            model.addAttribute("success", 0);
-        }
-        return "admin/login";
-    }
-
-    @PostMapping("/login.action")
-    public String doLogin(Info user, HttpServletRequest request) {
-        boolean result = infoSer.login(user);
-        if (result) {
-            infoSer.addSession(request, user);
-            return "redirect:/admin";
-        } else {
-            return "redirect:/login?result=fail";
-        }
-    }
-
-    @GetMapping("/logout")
-    public String logout(HttpServletRequest request) {
-        infoSer.destroySession(request);
-        return "redirect:/login";
-    }
-
     @PostMapping("/admin/info.action")
     public String updateInfo(Info info, Model model) {
         boolean result = infoSer.updateInfo(info);

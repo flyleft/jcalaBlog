@@ -1,7 +1,4 @@
-#include("/templates/module/admin/header.vm")
-<!--<link href="/css/morris-0.4.3.min.css" rel="stylesheet">-->
-<link href="//cdn.bootcss.com/morris.js/0.4.3/morris.css" rel="stylesheet">
-#include("/templates/module/admin/nav.vm")
+#include("/templates/module/admin-header.vm")
       <div id="page-wrapper">
         #*<div class="row">
           <div class="col-lg-12">
@@ -33,13 +30,6 @@
 
     </div><!-- /#wrapper -->
 
-    <!-- JavaScript -->
-    <!--<script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-
-    <script src="/js/raphael-min.js"></script>
-    <script src="/js/morris.min.js"></script>
-    -->
    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
    <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
    <script src="//cdn.bootcss.com/raphael/2.2.1/raphael.min.js"></script>
@@ -60,6 +50,8 @@
        Morris.Donut({
            element: 'memory-donut',
            data: [
+                   #set($freeMemory = 0)
+                   #set($freeMemory = ${Memory})
                {value: $freeMemory, label: 'Residual memory'},
                    #set($used = 100 - $freeMemory)
                {value: $!used, label: 'Used memory'}

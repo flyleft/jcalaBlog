@@ -15,12 +15,10 @@ import javax.servlet.http.HttpServletRequest;
 public class MoniterCtrl {
     @Autowired
     private MoniterSer moniterSer;
+
     @GetMapping("/admin")
-    public String moniter(Model model, HttpServletRequest request) throws Exception {
-/*        List<Visiter> visiters=moniterSer.getVisiters();
-        Collections.reverse(visiters);
-        model.addAttribute("VsiterList",visiters);*/
-        model.addAttribute("freeMemory",moniterSer.getFreeMemery());
+    public String moniter(Model model) throws Exception {
+        model.addAttribute("Memory",moniterSer.getFreeMemery());
         return "admin/moniter";
     }
 }
