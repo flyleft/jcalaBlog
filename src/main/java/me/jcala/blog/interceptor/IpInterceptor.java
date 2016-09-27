@@ -13,7 +13,6 @@ import java.util.Set;
 /**
  * Created by Administrator on 2016/9/13.
  */
-@Component
 public class IpInterceptor implements HandlerInterceptor {
     public static Set<String> ips=new HashSet<>();
     @Override

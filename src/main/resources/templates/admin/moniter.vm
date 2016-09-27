@@ -2,7 +2,7 @@
 <link href="/css/morris-0.4.3.min.css" rel="stylesheet">
 #include("/templates/module/admin/nav.vm")
       <div id="page-wrapper">
-        <div class="row">
+        #*<div class="row">
           <div class="col-lg-12">
             <div class="panel panel-primary">
               <div class="panel-heading">
@@ -14,7 +14,7 @@
             </div>
           </div>
         </div><!-- /.row -->
-
+*#
         <div class="row">
           <div class="col-lg-12">
             <div class="panel panel-success">
@@ -38,7 +38,7 @@
 
     <!-- Page Specific Plugins -->    <script src="/js/raphael-min.js"></script>
     <script src="/js/morris.min.js"></script>
-   <script type="text/javascript">
+  #* <script type="text/javascript">
        Morris.Area({
            element: 'number-visits',
            data: [
@@ -66,7 +66,7 @@
            ],
            formatter: function (x) { return x + "%"}
        });
-   </script>
+   </script>*#
 
   </body>
 </html>
