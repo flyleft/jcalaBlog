@@ -26,7 +26,6 @@ spring:
         properties:
           velocimacro.library: VM_global_library.vm
           directive.parse.max.depth: 2
-    #http的配置
     http:
         encoding.charset: UTF-8
         encoding.force: false
@@ -37,20 +36,22 @@ spring:
       cache-names: ehcache
       ehcache:
         config: ehcache.xml
+    datasource:
+      type: com.zaxxer.hikari.HikariDataSource
+      username: root
+      password: root
+      url: jdbc:mysql://127.0.0.1:3306/jcala_blog?useUnicode:true&amp;characterEncoding:UTF-8
+      driverClassName: com.mysql.jdbc.Driver
+      hikari:
+        connection-timeout: 30000
+        maximum-pool-size: 50
+        minimum-idle: 5
 mybatis:
     type-aliases-package: me.jcala.blog.domain,me.jcala.blog.mapping
     type-handlers-package: org.apache.ibatis.type.LocalDateTypeHandler
     config-location: classpath:mybatis-config.xml
-    #数据库连接池的配置
-hikaricp:
-    driver: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/jcala_blog?useUnicode:true&amp;characterEncoding:UTF-8
-    username: root
-    password: root
-    connectionTimeout: 30000
-    maximumPoolSize: 50
-    minimumIdle: 5
-nginx:
-    address: http://127.0.0.1
+reverse:
+    domain: http://127.0.0.1
     port: 8090
     prefix: jcala_blog
+    path: /home/jcala/blog

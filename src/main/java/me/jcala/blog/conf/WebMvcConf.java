@@ -12,14 +12,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  */
 @Configuration
 public class WebMvcConf extends WebMvcConfigurerAdapter{
-    @Value("${reverse.domain}")
-    private String reverse_domain;
-    @Value("${reverse.port}")
-    private String reverse_port;
-    @Value("${reverse.prefix}")
-    private String reverse_prefix;
-    @Value("${reverse.path}")
-    private String reverse_path;
     @Autowired
     private UserSecurityInterceptor securityInterceptor;
     //@Autowired

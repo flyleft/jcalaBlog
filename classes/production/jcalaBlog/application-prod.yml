@@ -51,7 +51,7 @@ hikaricp:
     maximumPoolSize: 50
     minimumIdle: 5
 reverse:
-    address: http://127.0.0.1
+    domain: http://127.0.0.1
     port: 8090
     prefix: jcala_blog
     path: /home/jcala/blog
