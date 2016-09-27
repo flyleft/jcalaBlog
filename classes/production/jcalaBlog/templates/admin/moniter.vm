@@ -38,8 +38,8 @@
 
     <!-- Page Specific Plugins -->    <script src="/js/raphael-min.js"></script>
     <script src="/js/morris.min.js"></script>
-  #* <script type="text/javascript">
-       Morris.Area({
+   <script type="text/javascript">
+       #*Morris.Area({
            element: 'number-visits',
            data: [
                #foreach($vi in ${VsiterList})
@@ -50,7 +50,7 @@
            ykeys: ['visits'],
            labels: ['Visits'],
            smooth: false,
-       });
+       });*#
        Morris.Donut({
            element: 'memory-donut',
            data: [
@@ -66,7 +66,7 @@
            ],
            formatter: function (x) { return x + "%"}
        });
-   </script>*#
+   </script>
 
   </body>
 </html>
