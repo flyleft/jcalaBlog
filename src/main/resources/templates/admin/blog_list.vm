@@ -1,5 +1,4 @@
-#include("/templates/module/admin/header.vm")
-#include("/templates/module/admin/nav.vm")
+#include("/templates/module/admin-header.vm")
 <div id="page-wrapper">
         <div class="row">
               <div class="col-lg-12">
