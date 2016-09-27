@@ -62,8 +62,8 @@ $(function() {
             var form = document.forms[1];
             form.action = "/admin/pass.action";
             form.method = "post";
-            document.newPassForm.password.value=hex_md5(old_pass);
-            document.newPassForm.password.value=hex_md5(new_pass);
+            document.newPassForm.password.value=md5(old_pass);
+            document.newPassForm.password.value=md5(new_pass);
             form.submit();
         }
     });
@@ -71,7 +71,7 @@ $(function() {
         var form = document.forms[0];
         form.action = "/login.action";
         var pass=document.loginForm.password.value;
-        document.loginForm.password.value=hex_md5(pass);
+        document.loginForm.password.value=md5(pass);
         form.method = "post";
         form.submit();
     });
