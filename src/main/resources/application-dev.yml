@@ -46,6 +46,7 @@ spring:
         connection-timeout: 30000
         maximum-pool-size: 50
         minimum-idle: 5
+      schema: import.sql
 mybatis:
     type-aliases-package: me.jcala.blog.domain,me.jcala.blog.mapping
     type-handlers-package: org.apache.ibatis.type.LocalDateTypeHandler
