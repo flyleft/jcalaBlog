@@ -50,5 +50,8 @@ hikaricp:
     connectionTimeout: 30000
     maximumPoolSize: 50
     minimumIdle: 5
-nginx:
-    address: http://127.0.0.1:8090
+reverse:
+    address: http://127.0.0.1
+    port: 8090
+    prefix: jcala_blog
+    path: /home/jcala/blog
