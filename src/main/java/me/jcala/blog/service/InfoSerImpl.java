@@ -138,4 +138,13 @@ public class InfoSerImpl implements InfoSer {
         }
         return resume;
     }
+    @Override
+    @CacheEvict(value = "profileOfInfo",key = "1")
+    public void updateAvatar(String avatar) {
+        try {
+            infoMapper.updateAvater(avatar);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+    }
 }

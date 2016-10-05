@@ -1,25 +1,25 @@
 package me.jcala.blog.interceptor;
 
-import me.jcala.blog.utils.Tools;
+import me.jcala.blog.domain.Info;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
- * Created by Administrator on 2016/9/13.
+ * 用户登录后台管理的拦截器
+ * 存在该用户session则允许通过，否则返回登录页面
  */
-public class IpInterceptor implements HandlerInterceptor {
-    public static Set<String> ips=new HashSet<>();
+@Component
+public class UserSecurityInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        String ip= Tools.getIpAddress(request);
-        if (!ips.contains(ip)){
-            ips.add(ip);
+        Object obj = request.getSession().getAttribute("cur_user");
+        if (obj == null || !(obj instanceof Info)) {
+            response.sendRedirect(request.getContextPath() + "/login");
+            return false;
         }
         return true;
     }

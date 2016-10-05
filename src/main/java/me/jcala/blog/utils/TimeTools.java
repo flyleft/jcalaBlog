@@ -4,9 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-
 /**
- * 时间相关工具类
+ * Created by Administrator on 2016/9/17.
  */
 public class TimeTools {
     private static final Calendar CALENDAR =  Calendar.getInstance();
@@ -32,14 +31,17 @@ public class TimeTools {
         return  CALENDAR.get(Calendar.YEAR);
     }
 
-    /**
-     * 获取月日
-     * 形如"Oct 04"
-     */
     public static String getEdate(Date date){
         SimpleDateFormat df = new SimpleDateFormat("MMM dd", Locale.UK);
         df.setTimeZone(new java.util.SimpleTimeZone(0, "GMT"));
         return df.format(date);
+    }
+
+    public static String getYearMonthOfNow(){
+        CALENDAR.setTime(new Date());
+        int year=CALENDAR.get(Calendar.YEAR);
+        int month=CALENDAR.get(Calendar.MONTH);
+        return year+""+month;
     }
 
 }

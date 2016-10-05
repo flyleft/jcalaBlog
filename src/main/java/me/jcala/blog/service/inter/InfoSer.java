@@ -20,4 +20,5 @@ public interface InfoSer {
     String getResumeMd();//后台管理中获取简历的markdown文本
     boolean updateResume(Info info);//后台管理更新简历
     String getResumeView();//前端about页面获取简历的html文本
+    void updateAvatar(String avatar);//更新头像
 }

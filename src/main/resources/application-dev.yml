@@ -1,29 +1,29 @@
 server:
-    port: 8080
+    port: 80
     compression:
         min-response-size: 512
         enabled: true
         mime-types: text/html,text/css,text/javascript,application/javascript,image/gif,image/png,image/jpg
-    #undertow服务器的配置
     undertow:
         io-threads: 4
         worker-threads: 10
         buffer-size: 16384
         accesslog:
             enabled: true
-            dir: arget/logs
+            dir: /home/jcala/blog/log/server_log
             pattern: combined
-#打印日志配置
 logging:
     config: classpath:logback-spring.xml
-    path: /Users/jcala/logs
-#velocity模板引擎的配置
+    path: /home/jcala/blog/log/spring_log
 spring:
     velocity:
-        cache: false
+        cache: true
+        charset: UTF-8
         view-names: error,index,projects,tags,tagView,archives,post,about,login,admin/blog_add,admin/project,
                     admin/moniter,admin/blog_modify,admin/blog_list,admin/info,admin/result,admin/resume
         properties:
+          input.encoding: UTF-8
+          output.encoding: UTF-8
           velocimacro.library: VM_global_library.vm
           directive.parse.max.depth: 2
     http:
@@ -33,21 +33,23 @@ spring:
           max-file-size: 3MB
           max-request-size: 10MB
     cache:
-      cache-names: ehcache
-      ehcache:
-        config: ehcache.xml
+        cache-names: ehcache
+        ehcache:
+            config: ehcache.xml
     datasource:
-      type: com.zaxxer.hikari.HikariDataSource
-      username: root
-      password: root
-      url: jdbc:mysql://127.0.0.1:3306/jcala_blog?useUnicode:true&amp;characterEncoding:UTF-8
-      driverClassName: com.mysql.jdbc.Driver
-      hikari:
-        connection-timeout: 30000
-        maximum-pool-size: 50
-        minimum-idle: 5
-      schema: import.sql
-      data: data.sql
+        type: com.zaxxer.hikari.HikariDataSource
+        username: root
+        password: root
+        url: jdbc:mysql://127.0.0.1:3306/jcala_blog?useUnicode:true&amp;characterEncoding:UTF-8
+        driverClassName: com.mysql.jdbc.Driver
+        schema: classpath:import.sql
+        data: classpath:data.sql
+        initialize: false
+        sql-script-encoding: UTF-8
+        hikari:
+            connection-timeout: 30000
+            maximum-pool-size: 50
+            minimum-idle: 5
 mybatis:
     type-aliases-package: me.jcala.blog.domain,me.jcala.blog.mapping
     type-handlers-package: org.apache.ibatis.type.LocalDateTypeHandler
