@@ -1,0 +1,1 @@
+显示乱码:vim /etc/mysql/my.cnf 在[mysqld]下添加character-set-server=utf8

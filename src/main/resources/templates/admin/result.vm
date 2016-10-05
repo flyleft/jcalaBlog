@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     #set($ta = "/")
     #set($ta = ${targetUrl})
-    <meta http-equiv="refresh" content="2;url=$!{ta}">
+    <meta http-equiv="refresh" content="1;url=$!{ta}">
     <link rel="stylesheet" href="/css/result-page.min.css" type="text/css">
 </head>
 <body>

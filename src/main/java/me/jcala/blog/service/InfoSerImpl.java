@@ -79,19 +79,19 @@ public class InfoSerImpl implements InfoSer {
     @Override
     @Transactional(isolation = Isolation.READ_COMMITTED)
     public int modifyPw(String oldPass,String newPass) {
-        int resdult;
+        int result;
        if (checkPass(oldPass)){
            try {
                infoMapper.updataPass(newPass);
-               resdult=MODIFYPASSSUC;
+               result=MODIFYPASSSUC;
            } catch (Exception e) {
                LOGGER.error(e.getMessage());
-               resdult=SySTEMERROE;
+               result=SySTEMERROE;
            }
        }else {
-          resdult=PASSERROE;
+           result=PASSERROE;
        }
-        return resdult;
+        return result;
     }
     @Override
     public void addSession(HttpServletRequest request,Info info){
@@ -115,8 +115,8 @@ public class InfoSerImpl implements InfoSer {
         return md;
     }
     @Override
-    @CacheEvict(value = "resumeView")
-    public boolean saveResume(Info info){
+    @CacheEvict(value = "resumeView",key = "1")
+    public boolean updateResume(Info info){
         boolean result=true;
         try {
             infoMapper.updateResume(info);
@@ -137,15 +137,5 @@ public class InfoSerImpl implements InfoSer {
             LOGGER.error(e.getMessage());
         }
         return resume;
-    }
-
-    @Override
-    @CacheEvict(value = "profileOfInfo",key = "1")
-    public void updateAvatar(String avatar) {
-        try {
-            infoMapper.updateAvater(avatar);
-        } catch (Exception e) {
-            LOGGER.error(e.getMessage());
-        }
     }
 }

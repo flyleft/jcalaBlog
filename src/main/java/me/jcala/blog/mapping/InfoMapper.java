@@ -8,7 +8,8 @@ import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 /**
- * Created by Administrator on 2016/9/8.
+ * mybatis的mapper
+ * 映射所有个人信息操作的sql语句
  */
 @Repository
 @Mapper

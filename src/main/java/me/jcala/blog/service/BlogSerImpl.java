@@ -42,9 +42,9 @@ public class BlogSerImpl implements BlogSer {
     }
     @Override
     @Caching(evict = {
-            @CacheEvict(value = "archives"),
-            @CacheEvict(value = "tagList"),
-            @CacheEvict(value = "archivePageNum")
+            @CacheEvict(value = "archives",key = "1"),
+            @CacheEvict(value = "tagList",key = "1"),
+            @CacheEvict(value = "archivePageNum",key = "1")
     })
     @Transactional(isolation = Isolation.READ_COMMITTED)
     public boolean addBlog(BlogView blogView){
@@ -78,7 +78,7 @@ public class BlogSerImpl implements BlogSer {
         return blogList;
     }
     @Override
-    public int getPageNum(){
+    public int adminGetPageNum(){
         int num=0;
         try {
             num=blogMapper.selectBlogNum();
@@ -90,8 +90,8 @@ public class BlogSerImpl implements BlogSer {
 
     @Override
     @Caching(evict = {
-            @CacheEvict(value = "archives"),
-            @CacheEvict(value = "tagList")
+            @CacheEvict(value = "archives",key = "1"),
+            @CacheEvict(value = "tagList",key = "1")
     })
     @Transactional(isolation = Isolation.READ_COMMITTED)
     public boolean updateBlog(BlogView blogView){
@@ -115,9 +115,9 @@ public class BlogSerImpl implements BlogSer {
 
     @Override
     @Caching(evict = {
-            @CacheEvict(value = "archives"),
-            @CacheEvict(value = "tagList"),
-            @CacheEvict(value = "archivePageNum")
+            @CacheEvict(value = "archives",key = "1"),
+            @CacheEvict(value = "tagList",key = "1"),
+            @CacheEvict(value = "archivePageNum",key = "1")
     })
     @Transactional(isolation = Isolation.READ_COMMITTED)
     public boolean deleteBlogById(int vid) {
@@ -132,7 +132,7 @@ public class BlogSerImpl implements BlogSer {
     }
 
     @Override
-    @Cacheable(value = "tagList")
+    @Cacheable(value = "tagList",key = "1")
     public List<String> getTagList() {
         List<String> tags=new ArrayList<>();
         try {
@@ -144,7 +144,7 @@ public class BlogSerImpl implements BlogSer {
     }
 
     @Override
-    @Cacheable(value = "archives",condition = "#page==1")
+    @Cacheable(value = "archives",condition = "#page==1",key = "1")
     public List<Archive> getArchive(int page) {
         int start=(page-1)*12;
         List<Archive> archives=new ArrayList<>();
@@ -158,7 +158,7 @@ public class BlogSerImpl implements BlogSer {
     }
 
     @Override
-    @Cacheable(value = "archivePageNum")
+    @Cacheable(value = "archivePageNum",key = "1")
     public int getArchiveNum() {
         int blogNum=0;
         try {

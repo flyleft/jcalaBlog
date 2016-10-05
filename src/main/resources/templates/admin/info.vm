@@ -16,7 +16,6 @@
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#home" data-toggle="tab">Profile</a></li>
                     <li><a href="#profile" data-toggle="tab">Password</a></li>
-                    <li><a href="#avatar" data-toggle="tab">Avatar</a></li>
                 </ul>
 
                 <div id="myTabContent" class="tab-content">
@@ -55,15 +54,6 @@
                             <div>
                                 <button class="btn btn-primary" id="update_pass">Update</button>
                             </div>
-                        </form>
-                    </div>
-                    <div class="tab-pane fade" id="avatar">
-                        <br>
-                        <div class="login-avatar" style="background: url($!{info.Avatar}) no-repeat center center;"></div>
-                        <br>
-                        <form action="/admin/file/uplAva.action" method="post" enctype="multipart/form-data">
-                            <input type="file" class="form-control" name="avatar" multiple>
-                            <input type="submit" class="form-control">
                         </form>
                     </div>
                 </div>

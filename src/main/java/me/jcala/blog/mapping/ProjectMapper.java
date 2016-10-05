@@ -7,7 +7,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * Created by Administrator on 2016/9/16.
+ * mybatis的mapper
+ * 映射所有项目操作的sql语句
  */
 @Repository
 @Mapper

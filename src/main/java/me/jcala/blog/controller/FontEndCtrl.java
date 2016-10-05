@@ -13,8 +13,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
+/**
+ * 前端页面显示的控制器
+ * 共包括archives,login,projects,tags,about,post,login这几个页面
+ */
 @Controller
 public class FontEndCtrl {
     @Autowired
@@ -61,7 +66,7 @@ public class FontEndCtrl {
         return "tagView";
     }
     @GetMapping("/about")
-    public String about(Model model) {
+    public String about(Model model, HttpServletResponse response) {
         model.addAttribute("info",infoSer.getInfo());
         model.addAttribute("resume",infoSer.getResumeView());
         return "about";
@@ -84,7 +89,6 @@ public class FontEndCtrl {
     }
     @GetMapping("/login")
     public String login(HttpServletRequest request, Model model) {
-        model.addAttribute("avatar", infoSer.getInfo().getAvatar());
         String result = request.getParameter("result");
         if (result != null && result.equals("fail")) {
             model.addAttribute("success", 0);

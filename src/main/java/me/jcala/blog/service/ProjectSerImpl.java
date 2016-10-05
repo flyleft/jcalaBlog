@@ -27,7 +27,7 @@ public class ProjectSerImpl implements ProjectSer {
     private ProjectMapper projectMapper;
 
     @Override
-    @Cacheable(value = "projects",condition = "#page==1")
+    @Cacheable(value = "projects",condition = "#page==1",key = "1")
     public List<Project> getPros(int page) {
         List<Project> projectList = new ArrayList<>();
         int start = (page - 1) * 5;
@@ -41,11 +41,11 @@ public class ProjectSerImpl implements ProjectSer {
 
     @Override
     @Caching(evict = {
-            @CacheEvict(value = "projects"),
-            @CacheEvict(value = "projectPageNum")
+            @CacheEvict(value = "projects",key = "1"),
+            @CacheEvict(value = "projectPageNum",key = "1")
     })
     @Transactional(isolation = Isolation.READ_COMMITTED)
-    public void savePro(Project project) {
+    public void addPro(Project project) {
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         project.setDate(timestamp);
         try {
@@ -80,8 +80,8 @@ public class ProjectSerImpl implements ProjectSer {
 
     @Override
     @Caching(evict = {
-            @CacheEvict(value = "projects"),
-            @CacheEvict(value = "projectPageNum")
+            @CacheEvict(value = "projects",key = "1"),
+            @CacheEvict(value = "projectPageNum",key = "1")
     })
     public void deletePro(int id) {
         try {
@@ -105,7 +105,7 @@ public class ProjectSerImpl implements ProjectSer {
     }
 
     @Override
-    @CacheEvict(value = "projects")
+    @CacheEvict(value = "projects",key = "1")
     public void updatePro(Project project) {
         try {
             projectMapper.Update(project);
@@ -115,7 +115,7 @@ public class ProjectSerImpl implements ProjectSer {
     }
 
     @Override
-    @Cacheable(value = "projectPageNum")
+    @Cacheable(value = "projectPageNum",key = "1")
     public int getPageNum() {
         int count = 0;
         try {

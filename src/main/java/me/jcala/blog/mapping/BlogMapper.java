@@ -7,9 +7,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-
 /**
- * Created by Administrator on 2016/9/3.
+ * mybatis的mapper
+ * 映射所有博客操作的sql语句
  */
 @Repository
 @Mapper
@@ -91,7 +91,7 @@ public interface BlogMapper {
       int insertBlog(@Param("bv") BlogView blogView) throws Exception;
 
       @Insert("insert ignore into view_tag (name,vid) values(#{tn},#{id})")
-      int insertViewTag(@Param("tn") String tagName,@Param("id") int vid) throws Exception;
+      int insertViewTag(@Param("tn") String tagName, @Param("id") int vid) throws Exception;
 
       @Delete("delete from view_tag where vid = #{vid}")
       int deleteViewTag(@Param("vid") int vid) throws Exception;
