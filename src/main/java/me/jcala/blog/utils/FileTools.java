@@ -16,4 +16,7 @@ public class FileTools {
             return "";
         }
     }
+    public static boolean isLinuxPath(String path){
+        return path.contains("/");
+    }
 }
