@@ -31,8 +31,8 @@
 ![博客列表](http://jcalaz.github.io/img/jcala_blog.adlist.jpg)
 ![markdown编辑器](http://jcalaz.github.io/img/jcala_blog.adre.jpg)
 ####分支:
-1. master主分支： 基于docker方式部署，可以动态更换头像，可以上传图片，用nginx做反向代理服务器。
-2. simple分支：基于jar包形式部署，不可以动态更改头像，不可以上传图片，不用niginx做反向代理服务器。
+1. master主分支： 基于docker方式部署，可以动态更换头像，可以上传图片，用nginx做静态资源服务器。
+2. simple分支：基于jar包形式部署，不可以动态更改头像，不可以上传图片，不用niginx做静态资源服务器。
 
 ####部署
 simple分支部署
@@ -106,8 +106,8 @@ mybatis:
     type-handlers-package: org.apache.ibatis.type.LocalDateTypeHandler
     config-location: classpath:mybatis-config.xml #mybatis配置文件
 reverse:
-    domain: http://127.0.0.1:8090 #反向代理服务器的访问根路径
-    root: G:\home\jcala\blog\static #反向代理服务器的文件根路径
+    domain: http://127.0.0.1:8090 #静态资源服务器的访问根路径
+    root: G:\home\jcala\blog\static #静态资源服务器的文件根路径
 ```
 
 ####注意事项
