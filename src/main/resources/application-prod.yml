@@ -55,7 +55,5 @@ mybatis:
     type-handlers-package: org.apache.ibatis.type.LocalDateTypeHandler
     config-location: classpath:mybatis-config.xml
 reverse:
-    domain: http://127.0.0.1
-    port: 8090
-    prefix: jcala_blog
-    path: /home/jcala/blog
+    domain: http://127.0.0.1:8090
+    root: G:\home\jcala\blog\static
