@@ -113,6 +113,7 @@ reverse:
 ####注意事项
 1. 运行后中文显示乱码:在linux下,vim /etc/mysql/my.cnf 。在[mysqld]下添加character-set-server=utf8
 2. 二次开发报错,没有getter,setter等方法:因为使用了lombok,需要idea或者Eclipse安装lombok插件
+3. 运行后，后台管理初始用户名admin,密码admin
 
 ####优点
 1. 响应式，前端适配手机
