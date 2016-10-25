@@ -112,4 +112,9 @@ public class FontEndCtrl {
         infoSer.destroySession(request);
         return "redirect:/login";
     }
+
+    @GetMapping("/error/500")
+    public String serverErr(){
+        return "error500";
+    }
 }

@@ -6,9 +6,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 
-/**
- * Created by Administrator on 2016/9/25.
- */
 public interface FileUploadSer {
     UploadPic uploadPic(HttpServletRequest request);
     Info updateAvatar(HttpServletRequest request);

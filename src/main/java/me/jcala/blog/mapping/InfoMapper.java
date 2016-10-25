@@ -20,7 +20,7 @@ public interface InfoMapper {
             "github,twitter,avatar",
             "from admin limit 1"
     })
-    Info select() throws Exception;
+    Info select() throws RuntimeException;
 
     @Select({
         "select count(*) ",
@@ -28,20 +28,20 @@ public interface InfoMapper {
             "where username = #{un} ",
             "and password = #{pw}"
     })
-    int selectByPw(@Param("un") String username, @Param("pw") String password) throws Exception;
+    int selectByPw(@Param("un") String username, @Param("pw") String password) throws RuntimeException;
 
     @Select({
             "select count(*) ",
             "from admin ",
             "where password = #{pw}"
     })
-    int selectByOldPass(@Param("pw") String oldPass) throws Exception;
+    int selectByOldPass(@Param("pw") String oldPass) throws RuntimeException;
 
     @Select("select md from admin limit 1")
-    String selectMd() throws Exception;
+    String selectMd() throws RuntimeException;
 
     @Select("select resume from admin limit 1")
-    String selectResume() throws Exception;
+    String selectResume() throws RuntimeException;
 
     @Update({
         "update admin set username = #{if.username},",
@@ -56,7 +56,7 @@ public interface InfoMapper {
             "password = #{np} ",
             "limit 1"
     })
-    int updataPass(@Param("np") String newPass) throws Exception;
+    int updataPass(@Param("np") String newPass) throws RuntimeException;
 
     @Update({
             "update admin ",
@@ -64,12 +64,12 @@ public interface InfoMapper {
             "resume = #{if.resume} ",
             "limit 1"
     })
-    void updateResume(@Param("if") Info info) throws Exception;
+    void updateResume(@Param("if") Info info) throws RuntimeException;
 
     @Update({
             "update admin",
             "set avatar = #{ava}",
             "limit 1"
     })
-    void updateAvater(@Param("ava") String avatar) throws Exception;
+    void updateAvater(@Param("ava") String avatar) throws RuntimeException;
 }

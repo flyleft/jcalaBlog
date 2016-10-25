@@ -15,9 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-/**
- * Created by Administrator on 2016/9/8.
- */
 @Service
 public class InfoSerImpl implements InfoSer {
     private static final int MODIFYPASSSUC=0;//修改密码成功
@@ -29,14 +26,8 @@ public class InfoSerImpl implements InfoSer {
 
     @Override
     @Cacheable(value = "profileOfInfo",key = "1")
-    public Info getInfo() {
-        Info info=new Info();
-        try {
-            info=infoMapper.select();
-        } catch (Exception e) {
-            LOGGER.error(e.getMessage());
-        }
-        return info;
+    public Info getInfo() throws RuntimeException{
+        return infoMapper.select();
     }
 
     @Override
@@ -54,13 +45,8 @@ public class InfoSerImpl implements InfoSer {
         }
     }
     @Override
-    public boolean checkPass(String oldPass){
-        int num=0;
-        try {
-            num=infoMapper.selectByOldPass(oldPass);
-        } catch (Exception e) {
-            LOGGER.error(e.getMessage());
-        }
+    public boolean checkPass(String oldPass) throws RuntimeException{
+        int num=infoMapper.selectByOldPass(oldPass);
         return num>0;
     }
     @Override
@@ -129,22 +115,12 @@ public class InfoSerImpl implements InfoSer {
 
     @Override
     @Cacheable(value = "resumeView",key = "1")
-    public String getResumeView() {
-        String resume="";
-        try {
-            resume=infoMapper.selectResume();
-        } catch (Exception e) {
-            LOGGER.error(e.getMessage());
-        }
-        return resume;
+    public String getResumeView() throws RuntimeException{
+        return infoMapper.selectResume();
     }
     @Override
     @CacheEvict(value = "profileOfInfo",key = "1")
-    public void updateAvatar(String avatar) {
-        try {
+    public void updateAvatar(String avatar) throws RuntimeException{
             infoMapper.updateAvater(avatar);
-        } catch (Exception e) {
-            LOGGER.error(e.getMessage());
-        }
     }
 }

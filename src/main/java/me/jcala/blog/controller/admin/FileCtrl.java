@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 
-/**
- * Created by Administrator on 2016/9/24.
- */
 @Controller
 public class FileCtrl {
 
@@ -22,12 +19,12 @@ public class FileCtrl {
 
     @PostMapping("/admin/file/uplPic.action")
     @ResponseBody
-    public UploadPic uploadPic(HttpServletRequest request){
+    public UploadPic uploadPic(HttpServletRequest request) throws RuntimeException{
             return uploadSer.uploadPic(request);
     }
 
     @PostMapping("/admin/file/uplAva.action")
-    public String uploadAva(HttpServletRequest request, Model model){
+    public String uploadAva(HttpServletRequest request, Model model) throws RuntimeException{
         Info info=uploadSer.updateAvatar(request);
         model.addAttribute("info",info);
         return "admin/info";

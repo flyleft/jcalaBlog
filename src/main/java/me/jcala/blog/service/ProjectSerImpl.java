@@ -17,9 +17,6 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Administrator on 2016/9/16.
- */
 @Service
 public class ProjectSerImpl implements ProjectSer {
     private static final Logger LOGGER = LoggerFactory.getLogger(ProjectSerImpl.class);
@@ -28,15 +25,9 @@ public class ProjectSerImpl implements ProjectSer {
 
     @Override
     @Cacheable(value = "projects",condition = "#page==1",key = "1")
-    public List<Project> getPros(int page) {
-        List<Project> projectList = new ArrayList<>();
+    public List<Project> getPros(int page) throws RuntimeException{
         int start = (page - 1) * 5;
-        try {
-            projectList = projectMapper.select(start);
-        } catch (Exception e) {
-            LOGGER.error(e.getMessage());
-        }
-        return projectList;
+        return projectMapper.select(start);
     }
 
     @Override
@@ -45,36 +36,21 @@ public class ProjectSerImpl implements ProjectSer {
             @CacheEvict(value = "projectPageNum",key = "1")
     })
     @Transactional(isolation = Isolation.READ_COMMITTED)
-    public void addPro(Project project) {
+    public void addPro(Project project) throws RuntimeException{
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         project.setDate(timestamp);
-        try {
-            projectMapper.insert(project);
-        } catch (Exception e) {
-            LOGGER.error(e.getMessage());
-        }
+        projectMapper.insert(project);
     }
 
     @Override
-    public List<Project> adminGetPros(int page) {
+    public List<Project> adminGetPros(int page) throws RuntimeException{
         int start = (page - 1) * 10;
-        List<Project> projectList = new ArrayList<>();
-        try {
-            projectList = projectMapper.adminSelect(start);
-        } catch (Exception e) {
-            LOGGER.error(e.getMessage());
-        }
-        return projectList;
+        return projectMapper.adminSelect(start);
     }
 
     @Override
-    public int adminGetPageNum() {
-        int count = 0;
-        try {
-            count = projectMapper.count();
-        } catch (Exception e) {
-            LOGGER.error(e.getMessage());
-        }
+    public int adminGetPageNum() throws RuntimeException{
+        int count = projectMapper.count();
         return count % 10 == 0 ? count / 10 : count / 10 + 1;
     }
 
@@ -83,46 +59,26 @@ public class ProjectSerImpl implements ProjectSer {
             @CacheEvict(value = "projects",key = "1"),
             @CacheEvict(value = "projectPageNum",key = "1")
     })
-    public void deletePro(int id) {
-        try {
+    public void deletePro(int id) throws RuntimeException{
             projectMapper.delete(id);
-        } catch (Exception e) {
-            LOGGER.error(e.getMessage());
-        }
     }
 
     @Override
-    public Project getProById(String idStr) {
-        int id = 1;
-        Project project = new Project();
-        try {
-            id = Integer.valueOf(idStr);
-            project = projectMapper.selectById(id);
-        } catch (Exception e) {
-            LOGGER.error(e.getMessage());
-        }
-        return project;
+    public Project getProById(String idStr) throws RuntimeException{
+        int id = Integer.valueOf(idStr);
+        return  projectMapper.selectById(id);
     }
 
     @Override
     @CacheEvict(value = "projects",key = "1")
-    public void updatePro(Project project) {
-        try {
+    public void updatePro(Project project) throws RuntimeException {
             projectMapper.Update(project);
-        } catch (Exception e) {
-            LOGGER.error(e.getMessage());
-        }
     }
 
     @Override
     @Cacheable(value = "projectPageNum",key = "1")
-    public int getPageNum() {
-        int count = 0;
-        try {
-            count = projectMapper.count();
-        } catch (Exception e) {
-            LOGGER.error(e.getMessage());
-        }
+    public int getPageNum() throws RuntimeException{
+        int count = projectMapper.count();
         return count % 5 == 0 ? count / 5 : count / 5 + 1;
     }
 }

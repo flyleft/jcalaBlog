@@ -14,10 +14,12 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Controller
 public class MoniterCtrl {
+
     @Autowired
     private MoniterSer moniterSer;
+
     @GetMapping("/admin")
-    public String moniter(Model model, HttpServletRequest request) throws Exception {
+    public String moniter(Model model, HttpServletRequest request) throws RuntimeException {
         model.addAttribute("freeMemory",moniterSer.getFreeMemery());
         return "admin/moniter";
     }

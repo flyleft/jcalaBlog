@@ -19,20 +19,20 @@ public interface BlogMapper {
               "from blog_view",
               "limit #{st},10"
       })
-      List<BlogView> selectTenBlogs(@Param("st") int start) throws Exception;
+      List<BlogView> selectTenBlogs(@Param("st") int start) throws RuntimeException;
 
       @Select("select count(*) from blog_view")
-      int selectBlogNum() throws Exception;
+      int selectBlogNum() throws RuntimeException;
 
       @Select("select distinct name from view_tag")
       @ResultType(String.class)
-      List<String> selectTags() throws Exception;
+      List<String> selectTags() throws RuntimeException;
 
       @Select({"select vid,date,title",
               "from blog_view",
               "order by date desc",
               "limit #{st},12"})
-      List<BlogView> selectArc(@Param("st") int start) throws Exception;
+      List<BlogView> selectArc(@Param("st") int start) throws RuntimeException;
 
       @Select({
               "select title,tags,md",
@@ -40,7 +40,7 @@ public interface BlogMapper {
               "where vid = #{id}",
               "limit 1"
       })
-      BlogView selectAdmin(@Param("id") int id) throws Exception;
+      BlogView selectAdmin(@Param("id") int id) throws RuntimeException;
 
       @Select({
               "select title,article",
@@ -48,7 +48,7 @@ public interface BlogMapper {
               "where vid = #{id}",
               "limit 1"
       })
-      BlogView selectView(@Param("id") int id) throws Exception;
+      BlogView selectView(@Param("id") int id) throws RuntimeException;
 
       @Select({
               "select vid,title ",
@@ -57,7 +57,7 @@ public interface BlogMapper {
               "order by vid desc",
               "limit 1"
       })
-      BlogView selectPreView(@Param("id") int vid) throws Exception;
+      BlogView selectPreView(@Param("id") int vid) throws RuntimeException;
 
       @Select({
               "select vid,title ",
@@ -65,14 +65,14 @@ public interface BlogMapper {
               "where vid > #{id}",
               "limit 1"
       })
-      BlogView selectNextView(@Param("id") int vid) throws Exception;
+      BlogView selectNextView(@Param("id") int vid) throws RuntimeException;
 
       @Select({
               "select distinct vid",
               "from view_tag",
               "where name = #{tag}"
       })
-      List<Integer> selectVidBytag(@Param("tag") String tagName) throws Exception;
+      List<Integer> selectVidBytag(@Param("tag") String tagName) throws RuntimeException;
 
       @Select({
               "select date,title",
@@ -80,7 +80,7 @@ public interface BlogMapper {
               "where vid = #{vid}",
               "limit 1"
       })
-      BlogView selectTagView(@Param("vid") int vid) throws Exception;
+      BlogView selectTagView(@Param("vid") int vid) throws RuntimeException;
 
       @Insert({"insert into blog_view " ,
               "(date,title,article,tags,md) " ,
@@ -88,16 +88,16 @@ public interface BlogMapper {
               "#{bv.article},#{bv.tags},#{bv.md})"})
       @SelectKey(before=false,keyProperty="bv.vid",resultType=Integer.class,
               statementType= StatementType.STATEMENT,statement="SELECT LAST_INSERT_ID() AS id")
-      int insertBlog(@Param("bv") BlogView blogView) throws Exception;
+      int insertBlog(@Param("bv") BlogView blogView) throws RuntimeException;
 
       @Insert("insert ignore into view_tag (name,vid) values(#{tn},#{id})")
-      int insertViewTag(@Param("tn") String tagName, @Param("id") int vid) throws Exception;
+      int insertViewTag(@Param("tn") String tagName, @Param("id") int vid) throws RuntimeException;
 
       @Delete("delete from view_tag where vid = #{vid}")
-      int deleteViewTag(@Param("vid") int vid) throws Exception;
+      int deleteViewTag(@Param("vid") int vid) throws RuntimeException;
 
       @Delete("delete from blog_view where vid =#{vid} limit 1")
-      int deleteBlogView(@Param("vid") int vid) throws Exception;
+      int deleteBlogView(@Param("vid") int vid) throws RuntimeException;
 
       @Update({
             "update blog_view",
@@ -107,6 +107,6 @@ public interface BlogMapper {
               "article = #{bv.article}",
               "where vid = #{bv.vid}"
       })
-      void updateBlogView(@Param("bv") BlogView blogView) throws Exception;
+      void updateBlogView(@Param("bv") BlogView blogView) throws RuntimeException;
 
 }

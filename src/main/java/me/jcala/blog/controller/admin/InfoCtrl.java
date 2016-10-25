@@ -23,7 +23,7 @@ public class InfoCtrl {
     private InfoSer infoSer;
 
     @GetMapping("/admin/info")
-    public String info(Model model) throws Exception {
+    public String info(Model model) throws RuntimeException {
         Info info = infoSer.getInfo();
         model.addAttribute("info", info);
         return "admin/info";
@@ -43,7 +43,7 @@ public class InfoCtrl {
     }
 
     @PostMapping("/admin/pass.action")
-    public String passModify(String old_pass, String new_pass, HttpServletRequest request) {
+    public String passModify(String old_pass, String new_pass, HttpServletRequest request) throws RuntimeException{
         int result = infoSer.modifyPw(old_pass, new_pass);
         if (result == 0) {
             infoSer.destroySession(request);
@@ -58,7 +58,7 @@ public class InfoCtrl {
     }
 
     @PostMapping("/admin/resume.action")
-    public String resumeUpdate(Info info, Model model) {
+    public String resumeUpdate(Info info) throws RuntimeException{
         infoSer.updateResume(info);
         return "redirect:/admin/resume";
     }
