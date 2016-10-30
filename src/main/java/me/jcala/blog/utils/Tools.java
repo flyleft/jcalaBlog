@@ -9,9 +9,12 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 /**
- * Created by Administrator on 2016/9/3.
+ * 其他工具类
  */
 public class Tools {
+    /**
+     * 获取Timestamp
+     */
     public static Timestamp getTimestamp(){
         String nowTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
         return Timestamp.valueOf(nowTime);
@@ -24,6 +27,10 @@ public class Tools {
         }
         return tagList;
     }
+
+    /**
+     *从request中获取用户真实ip
+     */
     public static String getIpAddress(HttpServletRequest request) {
         String ip = request.getHeader("x-forwarded-for");
         if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {

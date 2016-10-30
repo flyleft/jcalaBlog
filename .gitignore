@@ -1,8 +1,10 @@
 .idea/
+.gradle
 build/
 *.iml
 out/
 classes/test/
 src/main/resources/static/lib/codemirror/mode/jade/
 src/main/resources/static/lib/codemirror/mode/rpm/changes/
-*.log
+arget/
+application-jcala.yml

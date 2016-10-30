@@ -10,23 +10,30 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Created by Administrator on 2016/9/16.
+ * 后台管理中监控页面
+ * 目前只包括内存占用的监控
  */
 @Controller
 @RequestMapping("/admin")
 public class ProjectCtrl {
-    @Autowired
+
     private ProjectSer projectSer;
-     @GetMapping("/project/{page}")
-    public String project(@PathVariable int page, Model model){
+
+    @Autowired
+    public ProjectCtrl(ProjectSer projectSer) {
+        this.projectSer = projectSer;
+    }
+
+    @GetMapping("/project/{page}")
+    public String project(@PathVariable int page, Model model) throws RuntimeException{
          model.addAttribute("current",page);
          model.addAttribute("pageNum",projectSer.adminGetPageNum());
          model.addAttribute("proList",projectSer.adminGetPros(page));
         return "admin/project";
      }
     @PostMapping("/addPro.action")
-    public String addProject(Project project){
-        projectSer.savePro(project);
+    public String addProject(Project project) throws RuntimeException{
+        projectSer.addPro(project);
         return "redirect:/admin/project/1";
     }
     @GetMapping("/deletePro/{id}")
@@ -36,13 +43,13 @@ public class ProjectCtrl {
     }
     @ResponseBody
     @GetMapping("/pro.json")
-    public Project getProJson(HttpServletRequest request){
+    public Project getProJson(HttpServletRequest request) throws RuntimeException{
         String idStr=request.getParameter("id");
         return projectSer.getProById(idStr);
     }
 
     @PostMapping("/updPro.action")
-    public String updatePro(Project project){
+    public String updatePro(Project project) throws RuntimeException{
         projectSer.updatePro(project);
         return "redirect:/admin/project/1";
     }

@@ -3,9 +3,11 @@ package me.jcala.blog.controller;
 import me.jcala.blog.domain.BlogView;
 import me.jcala.blog.domain.Info;
 import me.jcala.blog.service.inter.BlogSer;
+import me.jcala.blog.service.inter.FileUploadSer;
 import me.jcala.blog.service.inter.InfoSer;
 import me.jcala.blog.service.inter.ProjectSer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,16 +15,28 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
+/**
+ * 前端页面显示的控制器
+ * 共包括archives,login,projects,tags,about,post,login这几个页面
+ */
 @Controller
 public class FontEndCtrl {
-    @Autowired
     private BlogSer blogSer;
-    @Autowired
     private ProjectSer projectSer;
-    @Autowired
     private InfoSer infoSer;
+    private FileUploadSer fileUploadSer;
+
+    @Autowired
+    public FontEndCtrl(BlogSer blogSer, ProjectSer projectSer, InfoSer infoSer, FileUploadSer fileUploadSer) {
+        this.blogSer = blogSer;
+        this.projectSer = projectSer;
+        this.infoSer = infoSer;
+        this.fileUploadSer = fileUploadSer;
+    }
+
     @GetMapping("/archives/{page}")
     public String archives(@PathVariable int page,Model model){
         model.addAttribute("info",infoSer.getInfo());
@@ -61,7 +75,7 @@ public class FontEndCtrl {
         return "tagView";
     }
     @GetMapping("/about")
-    public String about(Model model) {
+    public String about(Model model, HttpServletResponse response) {
         model.addAttribute("info",infoSer.getInfo());
         model.addAttribute("resume",infoSer.getResumeView());
         return "about";
@@ -84,7 +98,7 @@ public class FontEndCtrl {
     }
     @GetMapping("/login")
     public String login(HttpServletRequest request, Model model) {
-        model.addAttribute("avatar", infoSer.getInfo().getAvatar());
+        model.addAttribute("avatar",infoSer.getInfo().getAvatar());
         String result = request.getParameter("result");
         if (result != null && result.equals("fail")) {
             model.addAttribute("success", 0);
@@ -108,4 +122,11 @@ public class FontEndCtrl {
         infoSer.destroySession(request);
         return "redirect:/login";
     }
+
+    @GetMapping(value = "/pic/{dir}/{picName:.+}")
+    public ResponseEntity<byte[]> gainUserAvatar(@PathVariable String dir, @PathVariable String picName)
+            throws RuntimeException {
+        return fileUploadSer.gainPic(dir,picName);
+    }
+
 }

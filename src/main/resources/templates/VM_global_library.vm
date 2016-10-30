@@ -26,11 +26,11 @@
 #end
 
 #macro(liClass $count)
-    #if($count==1)
+    #if($count%4 == 1)
     <tr class="active">
-    #elseif($count==2)
+    #elseif($count%4 == 2)
     <tr class="success">
-    #elseif($count==3)
+    #elseif($count%4 == 3)
     <tr class="warning">
     #else
     <tr class="danger">

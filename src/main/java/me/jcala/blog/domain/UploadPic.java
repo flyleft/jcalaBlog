@@ -3,7 +3,7 @@ package me.jcala.blog.domain;
 import lombok.*;
 
 /**
- * Created by Administrator on 2016/9/24.
+ * 上传图片回显提示的实体类
  */
 @Setter
 @Getter

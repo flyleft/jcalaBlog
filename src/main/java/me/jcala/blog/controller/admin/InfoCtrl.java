@@ -12,15 +12,23 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Created by Administrator on 2016/9/8.
+ * 后台管理中个人信息管理页面
+ * 包括对修改密码，更改用户名，邮箱，twitter，github地址以及简历
+ * 更改用户名，邮箱，twitter，github地址后，前端显示也会随之改变
+ * 此页面中所有处理请求的前缀为/admin，比如info方法匹配的url为/admin/info
  */
 @Controller
 public class InfoCtrl {
-    @Autowired
+
     private InfoSer infoSer;
 
+    @Autowired
+    public InfoCtrl(InfoSer infoSer) {
+        this.infoSer = infoSer;
+    }
+
     @GetMapping("/admin/info")
-    public String info(Model model) throws Exception {
+    public String info(Model model) throws RuntimeException {
         Info info = infoSer.getInfo();
         model.addAttribute("info", info);
         return "admin/info";
@@ -40,7 +48,7 @@ public class InfoCtrl {
     }
 
     @PostMapping("/admin/pass.action")
-    public String passModify(String old_pass, String new_pass, HttpServletRequest request) {
+    public String passModify(String old_pass, String new_pass, HttpServletRequest request) throws RuntimeException{
         int result = infoSer.modifyPw(old_pass, new_pass);
         if (result == 0) {
             infoSer.destroySession(request);
@@ -55,8 +63,8 @@ public class InfoCtrl {
     }
 
     @PostMapping("/admin/resume.action")
-    public String resumeUpdate(Info info, Model model) {
-        infoSer.saveResume(info);
+    public String resumeUpdate(Info info) throws RuntimeException{
+        infoSer.updateResume(info);
         return "redirect:/admin/resume";
     }
 }

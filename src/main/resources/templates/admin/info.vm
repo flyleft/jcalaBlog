@@ -65,6 +65,7 @@
                             <input type="file" class="form-control" name="avatar" multiple>
                             <input type="submit" class="form-control">
                         </form>
+                        </div>
                     </div>
                 </div>
             </div>
