@@ -29,7 +29,7 @@ targetCompatibility = 1.7
 compileJava.dependsOn(processResources)
 jar {
   baseName = 'jcalaBlog'
-  version =  '0.1.0'
+  version =  '1.0.0'
 }
 configurations {
   compile.exclude module: "spring-boot-starter-tomcat"

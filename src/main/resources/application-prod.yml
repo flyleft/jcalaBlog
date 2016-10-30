@@ -55,4 +55,4 @@ mybatis:
     type-handlers-package: org.apache.ibatis.type.LocalDateTypeHandler
     config-location: classpath:mybatis-config.xml
 pic:
-    home: G:\home\jcala\xmarket\pic
+    home: /home/jcala/blog/pic
