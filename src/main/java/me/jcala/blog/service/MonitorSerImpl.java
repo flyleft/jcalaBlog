@@ -1,21 +1,19 @@
 package me.jcala.blog.service;
 
 import com.sun.management.OperatingSystemMXBean;
-import me.jcala.blog.service.inter.MoniterSer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import me.jcala.blog.service.inter.MonitorSer;
 import org.springframework.stereotype.Service;
 
 import java.lang.management.ManagementFactory;
 
 @Service
-public class MoniterSerImpl implements MoniterSer {
+public class MonitorSerImpl implements MonitorSer {
     @Override
-   public int getFreeMemery() throws RuntimeException{
+   public int getFreeMemory() throws RuntimeException{
            OperatingSystemMXBean osmxb = ManagementFactory.getPlatformMXBean(OperatingSystemMXBean.class);
-           long totalvirtualMemory = osmxb.getTotalPhysicalMemorySize();
+           long totalVirtualMemory = osmxb.getTotalPhysicalMemorySize();
            long freePhysicalMemorySize = osmxb.getFreePhysicalMemorySize();
-           Double compare = (freePhysicalMemorySize * 1.0 / totalvirtualMemory) * 100;
+           Double compare = (freePhysicalMemorySize * 1.0 / totalVirtualMemory) * 100;
            return compare.intValue();
    }
 }

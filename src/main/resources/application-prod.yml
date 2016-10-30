@@ -20,7 +20,7 @@ spring:
         cache: true
         charset: UTF-8
         view-names: error,error500,index,projects,tags,tagView,archives,post,about,login,admin/blog_add,admin/project,
-                    admin/moniter,admin/blog_modify,admin/blog_list,admin/info,admin/result,admin/resume
+                    admin/monitor,admin/blog_modify,admin/blog_list,admin/info,admin/result,admin/resume
         properties:
           input.encoding: UTF-8
           output.encoding: UTF-8

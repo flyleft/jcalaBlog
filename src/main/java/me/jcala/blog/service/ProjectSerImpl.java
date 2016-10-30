@@ -19,9 +19,13 @@ import java.util.List;
 
 @Service
 public class ProjectSerImpl implements ProjectSer {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ProjectSerImpl.class);
-    @Autowired
+
     private ProjectMapper projectMapper;
+
+    @Autowired
+    public ProjectSerImpl(ProjectMapper projectMapper) {
+        this.projectMapper = projectMapper;
+    }
 
     @Override
     @Cacheable(value = "projects",condition = "#page==1",key = "1")

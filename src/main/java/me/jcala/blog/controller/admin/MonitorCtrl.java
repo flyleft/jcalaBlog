@@ -1,6 +1,6 @@
 package me.jcala.blog.controller.admin;
 
-import me.jcala.blog.service.inter.MoniterSer;
+import me.jcala.blog.service.inter.MonitorSer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,18 +13,18 @@ import javax.servlet.http.HttpServletRequest;
  * 目前只包括内存占用的监控
  */
 @Controller
-public class MoniterCtrl {
+public class MonitorCtrl {
 
-    private MoniterSer moniterSer;
+    private MonitorSer monitorSer;
 
     @Autowired
-    public MoniterCtrl(MoniterSer moniterSer) {
-        this.moniterSer = moniterSer;
+    public MonitorCtrl(MonitorSer monitorSer) {
+        this.monitorSer = monitorSer;
     }
 
     @GetMapping("/admin")
-    public String moniter(Model model, HttpServletRequest request) throws RuntimeException {
-        model.addAttribute("freeMemory",moniterSer.getFreeMemery());
-        return "admin/moniter";
+    public String monitor(Model model, HttpServletRequest request) throws RuntimeException {
+        model.addAttribute("freeMemory", monitorSer.getFreeMemory());
+        return "admin/monitor";
     }
 }
