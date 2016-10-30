@@ -8,13 +8,13 @@ import lombok.Setter;
 import java.util.List;
 
 /**
- * 前端页面archives显示的博客列表对应的实体
+ * Created by Administrator on 2016/9/17.
  */
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Archive {
-    private int year;//年份
-    private List<BlogView> list;//此年份的博客列表
+    private int year;
+    private List<BlogView> list;
 }

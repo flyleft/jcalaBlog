@@ -15,27 +15,36 @@ import org.springframework.cache.annotation.Caching;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Created by Administrator on 2016/9/3.
+ */
 @Service
 public class BlogSerImpl implements BlogSer {
     private static final Logger LOGGER = LoggerFactory.getLogger(BlogSerImpl.class);
     @Autowired
     private BlogMapper blogMapper;
-
     @Override
-    public BlogView adminGetBlog(int vid) throws RuntimeException{
-        return blogMapper.selectAdmin(vid);
+    public BlogView adminGetBlog(int vid){
+        BlogView blogView=null;
+        try {
+            blogView=blogMapper.selectAdmin(vid);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+        return blogView;
     }
     @Override
     @Caching(evict = {
-            @CacheEvict(value = "archives",key = "1"),
-            @CacheEvict(value = "tagList",key = "1"),
-            @CacheEvict(value = "archivePageNum",key = "1")
+            @CacheEvict(value = "archives"),
+            @CacheEvict(value = "tagList"),
+            @CacheEvict(value = "archivePageNum")
     })
     @Transactional(isolation = Isolation.READ_COMMITTED)
     public boolean addBlog(BlogView blogView){
@@ -58,20 +67,31 @@ public class BlogSerImpl implements BlogSer {
         return result;
     }
     @Override
-    public List<BlogView> getBlogPage(int id) throws RuntimeException{
+    public List<BlogView> getBlogPage(int id){
+        List<BlogView> blogList=new ArrayList<>();
+        try {
             int start=(id-1)*10;
-        return blogMapper.selectTenBlogs(start);
+            blogList=blogMapper.selectTenBlogs(start);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+        return blogList;
     }
     @Override
-    public int adminGetPageNum() throws RuntimeException{
-        int num=blogMapper.selectBlogNum();
+    public int getPageNum(){
+        int num=0;
+        try {
+            num=blogMapper.selectBlogNum();
+        } catch (Exception e) {
+           LOGGER.error(e.getMessage());
+    }
     return num%10==0?num/10:num/10+1;
     }
 
     @Override
     @Caching(evict = {
-            @CacheEvict(value = "archives",key = "1"),
-            @CacheEvict(value = "tagList",key = "1")
+            @CacheEvict(value = "archives"),
+            @CacheEvict(value = "tagList")
     })
     @Transactional(isolation = Isolation.READ_COMMITTED)
     public boolean updateBlog(BlogView blogView){
@@ -95,9 +115,9 @@ public class BlogSerImpl implements BlogSer {
 
     @Override
     @Caching(evict = {
-            @CacheEvict(value = "archives",key = "1"),
-            @CacheEvict(value = "tagList",key = "1"),
-            @CacheEvict(value = "archivePageNum",key = "1")
+            @CacheEvict(value = "archives"),
+            @CacheEvict(value = "tagList"),
+            @CacheEvict(value = "archivePageNum")
     })
     @Transactional(isolation = Isolation.READ_COMMITTED)
     public boolean deleteBlogById(int vid) {
@@ -112,33 +132,63 @@ public class BlogSerImpl implements BlogSer {
     }
 
     @Override
-    @Cacheable(value = "tagList",key = "1")
-    public List<String> getTagList() throws RuntimeException{
-        return blogMapper.selectTags();
+    @Cacheable(value = "tagList")
+    public List<String> getTagList() {
+        List<String> tags=new ArrayList<>();
+        try {
+            tags=blogMapper.selectTags();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+        return tags;
     }
 
     @Override
-    @Cacheable(value = "archives",condition = "#page==1",key = "1")
-    public List<Archive> getArchive(int page) throws RuntimeException{
+    @Cacheable(value = "archives",condition = "#page==1")
+    public List<Archive> getArchive(int page) {
         int start=(page-1)*12;
-        return bv2Ar(blogMapper.selectArc(start));
+        List<Archive> archives=new ArrayList<>();
+        try {
+            List<BlogView> blogViews=blogMapper.selectArc(start);
+            archives=bv2Ar(blogViews);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+        return archives;
     }
 
     @Override
-    @Cacheable(value = "archivePageNum",key = "1")
-    public int getArchiveNum() throws RuntimeException{
-        int blogNum=blogMapper.selectBlogNum();
+    @Cacheable(value = "archivePageNum")
+    public int getArchiveNum() {
+        int blogNum=0;
+        try {
+            blogNum=blogMapper.selectBlogNum();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
         return blogNum%12==0?blogNum/12:blogNum/12+1;
     }
 
     @Override
-    public BlogView getBlog(int vid) throws RuntimeException{
-        return blogMapper.selectView(vid);
+    public BlogView getBlog(int vid) {
+        BlogView blogView=new BlogView();
+        try {
+            blogView=blogMapper.selectView(vid);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+        return blogView;
     }
 
     @Override
-    public BlogView getPrevBlog(int vid) throws RuntimeException {
-        return blogMapper.selectPreView(vid);
+    public BlogView getPrevBlog(int vid) {
+        BlogView blogView=null;
+        try {
+            blogView=blogMapper.selectPreView(vid);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+        return blogView;
     }
 
     @Override
@@ -153,8 +203,9 @@ public class BlogSerImpl implements BlogSer {
     }
 
     @Override
-    public List<BlogView> getBlogByTag(String tagName) throws RuntimeException{
+    public List<BlogView> getBlogByTag(String tagName) {
         List<BlogView> views=new ArrayList<>();
+        try {
             List<Integer> vids=blogMapper.selectVidBytag(tagName);
             for (int vid:vids){
                 BlogView view=blogMapper.selectTagView(vid);
@@ -165,10 +216,13 @@ public class BlogSerImpl implements BlogSer {
                     views.add(view);
                 }
             }
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
         return views;
     }
 
-    private List<Archive> bv2Ar(List<BlogView> views) throws RuntimeException{
+    private List<Archive> bv2Ar(List<BlogView> views) throws Exception{
         List<Archive> archives=new ArrayList<>();
         Map<Integer,Archive> years2Ar=new HashMap<>();
         for (BlogView view:views){
@@ -186,14 +240,14 @@ public class BlogSerImpl implements BlogSer {
         }
         return archives;
     }
-    private void addViewTag(String tagStr,int vid) throws RuntimeException{
+    private void addViewTag(String tagStr,int vid) throws Exception{
         List<String> tagList=Tools.getTagList(tagStr);
         for (String tag:tagList){
             blogMapper.insertViewTag(tag,vid);
         }
 
     }
-    private void updateViewTag(String tagStr,int vid) throws RuntimeException{
+    private void updateViewTag(String tagStr,int vid) throws Exception{
         blogMapper.deleteViewTag(vid);
         List<String> tagList=Tools.getTagList(tagStr);
         for (String tag:tagList){

@@ -67,11 +67,13 @@ dependencies {
   //--------------------数据库驱动----------------------------
   compile 'mysql:mysql-connector-java:5.1.38'
   //-------------------数据库连接池---------------------------
-  compile 'com.zaxxer:HikariCP:2.5.1'
+  compile 'com.zaxxer:HikariCP:2.4.5'
   //----------------------ORM--------------------------------
   compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1")
   //--------------------JDK工具------------------------------
   compile 'org.projectlombok:lombok:1.16.10'
+  //--------------------定时任务-----------------------------
+  compile 'org.quartz-scheduler:quartz:2.2.3'
   //---------------------缓存-------------------------------
   compile "net.sf.ehcache:ehcache:${ehcacheVersion}"
 }

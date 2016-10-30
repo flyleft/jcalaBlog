@@ -1,5 +1,6 @@
 package me.jcala.blog.controller.admin;
 
+import io.undertow.conduits.GzipStreamSinkConduit;
 import me.jcala.blog.domain.BlogView;
 import me.jcala.blog.service.inter.BlogSer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,7 @@ public class BlogCtrl {
      * @return      templates下的admin/blog_add.vm页面
      */
     @GetMapping("/update{id:\\d+}")
-    public String blogModify(@PathVariable int id,Model model) throws RuntimeException{
+    public String blogModify(@PathVariable int id,Model model) {
         BlogView blogView=blogSer.adminGetBlog(id);
         if (blogView==null){
             return "error";
@@ -58,15 +59,16 @@ public class BlogCtrl {
      * @return      templates下的result页面，用于提示是否保存博客成功
      */
     @PostMapping("/post.action")
-    public String postAction(BlogView view,Model model) throws RuntimeException{
+    public String postAction(BlogView view,Model model){
         boolean result=blogSer.addBlog(view);
         if (result){
-            return "redirect:/admin/blogList/1";
+            model.addAttribute("targetUrl","/admin/blogList/1");
         }else {
             model.addAttribute("targetUrl","/admin/blog_add");
             model.addAttribute("result",0);
-            return "admin/result";
         }
+        return "admin/result";
+
     }
 
     /**
@@ -76,7 +78,7 @@ public class BlogCtrl {
      * @return     templates下的result页面，用于提示是否保存博客成功
      */
     @PostMapping("/update.action")
-    public String update(BlogView view,Model model) throws RuntimeException{
+    public String update(BlogView view,Model model){
         boolean result=blogSer.updateBlog(view);
         if (result){
             model.addAttribute("targetUrl","/post/"+view.getVid());
@@ -94,7 +96,7 @@ public class BlogCtrl {
      * @param id    要删除的博客id
      */
     @GetMapping("/delete/{id}")
-    public String delete(@PathVariable int id,Model model) throws RuntimeException{
+    public String delete(@PathVariable int id,Model model) {
         boolean result= blogSer.deleteBlogById(id);
         if (result){
             return "redirect:/admin/blogList/1";
@@ -112,9 +114,9 @@ public class BlogCtrl {
      * @return      templates下的admin/blog_list.vm页面
      */
     @GetMapping("/blogList/{page}")
-    public String blogList(@PathVariable int page, Model model) throws RuntimeException {
+    public String blogList(@PathVariable int page, Model model) {
         model.addAttribute("current",page);
-        model.addAttribute("pageNum",blogSer.adminGetPageNum());
+        model.addAttribute("pageNum",blogSer.getPageNum());
         model.addAttribute("blogList",blogSer.getBlogPage(page));
         return "admin/blog_list";
     }

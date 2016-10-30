@@ -1,31 +1,32 @@
 server:
-    port: 80
+    port: 8080
     compression:
         min-response-size: 512
         enabled: true
         mime-types: text/html,text/css,text/javascript,application/javascript,image/gif,image/png,image/jpg
+    #undertow服务器的配置
     undertow:
         io-threads: 4
         worker-threads: 10
         buffer-size: 16384
         accesslog:
             enabled: true
-            dir: /home/jcala/blog/log/server_log
+            dir: arget/logs
             pattern: combined
+#打印日志配置
 logging:
     config: classpath:logback-spring.xml
-    path: /home/jcala/blog/log/spring_log
+    path: /Users/jcala/logs
+#velocity模板引擎的配置
 spring:
     velocity:
-        cache: true
-        charset: UTF-8
-        view-names: error,error500,index,projects,tags,tagView,archives,post,about,login,admin/blog_add,admin/project,
+        cache: false
+        view-names: error,index,projects,tags,tagView,archives,post,about,login,admin/blog_add,admin/project,
                     admin/moniter,admin/blog_modify,admin/blog_list,admin/info,admin/result,admin/resume
         properties:
-          input.encoding: UTF-8
-          output.encoding: UTF-8
           velocimacro.library: VM_global_library.vm
           directive.parse.max.depth: 2
+    #http的配置
     http:
         encoding.charset: UTF-8
         encoding.force: false
@@ -33,27 +34,21 @@ spring:
           max-file-size: 3MB
           max-request-size: 10MB
     cache:
-        cache-names: ehcache
-        ehcache:
-            config: ehcache.xml
-    datasource:
-        type: com.zaxxer.hikari.HikariDataSource
-        username: root
-        password: root
-        url: jdbc:mysql://127.0.0.1:3306/jcala_blog?useUnicode:true&amp;characterEncoding:UTF-8
-        driverClassName: com.mysql.jdbc.Driver
-        schema: classpath:import.sql
-        data: classpath:data.sql
-        initialize: false
-        sql-script-encoding: UTF-8
-        hikari:
-            connection-timeout: 30000
-            maximum-pool-size: 50
-            minimum-idle: 5
+      cache-names: ehcache
+      ehcache:
+        config: ehcache.xml
 mybatis:
     type-aliases-package: me.jcala.blog.domain,me.jcala.blog.mapping
     type-handlers-package: org.apache.ibatis.type.LocalDateTypeHandler
     config-location: classpath:mybatis-config.xml
-reverse:
-    domain: http://127.0.0.1:8090
-    root: G:\home\jcala\blog\static
+    #数据库连接池的配置
+hikaricp:
+    driver: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/jcala_blog?useUnicode:true&amp;characterEncoding:UTF-8
+    username: root
+    password: root
+    connectionTimeout: 30000
+    maximumPoolSize: 50
+    minimumIdle: 5
+nginx:
+    address: http://127.0.0.1:8090

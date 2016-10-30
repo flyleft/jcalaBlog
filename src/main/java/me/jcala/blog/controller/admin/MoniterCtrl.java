@@ -9,18 +9,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * 后台管理中监控页面
- * 目前只包括内存占用的监控
+ * Created by Administrator on 2016/9/13.
  */
 @Controller
 public class MoniterCtrl {
-
     @Autowired
     private MoniterSer moniterSer;
 
     @GetMapping("/admin")
-    public String moniter(Model model, HttpServletRequest request) throws RuntimeException {
-        model.addAttribute("freeMemory",moniterSer.getFreeMemery());
+    public String moniter(Model model) throws Exception {
+        model.addAttribute("Memory",moniterSer.getFreeMemery());
         return "admin/moniter";
     }
 }

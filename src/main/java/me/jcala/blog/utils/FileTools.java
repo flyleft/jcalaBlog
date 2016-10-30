@@ -1,12 +1,9 @@
 package me.jcala.blog.utils;
 
 /**
- * 文件操作工具类
+ * Created by Administrator on 2016/9/25.
  */
 public class FileTools {
-    /**
-     * 获取文件后缀
-     */
     public   static String getSuffix(String fileName){
         String[] token = fileName.split("\\.");
         if (token.length>0){
@@ -15,8 +12,5 @@ public class FileTools {
         else {
             return "";
         }
-    }
-    public static boolean isLinuxPath(String path){
-        return path.contains("/");
     }
 }

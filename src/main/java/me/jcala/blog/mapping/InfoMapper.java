@@ -8,8 +8,7 @@ import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 /**
- * mybatis的mapper
- * 映射所有个人信息操作的sql语句
+ * Created by Administrator on 2016/9/8.
  */
 @Repository
 @Mapper
@@ -20,7 +19,7 @@ public interface InfoMapper {
             "github,twitter,avatar",
             "from admin limit 1"
     })
-    Info select() throws RuntimeException;
+    Info select() throws Exception;
 
     @Select({
         "select count(*) ",
@@ -28,20 +27,20 @@ public interface InfoMapper {
             "where username = #{un} ",
             "and password = #{pw}"
     })
-    int selectByPw(@Param("un") String username, @Param("pw") String password) throws RuntimeException;
+    int selectByPw(@Param("un") String username, @Param("pw") String password) throws Exception;
 
     @Select({
             "select count(*) ",
             "from admin ",
             "where password = #{pw}"
     })
-    int selectByOldPass(@Param("pw") String oldPass) throws RuntimeException;
+    int selectByOldPass(@Param("pw") String oldPass) throws Exception;
 
     @Select("select md from admin limit 1")
-    String selectMd() throws RuntimeException;
+    String selectMd() throws Exception;
 
     @Select("select resume from admin limit 1")
-    String selectResume() throws RuntimeException;
+    String selectResume() throws Exception;
 
     @Update({
         "update admin set username = #{if.username},",
@@ -56,7 +55,7 @@ public interface InfoMapper {
             "password = #{np} ",
             "limit 1"
     })
-    int updataPass(@Param("np") String newPass) throws RuntimeException;
+    int updataPass(@Param("np") String newPass) throws Exception;
 
     @Update({
             "update admin ",
@@ -64,12 +63,12 @@ public interface InfoMapper {
             "resume = #{if.resume} ",
             "limit 1"
     })
-    void updateResume(@Param("if") Info info) throws RuntimeException;
+    void updateResume(@Param("if") Info info) throws Exception;
 
     @Update({
             "update admin",
             "set avatar = #{ava}",
             "limit 1"
     })
-    void updateAvater(@Param("ava") String avatar) throws RuntimeException;
+    void updateAvater(@Param("ava") String avatar) throws Exception;
 }

@@ -17,6 +17,9 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by Administrator on 2016/9/16.
+ */
 @Service
 public class ProjectSerImpl implements ProjectSer {
     private static final Logger LOGGER = LoggerFactory.getLogger(ProjectSerImpl.class);
@@ -24,61 +27,102 @@ public class ProjectSerImpl implements ProjectSer {
     private ProjectMapper projectMapper;
 
     @Override
-    @Cacheable(value = "projects",condition = "#page==1",key = "1")
-    public List<Project> getPros(int page) throws RuntimeException{
+    @Cacheable(value = "projects",condition = "#page==1")
+    public List<Project> getPros(int page) {
+        List<Project> projectList = new ArrayList<>();
         int start = (page - 1) * 5;
-        return projectMapper.select(start);
+        try {
+            projectList = projectMapper.select(start);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+        return projectList;
     }
 
     @Override
     @Caching(evict = {
-            @CacheEvict(value = "projects",key = "1"),
-            @CacheEvict(value = "projectPageNum",key = "1")
+            @CacheEvict(value = "projects"),
+            @CacheEvict(value = "projectPageNum")
     })
     @Transactional(isolation = Isolation.READ_COMMITTED)
-    public void addPro(Project project) throws RuntimeException{
+    public void savePro(Project project) {
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         project.setDate(timestamp);
-        projectMapper.insert(project);
+        try {
+            projectMapper.insert(project);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
     }
 
     @Override
-    public List<Project> adminGetPros(int page) throws RuntimeException{
+    public List<Project> adminGetPros(int page) {
         int start = (page - 1) * 10;
-        return projectMapper.adminSelect(start);
+        List<Project> projectList = new ArrayList<>();
+        try {
+            projectList = projectMapper.adminSelect(start);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+        return projectList;
     }
 
     @Override
-    public int adminGetPageNum() throws RuntimeException{
-        int count = projectMapper.count();
+    public int adminGetPageNum() {
+        int count = 0;
+        try {
+            count = projectMapper.count();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
         return count % 10 == 0 ? count / 10 : count / 10 + 1;
     }
 
     @Override
     @Caching(evict = {
-            @CacheEvict(value = "projects",key = "1"),
-            @CacheEvict(value = "projectPageNum",key = "1")
+            @CacheEvict(value = "projects"),
+            @CacheEvict(value = "projectPageNum")
     })
-    public void deletePro(int id) throws RuntimeException{
+    public void deletePro(int id) {
+        try {
             projectMapper.delete(id);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
     }
 
     @Override
-    public Project getProById(String idStr) throws RuntimeException{
-        int id = Integer.valueOf(idStr);
-        return  projectMapper.selectById(id);
+    public Project getProById(String idStr) {
+        int id = 1;
+        Project project = new Project();
+        try {
+            id = Integer.valueOf(idStr);
+            project = projectMapper.selectById(id);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+        return project;
     }
 
     @Override
-    @CacheEvict(value = "projects",key = "1")
-    public void updatePro(Project project) throws RuntimeException {
+    @CacheEvict(value = "projects")
+    public void updatePro(Project project) {
+        try {
             projectMapper.Update(project);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
     }
 
     @Override
-    @Cacheable(value = "projectPageNum",key = "1")
-    public int getPageNum() throws RuntimeException{
-        int count = projectMapper.count();
+    @Cacheable(value = "projectPageNum")
+    public int getPageNum() {
+        int count = 0;
+        try {
+            count = projectMapper.count();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
         return count % 5 == 0 ? count / 5 : count / 5 + 1;
     }
 }
