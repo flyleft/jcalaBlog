@@ -25,14 +25,14 @@ public class ProjectCtrl {
     }
 
     @GetMapping("/project/{page}")
-    public String project(@PathVariable int page, Model model) throws RuntimeException{
+    public String project(@PathVariable int page, Model model){
          model.addAttribute("current",page);
          model.addAttribute("pageNum",projectSer.adminGetPageNum());
          model.addAttribute("proList",projectSer.adminGetPros(page));
         return "admin/project";
      }
     @PostMapping("/addPro.action")
-    public String addProject(Project project) throws RuntimeException{
+    public String addProject(Project project){
         projectSer.addPro(project);
         return "redirect:/admin/project/1";
     }
@@ -43,13 +43,13 @@ public class ProjectCtrl {
     }
     @ResponseBody
     @GetMapping("/pro.json")
-    public Project getProJson(HttpServletRequest request) throws RuntimeException{
+    public Project getProJson(HttpServletRequest request){
         String idStr=request.getParameter("id");
         return projectSer.getProById(idStr);
     }
 
     @PostMapping("/updPro.action")
-    public String updatePro(Project project) throws RuntimeException{
+    public String updatePro(Project project){
         projectSer.updatePro(project);
         return "redirect:/admin/project/1";
     }

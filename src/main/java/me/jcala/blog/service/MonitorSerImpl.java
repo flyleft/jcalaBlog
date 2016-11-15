@@ -9,7 +9,7 @@ import java.lang.management.ManagementFactory;
 @Service
 public class MonitorSerImpl implements MonitorSer {
     @Override
-   public int getFreeMemory() throws RuntimeException{
+   public int getFreeMemory(){
            OperatingSystemMXBean osmxb = ManagementFactory.getPlatformMXBean(OperatingSystemMXBean.class);
            long totalVirtualMemory = osmxb.getTotalPhysicalMemorySize();
            long freePhysicalMemorySize = osmxb.getFreePhysicalMemorySize();

@@ -45,7 +45,7 @@ public class InfoSerImpl implements InfoSer {
         }
     }
     @Override
-    public boolean checkPass(String oldPass) throws RuntimeException{
+    public boolean checkPass(String oldPass){
         int num=infoMapper.selectByOldPass(oldPass);
         return num>0;
     }

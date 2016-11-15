@@ -29,7 +29,7 @@ public class ProjectSerImpl implements ProjectSer {
 
     @Override
     @Cacheable(value = "projects",condition = "#page==1",key = "1")
-    public List<Project> getPros(int page) throws RuntimeException{
+    public List<Project> getPros(int page){
         int start = (page - 1) * 5;
         return projectMapper.select(start);
     }
@@ -40,20 +40,20 @@ public class ProjectSerImpl implements ProjectSer {
             @CacheEvict(value = "projectPageNum",key = "1")
     })
     @Transactional(isolation = Isolation.READ_COMMITTED)
-    public void addPro(Project project) throws RuntimeException{
+    public void addPro(Project project){
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         project.setDate(timestamp);
         projectMapper.insert(project);
     }
 
     @Override
-    public List<Project> adminGetPros(int page) throws RuntimeException{
+    public List<Project> adminGetPros(int page){
         int start = (page - 1) * 10;
         return projectMapper.adminSelect(start);
     }
 
     @Override
-    public int adminGetPageNum() throws RuntimeException{
+    public int adminGetPageNum(){
         int count = projectMapper.count();
         return count % 10 == 0 ? count / 10 : count / 10 + 1;
     }
@@ -63,25 +63,25 @@ public class ProjectSerImpl implements ProjectSer {
             @CacheEvict(value = "projects",key = "1"),
             @CacheEvict(value = "projectPageNum",key = "1")
     })
-    public void deletePro(int id) throws RuntimeException{
+    public void deletePro(int id){
             projectMapper.delete(id);
     }
 
     @Override
-    public Project getProById(String idStr) throws RuntimeException{
+    public Project getProById(String idStr){
         int id = Integer.valueOf(idStr);
         return  projectMapper.selectById(id);
     }
 
     @Override
     @CacheEvict(value = "projects",key = "1")
-    public void updatePro(Project project) throws RuntimeException {
+    public void updatePro(Project project) {
             projectMapper.Update(project);
     }
 
     @Override
     @Cacheable(value = "projectPageNum",key = "1")
-    public int getPageNum() throws RuntimeException{
+    public int getPageNum(){
         int count = projectMapper.count();
         return count % 5 == 0 ? count / 5 : count / 5 + 1;
     }

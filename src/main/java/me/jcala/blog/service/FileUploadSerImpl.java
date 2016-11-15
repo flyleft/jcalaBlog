@@ -21,19 +21,19 @@ import java.io.File;
 
 @Slf4j
 @Service
-public class FileUploadSerImpl implements FileUploadSer {
+public class FileUploadSerImpl implements FileUploadSer{
     private InfoSer infoSer;
 
     private SystemSetting setting;
 
     @Autowired
-    public FileUploadSerImpl(InfoSer infoSer, SystemSetting setting) {
+    public FileUploadSerImpl(InfoSer infoSer, SystemSetting setting){
         this.infoSer = infoSer;
         this.setting = setting;
     }
 
     @Override
-    public UploadPic uploadPic(HttpServletRequest request) throws RuntimeException {
+    public UploadPic uploadPic(HttpServletRequest request){
 
         String picUrl="";
         try {
@@ -56,7 +56,7 @@ public class FileUploadSerImpl implements FileUploadSer {
 
     @Override
     @Transactional(isolation = Isolation.READ_COMMITTED)
-    public Info updateAvatar(HttpServletRequest request) throws RuntimeException {
+    public Info updateAvatar(HttpServletRequest request){
         String url=uploadPic(request).getUrl();
         if (!"".equals(url)){
             infoSer.updateAvatar(url);
@@ -65,7 +65,7 @@ public class FileUploadSerImpl implements FileUploadSer {
     }
 
     @Override
-    public ResponseEntity<byte[]> gainPic(String dir, String picName) throws RuntimeException {
+    public ResponseEntity<byte[]> gainPic(String dir, String picName){
         File file=new File(setting.getPicHome()+File.separatorChar+dir+File.separatorChar+picName);
         byte[] bytes;
         try {

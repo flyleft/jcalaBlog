@@ -23,12 +23,12 @@ public class FileCtrl {
 
     @PostMapping("/admin/file/uplPic.action")
     @ResponseBody
-    public UploadPic uploadPic(HttpServletRequest request) throws RuntimeException{
+    public UploadPic uploadPic(HttpServletRequest request){
             return uploadSer.uploadPic(request);
     }
 
     @PostMapping("/admin/file/uplAva.action")
-    public String uploadAva(HttpServletRequest request, Model model) throws RuntimeException{
+    public String uploadAva(HttpServletRequest request, Model model){
         Info info=uploadSer.updateAvatar(request);
         model.addAttribute("info",info);
         return "admin/info";

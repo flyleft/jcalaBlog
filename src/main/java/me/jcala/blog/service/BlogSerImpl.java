@@ -32,7 +32,7 @@ public class BlogSerImpl implements BlogSer {
     }
 
     @Override
-    public BlogView adminGetBlog(int vid) throws RuntimeException{
+    public BlogView adminGetBlog(int vid){
         return blogMapper.selectAdmin(vid);
     }
     @Override
@@ -62,12 +62,12 @@ public class BlogSerImpl implements BlogSer {
         return result;
     }
     @Override
-    public List<BlogView> getBlogPage(int id) throws RuntimeException{
+    public List<BlogView> getBlogPage(int id){
             int start=(id-1)*10;
         return blogMapper.selectTenBlogs(start);
     }
     @Override
-    public int adminGetPageNum() throws RuntimeException{
+    public int adminGetPageNum(){
         int num=blogMapper.selectBlogNum();
     return num%10==0?num/10:num/10+1;
     }
@@ -117,31 +117,31 @@ public class BlogSerImpl implements BlogSer {
 
     @Override
     @Cacheable(value = "tagList",key = "1")
-    public List<String> getTagList() throws RuntimeException{
+    public List<String> getTagList(){
         return blogMapper.selectTags();
     }
 
     @Override
     @Cacheable(value = "archives",condition = "#page==1",key = "1")
-    public List<Archive> getArchive(int page) throws RuntimeException{
+    public List<Archive> getArchive(int page){
         int start=(page-1)*12;
         return bv2Ar(blogMapper.selectArc(start));
     }
 
     @Override
     @Cacheable(value = "archivePageNum",key = "1")
-    public int getArchiveNum() throws RuntimeException{
+    public int getArchiveNum(){
         int blogNum=blogMapper.selectBlogNum();
         return blogNum%12==0?blogNum/12:blogNum/12+1;
     }
 
     @Override
-    public BlogView getBlog(int vid) throws RuntimeException{
+    public BlogView getBlog(int vid){
         return blogMapper.selectView(vid);
     }
 
     @Override
-    public BlogView getPrevBlog(int vid) throws RuntimeException {
+    public BlogView getPrevBlog(int vid){
         return blogMapper.selectPreView(vid);
     }
 
@@ -157,7 +157,7 @@ public class BlogSerImpl implements BlogSer {
     }
 
     @Override
-    public List<BlogView> getBlogByTag(String tagName) throws RuntimeException{
+    public List<BlogView> getBlogByTag(String tagName){
         List<BlogView> views=new ArrayList<>();
             List<Integer> vids=blogMapper.selectVidBytag(tagName);
             for (int vid:vids){
@@ -172,7 +172,7 @@ public class BlogSerImpl implements BlogSer {
         return views;
     }
 
-    private List<Archive> bv2Ar(List<BlogView> views) throws RuntimeException{
+    private List<Archive> bv2Ar(List<BlogView> views){
         List<Archive> archives=new ArrayList<>();
         Map<Integer,Archive> years2Ar=new HashMap<>();
         for (BlogView view:views){
@@ -190,14 +190,14 @@ public class BlogSerImpl implements BlogSer {
         }
         return archives;
     }
-    private void addViewTag(String tagStr,int vid) throws RuntimeException{
+    private void addViewTag(String tagStr,int vid){
         List<String> tagList=Tools.getTagList(tagStr);
         for (String tag:tagList){
             blogMapper.insertViewTag(tag,vid);
         }
 
     }
-    private void updateViewTag(String tagStr,int vid) throws RuntimeException{
+    private void updateViewTag(String tagStr,int vid){
         blogMapper.deleteViewTag(vid);
         List<String> tagList=Tools.getTagList(tagStr);
         for (String tag:tagList){
