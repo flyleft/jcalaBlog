@@ -16,16 +16,6 @@ logging:
     config: classpath:logback-spring.xml
     path: /home/jcala/blog/log/spring_log
 spring:
-    velocity:
-        cache: true
-        charset: UTF-8
-        view-names: error,index,projects,tags,tagView,archives,post,about,login,admin/blog_add,admin/project,
-                    admin/monitor,admin/blog_modify,admin/blog_list,admin/info,admin/result,admin/resume
-        properties:
-          input.encoding: UTF-8
-          output.encoding: UTF-8
-          velocimacro.library: VM_global_library.vm
-          directive.parse.max.depth: 2
     http:
         encoding.charset: UTF-8
         encoding.force: false
@@ -50,9 +40,3 @@ spring:
             connection-timeout: 30000
             maximum-pool-size: 50
             minimum-idle: 5
-mybatis:
-    type-aliases-package: me.jcala.blog.domain,me.jcala.blog.mapping
-    type-handlers-package: org.apache.ibatis.type.LocalDateTypeHandler
-    config-location: classpath:mybatis-config.xml
-pic:
-    home: G:\home\jcala\xmarket\pic
