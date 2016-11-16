@@ -22,7 +22,7 @@ CREATE TABLE `admin` (
   `twitter` varchar(64) NOT NULL DEFAULT '#',
   `md` text,
   `resume` text,
-  `avatar` varchar(80) NOT NULL DEFAULT '../img/avatar.jpg',
+  `avatar` varchar(80) NOT NULL DEFAULT '/img/avatar.jpg',
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
