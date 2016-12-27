@@ -17,7 +17,7 @@ public class CtrlExceptionHandler {
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(Exception.class)
     public ModelAndView handleIOException(Exception e) {
-        log.info(e.getLocalizedMessage());
+        log.warn(e.getLocalizedMessage());
         return new ModelAndView("/error");
     }
 

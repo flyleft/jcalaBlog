@@ -49,7 +49,7 @@ public class ProjectCtrl {
     }
 
     @PostMapping("/updPro.action")
-    public String updatePro(Project project){
+    public String updatePro(@ModelAttribute("updateForm") Project project){
         projectSer.updatePro(project);
         return "redirect:/admin/project/1";
     }

@@ -5,10 +5,7 @@ import me.jcala.blog.service.inter.BlogSer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 后台管理中博客管理页面
@@ -63,7 +60,7 @@ public class BlogCtrl {
      * @return      templates下的result页面，用于提示是否保存博客成功
      */
     @PostMapping("/post.action")
-    public String postAction(BlogView view,Model model){
+    public String postAction(@ModelAttribute("blogForm") BlogView view, Model model){
         boolean result=blogSer.addBlog(view);
         if (result){
             return "redirect:/admin/blogList/1";
@@ -81,7 +78,7 @@ public class BlogCtrl {
      * @return     templates下的result页面，用于提示是否保存博客成功
      */
     @PostMapping("/update.action")
-    public String update(BlogView view,Model model){
+    public String update(@ModelAttribute("blogForm") BlogView view,Model model){
         boolean result=blogSer.updateBlog(view);
         if (result){
             model.addAttribute("targetUrl","/post/"+view.getVid());

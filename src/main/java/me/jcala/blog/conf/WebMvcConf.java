@@ -23,8 +23,13 @@ public class WebMvcConf extends WebMvcConfigurerAdapter{
     @Value("${pic.home}")
     private String picHome;
 
-    @Autowired
     private UserSecurityInterceptor securityInterceptor;
+
+    @Autowired
+    public WebMvcConf(UserSecurityInterceptor securityInterceptor) {
+        super();
+        this.securityInterceptor = securityInterceptor;
+    }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {

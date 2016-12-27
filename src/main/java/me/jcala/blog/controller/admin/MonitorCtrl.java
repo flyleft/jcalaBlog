@@ -23,7 +23,7 @@ public class MonitorCtrl {
     }
 
     @GetMapping("/admin")
-    public String monitor(Model model, HttpServletRequest request){
+    public String monitor(Model model){
         model.addAttribute("freeMemory", monitorSer.getFreeMemory());
         return "admin/monitor";
     }

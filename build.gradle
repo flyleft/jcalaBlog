@@ -1,7 +1,7 @@
 buildscript {
   ext {
-    springBootPluginVersion = '1.4.1.RELEASE'
-    springBootVersion = '1.4.1.RELEASE'
+    springBootPluginVersion = '1.4.2.RELEASE'
+    springBootVersion = '1.4.2.RELEASE'
     mybatisSpringVersion='1.1.1'
     ehcacheVersion='2.10.2.2.21'
     dockerPluginVersion='1.2'
@@ -32,11 +32,11 @@ jar {
   version =  '1.0.0'
 }
 configurations {
-  compile.exclude module: "spring-boot-starter-tomcat"
+//  compile.exclude module: "spring-boot-starter-tomcat"
   compile.exclude module: "velocity-tools"
   compile.exclude module: "undertow-websockets-jsr"
-  compile.exclude group: 'org.apache.tomcat.embed'
-  compile.exclude group: 'org.apache.tomcat'
+//  compile.exclude group: 'org.apache.tomcat.embed'
+//  compile.exclude group: 'org.apache.tomcat'
   compile.exclude group: 'org.apache.struts'
   compile.exclude group: 'com.fasterxml'
   compile.exclude group: 'org.hibernate'
@@ -58,12 +58,16 @@ repositories {
 }
 
 dependencies {
-  compile ("org.springframework.boot:spring-boot-starter-web:${springBootVersion}"){
+  compile ("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+
+  /*
+    compile ("org.springframework.boot:spring-boot-starter-web:${springBootVersion}"){
     exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
   }
+   */
   compile "org.springframework.boot:spring-boot-starter-undertow:${springBootVersion}"
   compile "org.springframework.boot:spring-boot-starter-velocity:${springBootVersion}"
-  compile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+  testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
   //--------------------数据库驱动----------------------------
   compile 'mysql:mysql-connector-java:5.1.38'
   //-------------------数据库连接池---------------------------

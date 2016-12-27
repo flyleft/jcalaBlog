@@ -75,7 +75,7 @@ public class FontEndCtrl {
         return "tagView";
     }
     @GetMapping("/about")
-    public String about(Model model, HttpServletResponse response) {
+    public String about(Model model) {
         model.addAttribute("info",infoSer.getInfo());
         model.addAttribute("resume",infoSer.getResumeView());
         return "about";
