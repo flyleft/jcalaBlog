@@ -1,22 +1,23 @@
 server:
     port: 80
+    max-http-header-size: 8192
     compression:
         min-response-size: 512
         enabled: true
         mime-types: text/html,text/css,text/javascript,application/javascript,image/gif,image/png,image/jpg
-    undertow:
-        io-threads: 4
-        worker-threads: 10
-        buffer-size: 16384
-        accesslog:
-            enabled: false
-            dir: /home/jcala/blog/log/server_log
-            pattern: combined
+#    undertow:
+#        io-threads: 4
+#        worker-threads: 10
+#        buffer-size: 16384
+#        accesslog:
+#            enabled: false
+#            dir: /home/jcala/blog/log/server_log
+#            pattern: combined
     tomcat:
           maxThreads: 10
           minSpareThreads: 3
           accesslog:
-            directory: /home/jcala/blog/log/tomcat/server_log
+            directory: /home/jcala/blog/log/server_log
             pattern: combined
             enabled: true
 logging:

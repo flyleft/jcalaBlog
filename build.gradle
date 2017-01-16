@@ -29,7 +29,7 @@ targetCompatibility = 1.7
 compileJava.dependsOn(processResources)
 jar {
   baseName = 'jcalaBlog'
-  version =  '1.0.0'
+  version =  '1.0.1'
 }
 configurations {
 //  compile.exclude module: "spring-boot-starter-tomcat"
@@ -64,8 +64,8 @@ dependencies {
     compile ("org.springframework.boot:spring-boot-starter-web:${springBootVersion}"){
     exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
   }
+   compile "org.springframework.boot:spring-boot-starter-undertow:${springBootVersion}"
    */
-  compile "org.springframework.boot:spring-boot-starter-undertow:${springBootVersion}"
   compile "org.springframework.boot:spring-boot-starter-velocity:${springBootVersion}"
   testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
   //--------------------数据库驱动----------------------------
@@ -75,7 +75,7 @@ dependencies {
   //----------------------ORM--------------------------------
   compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1")
   //--------------------JDK工具------------------------------
-  compile 'org.projectlombok:lombok:1.16.10'
+  compile 'org.projectlombok:lombok:1.16.12'
   //---------------------缓存-------------------------------
   compile "net.sf.ehcache:ehcache:${ehcacheVersion}"
 }
