@@ -43,6 +43,7 @@ configurations {
   compile.exclude group: 'org.glassfish'
   compile.exclude group: 'dom4j'
   compile.exclude group: 'c3p0'
+  compile.exclude group: 'ch.qos.logback'
 }
 bootRun {
   systemProperties = System.properties
@@ -78,4 +79,7 @@ dependencies {
   compile 'org.projectlombok:lombok:1.16.12'
   //---------------------缓存-------------------------------
   compile "net.sf.ehcache:ehcache:${ehcacheVersion}"
+  //---------------------日志-------------------------------
+  compile "org.springframework.boot:spring-boot-starter-log4j2:${springBootVersion}"
+  compile 'com.lmax:disruptor:3.3.6'
 }

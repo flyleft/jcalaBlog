@@ -21,8 +21,8 @@ server:
             pattern: combined
             enabled: true
 logging:
-    config: classpath:logback-spring.xml
-    path: /home/jcala/blog/log/spring_log
+     config: classpath:log4j2.xml
+#    path: /home/jcala/blog/log/spring_log
 spring:
     velocity:
         cache: true
@@ -63,4 +63,4 @@ mybatis:
     type-handlers-package: org.apache.ibatis.type.LocalDateTypeHandler
     config-location: classpath:mybatis-config.xml
 pic:
-    home: G:\home\jcala\xmarket\pic
+    home: home\jcala\xmarket\pic
