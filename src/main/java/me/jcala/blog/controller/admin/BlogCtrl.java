@@ -61,14 +61,8 @@ public class BlogCtrl {
      */
     @PostMapping("/post.action")
     public String postAction(@ModelAttribute("blogForm") BlogView view, Model model){
-        boolean result=blogSer.addBlog(view);
-        if (result){
-            return "redirect:/admin/blogList/1";
-        }else {
-            model.addAttribute("targetUrl","/admin/blog_add");
-            model.addAttribute("result",0);
-            return "admin/result";
-        }
+        blogSer.addBlog(view);
+        return "redirect:/admin/blogList/1";
     }
 
     /**
@@ -79,15 +73,8 @@ public class BlogCtrl {
      */
     @PostMapping("/update.action")
     public String update(@ModelAttribute("blogForm") BlogView view,Model model){
-        boolean result=blogSer.updateBlog(view);
-        if (result){
-            model.addAttribute("targetUrl","/post/"+view.getVid());
-            return "redirect:/post/"+view.getVid();
-        }else {
-            model.addAttribute("targetUrl","/admin/update"+view.getVid());
-            model.addAttribute("result",0);
-            return "admin/result";
-        }
+        blogSer.updateBlog(view);
+        return "redirect:/post/"+view.getVid();
     }
 
     /**
@@ -97,14 +84,8 @@ public class BlogCtrl {
      */
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable int id,Model model){
-        boolean result= blogSer.deleteBlogById(id);
-        if (result){
-            return "redirect:/admin/blogList/1";
-        }else {
-            model.addAttribute("targetUrl","/admin/blogList/1");
-            model.addAttribute("result",0);
-            return "admin/result";
-        }
+        blogSer.deleteBlogById(id);
+        return "redirect:/admin/blogList/1";
     }
 
     /**

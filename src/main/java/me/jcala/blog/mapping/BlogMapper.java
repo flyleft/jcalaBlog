@@ -19,20 +19,20 @@ public interface BlogMapper {
               "from blog_view",
               "limit #{st},10"
       })
-      List<BlogView> selectTenBlogs(@Param("st") int start) throws RuntimeException;
+      List<BlogView> selectTenBlogs(@Param("st") int start);
 
       @Select("select count(*) from blog_view")
-      int selectBlogNum() throws RuntimeException;
+      int selectBlogNum();
 
       @Select("select distinct name from view_tag")
       @ResultType(String.class)
-      List<String> selectTags() throws RuntimeException;
+      List<String> selectTags();
 
       @Select({"select vid,date,title",
               "from blog_view",
               "order by date desc",
               "limit #{st},12"})
-      List<BlogView> selectArc(@Param("st") int start) throws RuntimeException;
+      List<BlogView> selectArc(@Param("st") int start);
 
       @Select({
               "select title,tags,md",
@@ -40,7 +40,7 @@ public interface BlogMapper {
               "where vid = #{id}",
               "limit 1"
       })
-      BlogView selectAdmin(@Param("id") int id) throws RuntimeException;
+      BlogView selectAdmin(@Param("id") int id);
 
       @Select({
               "select title,article",
@@ -48,7 +48,7 @@ public interface BlogMapper {
               "where vid = #{id}",
               "limit 1"
       })
-      BlogView selectView(@Param("id") int id) throws RuntimeException;
+      BlogView selectView(@Param("id") int id);
 
       @Select({
               "select vid,title ",
@@ -57,7 +57,7 @@ public interface BlogMapper {
               "order by vid desc",
               "limit 1"
       })
-      BlogView selectPreView(@Param("id") int vid) throws RuntimeException;
+      BlogView selectPreView(@Param("id") int vid);
 
       @Select({
               "select vid,title ",
@@ -65,14 +65,14 @@ public interface BlogMapper {
               "where vid > #{id}",
               "limit 1"
       })
-      BlogView selectNextView(@Param("id") int vid) throws RuntimeException;
+      BlogView selectNextView(@Param("id") int vid);
 
       @Select({
               "select distinct vid",
               "from view_tag",
               "where name = #{tag}"
       })
-      List<Integer> selectVidBytag(@Param("tag") String tagName) throws RuntimeException;
+      List<Integer> selectVidBytag(@Param("tag") String tagName);
 
       @Select({
               "select date,title",
@@ -80,7 +80,7 @@ public interface BlogMapper {
               "where vid = #{vid}",
               "limit 1"
       })
-      BlogView selectTagView(@Param("vid") int vid) throws RuntimeException;
+      BlogView selectTagView(@Param("vid") int vid);
 
       @Insert({"insert into blog_view " ,
               "(date,title,article,tags,md) " ,
@@ -88,16 +88,16 @@ public interface BlogMapper {
               "#{bv.article},#{bv.tags},#{bv.md})"})
       @SelectKey(before=false,keyProperty="bv.vid",resultType=Integer.class,
               statementType= StatementType.STATEMENT,statement="SELECT LAST_INSERT_ID() AS id")
-      int insertBlog(@Param("bv") BlogView blogView) throws RuntimeException;
+      int insertBlog(@Param("bv") BlogView blogView);
 
       @Insert("insert ignore into view_tag (name,vid) values(#{tn},#{id})")
-      int insertViewTag(@Param("tn") String tagName, @Param("id") int vid) throws RuntimeException;
+      int insertViewTag(@Param("tn") String tagName, @Param("id") int vid);
 
       @Delete("delete from view_tag where vid = #{vid}")
-      int deleteViewTag(@Param("vid") int vid) throws RuntimeException;
+      int deleteViewTag(@Param("vid") int vid);
 
       @Delete("delete from blog_view where vid =#{vid} limit 1")
-      int deleteBlogView(@Param("vid") int vid) throws RuntimeException;
+      int deleteBlogView(@Param("vid") int vid);
 
       @Update({
             "update blog_view",
@@ -107,6 +107,6 @@ public interface BlogMapper {
               "article = #{bv.article}",
               "where vid = #{bv.vid}"
       })
-      void updateBlogView(@Param("bv") BlogView blogView) throws RuntimeException;
+      void updateBlogView(@Param("bv") BlogView blogView);
 
 }

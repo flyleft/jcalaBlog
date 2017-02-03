@@ -35,6 +35,7 @@ public class BlogSerImpl implements BlogSer {
     public BlogView adminGetBlog(int vid){
         return blogMapper.selectAdmin(vid);
     }
+
     @Override
     @Caching(evict = {
             @CacheEvict(value = "archives",key = "1"),
@@ -42,24 +43,10 @@ public class BlogSerImpl implements BlogSer {
             @CacheEvict(value = "archivePageNum",key = "1")
     })
     @Transactional(isolation = Isolation.READ_COMMITTED)
-    public boolean addBlog(BlogView blogView){
+    public void addBlog(BlogView blogView){
         blogView.setDate(new Date(System.currentTimeMillis()));
-        boolean result=true;
-        try {
-            blogMapper.insertBlog(blogView);
-        } catch (Exception e) {
-            log.error(e.getMessage());
-            result=false;
-        }
-        if (result){
-            try {
-                addViewTag(blogView.getTags(),blogView.getVid());
-            } catch (Exception e) {
-                log.error(e.getMessage());
-                result=false;
-            }
-        }
-        return result;
+        blogMapper.insertBlog(blogView);
+        addViewTag(blogView.getTags(),blogView.getVid());
     }
     @Override
     public List<BlogView> getBlogPage(int id){
@@ -78,23 +65,9 @@ public class BlogSerImpl implements BlogSer {
             @CacheEvict(value = "tagList",key = "1")
     })
     @Transactional(isolation = Isolation.READ_COMMITTED)
-    public boolean updateBlog(BlogView blogView){
-        boolean result=true;
-        try {
-            blogMapper.updateBlogView(blogView);
-        } catch (Exception e) {
-            result=false;
-            log.error(e.getMessage());
-        }
-        if (result){
-            try {
-                updateViewTag(blogView.getTags(),blogView.getVid());
-            } catch (Exception e) {
-                log.error(e.getMessage());
-                result=false;
-            }
-        }
-        return result;
+    public void updateBlog(BlogView blogView){
+        blogMapper.updateBlogView(blogView);
+        updateViewTag(blogView.getTags(),blogView.getVid());
     }
 
     @Override
@@ -104,15 +77,8 @@ public class BlogSerImpl implements BlogSer {
             @CacheEvict(value = "archivePageNum",key = "1")
     })
     @Transactional(isolation = Isolation.READ_COMMITTED)
-    public boolean deleteBlogById(int vid) {
-        boolean result=true;
-        try {
-            blogMapper.deleteBlogView(vid);
-        } catch (Exception e) {
-           log.error(e.getMessage());
-            result=false;
-        }
-        return result;
+    public void deleteBlogById(int vid) {
+        blogMapper.deleteBlogView(vid);
     }
 
     @Override
