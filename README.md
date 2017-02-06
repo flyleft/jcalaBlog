@@ -1,4 +1,4 @@
-[demo  http://115.28.18.158/](http://115.28.18.158/)
+服务器要到期了，暂不提供demo, sorry
 
 ---
 
@@ -7,7 +7,7 @@
 #### 所用技术:
  - springBoot 
  - springMVC: MVC框架
- - undertow: web容器
+ - undertow/tomcat: web容器
  - mybatis: ORM框架
  - velocity: 模板引擎
  - lombok: 工具
@@ -116,7 +116,7 @@ pic:
 5. 事务处理
 
 ####2.0版本将要做出的改变
-1. 用react.js将前端重写为单页面应用，去除模板引擎,前端模拟路由。服务器端只负责收发json数据。
+1. 用vue+vuex重构
 2. 项目分模块，前后端分离，增强拓展性。
 3. 加入钩子，方便自定义插件。
 4. 前端模板化，可自定义定制主题。
