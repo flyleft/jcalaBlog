@@ -17,21 +17,21 @@
  - [editor.md: markdown编辑器](https://github.com/pandao/editor.md)
  - mysql:数据库
 ---
-####预览
+#### 预览
 ![Home](http://jcalaz.github.io/img/jcala_blog.index.jpg)
 ![about](http://jcalaz.github.io/img/jcala_blog.about.jpg)
 
 ---
-#####一键黑夜模式
+##### 一键黑夜模式
 ![dark about](http://jcalaz.github.io/img/jcala_blog.bkindex.jpg)
 ![dark blog](http://jcalaz.github.io/img/jcala_blog.bkpost.jpg)
 
 ---
-#####后台管理
+##### 后台管理
 ![博客列表](http://jcalaz.github.io/img/jcala_blog.adlist.jpg)
 ![markdown编辑器](http://jcalaz.github.io/img/jcala_blog.adre.jpg)
 
-####部署
+#### 部署
 
 - 打开deploy目录，可以看到jcalaBlog-1.0.0.jar。(也可以自己用gradle打成jar包，shell进入项目主目录，执行gradle clean build，在项目目录/build/libs目录下可看到打成的jar包)将jar上传到服务器/home/jcala目录
 
@@ -40,7 +40,7 @@
 - 部署文件夹下的application-prod.yml配置文件为默认配置，运行时可以覆盖默认配置。例如运行:java -jar  --spring.datasource.username=root --spring.datasource.password=123 --spring.datasource.initialize=true
 设置数据库用户名为root，数据库密码为123，运行时自动导入数据库表结构和数据
 
-####配置文件
+#### 配置文件
 ```yaml
 server:
     port: 80 #博客端口号
@@ -103,19 +103,19 @@ pic:
     home: G:\home\jcala\xmarket\pic #图片在服务器上存放的目录
 ```
 
-####注意事项
+#### 注意事项
 1. 运行后中文显示乱码:在linux下,vim /etc/mysql/my.cnf 。在[mysqld]下添加character-set-server=utf8
 2. 二次开发报错,没有getter,setter等方法:因为使用了lombok,需要idea或者Eclipse安装lombok插件
 3. 运行后，后台管理初始用户名admin,密码admin
 
-####优点
+#### 优点
 1. 响应式，前端适配手机
 2. cdn加速,gzip压缩
 3. 前端页面用Ehcache缓存加速
 4. 一键黑夜模式
 5. 事务处理
 
-####2.0版本将要做出的改变
+#### 2.0版本将要做出的改变
 1. 用react.js将前端重写为单页面应用，去除模板引擎,前端模拟路由。服务器端只负责收发json数据。
 2. 项目分模块，前后端分离，增强拓展性。
 3. 加入钩子，方便自定义插件。

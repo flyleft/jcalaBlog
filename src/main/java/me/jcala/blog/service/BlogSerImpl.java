@@ -24,6 +24,7 @@ import java.util.Map;
 @Service
 @Slf4j
 public class BlogSerImpl implements BlogSer {
+
     private BlogMapper blogMapper;
 
     @Autowired
