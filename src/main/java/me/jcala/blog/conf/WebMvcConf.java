@@ -23,8 +23,12 @@ import java.util.Arrays;
 @Configuration
 public class WebMvcConf extends WebMvcConfigurerAdapter implements EnvironmentAware {
 
+<<<<<<< HEAD
 
     private RelaxedPropertyResolver propertyResolver;
+=======
+    private String picHome="home\\jcala\\xmarket\\pic";
+>>>>>>> github/master
 
     private UserSecurityInterceptor securityInterceptor;
 
@@ -36,7 +40,7 @@ public class WebMvcConf extends WebMvcConfigurerAdapter implements EnvironmentAw
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(securityInterceptor).addPathPatterns("/admin/**");//配置登录拦截器拦截路径
+       // registry.addInterceptor(securityInterceptor).addPathPatterns("/admin/**");//配置登录拦截器拦截路径
     }
 
     @Bean

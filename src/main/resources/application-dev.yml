@@ -1,5 +1,5 @@
 server:
-    port: 80
+    port: 8080
     max-http-header-size: 8192
     compression:
         min-response-size: 512
@@ -62,5 +62,3 @@ mybatis:
     type-aliases-package: me.jcala.blog.domain,me.jcala.blog.mapping
     type-handlers-package: org.apache.ibatis.type.LocalDateTypeHandler
     config-location: classpath:mybatis-config.xml
-pic:
-    home: home\jcala\xmarket\pic
