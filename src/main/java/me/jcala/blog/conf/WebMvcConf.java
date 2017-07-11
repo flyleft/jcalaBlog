@@ -20,8 +20,7 @@ import java.util.Arrays;
 @Configuration
 public class WebMvcConf extends WebMvcConfigurerAdapter{
 
-    @Value("${pic.home}")
-    private String picHome;
+    private String picHome="home\\jcala\\xmarket\\pic";
 
     private UserSecurityInterceptor securityInterceptor;
 
