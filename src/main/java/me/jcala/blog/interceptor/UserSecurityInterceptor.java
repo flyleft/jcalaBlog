@@ -17,7 +17,7 @@ public class UserSecurityInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         Object obj = request.getSession().getAttribute("cur_user");
-        if (obj == null || !(obj instanceof Info)) {
+        if (!(obj instanceof Info)) {
             response.sendRedirect(request.getContextPath() + "/login");
             return false;
         }
@@ -26,11 +26,11 @@ public class UserSecurityInterceptor implements HandlerInterceptor {
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-
+        // do nothing
     }
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-
+       // do nothing
     }
 }

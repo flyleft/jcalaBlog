@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.servlet.ModelAndView;
 
 /**
  * 全局异常处理类
@@ -18,9 +17,9 @@ public class CtrlExceptionHandler {
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(Exception.class)
     public String handleIOException(Exception e, Model model) {
-        if (e!=null){
+        if (e != null) {
             log.warn(e.getMessage());
-            model.addAttribute("errorMsg",e.getLocalizedMessage());
+            model.addAttribute("errorMsg", e.getLocalizedMessage());
         }
         return "/error";
     }

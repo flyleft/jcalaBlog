@@ -6,5 +6,5 @@ out/
 classes/
 src/main/resources/static/lib/codemirror/mode/jade/
 src/main/resources/static/lib/codemirror/mode/rpm/changes/
-arget/
+target/
 application-jcala.yml

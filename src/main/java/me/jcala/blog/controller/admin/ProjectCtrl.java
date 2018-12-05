@@ -17,6 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/admin")
 public class ProjectCtrl {
 
+    private static final String PROJECT_ONE = "redirect:/admin/project/1";
+
     private ProjectSer projectSer;
 
     @Autowired
@@ -34,12 +36,12 @@ public class ProjectCtrl {
     @PostMapping("/addPro.action")
     public String addProject(Project project){
         projectSer.addPro(project);
-        return "redirect:/admin/project/1";
+        return PROJECT_ONE;
     }
     @GetMapping("/deletePro/{id}")
     public String deletePro(@PathVariable int id){
        projectSer.deletePro(id);
-        return "redirect:/admin/project/1";
+        return PROJECT_ONE;
     }
     @ResponseBody
     @GetMapping("/pro.json")
@@ -51,6 +53,6 @@ public class ProjectCtrl {
     @PostMapping("/updPro.action")
     public String updatePro(@ModelAttribute("updateForm") Project project){
         projectSer.updatePro(project);
-        return "redirect:/admin/project/1";
+        return PROJECT_ONE;
     }
 }

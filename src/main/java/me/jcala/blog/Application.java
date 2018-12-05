@@ -8,7 +8,7 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
-@EnableTransactionManagement// 开启注解事务管理，等同于xml配置文件中的<tx:annotation-driven/>
+@EnableTransactionManagement
 @EnableCaching
 public class Application extends SpringBootServletInitializer {
 	@Override
@@ -16,7 +16,7 @@ public class Application extends SpringBootServletInitializer {
 		return application.sources(Application.class);
 	}
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
 }

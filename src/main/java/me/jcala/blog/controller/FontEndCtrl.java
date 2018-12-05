@@ -23,6 +23,9 @@ import java.util.List;
  */
 @Controller
 public class FontEndCtrl {
+
+    private static final String TEMPLATE_PROJECT = "projects";
+
     private BlogSer blogSer;
     private ProjectSer projectSer;
     private InfoSer infoSer;
@@ -48,15 +51,15 @@ public class FontEndCtrl {
     @GetMapping("/projects")
     public String projects(Model model) {
         model.addAttribute("info",infoSer.getInfo());
-        return "projects";
+        return TEMPLATE_PROJECT;
     }
     @GetMapping("/projects/{page}")
     public String projectPage(@PathVariable int page,Model model) {
         model.addAttribute("info",infoSer.getInfo());
-        model.addAttribute("projects",projectSer.getPros(page));
+        model.addAttribute(TEMPLATE_PROJECT,projectSer.getPros(page));
         model.addAttribute("pageNum",projectSer.getPageNum());
         model.addAttribute("current",page);
-        return "projects";
+        return TEMPLATE_PROJECT;
     }
 
     @GetMapping("/tags")
@@ -123,8 +126,7 @@ public class FontEndCtrl {
     }
 
     @GetMapping(value = "/pic/{dir}/{picName:.+}")
-    public ResponseEntity<byte[]> gainUserAvatar(@PathVariable String dir, @PathVariable String picName)
-            throws RuntimeException {
+    public ResponseEntity<byte[]> gainUserAvatar(@PathVariable String dir, @PathVariable String picName){
         return fileUploadSer.gainPic(dir,picName);
     }
 

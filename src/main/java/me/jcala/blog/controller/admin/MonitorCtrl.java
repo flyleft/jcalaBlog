@@ -6,8 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import javax.servlet.http.HttpServletRequest;
-
 /**
  * 后台管理中监控页面
  * 目前只包括内存占用的监控
@@ -23,7 +21,7 @@ public class MonitorCtrl {
     }
 
     @GetMapping("/admin")
-    public String monitor(Model model){
+    public String monitor(Model model) {
         model.addAttribute("freeMemory", monitorSer.getFreeMemory());
         return "admin/monitor";
     }

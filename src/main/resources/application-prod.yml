@@ -11,18 +11,10 @@ server:
 #        buffer-size: 16384
 #        accesslog:
 #            enabled: false
-#            dir: /home/jcala/blog/log/server_log
 #            pattern: combined
     tomcat:
           maxThreads: 10
           minSpareThreads: 3
-          accesslog:
-            directory: /home/jcala/blog/log/server_log
-            pattern: combined
-            enabled: true
-logging:
-     config: classpath:log4j2.xml
-#    path: /home/jcala/blog/log/spring_log
 spring:
     velocity:
         cache: true

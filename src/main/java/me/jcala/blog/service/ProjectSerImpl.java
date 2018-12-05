@@ -65,14 +65,14 @@ public class ProjectSerImpl implements ProjectSer {
 
     @Override
     public Project getProById(String idStr){
-        int id = Integer.valueOf(idStr);
+        int id = Integer.parseInt(idStr);
         return  projectMapper.selectById(id);
     }
 
     @Override
     @CacheEvict(value = "projects",key = "1")
     public void updatePro(Project project) {
-            projectMapper.Update(project);
+            projectMapper.update(project);
     }
 
     @Override

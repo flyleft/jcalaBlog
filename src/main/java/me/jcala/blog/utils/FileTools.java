@@ -1,6 +1,7 @@
 package me.jcala.blog.utils;
 
 import lombok.extern.slf4j.Slf4j;
+import me.jcala.blog.exception.CommonException;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -17,10 +18,14 @@ import static org.springframework.util.StreamUtils.copy;
  */
 @Slf4j
 public class FileTools {
+
+    private FileTools() {
+    }
+
     /**
      * 获取文件后缀
      */
-    public   static String getSuffix(String fileName){
+    static String getSuffix(String fileName){
         String[] token = fileName.split("\\.");
         if (token.length>0){
             return token[token.length-1];
@@ -29,7 +34,7 @@ public class FileTools {
             return "";
         }
     }
-    public static boolean isLinuxPath(String path){
+    static boolean isLinuxPath(String path){
         return path.contains("/");
     }
 
@@ -48,15 +53,14 @@ public class FileTools {
                 throw new IOException("File '" + file + "' exists but is a directory");
             }
             if (!file.canRead()) {
-                throw new IOException("File '" + file + "' cannot be read");
+                throw new IOException("File" + file + "' cannot be read");
             }
         } else {
-            throw new RuntimeException("File '" + file + "' does not exist");
+            throw new CommonException("File" + file + "' does not exist");
         }
         return new FileInputStream(file);
     }
-    public static String updatePic(String restUrl,String picHome,HttpServletRequest request)
-            throws Exception {
+    public static String updatePic(String restUrl,String picHome,HttpServletRequest request) throws IOException {
 
         MultipartFile multipartFile = getMultipartFile(request);
 

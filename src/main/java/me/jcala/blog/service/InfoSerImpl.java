@@ -15,112 +15,115 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-@Service
+@Service//
 public class InfoSerImpl implements InfoSer {
-    private static final int MODIFYPASSSUC=0;//修改密码成功
-    private static final int PASSERROE=1;//密码错误
-    private static final int SySTEMERROE=2;//系统错误
+    private static final int MODIFY_PASS_SUCCESS = 0;//修改密码成功
+    private static final int PASS_ERROR = 1;//密码错误
+    private static final int SYSTEM_ERROR = 2;//系统错误
     private static final Logger LOGGER = LoggerFactory.getLogger(InfoSerImpl.class);
     @Autowired
     private InfoMapper infoMapper;
 
     @Override
-    @Cacheable(value = "profileOfInfo",key = "1")
-    public Info getInfo() throws RuntimeException{
+    @Cacheable(value = "profileOfInfo", key = "1")
+    public Info getInfo() {
         return infoMapper.select();
     }
 
     @Override
     public boolean login(Info user) {
-        int num=0;
+        int num = 0;
         try {
-            num=infoMapper.selectByPw(user.getUsername(),user.getPassword());
+            num = infoMapper.selectByPw(user.getUsername(), user.getPassword());
         } catch (Exception e) {
-           LOGGER.error(e.getMessage());
+            LOGGER.error(e.getMessage());
         }
-        if (num>0){
-            return true;
-        }else {
-            return false;
-        }
+        return num > 0;
     }
+
     @Override
-    public boolean checkPass(String oldPass){
-        int num=infoMapper.selectByOldPass(oldPass);
-        return num>0;
+    public boolean checkPass(String oldPass) {
+        int num = infoMapper.selectByOldPass(oldPass);
+        return num > 0;
     }
+
     @Override
-    @CacheEvict(value = "profileOfInfo",key = "1")
+    @CacheEvict(value = "profileOfInfo", key = "1")
     public boolean updateInfo(Info info) {
-        boolean result=true;
+        boolean result = true;
         try {
             infoMapper.update(info);
         } catch (Exception e) {
-           LOGGER.error(e.getMessage());
-            result=false;
+            LOGGER.error(e.getMessage());
+            result = false;
         }
         return result;
     }
 
     @Override
     @Transactional(isolation = Isolation.READ_COMMITTED)
-    public int modifyPw(String oldPass,String newPass) {
+    public int modifyPw(String oldPass, String newPass) {
         int result;
-       if (checkPass(oldPass)){
-           try {
-               infoMapper.updataPass(newPass);
-               result=MODIFYPASSSUC;
-           } catch (Exception e) {
-               LOGGER.error(e.getMessage());
-               result=SySTEMERROE;
-           }
-       }else {
-           result=PASSERROE;
-       }
-        return result;
-    }
-    @Override
-    public void addSession(HttpServletRequest request,Info info){
-        HttpSession session = request.getSession(true);
-        session.setAttribute("cur_user",info);
-        session.setMaxInactiveInterval(600);
-    }
-    @Override
-    public void destroySession(HttpServletRequest request){
-        HttpSession session = request.getSession(false);
-        session.removeAttribute("cur_user");
-    }
-    @Override
-    public String getResumeMd(){
-       String md="";
-        try {
-            md=infoMapper.selectMd();
-        } catch (Exception e) {
-           LOGGER.error(e.getMessage());
-        }
-        return md;
-    }
-    @Override
-    @CacheEvict(value = "resumeView",key = "1")
-    public boolean updateResume(Info info){
-        boolean result=true;
-        try {
-            infoMapper.updateResume(info);
-        } catch (Exception e) {
-            result=false;
-           LOGGER.error(e.getMessage());
+        if (checkPass(oldPass)) {
+            try {
+                infoMapper.updataPass(newPass);
+                result = MODIFY_PASS_SUCCESS;
+            } catch (Exception e) {
+                LOGGER.error(e.getMessage());
+                result = SYSTEM_ERROR;
+            }
+        } else {
+            result = PASS_ERROR;
         }
         return result;
     }
 
     @Override
-    @Cacheable(value = "resumeView",key = "1")
-    public String getResumeView() throws RuntimeException{
+    public void addSession(HttpServletRequest request, Info info) {
+        HttpSession session = request.getSession(true);
+        session.setAttribute("cur_user", info);
+        session.setMaxInactiveInterval(600);
+    }
+
+    @Override
+    public void destroySession(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        session.removeAttribute("cur_user");
+    }
+
+    @Override
+    public String getResumeMd() {
+        String md = "";
+        try {
+            md = infoMapper.selectMd();
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+        }
+        return md;
+    }
+
+    @Override
+    @CacheEvict(value = "resumeView", key = "1")
+    public boolean updateResume(Info info) {
+        boolean result = true;
+        try {
+            infoMapper.updateResume(info);
+        } catch (Exception e) {
+            result = false;
+            LOGGER.error(e.getMessage());
+        }
+        return result;
+    }
+
+    @Override
+    @Cacheable(value = "resumeView", key = "1")
+    public String getResumeView() {
         return infoMapper.selectResume();
     }
+
     @Override
-    @CacheEvict(value = "profileOfInfo",key = "1")
-    public void updateAvatar(String avatar) throws RuntimeException{
-            infoMapper.updateAvater(avatar);
+    @CacheEvict(value = "profileOfInfo", key = "1")
+    public void updateAvatar(String avatar) {
+        infoMapper.updateAvater(avatar);
     }
 }

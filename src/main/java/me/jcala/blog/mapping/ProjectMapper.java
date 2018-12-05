@@ -19,7 +19,7 @@ public interface ProjectMapper {
             "from project ",
             "limit #{st},5"
     })
-    List<Project> select(@Param("st") int start) throws RuntimeException;
+    List<Project> select(@Param("st") int start);
 
     @Select({
             "select id,name,url,tech,desp",
@@ -27,17 +27,17 @@ public interface ProjectMapper {
             "where id = #{id}",
             "limit 1"
     })
-    Project selectById(@Param("id") int id) throws RuntimeException;
+    Project selectById(@Param("id") int id);
 
     @Select({
             "select id,name,url",
             "from project",
             "limit #{st},10"
     })
-    List<Project> adminSelect(@Param("st") int start) throws RuntimeException;
+    List<Project> adminSelect(@Param("st") int start);
 
     @Select("select count(*) from project")
-    int count() throws RuntimeException;
+    int count();
 
     @Insert({
             "insert into project",
@@ -45,8 +45,7 @@ public interface ProjectMapper {
             "url = #{p.url},date=#{p.date},",
             "tech=#{p.tech},desp=#{p.desp}"
     })
-    void insert(@Param("p") Project project) throws RuntimeException;
-
+    void insert(@Param("p") Project project);
 
 
     @Delete({
@@ -54,7 +53,7 @@ public interface ProjectMapper {
             "where id = #{id}",
             "limit 1"
     })
-    void delete(@Param("id") int id) throws RuntimeException;
+    void delete(@Param("id") int id);
 
 
     @Update({
@@ -64,5 +63,5 @@ public interface ProjectMapper {
             "where id = #{p.id}",
             "limit 1"
     })
-    void Update(@Param("p") Project project) throws RuntimeException;
+    void update(@Param("p") Project project);
 }

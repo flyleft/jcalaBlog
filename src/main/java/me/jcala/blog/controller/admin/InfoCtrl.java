@@ -1,7 +1,6 @@
 package me.jcala.blog.controller.admin;
 
 import me.jcala.blog.domain.Info;
-import me.jcala.blog.service.inter.BlogSer;
 import me.jcala.blog.service.inter.InfoSer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,7 +29,7 @@ public class InfoCtrl {
     }
 
     @GetMapping("/admin/info")
-    public String info(Model model){
+    public String info(Model model) {
         Info info = infoSer.getInfo();
         model.addAttribute("info", info);
         return "admin/info";
@@ -50,8 +49,8 @@ public class InfoCtrl {
     }
 
     @PostMapping("/admin/pass.action")
-    public String passModify(@RequestParam String old_pass,@RequestParam String new_pass, HttpServletRequest request){
-        int result = infoSer.modifyPw(old_pass, new_pass);
+    public String passModify(@RequestParam String oldPass, @RequestParam String newPass, HttpServletRequest request) {
+        int result = infoSer.modifyPw(oldPass, newPass);
         if (result == 0) {
             infoSer.destroySession(request);
         }
@@ -65,7 +64,7 @@ public class InfoCtrl {
     }
 
     @PostMapping("/admin/resume.action")
-    public String resumeUpdate(@ModelAttribute("resumeForm") Info info){
+    public String resumeUpdate(@ModelAttribute("resumeForm") Info info) {
         infoSer.updateResume(info);
         return "redirect:/admin/resume";
     }

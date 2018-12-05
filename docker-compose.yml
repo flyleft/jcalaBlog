@@ -1,0 +1,80 @@
+version: "3"
+services:
+  # zookeeper-0:
+  #   container_name: zookeeper-0
+  #   image: registry.saas.hand-china.com/tools/zookeeper:3.4.10
+  #   hostname: zookeeper-0
+  #   environment:
+  #   - ZK_REPLICAS=1
+  #   - ZK_HEAP_SIZE=2G
+  #   - ZK_TICK_TIME=2000
+  #   - ZK_INIT_LIMIT=10
+  #   - ZK_SYNC_LIMIT=5
+  #   - ZK_MAX_CLIENT_CNXNS=60
+  #   - ZK_SNAP_RETAIN_COUNT=3
+  #   - ZK_PURGE_INTERVAL=1
+  #   - ZK_LOG_LEVEL=INFO
+  #   - ZK_CLIENT_PORT=2181
+  #   - ZK_SERVER_PORT=2888
+  #   - ZK_ELECTION_PORT=3888
+  #   ports:
+  #   - "2181:2181"
+  #   - "2888:2888"
+  #   - "3888:3888"
+  #   command:
+  #   - sh
+  #   - -c
+  #   - zkGenConfig.sh && exec zkServer.sh start-foreground
+  #   volumes:
+  #   - "./kafka/zk:/var/lib/zookeeper"
+  # kafka-0:
+  #   container_name: kafka-0
+  #   image: registry.saas.hand-china.com/tools/kafka:1.0.0
+  #   hostname: 127.0.0.1
+  #   depends_on:
+  #   - zookeeper-0
+  #   links:
+  #   - zookeeper-0
+  #   ports:
+  #   - "9092:9092"
+  #   command:
+  #   - sh
+  #   - -c
+  #   - "/opt/kafka/bin/kafka-server-start.sh config/server.properties \
+  #          --override zookeeper.connect=zookeeper-0:2181 \
+  #          --override log.dirs=/opt/kafka/data/logs \
+  #          --override broker.id=0 "
+  #   volumes:
+  #   - "./kafka/kafka:/opt/kafka/data"
+
+  mysql:
+    container_name: mysql
+    image: mysql:5.7.17
+    hostname: mysql
+    ports:
+    - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+    - ./mysql/mysql_data:/var/lib/mysql
+    - ./mysql/mysql_db.cnf:/etc/mysql/conf.d/mysql_db.cnf
+    expose:
+    - "3306"
+
+#  redis:
+#    container_name: redis
+#    image: registry.saas.hand-china.com/tools/redis:5.0-rc4
+#    hostname: redis
+#    ports:
+#    - "6379:6379"
+#    expose:
+#    - "6379"
+#
+  # elasticsearch:
+  #   image: registry.cn-hangzhou.aliyuncs.com/wiselyman/es553:5.5.3
+  #   ports:
+  #     - '9200:9200'
+  #     - '9300:9300'
+  #   environment:
+  #     network.publish_host: 0.0.0.0
+

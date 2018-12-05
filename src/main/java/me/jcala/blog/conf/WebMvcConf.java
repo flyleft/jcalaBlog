@@ -3,7 +3,6 @@ package me.jcala.blog.conf;
 import me.jcala.blog.domain.SystemSetting;
 import me.jcala.blog.interceptor.UserSecurityInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.bind.RelaxedPropertyResolver;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.Bean;
@@ -46,16 +45,16 @@ public class WebMvcConf extends WebMvcConfigurerAdapter implements EnvironmentAw
         configuration.setAllowCredentials(true);
         configuration.addAllowedOrigin("*");
         configuration.addAllowedHeader("*");
-        configuration.setAllowedMethods(Arrays.asList("GET", "PUT", "POST","DELETE"));
+        configuration.setAllowedMethods(Arrays.asList("GET", "PUT", "POST", "DELETE"));
         source.registerCorsConfiguration("/**", configuration);
         return new CorsFilter(source);
     }
 
     @Bean
-    public SystemSetting systemSetting(){
+    public SystemSetting systemSetting() {
         return SystemSetting.builder()
-                            .picHome(propertyResolver.getProperty("home"))
-                            .build();
+                .picHome(propertyResolver.getProperty("home"))
+                .build();
     }
 
     @Override
